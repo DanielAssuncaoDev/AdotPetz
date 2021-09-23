@@ -1,6 +1,4 @@
-import {Container,
-    
-} from './styled'
+import {Container} from './styled'
 
 
 
