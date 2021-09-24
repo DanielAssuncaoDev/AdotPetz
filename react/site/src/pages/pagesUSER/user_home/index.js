@@ -1,14 +1,17 @@
 import {Container} from './styled'
 
 import Cabecalho from '../../../components/cabecalhoUSU/index'
-import Fx1 from './busca.js'
+import FaixaPesquisa from './busca.js'
+import PorqueAdotar from '../../../components/PorqueAdotar/index'
 
 export default function Home() {
 
     return(
       <Container>
           <Cabecalho />
-          <Fx1 />
+          <FaixaPesquisa />
+
+          <PorqueAdotar />
 
 
       </Container>  

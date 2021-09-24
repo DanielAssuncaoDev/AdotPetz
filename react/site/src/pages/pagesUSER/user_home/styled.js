@@ -17,7 +17,7 @@ export const Container = styled.div`
 
         background-image: url(${ImgDog});
         background-color: #8E8E8E;
-        background-size: auto 100%;
+        background-size:  auto 100%;
         background-repeat: no-repeat;
         height: 88vh;
 
