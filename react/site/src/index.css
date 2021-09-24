@@ -2,6 +2,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Montserrat;
+  font-weight: 600;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap');

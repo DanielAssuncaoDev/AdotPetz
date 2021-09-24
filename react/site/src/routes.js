@@ -6,6 +6,8 @@ import SugestaoAdocao from './pages/pagesUSER/user_sugestoes/index.js'
 
 import SolicitacaoAdocao from './pages/pagesADM/adm_solicitacoes_adocoes/index'
 
+// import Testebox from './components/BoxPet'
+
 export default function Rotas() {
 
     return(
@@ -14,6 +16,7 @@ export default function Rotas() {
                 <Route path="/" exact={true} component={HomeUser} />
                 <Route path="/admin/solicitacoes" exact={true} component={SolicitacaoAdocao} />
                 <Route path="/sugestoesadocao" exact={true} component={SugestaoAdocao} />
+                
             </Switch>
         </BrowserRouter>
     );

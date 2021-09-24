@@ -38,11 +38,8 @@ export const Container = styled.div`
             cursor: pointer;
         }
 
-       .botoes{
-           /* padding-left: 30em; */
-       }
-
        .Cad{
+        height: 2.3em;
         padding: 3px 10px;
         margin-right: 1em;
 
@@ -55,6 +52,7 @@ export const Container = styled.div`
        }
 
        .lo {
+        height: 2.3em;
         padding: 3px 10px;
         border-radius: 8px;
         border: none;
@@ -72,6 +70,10 @@ export const Container = styled.div`
         .Cad:hover{
           transition: 0.65s;
           background-color: #d9d7ce;
+        }
+
+        .informacoes span:hover{
+            text-decoration: underline;
         }
 `;
 
