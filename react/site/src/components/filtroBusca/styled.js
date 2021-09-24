@@ -34,10 +34,12 @@ const Button = styled.button`
     width: 25%;
     margin-top: 10px;
     text-align: center; 
+    transition: 0.5s;
+    transition-property: box-shadow, background-color;
 
     &:hover {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, .30);
         background-color: rgba(0, 0, 0, 0.719);
-        transition: 0.5s;
         cursor: pointer;
     }
 `;
@@ -48,6 +50,15 @@ const BoxFiltro = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .36);
+    transition: 0.7s;
+    transition-property: box-shadow;
+
+    &:hover{
+        
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
 
     background-image: url(${BackGroundFiltro});
     background-size: cover;
@@ -69,7 +80,6 @@ const BoxFiltro = styled.div`
         margin-top: 2em;
         width: 100%;
     }.FiltroBusca div{
-        /* wit: 100%; */
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
@@ -78,6 +88,12 @@ const BoxFiltro = styled.div`
     .ButtonForm {
         justify-content: center !important;
     }
+
+
+
+
+
+
 `;
 
 export {BoxFiltro, SelectRow, Select, Button};

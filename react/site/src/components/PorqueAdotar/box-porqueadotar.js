@@ -3,7 +3,9 @@ import {BoxPorqueAdotar} from './styled';
 export default function Box(props){
 
     return(
-        <BoxPorqueAdotar color={ props.color } colortext={ props.colorText } >
+        <BoxPorqueAdotar color={ props.color } 
+                            colortext={ props.colorText }
+                                margin={props.margin} >
             <div className="TextBox" >
                 {props.text}
             </div>

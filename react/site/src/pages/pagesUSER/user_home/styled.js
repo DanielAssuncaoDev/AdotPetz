@@ -25,3 +25,14 @@ export const Container = styled.div`
             width: 15%;
         }
     `;
+
+
+
+    export const ContainerFacaDoacoes = styled.div`
+    
+    `;
+
+
+            export const BoxDoar = styled.div`
+            
+            `;

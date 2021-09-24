@@ -17,7 +17,7 @@ export default function PorqueAdotar(){
         <Container>
             
             <div className="Titulo">
-                POR QUE DEVO ADOTAR?
+                POR QUE DEVO <span>ADOTAR?</span>           
             </div>
 
             <div className="Cont-box">
@@ -30,7 +30,8 @@ export default function PorqueAdotar(){
                 <Box color="#D6D7C9" 
                         text={textbox2} 
                             colorText="#000"
-                                imgPet={imgbox2} 
+                                imgPet={imgbox2}
+                                    margin={"1.1em"} 
                 />
                 <Box color="#4E4E4E" 
                         text={textbox3} 
