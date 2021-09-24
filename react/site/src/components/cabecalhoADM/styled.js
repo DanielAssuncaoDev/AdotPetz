@@ -11,7 +11,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    height: 10vh;
+    height: 5em;
     padding: 1.5em;
 
 

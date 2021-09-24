@@ -1,6 +1,6 @@
 import styled  from "styled-components";
 
-
+// {}
 
 export const Container = styled.div`
     
@@ -8,11 +8,18 @@ export const Container = styled.div`
     background-color: #000;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
+    width: 100%;
     height: 10vh;
+    height: 5em;    
     padding: 1.5em;
 
+        .line-left{
+            display: flex;
+            align-items: center;
+        }
 
         .logo img{
             height: 42px;
@@ -22,7 +29,7 @@ export const Container = styled.div`
             display: flex;
             flex-direction: row;
 
-            padding: 8em;
+            margin-left: 5em; 
         }
 
         .Cont-inf{
@@ -32,7 +39,7 @@ export const Container = styled.div`
         }
 
        .botoes{
-           padding-left: 30em;
+           /* padding-left: 30em; */
        }
 
        .Cad{

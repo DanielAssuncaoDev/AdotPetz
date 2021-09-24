@@ -1,12 +1,12 @@
 import {Conteiner} from './styled' 
 
-import cabecalhoUSU from '../../../components/cabecalhoUSU'
+import CabecalhoUSU from '../../../components/cabecalhoUSU'
 
 
 export default function Sujestoes(){
     return(
          <Conteiner> 
-             < cabecalhoUSU />
+             <CabecalhoUSU />
 
 
 
