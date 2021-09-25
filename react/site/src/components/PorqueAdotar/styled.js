@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
 
     
-    padding-top: 4em;
+    padding: 4em 0 2.3em;
 
         .Titulo{
             font-size: 2em;
@@ -21,9 +21,6 @@ export const Container = styled.div`
         .Cont-box{
             display: flex;
             justify-content: space-evenly;
-
-            position: relative;
-            top: 2em;
         }
 
 
@@ -59,6 +56,7 @@ export const BoxPorqueAdotar = styled.div`
 
         .TextBox{
             margin-top: ${ (props) => props.margin};
+            margin-bottom: 1em;
             line-height: 22px;
             max-width: 258px;
             text-align: center;
@@ -70,11 +68,11 @@ export const BoxPorqueAdotar = styled.div`
         }
 
         .imgPet-box{
-            width: 150px;
+            width: 200px;
             position: relative;
 
-            top: 4.1em;
-            right: 6em;
+            margin-bottom: -6em;
+            margin-left: -7em;
 
         }   .imgPet-box img{
             width: 100%;
