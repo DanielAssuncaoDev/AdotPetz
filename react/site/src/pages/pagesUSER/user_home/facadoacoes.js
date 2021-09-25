@@ -32,7 +32,7 @@ export default function FacaDoacoes(){
 
                         <ul>
                             <li> <span> Chave: </span>  523.698.458-x</li>
-                            <li>  <span> Chave secundária: </span>  doaacaodepets@outlook.com </li>
+                            <li>  <span> Chave secundária: </span> <br /> doaacaodepets@outlook.com </li>
                         </ul>
                     </div>
 

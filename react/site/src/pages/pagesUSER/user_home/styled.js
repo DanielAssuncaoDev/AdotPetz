@@ -17,6 +17,7 @@ export const Container = styled.div`
         align-items: center;
 
         background-image: url(${ImgDog});
+        background-attachment: fixed;
         background-color: #8E8E8E;
         background-size:  auto 100%;
         background-repeat: no-repeat;
@@ -31,11 +32,11 @@ export const Container = styled.div`
 
     export const ContainerFacaDoacoes = styled.div`
     
-        height: 85vh;
+        /* height: 85vh; */
         padding: 6em 3em;
 
         background-image: url(${ImgDogFzDoacoes});
-        background-size: 100% auto;
+        background-size: cover;
         background-repeat: no-repeat;
         /* background-attachment: fixed; */
 
@@ -61,6 +62,7 @@ export const Container = styled.div`
                 padding: 2em;
                 width: 50%;
 
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);                
                 background-image: url(${ImgBox}) ;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -69,11 +71,45 @@ export const Container = styled.div`
                     .TituloBox{
                         text-align: center;
                         font-weight: 700;
-                        font-size: 0.9em;
+                        font-size: 1em;
                     }
 
                     .ListasBox{
                         display: flex;
+                        justify-content: space-evenly;
+
+                        margin: 1.4em 0 2.2em;
+
+                    }   .ListasBox li{
+                            font-size: 0.7em;
+                            font-weight: 300;
+
+                                span {
+                                    font-weight: 700;
+                                }
+                        }
+
+                    ul{
+                        padding: 0px;
+                        margin-left: 15px;
+                    }
+
+                    .TituloLista{
+                        font-size: 0.9em;
+                        margin-bottom: 10px;
+                        font-weight: 700;
+                    }
+
+                    .InfoRodape{
+                        text-align: center;
+                        margin-top: 5px;
+
+                        font-size: 0.8em;
+                        font-weight: 300;
+
+                            span {
+                                font-weight: 700;
+                            }
 
                     }
             `;

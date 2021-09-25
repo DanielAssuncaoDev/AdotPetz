@@ -4,6 +4,7 @@ import Cabecalho from '../../../components/cabecalhoUSU/index'
 import FaixaPesquisa from './busca.js'
 import PorqueAdotar from '../../../components/PorqueAdotar/index'
 import FacaDoacoes from './facadoacoes'
+import Rodape from '../../../components/rodape/index'
 
 export default function Home() {
 
@@ -11,9 +12,11 @@ export default function Home() {
       <Container>
           <Cabecalho />
 
-          <FaixaPesquisa />
-          <PorqueAdotar />
-          <FacaDoacoes />
+            <FaixaPesquisa />
+            <PorqueAdotar />
+            <FacaDoacoes />
+
+        <Rodape />          
 
       </Container>  
     );
