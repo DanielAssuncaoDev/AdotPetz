@@ -1,0 +1,41 @@
+.conteiner{
+    background: #FCE5BA;
+    text-align: left;
+    padding: 2em;
+    height: 90vh;
+}
+
+.box{
+    background: #FFFFFF;
+    padding: 4em;
+    right: 100px;
+    margin-right: 65px;
+    width: 55%;
+
+}
+
+
+
+.b{
+    align-self: flex-end;
+    font-size: 14px 40px; 
+}
+
+.salvacao{
+    display: flex;
+
+}
+
+.e-mail{
+    margin-top: 1em;
+    color: #fad41b;
+    font-weight: 700;
+}
+
+.texto2{
+    margin-top: 1em;
+}
+.b button { 
+    border-radius: 15px;
+    border:none;
+}
