@@ -26,70 +26,70 @@ export default function FormAdocaoADM(){
                     </div>   
                 </div>
            
-                <div  className="TituloForm">
+                <div  className="TituloFx">
                     Formulário de Solicitação
                 </div>
 
                 <div className="Conteudo">
-                    <div className="TituloConteudo"> 
-
-                    </div>
-
+                
                     <div className="Form">
-
                         <div className="InfoRow1">
                             <div className="InfoUser">
+                                <div className="TituloForm">
+                                    INFORMAÇÕES DO USUÁRIO
+                                </div>
+
                                 <div className="Row1">
-                                    <div className="">
-                                        <label>Nome Solicitante:</label>
+                                    <div className="NomeUse">
+                                        <label>Nome Usuário:</label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="dtNascimento">
                                         <label>Nascimento:</label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="RgUser">
                                         <label> RG: </label>
                                         <input />
                                     </div>
                                 </div>
 
                                 <div className="Row2">
-                                    <div className="">
+                                    <div className="TelUser">
                                         <label> Telefone: </label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="CEPUser">
                                         <label>CEP:</label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="EnderecoUser">
                                         <label> Endereço: </label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="NumeroUser">
                                         <label> Número: </label>
                                         <input />
                                     </div>
                                 </div>
 
                                 <div className="Row3">
-                                    <div className="">
+                                    <div className="ComplementoUser">
                                         <label> Complemento: </label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="CidadeUser">
                                         <label> Cidade: </label>
                                         <input />
                                     </div>
 
-                                    <div className="">
+                                    <div className="BairroUser">
                                         <label> Bairro: </label>
                                         <input />
                                     </div>
@@ -109,7 +109,7 @@ export default function FormAdocaoADM(){
 
                                 <div className="ContPet">
                                     <div className="ImgPet">
-                                        <img src="" alt="" />
+                                        <img src="/assets/images/imgPet-FormADM.svg" alt="" />
                                     </div>
 
                                     <div className="FormPet" >
@@ -138,6 +138,17 @@ export default function FormAdocaoADM(){
                                     INFORMAÇÕES DA SOLICITAÇÃO
                                 </div>
 
+                                <div className="FormSolicitacao">
+                                    <div className="DataSolicitacao">
+                                        <label>Data da Solicitação</label>
+                                        <input />
+                                    </div>
+
+                                    <div className="DataSolicitacao">
+                                        <label>Status da Solicitação</label>
+                                        <input />
+                                    </div>
+                                </div>
 
                             </div>
 
