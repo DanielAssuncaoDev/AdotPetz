@@ -14,7 +14,7 @@ export default function Sujestoes(){
 
              <Fx1 />
 
-             <div className="conteudo">
+             <div className="conteudopag">
                  <div className="animais">
                      <div className="animais-sugeridos">
                          <div className="animaisSU"> Animais sugeridos</div>
@@ -37,6 +37,16 @@ export default function Sujestoes(){
                             <Box />
                             <Box />
                         </div>
+                    </div>
+                    <div className='nupags'> 
+                      <div className='nu'> 1 </div>
+                      <div className='nu'> 2 </div>
+                      <div className='nu'> 3 </div>
+                      <div className='nu'> 4 </div>
+                      <div className='nu'> 5 </div>
+                      <div className='pon'> ... </div>
+                      <div className='nu'> 12 </div>
+                      <button> Próximo </button>
                     </div>
                  </div> 
             <Roda />

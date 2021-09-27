@@ -6,6 +6,10 @@ import fundo from '../../../assets/images/fundoSUGE.svg'
 
 export const Container = styled.div`
 
+
+.conteudopag{
+    background-color: #FAF8EB;
+}
 .animais-sugeridos{
   padding: 1em 0em 2em 4em;
   display: flex ;
@@ -25,8 +29,6 @@ export const Container = styled.div`
 .box-petz{
     display: flex;
     flex-direction: column;
-
-    
 }
 
 .box-cima{
@@ -46,6 +48,26 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
     padding: 1.5em 0px 0px 0px;
+}
+
+.nupags{
+    display: flex;
+    justify-content: center;
+
+    padding: 1.5em 0px 1.5em 0px;
+}
+
+.nu{
+    border: #ffff;
+}
+
+.nupags button{
+  color: #FAD41B;
+  border-color: #FAD41B;
+
+  background-color: #ffff;
+
+  padding: 3px 13px 3px 15px;
 }
 `;
 
