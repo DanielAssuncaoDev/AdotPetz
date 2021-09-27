@@ -13,7 +13,7 @@ export const Container = styled.div`
 
     width: 100%;
     height: 10vh;
-    height: 5em;    
+    height: 4em;    
     padding: 1.5em;
 
         .line-left{
@@ -22,7 +22,8 @@ export const Container = styled.div`
         }
 
         .logo img{
-            height: 42px;
+            height: 30px;
+            cursor: pointer;
         }
 
         .informacoes{
@@ -34,6 +35,7 @@ export const Container = styled.div`
 
         .Cont-inf{
             padding: .5em;
+            font-size: .7em;
 
             cursor: pointer;
         }
@@ -42,8 +44,9 @@ export const Container = styled.div`
         height: 2.3em;
         padding: 3px 10px;
         margin-right: 1em;
+        font-size: .7em;
 
-        border-radius: 8px;
+        border-radius: 5px;
         border: none;
 
         background-color: #ffffff;
@@ -54,8 +57,9 @@ export const Container = styled.div`
        .lo {
         height: 2.3em;
         padding: 3px 10px;
-        border-radius: 8px;
+        border-radius: 5px;
         border: none;
+        font-size: .7em;
 
         background-color: #FAD41B;
 
