@@ -6,7 +6,6 @@ export default function Busca() {
     return(
         <ContainerBusca>
             <Filtro />
-            <div className="space"></div>
         </ContainerBusca>
     );
 }
