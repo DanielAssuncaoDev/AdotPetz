@@ -1,6 +1,6 @@
 import {ContainerBusca} from './styled';
 
-import Filtro from '../../../components/filtrobusca/filtroBusca.js'
+import Filtro from '../../../components/filtroBusca/filtroBusca'
 
 export default function Busca() {
 

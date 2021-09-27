@@ -58,7 +58,7 @@ export const Container = styled.div`
 }
 
 .nu{
-    border: #ffff;
+    border-color: aqua;
 }
 
 .nupags button{
