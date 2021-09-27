@@ -17,17 +17,28 @@ export default function Sujestoes(){
              <div className="conteudo">
                  <div className="animais">
                      <div className="animais-sugeridos">
-                         <div className="animaisSU"> Aniais sugeridos</div>
-                         <img src="/assets/images/animaisSU.png" alt="" />
+                         <div className="animaisSU"> Animais sugeridos</div>
+                         <img src="/assets/images/coracaopata.svg" alt="" />
                           </div>
                       </div>
-                 
-                 
-                 
+                    <div className='box-petz'> 
+                        <div className='box-cima'>
+                            <Box />
+                            <Box />
+                            <Box />
+                             </div>
+                        <div className='box-meio'> 
+                            <Box />
+                            <Box />
+                            <Box />
+                        </div>
+                        <div className='box-baixo'>
+                            <Box />
+                            <Box />
+                            <Box />
+                        </div>
+                    </div>
                  </div> 
-             
-      <Box />
-
             <Roda />
          </Container>
     );
