@@ -11,12 +11,12 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    height: 3em;
+    height: 8vh;
     padding: 1em 1.5em;
 
 
         .logo img{
-            height: 32px;
+            height: 5vh;
             cursor: pointer;
         }
 
@@ -29,6 +29,7 @@ export const Button = styled.button`
 
     border: none;
     border-radius: 33px;
+    font-size: 2vh;
     color: #FFF;
     background: none;
 
@@ -41,7 +42,7 @@ export const Button = styled.button`
     }
        
         .icon-meuperfil img{
-             height: 20px;
+             height: 3.5vh;
         }
          .title-meuperfil{
             margin-left: 3px;
