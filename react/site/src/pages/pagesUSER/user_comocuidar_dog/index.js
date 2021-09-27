@@ -4,7 +4,7 @@
  import Roda from '../../../components/rodape'
  import CuidarPet from '../../../components/cuidarpet/index.js'
 
- export default function(){
+ export default function ComoCuidarDog(){
      
      const TituloGeral = "COMO CUIDAR DO MEU CACHORRINHO"
      const imgpet = "/assets/images/comoCUIDOG.svg"

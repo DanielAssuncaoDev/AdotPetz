@@ -2,7 +2,7 @@ import {Container} from './styled.js'
 
 import CabecalhoADM from '../../../components/cabecalhoADM/index.js'
 
-    export default function(){
+    export default function HomeADM(){
         return(
             <Container>
                 <CabecalhoADM/>
