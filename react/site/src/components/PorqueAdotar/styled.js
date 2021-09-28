@@ -15,6 +15,7 @@ export const Container = styled.div`
             margin-bottom: 1em;
         }   .Titulo span{
             color: #FAD41B;
+            font-weight: 700;
         }
 
 
@@ -34,29 +35,38 @@ export const BoxPorqueAdotar = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
-
+    min-height: 55vh; 
     width: 30%;
-    padding: 4em 3em 0;
+    padding-bottom: 1.4em;
 
-    border-radius: 8px;
-    background: ${ (props) => props.color };
-    box-shadow: 6px 6px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 0 20px 20px;
+    background-color: transparent;
+    box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.15);
     transition-property: box-shadow;
-    transition: 1s;
+    transition: .5s;
 
 
     &:hover{
         box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.35);
 
     }
-  
+
+        .ImgPet{
+            /* border-radius: 20px; */
+            min-height: 55vh; 
+            width: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+        }
 
 
         .TextBox{
-            margin-top: ${ (props) => props.margin};
-            margin-bottom: 1em;
+            margin-top: 1em;
             line-height: 22px;
             max-width: 258px;
             text-align: center;
@@ -67,16 +77,6 @@ export const BoxPorqueAdotar = styled.div`
 
         }
 
-        .imgPet-box{
-            width: 200px;
-            position: relative;
+  `;
 
-            margin-bottom: -6em;
-            margin-left: -7em;
-
-        }   .imgPet-box img{
-            width: 100%;
-        } 
-
-
-`;
+     

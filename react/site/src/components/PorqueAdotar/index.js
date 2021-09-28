@@ -1,6 +1,11 @@
 import {Container} from './styled'
 
+import ImgFundo1 from '../../assets/images/imgFundo-pqadotar/Pqadotar1.svg'
+import ImgFundo2 from '../../assets/images/imgFundo-pqadotar/Pqadotar2.svg'
+import ImgFundo3 from '../../assets/images/imgFundo-pqadotar/Pqadotar3.svg'
+
 import Box from './box-porqueadotar'
+
 
 export default function PorqueAdotar(){
 
@@ -22,20 +27,19 @@ export default function PorqueAdotar(){
 
             <div className="Cont-box">
 
-                <Box color="#FAD41B" 
+                <Box imgFundo={ImgFundo1} 
                         text={textbox1} 
                             colorText="#000"
                                 imgPet={imgbox1} 
                 />
-                <Box color="#D6D7C9" 
+                <Box imgFundo={ImgFundo2}
                         text={textbox2} 
                             colorText="#000"
                                 imgPet={imgbox2}
-                                    margin={"1.1em"} 
                 />
-                <Box color="#4E4E4E" 
+                <Box imgFundo={ImgFundo3}
                         text={textbox3} 
-                            colorText="#FFF"
+                            colorText="#000"
                                 imgPet={imgbox3} 
                 />
 

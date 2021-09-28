@@ -3,16 +3,15 @@ import {BoxPorqueAdotar} from './styled';
 export default function Box(props){
 
     return(
-        <BoxPorqueAdotar color={ props.color } 
-                            colortext={ props.colorText }
-                                margin={props.margin} >
+        <BoxPorqueAdotar colortext={ props.colorText } >
+            
+            <div className="ImgPet">
+                <img src={ props.imgFundo} alt="" />
+            </div>
             <div className="TextBox" >
                 {props.text}
             </div>
 
-            <div className="imgPet-box">
-                <img src={props.imgPet} alt="" />
-            </div>
 
         </BoxPorqueAdotar>
     );
