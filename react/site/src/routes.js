@@ -1,5 +1,8 @@
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
 
+
+import Nav from './nav';
+
 import HomeUser from './pages/pagesUSER/user_home/index'
 import SugestaoAdocao from './pages/pagesUSER/user_sugestoes/index.js'
 // import Cadastrarse from './pages/pagesUSER/user_cadastrar'
@@ -34,12 +37,13 @@ export default function Rotas() {
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact={true} component={HomeUser} />
+                <Route path="/" exact={true} component={Nav} />
+
+                <Route path="/home" exact={true} component={HomeUser} />
                 <Route path="/sugestoesadocao" exact={true} component={SugestaoAdocao} />
                 {/* <Route path="/cadastrarse" exact={true} component={Cadastrarse} /> */}
                  <Route path="/comocuidarcat" exact={true} component={ComoCuidarCat} /> 
                  <Route path="/comocuidardog" exact={true} component={ComoCuidarDog} /> 
-                <Route path="/sugestoesadocao" exact={true} component={SugestaoAdocao} />
                 <Route path="/dicascuidados" exact={true} component={DicasCuidados} />
                 {/* <Route path="/faleconosco" exact={true} component={FaleConosco} /> */}
                 {/* <Route path="/faq" exact={true} component={FAQ} /> */}
