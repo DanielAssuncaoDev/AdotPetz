@@ -8,54 +8,35 @@ return (
 
 <Conteudo>
 
-<div className="title">
-          Para conseguir ver mais informações do pet, por favor, cadastre-se no nosso site!
-        </div>
+<div className="title"> Para conseguir ver mais informações do pet, por favor, cadastre-se no nosso site! </div>
 
-        <div class="existente">
-          ENTRAR COM CONTA EXISTENTE
-        </div>
+<div className="existente"> ENTRAR COM UMA CONTA EXISTENTE </div>
 
-        <div class="input">
+<div className="inputs"> 
 
-          <div class="inp">
-            <input type="text" />
-          </div>
+<div className="inputa"> 
+<input type="text" />
+</div>
 
-          <div class="pin">
-            <input type="text" />
-          </div>
+<div className="inpute"> 
+<input type="text" />
+</div>
 
-        </div>
+</div>
 
-        <div class="buton">
-          <button>Entrar</button>
-        </div>
+<div className="buton"><button> ENTRAR </button> </div>
 
-        <div class="mudar">
+<div className="divisao">
+<div className="line"> <img src="../assets/images/Line 1.svg" alt=""/>  </div>
+<div className="ou"> <div> OU </div> </div>
+<div className="leni"> <img src="../assets/images/Line 1.svg" alt=""/> </div>
+   </div>
 
-          <div class="adria">
-            <img src="Line 1.png" alt="" />
-          </div>
+   <div className="logue"> Logue com suas redes sociais </div>
 
-          <div class="adulto">OU</div>
+   <div className="logo"> <img src="../assets/images/Frame 129 (1).svg" alt=""/> </div> 
 
-          <div class="boll">
-            <img src="Line 1.png" alt="" />
-          </div>
-
-        </div>
-
-        <div class="logue">Logue com suas redes sociais</div>
-
-        <div class="face">
-          
-        </div>
-
-        <div class="cachorro">
-          <img src="image 1 (3).png" alt="" />
-        </div>
-
+   <div className="cachorro"> <img src="../assets/images/image 1.svg" alt=""/> </div> 
 </Conteudo>
 
     </Container>
