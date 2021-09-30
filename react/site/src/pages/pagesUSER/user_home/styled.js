@@ -33,7 +33,7 @@ export const Container = styled.div`
     export const ContainerFacaDoacoes = styled.div`
     
         /* height: 85vh; */
-        padding: 6em 3em;
+        padding: 10vh 5vh;
 
         background-image: url(${ImgDogFzDoacoes});
         background-size: cover;
@@ -42,12 +42,14 @@ export const Container = styled.div`
 
 
             .Titulo{
-                font-size: 2.5em;
+                font-size: 4.6vh;
+                margin-bottom: 3vh;
                 font-weight: 700;
             }
 
             .Text{
-                width: 800px;
+                font-size: 2.6vh;
+                width: 66%;
             }
 
 
@@ -56,13 +58,14 @@ export const Container = styled.div`
 
             export const BoxDoar = styled.div`
             
-                border-radius: 20px;
-                margin-top: 2em;
+                border-radius: 2vh;
+                margin-top: 4vh;
                 /* height: 30vh; */
-                padding: 2em;
+                padding: 5vh;
                 width: 50%;
+                height: 40vh;
 
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);                
+                box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);                
                 background-image: url(${ImgBox}) ;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -71,17 +74,17 @@ export const Container = styled.div`
                     .TituloBox{
                         text-align: center;
                         font-weight: 700;
-                        font-size: 1em;
+                        font-size: 2.5vh;
                     }
 
                     .ListasBox{
                         display: flex;
                         justify-content: space-evenly;
 
-                        margin: 1.4em 0 2.2em;
+                        margin: 3.2vh 0 4vh;
 
                     }   .ListasBox li{
-                            font-size: 0.7em;
+                            font-size: 1.7vh;
                             font-weight: 300;
 
                                 span {
@@ -91,20 +94,20 @@ export const Container = styled.div`
 
                     ul{
                         padding: 0px;
-                        margin-left: 15px;
+                        margin-left: 2.3vh;
                     }
 
                     .TituloLista{
-                        font-size: 0.9em;
-                        margin-bottom: 10px;
+                        font-size: 2.2vh;
+                        margin-bottom: 2vh;
                         font-weight: 700;
                     }
 
                     .InfoRodape{
                         text-align: center;
-                        margin-top: 5px;
+                        margin-top: 1vh;
 
-                        font-size: 0.8em;
+                        font-size: 1.8vh;
                         font-weight: 300;
 
                             span {
