@@ -54,20 +54,33 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
 
-    padding: 1.5em 0px 1.5em 0px;
+    padding: 2em 0px 1.5em 0px;
 }
 
 .nu{
-    border-color: aqua;
+   border: 1px solid #00000028;
+   font-size: .9em;
+   color: #00000050;
+   cursor: pointer;
+   
+
+   padding: 5px;
+   margin-right: 1.5px;
 }
+
+.pon{padding:10px 2.5px 0px 2.5px; color:#00000060;}
 
 .nupags button{
   color: #FAD41B;
   border-color: #FAD41B;
+  border: 2px solid;
 
   background-color: #ffff;
 
   padding: 3px 13px 3px 15px;
+  margin-left: 5px;
+
+  cursor: pointer;
 }
 `;
 
@@ -78,7 +91,7 @@ export const Container = styled.div`
         justify-content: center;
         align-items: center;
 
-        padding-left: 10em;
+        //padding-left: 10em;
 
 
     
