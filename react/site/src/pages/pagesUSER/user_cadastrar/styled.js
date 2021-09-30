@@ -8,7 +8,7 @@ overflow: hidden;
 
 flex-direction: column;
 align-items: center;
-background-color #FAF8EB;
+background-color: #FAF8EB;
 
 
 `
@@ -37,7 +37,7 @@ input {
   padding: 0em 0em 2em 5em;
 }
 .nome {
-  float: left;
+  /* float: left; */
   padding: 0em 0.3em 0em 0em;
 }
 .sobrenome {
