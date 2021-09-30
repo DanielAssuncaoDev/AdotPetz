@@ -8,11 +8,12 @@ overflow: hidden;
 
 flex-direction: column;
 align-items: center;
+background-color #FAF8EB;
+
 
 `
 export const Conteudo = styled.div`
 padding: 0.8em 0em 3.5em 5em;
-background-color #FAF8EB;
 
 .title {
   padding: 0em 5em 0em 5em;

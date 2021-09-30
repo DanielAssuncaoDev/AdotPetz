@@ -5,7 +5,7 @@ import Nav from './nav';
 
 import HomeUser from './pages/pagesUSER/user_home/index'
 import SugestaoAdocao from './pages/pagesUSER/user_sugestoes/index.js'
-// import Cadastrarse from './pages/pagesUSER/user_cadastrar'
+import Cadastrarse from './pages/pagesUSER/user_cadastrar'
 
  import ComoCuidarCat from './pages/pagesUSER/user_comocuidar_cat'
  import ComoCuidarDog from './pages/pagesUSER/user_comocuidar_dog'
@@ -41,7 +41,7 @@ export default function Rotas() {
 
                 <Route path="/home" exact={true} component={HomeUser} />
                 <Route path="/sugestoesadocao" exact={true} component={SugestaoAdocao} />
-                {/* <Route path="/cadastrarse" exact={true} component={Cadastrarse} /> */}
+                <Route path="/cadastrarse" exact={true} component={Cadastrarse} />
                  <Route path="/comocuidarcat" exact={true} component={ComoCuidarCat} /> 
                  <Route path="/comocuidardog" exact={true} component={ComoCuidarDog} /> 
                 <Route path="/dicascuidados" exact={true} component={DicasCuidados} />
