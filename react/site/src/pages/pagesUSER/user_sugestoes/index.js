@@ -1,10 +1,10 @@
 import {Container} from './styled'
 
 
-import CabecalhoUSU from '../../../components/cabecalhoUSU';
-import Box from '../../../components/BoxPet'
+import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
+import Box from '../../../components/comun/BoxPet'
 import Fx1 from './buscar.js'
-import Roda from '../../../components/rodape'
+import Roda from '../../../components/comun/rodape'
 
 
 export default function Sujestoes(){

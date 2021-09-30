@@ -1,10 +1,10 @@
 import {Container} from './styled'
 
-import Cabecalho from '../../../components/cabecalhoUSU/index'
+import Cabecalho from '../../../components/comun/cabecalhoUSU/index'
 import FaixaPesquisa from './busca.js'
-import PorqueAdotar from '../../../components/PorqueAdotar/index'
+import PorqueAdotar from '../../../components/comun/PorqueAdotar/index'
 import FacaDoacoes from './facadoacoes'
-import Rodape from '../../../components/rodape/index'
+import Rodape from '../../../components/comun/rodape/index'
 
 export default function Home() {
 

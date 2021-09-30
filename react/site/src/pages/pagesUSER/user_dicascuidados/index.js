@@ -4,8 +4,8 @@ import {Container,
 
     } from './styled'; 
 
-import Cabecalho from '../../../components/cabecalhoUSU/index'
-import Rodape from '../../../components/rodape/index'
+import Cabecalho from '../../../components/comun/cabecalhoUSU/index'
+import Rodape from '../../../components/comun/rodape/index'
 
 export default function DicasCuidados() {
 

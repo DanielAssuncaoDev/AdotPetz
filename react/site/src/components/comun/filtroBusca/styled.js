@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BackGroundFiltro from '../../assets/images/imgemfundo_filtrobusca.svg'
+import BackGroundFiltro from '../../../assets/images/imgemfundo_filtrobusca.svg'
 
 
 const SelectRow = styled.select`

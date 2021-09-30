@@ -1,8 +1,8 @@
 import {Container} from './styled'
 
-import ImgFundo1 from '../../assets/images/imgFundo-pqadotar/Pqadotar1.svg'
-import ImgFundo2 from '../../assets/images/imgFundo-pqadotar/Pqadotar2.svg'
-import ImgFundo3 from '../../assets/images/imgFundo-pqadotar/Pqadotar3.svg'
+import ImgFundo1 from '../../../assets/images/imgFundo-pqadotar/Pqadotar1.svg'
+import ImgFundo2 from '../../../assets/images/imgFundo-pqadotar/Pqadotar2.svg'
+import ImgFundo3 from '../../../assets/images/imgFundo-pqadotar/Pqadotar3.svg'
 
 import Box from './box-porqueadotar'
 

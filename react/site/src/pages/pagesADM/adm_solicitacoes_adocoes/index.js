@@ -4,7 +4,7 @@ import {Container,
 
 } from './styled'
 
-import CabecalhoADM from '../../../components/cabecalhoADM/index'
+import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 
 export default function SolicitacaoAdocao() {
 

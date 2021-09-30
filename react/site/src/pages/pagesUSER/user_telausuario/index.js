@@ -1,6 +1,6 @@
 import {Container } from './styled'
 
-import CabecalhoADM from '../../../components/cabecalhoADM';
+import CabecalhoADM from '../../../components/comun/cabecalhoADM';
 
 
 export default function telaUSU(){

@@ -1,8 +1,8 @@
 
 
- import Cabecalho from '../../../components/cabecalhoUSU/index'
- import Roda from '../../../components/rodape'
- import CuidarPet from '../../../components/cuidarpet/index.js'
+ import Cabecalho from '../../../components/comun/cabecalhoUSU/index'
+ import Roda from '../../../components/comun/rodape'
+ import CuidarPet from '../../../components/comun/cuidarpet/index.js'
 
  export default function ComoCuidarDog(){
      

@@ -1,8 +1,8 @@
 import {Container} from './styled'
 
 
-import CabecalhoADM from '../../../components/cabecalhoADM';
-import Roda from '../../../components/rodape'
+import CabecalhoADM from '../../../components/comun/cabecalhoADM';
+import Roda from '../../../components/comun/rodape'
 
 
 export default function QuemSomos(){

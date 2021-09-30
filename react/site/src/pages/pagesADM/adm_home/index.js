@@ -1,6 +1,6 @@
 import {Container} from './styled.js'
 
-import CabecalhoADM from '../../../components/cabecalhoADM/index.js'
+import CabecalhoADM from '../../../components/comun/cabecalhoADM/index.js'
 
     export default function HomeADM(){
         return(

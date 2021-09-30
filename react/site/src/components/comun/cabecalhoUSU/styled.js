@@ -40,20 +40,41 @@ export const Container = styled.div`
             flex-direction: row;
 
             margin-left: 7vh; 
-
+            
                 span{
                     height: 5vh;
+                    padding: 0 .8vh;
+                    /* border-radius: 33px; */
+                    margin-left: .5vh;
+                    font-size: 2.2vh;
 
+                    display: flex;
+                    align-items: center;
+                    
+                    cursor: pointer;
+
+                    border-left: .4vh solid transparent;
+
+                    transition: .3s;
+                    transition-property: all;
+
+                        &:hover{
+                            border-color: #FFF;
+                            /* background-color: #d9d7ce; */
+                        }
                     
                 }
         }
 
-        .Cont-inf{
-            padding: .5em;
+        /* .Cont-inf{
+            padding: 4px;
             font-size: 2.2vh;
 
+            display: flex;
+            align-items: center;
+
             cursor: pointer;
-        }
+        } */
 
         .line-right{
             width: 50%;
