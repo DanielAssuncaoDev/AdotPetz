@@ -36,7 +36,7 @@ return (
 
    <div className="logo"> <img src="../assets/images/Frame 129 (1).svg" alt=""/> </div> 
 
-   <div className="cachorro"> <img src="../assets/images/image 1.svg" alt=""/> </div> 
+   <div className="cachorro"> <img src="../assets/images/image 1 (1).svg" alt=""/> </div> 
 </Conteudo>
 
     </Container>
