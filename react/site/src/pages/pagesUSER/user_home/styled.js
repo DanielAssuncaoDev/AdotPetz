@@ -26,6 +26,29 @@ export const Container = styled.div`
         .space{
             width: 15%;
         }
+
+
+        @media (max-width: 950px){
+
+            &{
+                justify-content: center;
+            }
+
+            .space{
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 650px){
+
+            &{
+                padding: 2vh
+            }
+
+
+        }
     `;
 
 
@@ -115,4 +138,7 @@ export const Container = styled.div`
                             }
 
                     }
+
+
+
             `;

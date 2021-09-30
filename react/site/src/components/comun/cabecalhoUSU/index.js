@@ -26,27 +26,34 @@ export default function CabecalhoUSU(){
                 </div>
 
                 <div className="line-right">
-                    { 
-                    
-                        login === false 
+                    <span className="Box-Buttons">
+                        { 
                         
-                        ?                            
-                            <div className="botoes">
-                                <button className="Cad"> Cadastrar-se </button>
-                                <button className="lo"> Login </button>
-                            </div> 
-                        
-                        : 
-                            <Button>
-                                <div className="icon-meuperfil">
-                                    <img src="/assets/images/account_circle_white_24dp.svg" alt="" />
-                                </div>
+                            login === false 
+                            
+                            ?                            
+                                <div className="botoes">
+                                    <button className="Cad"> Cadastrar-se </button>
+                                    <button className="lo"> Login </button>
+                                </div> 
+                            
+                            : 
+                                <Button>
+                                    <div className="icon-meuperfil">
+                                        <img src="/assets/images/account_circle_white_24dp.svg" alt="" />
+                                    </div>
 
-                                <span className="title-meuperfil">
-                                    Meu Perfil
-                                </span>
-                            </Button>
-                    }                    
+                                    <span className="title-meuperfil">
+                                        Meu Perfil
+                                    </span>
+                                </Button>
+                        }
+                    </span> 
+
+                    <div className="ButtonMenu">
+                        <img src="/assets/images/icon_menu.svg" alt="" />
+                    </div>
+
                 </div>
              </Container>
     )

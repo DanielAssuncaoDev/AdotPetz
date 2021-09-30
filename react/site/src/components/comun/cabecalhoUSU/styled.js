@@ -81,6 +81,13 @@ export const Container = styled.div`
             display: flex;
             justify-content: flex-end;
 
+
+                .Box-Buttons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
                 .botoes{
                     width: 100%;
                     display: flex;
@@ -124,7 +131,30 @@ export const Container = styled.div`
                         }
                 }
         }
-       
+
+        @media (min-width: 1001px){
+
+      
+            .ButtonMenu{
+                display: none;
+            }      
+
+        }
+
+
+       @media (max-width: 1000px){
+
+            .Box-Buttons div,
+            .Box-Buttons button,
+            .informacoes{
+                display: none;
+            }
+    
+
+       }
+
+
+
 
 `;
 

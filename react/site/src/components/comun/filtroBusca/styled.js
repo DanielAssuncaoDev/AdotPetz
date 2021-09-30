@@ -51,6 +51,16 @@ const Button = styled.button`
         background-color: rgba(0, 0, 0, 0.719);
         cursor: pointer;
     }
+
+
+    @media (max-width: 650px){
+
+        &{      
+            width: 75%;
+
+        }
+
+    }
 `;
 
 const BoxFiltro = styled.div`
@@ -109,7 +119,24 @@ const BoxFiltro = styled.div`
 
 
 
+    @media (max-width: 950px){
 
+        &{
+            width: 75%;
+        }
+
+    }
+
+    @media (max-width: 650px){
+
+        &{      
+            width: 100%;
+
+            background-image: none;
+            background-color: #FFF;
+        }
+
+    }
 
 
 `;
