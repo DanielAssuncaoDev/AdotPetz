@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: space-around;
     background-color: #8E8E8E;
     padding: 0em 2em;
-    height: 88vh;
+    height: 92vh;
 }
 
 .box1{
