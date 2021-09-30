@@ -4,7 +4,7 @@ import styled  from "styled-components";
 
 export const BoxPet = styled.div`
 
-width: 17.78%;
+width: 20%;
 display: flex;
 flex-direction: column;
 align-items: center;

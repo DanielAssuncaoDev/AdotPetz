@@ -3,88 +3,113 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 display: flex;
-padding: 0em 0em 2.2em 0em;
+padding: 1vh;
+overflow: hidden;
+
 flex-direction: column;
 align-items: center;
+background-color: #FAF8EB;
+
 
 `
 export const Conteudo = styled.div`
-padding: 0.8em 0em 3.5em 5em;
+display: flex;
+flex-direction: column;
+align-items: center;
 
 .title {
-  padding: 0em 5em 0em 5em;
+  /* padding: 0em 5em 0em 5em; */
+  margin-bottom: 2vh;
 }
 .existente {
   color: #fad41b;
-  width: 550px;
-  font: 1em Montserrat;
+  /* width: 870px; */
+  font: 3.3vh Montserrat;
 
-  font-size: 2em;
-  font-weight: 720;
+  /* font-size: 2em; */
+  font-weight: 700;
 
-  margin-bottom: 1em;
-  padding: 1em 0.8em 0.8em 1.5em;
+  margin-bottom: 5vh;
+  /* padding: 1.5em 0em .7em 4em; */
 }
-input {
+
+.inputs {
+  width: 83%;
+}
+.box-input input {
+  
   border: none;
-  border-radius: 8px;
+  border-radius: 1.5vh;
   background-color: #8e8e8e33;
-  padding: 0em 7em 1.5em 7em;
-  width: 270px;
+
+  
+  width: 100%;
+  height: 100%;
 }
-.inp {
-  padding: 0em 0em 0.7em 5em;
+
+.box-input{
+  height: 4.8vh;
+  margin-bottom: 1.2vh;
+
+  width: 100%;
 }
-.pin {
-  padding: 0.1em 0em 1.5em 5em;
-}
+
 .buton button {
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #fad41b;
+
   color: #ffffff;
   padding: 0.8em;
   margin: 0.5em;
-  width: 450px;
-  padding: 0.8em 1.5em 0.5em 0em;
+
+  width: 83%;
+  
 }
 .buton {
-  padding: 0em 1.5em 0.7em 4.8em;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
 }
-.adria img {
+.divisao {
+   /* padding: 3em 0em 1em 12.5em; */
+   display: flex;
+   align-items: center;
+}
+.line img {
   width: 190px;
-  height: 3px;
+  
+  /* float: left;
+  padding: 0.3em 0.2em 0.5em 0em; */
+
+} 
+.ou {
   float: left;
-  padding: 0.3em 0.2em 0.5em 0em;
+  /* padding: 0em 0.5em 0em 0.5em; */
 }
-.adulto {
-  float: left;
-  padding: 0em 0.5em 0em 0.5em;
-}
-.boll img {
+.leni img {
   width: 190px;
-  height: 3px;
-  float: left;
-  padding: 0.3em 0.2em 0.5em 0em;
-}
-.mudar {
-  padding: 2em 3em 0.5em 5em;
+  
+  /* float: left; */
+  /* padding: 0.3em 0.2em 0.5em 0em; */
 }
 .logue {
+
   color: #fad41b;
-  padding: 1.5em 8em 0em 12.5em;
+  
 }
-.face img {
-  width: 130px;
+.logo img {
+  width: 135px;
 }
-.face {
-  padding: 0em 0em 0em 14.2em;
+.logo {
+  /* padding: 0em 0em 0em 21.7em; */
 }
 .cachorro img {
-  width: 600px;
+  width: 650px;
 }
 .cachorro {
-  padding: 0em 8em 0em 0em;
+  /* padding: 0em 8em 0em 7em; */
 }
 
 `

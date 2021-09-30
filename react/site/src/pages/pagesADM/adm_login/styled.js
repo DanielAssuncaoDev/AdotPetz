@@ -3,8 +3,11 @@ import Imgfundo from "../../../assets/images/imagemfundo_home.svg"
 
 
 export const Container = styled.div`
-height: 100vh;
+height: 100%;
+
 overflow: hidden;
+
+padding: 0em 0em 0em 0em;
 
 `
 export const Conteudo = styled.div`
@@ -18,6 +21,8 @@ justify-content: flex-end;
 
 padding: 5em;
 height: 88vh;
+
+padding: 4em 2em  2em 2em;
 
 
 .titulo {
@@ -35,9 +40,7 @@ height: 88vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-  
-    /* width: 100%; */
+    padding: 0em 12em 3em 50em;
   }
   
   .box {
