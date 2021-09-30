@@ -6,19 +6,24 @@ export const Container = styled.div`
 
 .QuemSomos{
     background-image: url(${fundo});
+    background-repeat: no-repeat;
+    background-size: cover; 
     
 
-   display: flex;
+    display: flex;
    flex-direction: column;
    text-align: center;
    justify-content: center;
 
    padding: 3em 2em 2em 2em;
+   height: 90vh;
 }
 
 .quemsomos{
   padding: 1em;
   width: 48em;
+  align-self:center;
+
   
   padding: 2em 0px 2em 0em;
   
@@ -32,6 +37,7 @@ font-weight: 900;
 .cont-quem{
 padding-top: 20px;
 font-weight: 500;
+
 }
 
 .nossamicao{

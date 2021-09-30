@@ -6,7 +6,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     text-align: justify;
-    padding: 4em;
+    padding: 6vh;
 }
 
 .Box-2{
@@ -16,7 +16,7 @@ export const Container = styled.div`
 }
 
 .Titulo{
-    font-size: 25px;
+    font-size: 3.5vh;
     font-weight: 800;
     text-align: center;
 }
@@ -24,13 +24,12 @@ export const Container = styled.div`
 .imgcat img{
     padding-top: 2em;
     width: 100%;
-    height: auto;
-
+    height: 55vh;
 }
 
 .recadinho{
     font-weight: 300;
-    font-size: 1em;
+    font-size: 1.8vh;
     line-height: 12px;
     text-align: center;
     padding-bottom: 10px
@@ -38,18 +37,18 @@ export const Container = styled.div`
 
 .titulo2{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 4vh;
     line-height: 25px;
     text-align: left;
-    margin-top: 2em;
+    margin-top: 1.4em;
     margin-bottom: 1em;
     padding-left: 2em;
   }
   
   .desc{
     font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 2.2vh;
+    line-height: 1.3em;
     padding-left: 3em;
     padding-right: 5em;
   }

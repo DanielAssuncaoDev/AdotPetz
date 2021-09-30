@@ -89,8 +89,9 @@ padding-top: 4px;
 .voltaroda{
     display: flex;
     font-size: 13px;
+    justify-content: flex-end;
 
-    padding: 16px 0px 8px 12em;
+    padding: 16px 0px 8px 0em;
 }
 
 .voltar{
