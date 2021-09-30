@@ -11,7 +11,7 @@ export default function FacaDoacoes(){
         <ContainerFacaDoacoes>
             <div className="Container-Text">
                 <div className="Titulo">
-                    FAÇA UMA ADOÇÃO
+                    FAÇA UMA DOAÇÃO
                 </div>
                 <div className="Text">
                     Conseguimos fazer muito mais por esses cães e gatos com a sua ajuda! Adotou e quer ajudar de outra maneira também? doe! Não pode adotar no momento mas quer ajudar os animais indefesos? doe também! Tudo fica mais fácil com a sua ajuda.

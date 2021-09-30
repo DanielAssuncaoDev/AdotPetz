@@ -1,15 +1,20 @@
+
+import {useState} from 'react';
+
 import {Container} from './styled'
+import {Button} from '../cabecalhoADM/styled'
 
+// {}
 
+export default function CabecalhoUSU(){
 
-export default function cabecalhoUSU(){
+    const [login] = useState(true);
+
     return(
              <Container>
                 <div className="line-left">
                     <div className="box-logo">
-                        <div className="logo">
-                            <img src="/assets/images/logo.svg" alt="" />
-                        </div>
+                        <img src="/assets/images/logo.svg" alt="" />
                     </div>
                   
                     <div className="informacoes">
@@ -21,10 +26,27 @@ export default function cabecalhoUSU(){
                 </div>
 
                 <div className="line-right">
-                    <div className="botoes">
-                        <button className="Cad"> Cadastrar-se </button>
-                        <button className="lo"> Login </button>
-                    </div> 
+                    { 
+                    
+                        login === false 
+                        
+                        ?                            
+                            <div className="botoes">
+                                <button className="Cad"> Cadastrar-se </button>
+                                <button className="lo"> Login </button>
+                            </div> 
+                        
+                        : 
+                            <Button>
+                                <div className="icon-meuperfil">
+                                    <img src="/assets/images/account_circle_white_24dp.svg" alt="" />
+                                </div>
+
+                                <span className="title-meuperfil">
+                                    Meu Perfil
+                                </span>
+                            </Button>
+                    }                    
                 </div>
              </Container>
     )

@@ -11,12 +11,12 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    height: 8vh;
+    height: 10vh;
     padding: 1em 1.5em;
 
 
         .logo img{
-            height: 5vh;
+            height: 6vh;
             cursor: pointer;
         }
 
@@ -25,28 +25,42 @@ export const Container = styled.div`
 export const Button = styled.button`
 
     display: flex;
+    justify-content: center;
     align-items: center;
 
+    height: 6vh;
+    width: 18%;
     border: none;
-    border-radius: 33px;
-    font-size: 2vh;
+    border-radius: 4vh;
+    /* font-size: 2vh; */
     color: #FFF;
     background: none;
 
-    padding: 5px 10px;
+    padding: 0;
+
+    transition: 0.65s;
+    transition-property: all;
 
     &:hover{
-        transition: 0.65s;
+        
         background-color: #4B4B4B;
         cursor: pointer;
     }
        
-        .icon-meuperfil img{
-             height: 3.5vh;
+        .icon-meuperfil {
+            height: 5vh;
+            display: flex;
+            align-items: center;
+
+            img{
+                height: 4.5vh;
+            }
+
         }
+        
          .title-meuperfil{
-            margin-left: 3px;
-            font-size: .8em;
+            margin-left: .6vh;
+            font-size: 2vh;
         }
 
 `;
