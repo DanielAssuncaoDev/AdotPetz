@@ -29,6 +29,18 @@ export const Container = styled.div`
             justify-content: space-between;
         }
 
+        @media (max-width: 750px){
+
+            .Cont-box{
+                flex-direction: column;
+                align-items: center;
+
+                padding: 2.5vh;
+                /* justify-content: space-between; */
+            }
+   
+        }
+
 
 `;
 
@@ -60,14 +72,14 @@ export const BoxPorqueAdotar = styled.div`
 
         .ImgPet{
             /* border-radius: 20px; */
-            min-height: 55vh; 
+            /* min-height: 55vh;  */
             width: 100%;
 
             /* align-self: flex-start; */
 
                 img{
                     width: 100%;
-                    height: 56vh;
+                    /* height: 56vh; */
                 }
         }
 
@@ -82,6 +94,24 @@ export const BoxPorqueAdotar = styled.div`
             font-size: 2.8vh;
             color: ${ (props) => props.colortext };
             font-weight: 400;
+
+        }
+
+        @media (max-width: 750px){
+
+            &{
+                width: 75%;
+
+                margin-bottom: 3vh;
+            }
+
+        }
+
+        @media (max-width: 480px){
+
+            &{
+                width: 100%;
+            }
 
         }
 

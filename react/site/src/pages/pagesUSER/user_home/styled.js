@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import ImgDog from '../../../assets/images/imagemfundo_home.svg';
+import ImgDogResposivo from '../../../assets/images/imagemfundo_responsivo-home.jfif';
 import ImgDogFzDoacoes from '../../../assets/images/imgemfundo_home-fzdoacoes.svg'
 import ImgBox from '../../../assets/images/imgemfundo_filtrobusca.svg'
 // {}
@@ -47,9 +48,22 @@ export const Container = styled.div`
                 padding: 2vh
             }
 
+        }
+
+        @media (max-width: 650px){
+
+            &{
+                background-image: url(${ImgDogResposivo});
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
 
         }
+
+
     `;
+
 
 
 
