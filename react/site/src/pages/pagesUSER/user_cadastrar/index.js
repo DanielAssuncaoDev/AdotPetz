@@ -1,5 +1,7 @@
 import {Container, Conteudo} from './styled'
 
+import {Line} from '../../../components/styled/line'
+
 export default function CadastrarUsu() {
 
     return (
@@ -16,23 +18,22 @@ export default function CadastrarUsu() {
 
 <div className="cadastrar"> CADASTRE-SE </div>
 
-<div class="inp">
-          <div class="nome">
-            <input type="text" />
-          </div>
+<div className="inputs"> 
 
-          <div class="sobrenome">
-            <input type="text" />
-          </div>
+<div className="inpe"> 
+<input type="text" />
+<input type="text" />
+</div>
 
-          <div class="email">
-            <input type="Nome" />
-          </div>
+<div className="box-input"> 
+<input type="text" />
+</div>
 
-          <div class="senha">
-            <input type="text" />
-          </div>
-        </div>
+<div className="box-input"> 
+<input type="text" />
+</div>
+
+</div>
 
 
 
@@ -46,10 +47,10 @@ export default function CadastrarUsu() {
 </div>
 
 <div className="divisao">
-<div className="line"> <img src="../assets/images/Line 1.svg" alt=""/>  </div>
-<div className="ou"> <div> OU </div> </div>
-<div className="leni"> <img src="../assets/images/Line 1.svg" alt=""/> </div>
-   </div>
+        <Line>  </Line>
+        <div className="ou"> <div> OU </div> </div>
+        <Line> </Line>
+    </div>
 
    <div className="logue"> Cadastre-se com suas redes sociais </div>
 
