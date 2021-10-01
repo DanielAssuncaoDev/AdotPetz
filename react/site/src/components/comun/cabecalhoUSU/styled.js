@@ -24,7 +24,7 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             
-            height: 6vh;
+            height: 2.6em;
 
                 img {
                         height: 100%;
@@ -39,21 +39,21 @@ export const Container = styled.div`
             display: flex;
             flex-direction: row;
 
-            margin-left: 7vh; 
+            margin-left: 3em; 
             
                 span{
-                    height: 5vh;
-                    padding: 0 .8vh;
+                    /* height: 5vh; */
+                    padding: 6px;
                     /* border-radius: 33px; */
-                    margin-left: .5vh;
-                    font-size: 2.2vh;
+                    margin-left: 6px;
+                    font-size: 1em;
 
                     display: flex;
                     align-items: center;
                     
                     cursor: pointer;
 
-                    border-left: .4vh solid transparent;
+                    border-left: 2px solid transparent;
 
                     transition: .3s;
                     transition-property: all;

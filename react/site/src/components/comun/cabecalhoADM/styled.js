@@ -28,15 +28,16 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
 
-    height: 6vh;
-    width: 18%;
+    height: 2.6em;
+    /* width: 10em; */
+    padding: 0 10px;
     border: none;
-    border-radius: 4vh;
+    border-radius: 2em;
     /* font-size: 2vh; */
     color: #FFF;
     background: none;
 
-    padding: 0;
+    /* padding: 0; */
 
     transition: 0.65s;
     transition-property: all;
@@ -48,19 +49,19 @@ export const Button = styled.button`
     }
        
         .icon-meuperfil {
-            height: 5vh;
+            height: 100%;
             display: flex;
             align-items: center;
 
             img{
-                height: 4.5vh;
+                height: 2em;
             }
 
         }
         
          .title-meuperfil{
-            margin-left: .6vh;
-            font-size: 2vh;
+            margin-left: 3px;
+            font-size: 1em;
         }
 
 `;
