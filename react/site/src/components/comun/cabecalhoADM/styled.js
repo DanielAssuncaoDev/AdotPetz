@@ -28,7 +28,7 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
 
-    height: 2.6em;
+    height: 3em;
     /* width: 10em; */
     padding: 0 10px;
     border: none;

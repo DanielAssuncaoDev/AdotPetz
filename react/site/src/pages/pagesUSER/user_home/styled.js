@@ -22,14 +22,16 @@ export const Container = styled.div`
         background-color: #8E8E8E;
         background-size:  auto 100%;
         background-repeat: no-repeat;
-        height: 100vh;
+        min-height: 100vh;
+
+        padding: 3em; 
 
         .space{
             width: 15%;
         }
 
 
-        @media (max-width: 950px){
+        @media (max-width: 1200px){
 
             &{
                 justify-content: center;

@@ -6,14 +6,19 @@ export const Container = styled.div`
 
     
     padding: 5.5vh 4.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 
         .Titulo{
-            font-size: 5vh;
+            font-size: 2.2em;
             font-weight: 700;
+            width: 100%;
 
-            padding-left: 3vh;
-            margin-bottom: 4vh;
-            border-left: 1vh solid #FAD41B;
+            padding-left: 14px;
+            margin-bottom: 1.1em;
+            border-left: 5px solid #FAD41B;
 
 
         }   .Titulo span{
@@ -27,9 +32,13 @@ export const Container = styled.div`
         .Cont-box{
             display: flex;
             justify-content: space-between;
+
+            align-self: center;
+
+            max-width: 1400px;
         }
 
-        @media (max-width: 750px){
+        @media (max-width: 1000px){
 
             .Cont-box{
                 flex-direction: column;
@@ -54,11 +63,11 @@ export const BoxPorqueAdotar = styled.div`
     align-items: center;
     /* justify-content: space-between; */
 
-    min-height: 55vh; 
-    width: 30%;
-    padding-bottom: 3vh;
+    /* min-height: 55vh;  */
+    width: 32%;
+    padding-bottom: 1em;
 
-    border-radius: 0 0 3vh 3vh;
+    border-radius: 0 0 2em 2em;
     background-color: transparent;
     box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.15);
     transition-property: box-shadow;
@@ -86,21 +95,21 @@ export const BoxPorqueAdotar = styled.div`
 
         .TextBox{
             margin-top: 1em;
-            line-height: 3.4vh;
+            line-height: 1.2em;
             max-width: 70%;
             
             text-align: center;
 
-            font-size: 2.8vh;
+            font-size: 1.1em;
             color: ${ (props) => props.colortext };
             font-weight: 400;
 
         }
 
-        @media (max-width: 750px){
+        @media (max-width: 1000px){
 
             &{
-                width: 75%;
+                width: 22em;
 
                 margin-bottom: 3vh;
             }
@@ -110,7 +119,7 @@ export const BoxPorqueAdotar = styled.div`
         @media (max-width: 480px){
 
             &{
-                width: 100%;
+                width: 90%;
             }
 
         }

@@ -12,8 +12,8 @@ export const Container = styled.div`
     align-items: center;
 
     width: 100%;
-    height: 10vh;
-    padding: 0 4vh;
+    min-height: 10vh;
+    padding: 5px 2em;
 
         .line-left{
             display: flex;

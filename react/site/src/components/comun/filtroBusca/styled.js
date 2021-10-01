@@ -4,27 +4,27 @@ import BackGroundFiltro from '../../../assets/images/imgemfundo_filtrobusca.svg'
 
 const SelectRow = styled.select`
     border: none;
-    border-radius: 1vh;
+    border-radius: 0.5em;
     width: 49%;
     fill: #FFF;
     background-image: none;
 
-    padding: 1.2vh;
+    padding: .5em;
 
     background-color: #FAD41B;
     font: 1em Montserrat;
 
-        svg{
+        /* svg{
             height: 1vh;
             color: #FFF;
-        }
+        } */
 `;
 
 const Select = styled.select`
     border: none;
-    border-radius: 1vh;
+    border-radius: 0.5em;
     width: 100%;
-    padding: 1.2vh;
+    padding: .5em;
 
     background-color: #FAD41B;
     font: 1em Montserrat;
@@ -32,16 +32,16 @@ const Select = styled.select`
 
 const Button = styled.button`
     border: none;
-    border-radius: 1vh;
+    border-radius: 0.5em;
 
     background-color: #000;
     color: #fff;
     font: 1em Montserrat;
 
     padding: 0;
-    width: 25%;
+    width: 30%;
     height: 100%;
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
     text-align: center; 
     transition: 0.5s;
     transition-property: box-shadow, background-color;
@@ -84,15 +84,15 @@ const BoxFiltro = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-color: #fff;
-    border-radius: 1.5vh;
+    border-radius: 1em;
 
-    padding: 3.5vh;
-    width: 55%;
-    min-height: 50vh;
+    padding: 1.5em;
+    width: 49em;
+    /* min-height: 50vh; */
 
     .TituloFiltro{
         text-align: center;
-        font-size: 4vh;
+        font-size: 1.7em;
     }
 
     .FiltroBusca{
@@ -100,17 +100,22 @@ const BoxFiltro = styled.div`
         flex-direction: column;
         justify-content: center;
 
-        margin-top: 1vh;
+        margin-top: 1.3em;
         width: 100%;
-        height: 38vh;
+        /* height: 38vh; */
 
     }   .FiltroBusca div{
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1.3vh;    
-            font-size: 2.5vh;
+            margin-bottom: 8px;    
+            font-size: 1em;
 
-            height: 17%;
+            height: 3em;
+
+            &:nth-child(4){
+                margin: .8em 0;
+            }
+            
         }
 
     .ButtonForm {
@@ -122,12 +127,12 @@ const BoxFiltro = styled.div`
     @media (max-width: 950px){
 
         &{
-            width: 75%;
+            width: 100%;
         }
 
     }
 
-    @media (max-width: 650px){
+    @media (max-width: 700px){
 
         &{      
             width: 100%;
