@@ -89,8 +89,8 @@ align-items: center;
 
 }
 .cachorro img {
-  width: 76vh;
-  height: 0vh;
+  width: 70vh;
+  height: 28vh;
 }
 .cachorro {
 
