@@ -19,7 +19,7 @@ export const Container = styled.div`
         background-size: cover;
     
 
-        @media (max-width: 800px){
+        @media (max-width: 600px){
             background-image: url(${ImgFundoResponsivo});
 
             padding: 2em;
