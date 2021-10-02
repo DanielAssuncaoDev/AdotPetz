@@ -97,8 +97,6 @@ export const Container = styled.div`
                     background-color: #FAD41B;
                 }
 
-
-
         `;
 
             export const TabelaSolicitacoes = styled.table`
