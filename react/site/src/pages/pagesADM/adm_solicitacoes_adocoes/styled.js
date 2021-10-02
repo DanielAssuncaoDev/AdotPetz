@@ -36,6 +36,7 @@ export const Container = styled.div`
 
                         height: 2em;
                         width: 2em;
+                        padding: 2px;
                         background-color: #000;
                         border-radius: 50%;
                     }  
@@ -43,33 +44,7 @@ export const Container = styled.div`
                 }
 
 
-                .FiltrosdePesquisa{
-                    display: flex;
-                    align-items: center;
-
-                    margin-right: 12px;
-                }
-
-
-                .FiltrarPor {
-
-                    label{
-                        margin-right: 6px;
-                    }
-
-                    select{
-                        background-color: #AEAEAE;
-
-                        border: none;
-                        border-radius: 4px;
-                        color: #00000046;
-                        fill: #00000046;
-
-                        width: 180px;
-                        height: 30px;
-                    }
-
-                }
+               
 
 
                 .conteudo {
@@ -79,8 +54,12 @@ export const Container = styled.div`
                     /* overflow: scroll; */
 
                     padding: 1.8em 1.3em;
-                    min-height: 80vh;
+                    height: 80vh;
                     margin-top: 2em;
+
+                    /* width: 100% */
+
+                    overflow: scroll;
                 }
 
 
@@ -98,6 +77,35 @@ export const Container = styled.div`
                 }
 
 
+                @media (max-width: 800px){
+                    padding: 1em 10px;
+                
+                        .conteudo{
+                            padding: 1em .5em;
+                        }
+
+                        .TituloConteudo{
+                            font-size: 1.3em;
+                            width: 65%;
+                        }
+
+                        .option-voltar,
+                        .option-recarregar {
+
+                            span {
+                                height: 1.5em;
+                                width: 1.5em;
+                                padding: 2px;
+                            
+                                    img{
+                                        height: 100%;
+                                    }
+                                }
+
+                        }  
+                        
+                }
+
 
         `;
 
@@ -105,12 +113,13 @@ export const Container = styled.div`
             
                 margin-top: 2.5em;
                 width: 100%;
+                min-width: 520px;
 
                 text-align: center;
                 /* border: 1px solid black; */
                 border-collapse: collapse;
 
-            
+                            
                     thead{
                         height: 4em;
                         color: white;
@@ -120,7 +129,7 @@ export const Container = styled.div`
 
                                     th:nth-child(6){
                                         background-color: #000;
-                                        width: 20%;
+                                        width: 24%;
                                     }
 
                             }
@@ -145,20 +154,33 @@ export const Container = styled.div`
                              td:nth-child(6){
                                 display: flex;
                                 align-items: center;
-                                justify-content: space-between;
+                                justify-content: center;
 
                                 height: 4em;
                                 padding: 5px;
+
+                                    /* button{
+                                        margin: 0 6px;
+                                    } */
                             } 
 
                             button{
                                 padding: 0;
                                 display: flex;
                                 align-items: center;
-                                border: none;
-                                
+                                border: none;   
+
+                                margin: 0 1%;       
+                                height: 70%;
+                                max-height: 35px;
 
                                 background-color: transparent;
+
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+
 
                                 &:nth-child(3){
                                     background-color: #00000010;
@@ -166,11 +188,35 @@ export const Container = styled.div`
                                     display: flex;
                                     justify-content: center;
 
-                                    height:30px;
+                                    padding: 2px;
+
+                                    height: 80%;
+                                    max-height:30px;
                                     width: 68%;
+                                    max-width: 163px;
                                 }
                             }
 
                     } 
+
+                
+                @media (max-width: 1000px){
+
+                    font-size: 12px;
+
+                        button{
+                            font-size: 11px;
+                            /* margin: 0 2.5px; */
+                        }
+                }
+
+                @media (max-width: 800px){
+
+                    font-size: 10px;
+
+                        button{
+                            font-size: 9px;
+                        }
+                }
 
             `;
