@@ -44,20 +44,16 @@ export const Container = styled.div`
         }
 
 
-        @media (max-width: 650px){
-
-            &{
-                padding: 2vh
-            }
-
-        }
-
+    
         @media (max-width: 650px){
 
             &{
                 background-image: url(${ImgDogResposivo});
                 background-size: cover;
                 background-repeat: no-repeat;
+
+                padding: 2vh
+
             }
 
 
@@ -81,14 +77,24 @@ export const Container = styled.div`
 
 
             .Titulo{
-                font-size: 4.6vh;
-                margin-bottom: 3vh;
+                font-size: 2.4em;
+                margin-bottom: 0.6em;
                 font-weight: 700;
             }
 
             .Text{
-                font-size: 2.6vh;
-                width: 66%;
+                font-size: 1em;
+                max-width: 58em;
+            }
+
+
+            @media (max-width: 650px){
+
+                .Text{
+                    width: 100%;
+                }
+
+
             }
 
 
@@ -97,12 +103,12 @@ export const Container = styled.div`
 
             export const BoxDoar = styled.div`
             
-                border-radius: 2vh;
-                margin-top: 4vh;
+                border-radius: 1em;
+                margin-top: 2em;
                 /* height: 30vh; */
-                padding: 5vh;
-                width: 50%;
-                height: 40vh;
+                padding: 2em;
+                width: 36em;
+                /* height: 40vh; */
 
                 box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);                
                 background-image: url(${ImgBox}) ;
@@ -113,18 +119,30 @@ export const Container = styled.div`
                     .TituloBox{
                         text-align: center;
                         font-weight: 700;
-                        font-size: 2.5vh;
+                        font-size: 1.1em;
+
                     }
 
                     .ListasBox{
                         display: flex;
                         justify-content: space-evenly;
+                        flex-wrap: wrap;
 
-                        margin: 3.2vh 0 4vh;
+                            div{
+                                padding: 0 1em;
+                                margin-top: 10px;
+                            }
+
+                            /* div:last-child{
+                                
+                                margin-bottom: 15px;
+                            } */
+
 
                     }   .ListasBox li{
-                            font-size: 1.7vh;
+                            font-size: .6em;
                             font-weight: 300;
+
 
                                 span {
                                     font-weight: 700;
@@ -133,20 +151,24 @@ export const Container = styled.div`
 
                     ul{
                         padding: 0px;
-                        margin-left: 2.3vh;
+                        margin-left: .8em;
                     }
 
                     .TituloLista{
-                        font-size: 2.2vh;
-                        margin-bottom: 2vh;
+                        font-size: .9em;
+                        margin-bottom: .9em;
                         font-weight: 700;
+                    }
+
+                    .RodapeBox{
+                        margin-top: 16px;
                     }
 
                     .InfoRodape{
                         text-align: center;
-                        margin-top: 1vh;
+                        margin-top: .8em;
 
-                        font-size: 1.8vh;
+                        font-size: .9em;
                         font-weight: 300;
 
                             span {
@@ -155,6 +177,18 @@ export const Container = styled.div`
 
                     }
 
+
+                    @media (max-width: 650px){
+
+                        &{
+                            width: 100%;
+
+                            background-color:#FFF;
+                            background-image: none;
+                        }
+
+
+                    }
 
 
             `;

@@ -50,6 +50,7 @@ export const Container = styled.div`
    
         }
 
+     
 
 `;
 
@@ -120,6 +121,7 @@ export const BoxPorqueAdotar = styled.div`
 
             &{
                 width: 90%;
+                font-size: .9em;
             }
 
         }
