@@ -8,12 +8,15 @@ export default function Filtros(props){
     const [filtroSelecionado, setFiltroSelecionado] = useState(false)
     const [nomeFiltro, setNomeFiltro] = useState('')
 
-    const AlterarOption = () => {
-        setFiltroSelecionado(true);
 
+
+    const AlterarOption = () => {
+    
         let Select = document.getElementById("selectFiltro");
         let OptionSelect = Select.options[Select.selectedIndex].outerText;
         setNomeFiltro(OptionSelect.toString())
+        setFiltroSelecionado(true);    
+
     }
 
 
@@ -38,12 +41,21 @@ export default function Filtros(props){
                             filtroSelecionado === true 
                             
                             ?
-                                <div className="RegistroPFiltrar">
-                                    <input type="text" placeholder={`Onde${nomeFiltro}for:`} />                                
-                                </div>
+                                
+                                document.getElementById("selectFiltro").selectedIndex === 0
+
+                                    ?
+                                        ''
+
+                                    :
+                                        <div className="RegistroPFiltrar">
+                                            {/* {alert(nomeFiltro)} */}
+                                            <input type="text" placeholder={`Onde${nomeFiltro}for:`} />                                
+                                        </div>
                             :
 
-                            ''
+                                ''
+                                    
                         }
 
             </ContainerFiltros>
