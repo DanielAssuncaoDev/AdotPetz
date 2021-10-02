@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import ImgFundo from '../../../assets/images/imagemfundo_dicascuidados.svg';
+import ImgFundoResponsivo from '../../../assets/images/imagemfundo_responsivo-dicascuidados.jfif';
 // {}
 
 export const Container = styled.div`
@@ -12,11 +13,18 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
 
-        height: 89vh;
+        min-height: 91vh;
 
         background-image: url(${ImgFundo});
         background-size: cover;
     
+
+        @media (max-width: 800px){
+            background-image: url(${ImgFundoResponsivo});
+
+            padding: 2em;
+            justify-content: center;
+        }
 
     `;
 
@@ -34,11 +42,11 @@ export const Container = styled.div`
             transition-property: box-shadow;
 
             &:hover{
-                box-shadow: inset 4px 5px 5px rgba(0, 0, 0, 0.25);
+                box-shadow: inset 4px 5px 5px rgba(0, 0, 0, 0.5);
             }
         
                 .DescBox{
-                    font-weight: 300;
+                    font-weight: 400;
                     font-size: 1.2em;
                 }
                 .Titulobox{
@@ -69,10 +77,15 @@ export const Container = styled.div`
                             transition-property: all;
 
                                 &:hover{
-                                    box-shadow: 4px 4.5px 4px rgba(0, 0, 0, 0.45);
+                                    box-shadow: 4px 4.5px 4px rgba(0, 0, 0, .5);
                                 }
 
                         }
+                }
+
+                @media (max-width: 700px){
+                    margin: 0px;
+                    background-color: rgba(142, 142, 142, 0.5);
                 }
 
         `;
