@@ -132,14 +132,14 @@ export const Container = styled.div`
                 }
         }
 
-        @media (min-width: 1001px){
+        /* @media (min-width: 1001px){
 
       
             .ButtonMenu{
                 display: none;
             }      
 
-        }
+        } */
 
 
        @media (max-width: 1000px){

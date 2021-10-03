@@ -4,6 +4,8 @@ import {useState} from 'react';
 import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
 
+import Menu from '../Menu/index'
+
 // {}
 
 export default function CabecalhoUSU(){
@@ -50,9 +52,7 @@ export default function CabecalhoUSU(){
                         }
                     </span> 
 
-                    <div className="ButtonMenu">
-                        <img src="/assets/images/icon_menu.svg" alt="" />
-                    </div>
+                    <Menu hidden="1001px"/>
 
                 </div>
              </Container>

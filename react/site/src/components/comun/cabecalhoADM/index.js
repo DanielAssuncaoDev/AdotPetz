@@ -2,6 +2,8 @@ import {Container,
             Button
         } from './styled'
 
+import Menu from '../Menu/index'
+
 export default function CabecalhoADM(){
 
     return(
@@ -22,6 +24,9 @@ export default function CabecalhoADM(){
                         Meu Perfil
                     </span>
                 </Button>
+
+                <Menu hidden="700px" />
+
             </div>
         </Container>
     );
