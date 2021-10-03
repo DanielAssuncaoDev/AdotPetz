@@ -5,6 +5,7 @@ import {Container,
 } from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
+import Options from '../../../components/comun/OptionsADM/index'
 import Filtros from '../../../components/comun/Filtro/index'
 
 export default function SolicitacaoAdocao() {
@@ -15,20 +16,7 @@ export default function SolicitacaoAdocao() {
             <CabecalhoADM />
 
             <FaixaCRUD>    
-                <div className="optionsContainer" >
-                    <div className="option-voltar">
-                        <span>
-                            <img src="/assets/images/icon_voltar.svg" alt="" />
-                        </span>
-                    </div>
-
-
-                    <div className="option-recarregar">
-                        <span>
-                            <img src="/assets/images/icon_refresh.svg" alt="" />
-                        </span>
-                    </div>
-                </div>
+                <Options />
 
                 <Filtros listaOption={["Cód", "Nome Usuário", "Nome Pet", "Telefone", "Data Solicitação" ]} />                
 

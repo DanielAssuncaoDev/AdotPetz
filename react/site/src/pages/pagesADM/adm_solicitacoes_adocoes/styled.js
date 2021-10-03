@@ -14,37 +14,7 @@ export const Container = styled.div`
             background-color: #8E8E8E;
 
             padding: 2em;
-            min-height: 100vh;
-
-
-                .optionsContainer{
-                    display: flex;
-
-                }
-
-                .option-voltar{
-                    flex-grow: 1;
-                }
-
-                .option-voltar,
-                .option-recarregar {
-
-                    span {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
-                        height: 2em;
-                        width: 2em;
-                        padding: 2px;
-                        background-color: #000;
-                        border-radius: 50%;
-                    }  
-
-                }
-
-
-               
+            min-height: 100vh;               
 
 
                 .conteudo {
@@ -87,24 +57,9 @@ export const Container = styled.div`
                         .TituloConteudo{
                             font-size: 1.3em;
                             width: 65%;
-                        }
-
-                        .option-voltar,
-                        .option-recarregar {
-
-                            span {
-                                height: 1.5em;
-                                width: 1.5em;
-                                padding: 2px;
-                            
-                                    img{
-                                        height: 100%;
-                                    }
-                                }
-
-                        }  
+                        } 
                         
-            }
+                }
 
 
 `;
