@@ -8,7 +8,7 @@ export const ContainerPopUpMenu = styled.div`
     .BoxMenu{
         margin-top: 1em;
         
-        min-height: 90vh;
+        min-height: 100vh;
         width: 200px;
         /* padding: 5px; */
     
