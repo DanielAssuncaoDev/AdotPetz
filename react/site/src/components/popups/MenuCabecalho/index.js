@@ -6,7 +6,7 @@ export default function PopUpMenu(props){
         return(
             <ContainerPopUpMenu>
                 {
-                    props.login == true
+                    props.login === true
 
                     ?                                            
                         <div className="BoxMenu">
