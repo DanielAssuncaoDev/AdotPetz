@@ -144,6 +144,9 @@ export const Container = styled.div`
 
        @media (max-width: 1000px){
 
+            position: sticky;
+            top: 0px;
+
             .Box-Buttons div,
             .Box-Buttons button,
             .informacoes{

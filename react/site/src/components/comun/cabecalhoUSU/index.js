@@ -52,7 +52,11 @@ export default function CabecalhoUSU(){
                         }
                     </span> 
 
-                    <Menu hidden="1001px"/>
+                    
+                    <Menu hidden="1001px" login={login} />
+                    
+
+                    
 
                 </div>
              </Container>

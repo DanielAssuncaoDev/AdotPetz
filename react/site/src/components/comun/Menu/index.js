@@ -1,10 +1,42 @@
-import {ButtonMenu} from './styled'
+import {ContainerMenu} from './styled'
+import PopUp from '../../../components/popups/MenuCabecalho/index'
 
-export default function Menu( props){
+import { useState } from 'react'
+
+
+export default function Menu(props){
+
+    const [ popUp, setPopUP] = useState(false)
+
+    const controlarPopUp = () => {
+ 
+        if( popUp === false ){
+            setPopUP(true)
+        } else{
+            setPopUP(false)
+        }
+
+    }
+
+    console.log(props.login)
 
     return(
-        <ButtonMenu hidden={props.hidden}>
-            <img src="/assets/images/icon_menu.svg" alt="" />
-        </ButtonMenu>
+        <ContainerMenu hidden={props.hidden}>
+            <div>
+                <img onClick={() => controlarPopUp() } src="/assets/images/icon_menu.svg" alt="" />
+            </div>
+
+            {
+                popUp === true
+
+                ?
+                    <PopUp login={props.login} />
+
+                : 
+                    ''
+
+            }
+
+        </ContainerMenu>
     )
 }
