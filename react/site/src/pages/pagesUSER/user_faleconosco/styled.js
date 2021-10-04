@@ -64,5 +64,7 @@ export const Container = styled.div`
 .b:hover button{
     transition: .2s;
     background-color: #aeb1b5;
+
+    cursor: pointer;
 }
 `

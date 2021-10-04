@@ -143,6 +143,12 @@ padding-top: 4px;
     min-width: 5px;
 }
 
+@media (max-width: 400px){
+        .conteudo{
+            padding: 0px !important;
+            width: auto;
+        }           
+}
 
 `
 
@@ -208,5 +214,6 @@ padding-top: 4px;
                         visibility: visible;
                     }
                 }
+
 
   `

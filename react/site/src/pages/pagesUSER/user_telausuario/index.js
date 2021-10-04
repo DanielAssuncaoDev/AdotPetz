@@ -36,7 +36,7 @@ export default function telaUSU(){
          </div>
 
 
-         <div className='direita'>
+         {/*<div className='direita'>
            <div className='top'>
               <div className="Linha"></div>
               <div className='titulo'> MINHAS ADOÇÕES </div>
@@ -83,7 +83,7 @@ export default function telaUSU(){
 
               </div>
            </TabelaUsu>
-         </div>
+         </div>*/}
     </div>
       
     </Container>

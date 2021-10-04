@@ -21,6 +21,7 @@ export default function BoxPETZ(prosp){
             <div className="info-porte-s"> M </div>
             <div className="info-porte-ns"> G </div>
          </div>
+         <div className='botão'> <button>Conhecer mais o Pet</button></div>
       </BoxPet>
         
     )

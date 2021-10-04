@@ -30,6 +30,9 @@ export default function Sujestoes(){
                         <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
                         <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
                         <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
+                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
                     </div>
                     <div className='nupags'> 
                       <div className='nu'> 1 </div>
