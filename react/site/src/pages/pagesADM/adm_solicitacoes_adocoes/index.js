@@ -10,11 +10,10 @@ import Filtros from '../../../components/comun/Filtro/index'
 
 export default function SolicitacaoAdocao() {
 
-
     return(
         <Container>
             <CabecalhoADM />
-
+           
             <FaixaCRUD>    
                 <Options />
 

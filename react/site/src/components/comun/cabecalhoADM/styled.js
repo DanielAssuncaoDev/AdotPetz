@@ -20,6 +20,11 @@ export const Container = styled.div`
             cursor: pointer;
         }
 
+    @media (max-width: 700px){
+
+        position: sticky;
+        top: 0px;
+    } 
 
 `; 
 
@@ -68,6 +73,9 @@ export const Button = styled.button`
 
     @media (max-width: 701px){
         display: none;
+
+        position: sticky;
+        top: 0px;
     }    
 
 `;
