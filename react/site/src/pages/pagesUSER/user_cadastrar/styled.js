@@ -29,7 +29,7 @@ align-items: center;
   margin-top: 4vh;
 }
 .inputs {
-  width: 83%;
+  width: 85%;
 }
 .inpe input {
   border: none;
@@ -68,11 +68,11 @@ align-items: center;
   background-color: #fad41b;
 
   color: #ffffff;
-  width: 75vh;
+  width: 100%;
   height: 4.5vh;
 }
 .buton {
-  width: 80%;
+  width: 84%;
   height: vh;
 }
 
@@ -85,23 +85,18 @@ align-items: center;
 }
 
 .conta {
-  padding: 1em 1em 1em 8em;
+  padding: 1em 0em 0em 29.5em;
 }
-.logue {
-  color: #fad41b;
+.login {
+  padding: 0em 0em 1em 36.5em;
 
 }
-.logo img {
-  width: 135px;
-}
-.logo {
- 
-}
+
+
 .cachorro img {
   width: 650px;
 }
 .cachorro {
-
 }
 
 `

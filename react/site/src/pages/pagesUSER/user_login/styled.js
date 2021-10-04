@@ -10,6 +10,8 @@ flex-direction: column;
 align-items: center;
 background-color: #FAF8EB;
 
+height: 100vh;
+
 
 `
 export const Conteudo = styled.div`
