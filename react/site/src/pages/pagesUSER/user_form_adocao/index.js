@@ -1,32 +1,52 @@
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+// import { confirmAlert } from 'react-confirm-alert'; // Import
+// import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
-
-import Cabecalho from '../../../components/cabecalhoUSU'
-import Rodape from '../../../components/rodape'
+import Cabecalho from '../../../components/comun/cabecalhoUSU'
+import Rodape from '../../../components/comun/rodape'
 import { Container } from './styled';
+
+import Mensagem from '../../../components/popups/MensagemForm/index'
+import { useState } from 'react';
 
 export default function Sujestoes(){
 
-    function Prosseguir() {
-        confirmAlert({
-            title: 'Adoção em processo',
-            message: `Muito obrigada por confirmar seu interesse em adotar o petzinho, o seu pedido de adoção será analisado pela equipe administrativa da ONG Adot Petz. Por favor, aguarde nossa equipe entrar em contato com você para mais detalhes.`,
-            buttons: [
-                {
-                    label: 'Sim',
-                },
-                {
-                    label: 'Não'
-                }
-            ]
-        });
-    }
+    // function Prosseguir() {
+    //     confirmAlert({
+    //         title: 'Adoção em processo',
+    //         message: `Muito obrigada por confirmar seu interesse em adotar o petzinho, o seu pedido de adoção será analisado pela equipe administrativa da ONG Adot Petz. Por favor, aguarde nossa equipe entrar em contato com você para mais detalhes.`,
+    //         buttons: [
+    //             {
+    //                 label: 'Sim',
+    //             },
+    //             {
+    //                 label: 'Não'
+    //             }
+    //         ]
+    //     });
+    // }
 
+    const [popUp, setPopUp] = useState(false)
+
+    
 
     return( 
         <Container>
             <Cabecalho/>
+
+            {
+                popUp === true
+
+                ?
+                    <Mensagem popUp={popUp}
+                                setPopUp={setPopUp} 
+                                    NomePet="Panda" 
+                    />
+
+                : 
+                    ''
+            }
+
+            
             <div className="ContainerBody">
                 <div className="ContainerForm"> 
                     <div className="text-thanking-user">
@@ -52,7 +72,7 @@ export default function Sujestoes(){
                             <div className="bairro"> <input type="text" placeholder="Bairro"/> </div>
                         </div>
                     </div>
-                    <div class="button"> <button onClick={Prosseguir}> Prosseguir com o processo de adoção </button> </div>
+                    <div class="button"> <button onClick={() => setPopUp(true)}> Prosseguir com o processo de adoção </button> </div>
                 </div>
             </div>
         <Rodape/>
