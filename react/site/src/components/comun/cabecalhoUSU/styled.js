@@ -132,17 +132,20 @@ export const Container = styled.div`
                 }
         }
 
-        @media (min-width: 1001px){
+        /* @media (min-width: 1001px){
 
       
             .ButtonMenu{
                 display: none;
             }      
 
-        }
+        } */
 
 
        @media (max-width: 1000px){
+
+            position: sticky;
+            top: 0px;
 
             .Box-Buttons div,
             .Box-Buttons button,

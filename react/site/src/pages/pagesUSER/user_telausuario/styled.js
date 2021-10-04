@@ -199,7 +199,10 @@ padding-top: 4px;
                 .coluna-acao button{
                     visibility: hidden;
                 }
-
+                .coluna-acao:hover button{
+                    background-color: #ed5a5a;
+                    transition: 0.2s;
+                }
                 tr:hover{
                     .coluna-acao > button{
                         visibility: visible;

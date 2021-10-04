@@ -11,14 +11,20 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    height: 10vh;
-    padding: 1em 1.5em;
+    min-height: 10vh;
+    padding: 5px 2em;
 
 
         .logo img{
-            height: 6vh;
+            height: 2.6em;
             cursor: pointer;
         }
+
+    @media (max-width: 700px){
+
+        position: sticky;
+        top: 0px;
+    } 
 
 `; 
 
@@ -63,6 +69,14 @@ export const Button = styled.button`
             margin-left: 3px;
             font-size: 1em;
         }
+
+
+    @media (max-width: 701px){
+        display: none;
+
+        position: sticky;
+        top: 0px;
+    }    
 
 `;
 

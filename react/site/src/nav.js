@@ -36,12 +36,19 @@ export default function Nav(){
               <span> Dicas e Cuidados </span>
             </Link>
 
+            <Link to="/formadocao">
+              <span> Formulário Adoção </span>
+            </Link>
+
             <Link to="/comocuidarcat">
               <span>Como Cuidar do Cat</span>
             </Link>
 
             <Link to="/comocuidardog">
               <span>Como Cuidar do Dog</span>
+            </Link>
+            <Link to="/faleConosco">
+              <span>Fale Conosco</span>
             </Link>
           </nav>
 

@@ -21,15 +21,13 @@ export const Container = styled.div`
                     background-color: #AEAEAE;
                     border-radius: 5px;
 
-                    /* overflow: scroll; */
-
                     padding: 1.8em 1.3em;
                     height: 80vh;
                     margin-top: 2em;
 
-                    /* width: 100% */
-
-                    overflow: scroll;
+                    overflow-y: scroll;
+                    
+                    
                 }
 
 
@@ -52,6 +50,8 @@ export const Container = styled.div`
                 
                         .conteudo{
                             padding: 1em .5em;
+
+                            /* overflow: scroll; */
                         }
 
                         .TituloConteudo{
