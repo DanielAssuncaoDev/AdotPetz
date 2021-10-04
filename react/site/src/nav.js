@@ -47,6 +47,9 @@ export default function Nav(){
             <Link to="/comocuidardog">
               <span>Como Cuidar do Dog</span>
             </Link>
+            <Link to="/faleConosco">
+              <span>Fale Conosco</span>
+            </Link>
           </nav>
 
         </div>
