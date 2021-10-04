@@ -4,8 +4,10 @@ import styled from 'styled-components'
 
 export const ContainerPopUpMenu = styled.div`
 
+`;
 
-    .BoxMenu{
+    export const ContBoxMenu = styled.div`
+    
         margin-top: 1em;
         
         min-height: 100vh;
@@ -19,51 +21,50 @@ export const ContainerPopUpMenu = styled.div`
         top: 0px;
         margin-right: -2em;
 
-    }
 
-    .UserOrLog{
+            .UserOrLog{
 
-        div{
-            display: flex;
-            align-items: center;
+                div{
+                    display: flex;
+                    align-items: center;
 
-            width: 100%;
-            padding: 1.2em;
+                    width: 100%;
+                    padding: 1.2em;
 
-            &:hover{
-                background-color: #FFFFFF10;
-            }   
-        }
+                    &:hover{
+                        background-color: #FFFFFF10;
+                    }   
+                }
 
-        
-    }
-
-    .MinhaConta img{
-        margin-right: 4px;
-    }
-    
-
-
-    .space{
-        height: 2.5em;
-        background-color: #FAD41B;
-    }
-
-    .Options{
-
-        display: flex;
-        flex-direction: column;
-
-        span{
-            display: flex;
-            align-items: center;
-
-            width: 100%;
-            padding: .9em;
-
-            &:hover{
-                background-color: #FFFFFF10;
+                
             }
-        }
+
+            .MinhaConta img{
+                margin-right: 4px;
+            }
+            
+
+
+            .space{
+                height: 2.5em;
+                background-color: #FAD41B;
+            }
+
+            .Options{
+
+                display: flex;
+                flex-direction: column;
+
+                span{
+                    display: flex;
+                    align-items: center;
+
+                    width: 100%;
+                    padding: .9em;
+
+                    &:hover{
+                        background-color: #FFFFFF10;
+                    }
+                }
     }
-`;
+    `;

@@ -30,7 +30,7 @@ export default function Menu(props){
                 popUp === true
 
                 ?
-                    <PopUp login={props.login} />
+                    <PopUp type={props.type} login={props.login} />
 
                 : 
                     ''

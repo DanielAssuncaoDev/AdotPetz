@@ -25,7 +25,7 @@ export default function CabecalhoADM(){
                     </span>
                 </Button>
 
-                <Menu hidden="700px" />
+                <Menu type="ADM" hidden="700px" />
 
             </div>
         </Container>

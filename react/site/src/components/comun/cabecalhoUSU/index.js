@@ -53,7 +53,7 @@ export default function CabecalhoUSU(){
                     </span> 
 
                     
-                    <Menu hidden="1001px" login={login} />
+                    <Menu type="User" hidden="1001px" login={login} />
                     
 
                     

@@ -1,60 +1,56 @@
 import {ContainerPopUpMenu} from './styled'
-
+import BoxMenu from './BoxMenu';
 
 export default function PopUpMenu(props){
 
         return(
             <ContainerPopUpMenu>
                 {
-                    props.login === true
+                    props.type === "ADM"
 
-                    ?                                            
-                        <div className="BoxMenu">
-                            <div className="UserOrLog">
-                                <div className="MinhaConta">
-                                    <img src="/assets/images/account_circle_white_24dp.svg" alt="" />
-                                    <span>Minha Conta</span>
-                                </div>
-                            </div>
+                    ?
+                        <BoxMenu Topicos={[{icon: "/assets/images/account_circle_white_24dp.svg", NomeTopico: "Minha Conta" }]}
+                                    SubTopicos={["Pets Cadastrados", "Solicitações de Adoção", "Adicionar Pet"]}
+                        />
+                                            
 
-                            <div className="space">
+                    :
+                        props.login === true
 
-                            </div>
+                        ?        
+                            <BoxMenu Topicos={[{icon: "/assets/images/account_circle_white_24dp.svg", NomeTopico: "Minha Conta" }]}
+                                        SubTopicos={["Sobre", "Adotar", "Doar", "FAQ"]}
+                            />
 
-                            <div className="Options">
-                                <span className="Cont-inf"> Sobre </span>
-                                <span className="Cont-inf"> Adotar </span>
-                                <span className="Cont-inf"> Doar </span>
-                                <span className="Cont-inf"> FAQ </span>
-                            </div>
-                            
-                        </div>
+                                // <div className="BoxMenu">
+                                //     <div className="UserOrLog">
+                                //         <div className="Logar">
+                                //             <span> Fazer Login </span>
+                                //         </div>
 
-                    : 
+                                //         <div className="Cadastrarse">
+                                //             <span> Cadastrar-se </span>
+                                //         </div>
+                                //     </div>
 
-                        <div className="BoxMenu">
-                            <div className="UserOrLog">
-                                <div className="Logar">
-                                    <span> Fazer Login </span>
-                                </div>
+                                //     <div className="space">
 
-                                <div className="Cadastrarse">
-                                    <span> Cadastrar-se </span>
-                                </div>
-                            </div>
+                                //     </div>
 
-                            <div className="space">
+                                //     <div className="Options">
+                                //         <span className="Cont-inf"> Sobre </span>
+                                //         <span className="Cont-inf"> Adotar </span>
+                                //         <span className="Cont-inf"> Doar </span>
+                                //         <span className="Cont-inf"> FAQ </span>
+                                //     </div>
+                                    
+                                // </div>
 
-                            </div>
-
-                            <div className="Options">
-                                <span className="Cont-inf"> Sobre </span>
-                                <span className="Cont-inf"> Adotar </span>
-                                <span className="Cont-inf"> Doar </span>
-                                <span className="Cont-inf"> FAQ </span>
-                            </div>
-                            
-                        </div>
+                        :
+                            <BoxMenu Topicos={[{icon: "", NomeTopico: "Entrar" }, {icon: "", NomeTopico: "Cadastrar-se" }]}
+                                        SubTopicos={["Sobre", "Adotar", "Doar", "FAQ"]}
+                            />
+                    
 
 
                 }
