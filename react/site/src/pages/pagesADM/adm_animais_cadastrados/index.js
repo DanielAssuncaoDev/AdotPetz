@@ -1,6 +1,4 @@
-
-
-import Cabecalho from '../../../components/cabecalhoADM'
+import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 
 export default function Sujestoes(){

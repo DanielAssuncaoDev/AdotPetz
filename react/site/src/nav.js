@@ -66,9 +66,14 @@ export default function Nav(){
               <span> Solicitações de Adoção </span>
             </Link>
 
+            <Link to="/admin/addpet">
+              <span> Adicionar Pet </span>
+            </Link>
+
             <Link to="/admin/formadocao">
               <span> Formulário de Adoção ADM </span>
             </Link>
+
 
             <Link to="/admin/home">
               <span> Home ADM </span>
