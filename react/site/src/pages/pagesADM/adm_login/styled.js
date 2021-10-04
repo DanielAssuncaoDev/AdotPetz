@@ -3,7 +3,7 @@ import Imgfundo from "../../../assets/images/imagemfundo_home.svg"
 
 
 export const Container = styled.div`
-height: 100%;
+height: 100vh;
 overflow: hidden;
 
 background-color: #8e8e8e;
@@ -19,7 +19,7 @@ display: flex;
 justify-content: flex-end;
 
 padding: 5em;
-height: 88vh;
+height: 90vh;
 
 /* padding: 4em 2em  2em 2em; */
 
