@@ -36,12 +36,13 @@ align-items: center;
   border-radius: 1.5vh;
   background-color: #8e8e8e33;
 
-  width: 36.5vh;
+  width: 49%;
   height: 4.8vh;
   margin-bottom: 2vh;
   justify-content: space-between;
 }
 .inpe {
+  display: flex;
   justify-content: space-between;
 }
 
