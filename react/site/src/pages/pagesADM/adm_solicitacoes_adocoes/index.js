@@ -5,40 +5,19 @@ import {Container,
 } from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
+import Options from '../../../components/comun/OptionsADM/index'
+import Filtros from '../../../components/comun/Filtro/index'
 
 export default function SolicitacaoAdocao() {
 
     return(
         <Container>
             <CabecalhoADM />
-
+           
             <FaixaCRUD>    
-                <div className="optionsContainer" >
-                    <div className="option-voltar">
-                        <span>
-                            <img src="/assets/images/icon_voltar.svg" alt="" />
-                        </span>
-                    </div>
+                <Options />
 
-
-                    <div className="FiltrosdePesquisa">
-
-                        <div className="FiltrarPor">
-                            <label> Filtrar Solicitações Por:</label>
-                            <select>
-                                <option> Selecione </option>
-                            </select>
-                        </div>
-
-
-                    </div>
-
-                    <div className="option-recarregar">
-                        <span>
-                            <img src="/assets/images/icon_refresh.svg" alt="" />
-                        </span>
-                    </div>
-                </div>
+                <Filtros listaOption={["Cód", "Nome Usuário", "Nome Pet", "Telefone", "Data Solicitação" ]} />                
 
                 <div className="conteudo">
                     <div className="TituloConteudo">
@@ -125,6 +104,366 @@ export default function SolicitacaoAdocao() {
 
 
 
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+<tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Daniel Assunção </td>
+                                <td> Marley </td>
+                                <td> (11) 97544-0163 </td>
+                                <td> 26-09-2021 </td>
+                                <td>
+                                    <button>
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" />
+                                    </button>
+                                        
+                                    <button>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" />
+                                    </button>
+
+                                    <button>
+                                        Verificar Formulário
+                                    </button>
+                                </td>
+                            </tr>
                             <tr>
                                 <td> 1 </td>
                                 <td> Daniel Assunção </td>

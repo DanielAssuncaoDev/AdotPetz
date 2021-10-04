@@ -1,5 +1,7 @@
 import {Container} from './styled'
 
+//import Img1 from '../../../../public/assets/images/pet1.png'
+
 
 import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 import Box from '../../../components/comun/BoxPet'
@@ -22,21 +24,15 @@ export default function Sujestoes(){
                           </div>
                       </div>
                     <div className='box-petz'> 
-                        <div className='box-cima'>
-                            <Box />
-                            <Box />
-                            <Box />
-                             </div>
-                        <div className='box-meio'> 
-                            <Box />
-                            <Box />
-                            <Box />
-                        </div>
-                        <div className='box-baixo'>
-                            <Box />
-                            <Box />
-                            <Box />
-                        </div>
+                        <Box imagem='/assets/images/pet6.svg' nome='Panda' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg' />
+                        <Box imagem='/assets/images/pet5.svg' nome='Bob' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
+                        <Box imagem='/assets/images/pet4.svg' nome='Billy' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
+                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
+                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
+                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
                     </div>
                     <div className='nupags'> 
                       <div className='nu'> 1 </div>

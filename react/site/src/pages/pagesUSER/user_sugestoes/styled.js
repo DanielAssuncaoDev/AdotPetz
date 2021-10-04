@@ -28,27 +28,13 @@ export const Container = styled.div`
 
 .box-petz{
     display: flex;
-    flex-direction: column;
-}
-
-.box-cima{
-    display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
-    padding: 10px 0px 0px 0px;
+    //min-width: 10em;
 }
 
-.box-meio{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1.5em 0px 0px 0px;
-}
 
-.box-baixo{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1.5em 0px 0px 0px;
-}
 
 .nupags{
     display: flex;

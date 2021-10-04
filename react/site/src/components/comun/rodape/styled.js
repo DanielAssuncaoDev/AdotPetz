@@ -42,4 +42,34 @@ color: #ffff;
 .informações{
     
 }
+
+@media (max-width: 1000px){
+    .conteudo{
+    display: flex;
+    flex-direction: column;
+
+    width: 10em;
+    padding: 20px 0px 2em 0px;
+    }
+
+    .empresa{
+        padding-bottom: 25px;
+    }
+
+    .EM{
+        padding-bottom: 5px;
+        width: 16em;
+    }
+
+    .info{
+        font-size: 13px;
+    }
+    .comoAJU{
+        padding-bottom: 25px;
+    }
+
+    .cuideBEM{
+        padding-bottom: 25px;
+    }
+}
 `

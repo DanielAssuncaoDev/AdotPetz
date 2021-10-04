@@ -11,14 +11,20 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    height: 10vh;
-    padding: 1em 1.5em;
+    min-height: 10vh;
+    padding: 5px 2em;
 
 
         .logo img{
-            height: 6vh;
+            height: 2.6em;
             cursor: pointer;
         }
+
+    @media (max-width: 700px){
+
+        position: sticky;
+        top: 0px;
+    } 
 
 `; 
 
@@ -28,15 +34,16 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
 
-    height: 6vh;
-    width: 18%;
+    height: 3em;
+    /* width: 10em; */
+    padding: 0 10px;
     border: none;
-    border-radius: 4vh;
+    border-radius: 2em;
     /* font-size: 2vh; */
     color: #FFF;
     background: none;
 
-    padding: 0;
+    /* padding: 0; */
 
     transition: 0.65s;
     transition-property: all;
@@ -48,20 +55,28 @@ export const Button = styled.button`
     }
        
         .icon-meuperfil {
-            height: 5vh;
+            height: 100%;
             display: flex;
             align-items: center;
 
             img{
-                height: 4.5vh;
+                height: 2em;
             }
 
         }
         
          .title-meuperfil{
-            margin-left: .6vh;
-            font-size: 2vh;
+            margin-left: 3px;
+            font-size: 1em;
         }
+
+
+    @media (max-width: 701px){
+        display: none;
+
+        position: sticky;
+        top: 0px;
+    }    
 
 `;
 

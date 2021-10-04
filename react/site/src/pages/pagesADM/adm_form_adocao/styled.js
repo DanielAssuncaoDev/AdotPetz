@@ -13,7 +13,7 @@ export const Container = styled.div`
 
         export const FaixaForm = styled.div`
         
-            padding: 2em;
+            padding: 2em 1em;
 
 
                 .TituloFx{
@@ -57,6 +57,7 @@ export const Container = styled.div`
 
                 label{
                     color: #FAD41B;
+                    font-size: .8em;
                     margin-bottom: 4px;
                 }
 
@@ -130,33 +131,32 @@ export const Container = styled.div`
                     margin-bottom: .8em;
                 }
 
-                .InfoPet{
+                /* .InfoPet{
                     width: 50%;
-                }
+                } */
 
 
                 .ContPet{
                     display: flex;
+                    flex-wrap: wrap;
                 }
 
                 .ImgPet{
                     display: flex;
                     align-items: flex-end;
 
-                    width: 25%;
+                    width: 10em;
                     margin-right: .6em;
 
                     img{
-                        width: 100%;
+                        /* width: 100%; */
                         height: 100%;                       
 
                     }
 
                 }
 
-                .FormPet{
-                    width: 43%;
-                    
+                .FormPet{                   
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;                  
@@ -188,4 +188,78 @@ export const Container = styled.div`
                         margin-top: 12px;
                     }
                 }
+
+
+            @media (max-width: 600px ){
+
+
+                .TituloForm,
+                .TituloSolicitacoes,
+                .TituloPet{
+
+                    font-size: 1em;
+                }
+
+                label{
+                    font-size: .6em;
+                }
+
+                input{   
+                    font-size: .6em;
+
+                }
+
+                .Row2{
+
+                    div:nth-child(3){
+                        width: 20%;
+                    }
+
+                    div:nth-child(4){
+                        width: 11%;
+                    }
+                }
+
+             
+
+
+            }
+
+            @media (max-width: 830px ){
+
+                .InfoRow2{
+                    flex-direction: column;
+                    /* align-items: center; */
+                }
+
+                .InfoPet{
+                    margin-bottom: 2.5em;
+                }
+
+                .ButtonPet{
+                    
+                    button{
+                        font-size: .7em;
+
+                    }
+                }
+
+                
+
+            }
+
+            @media (max-width: 421px ){
+
+                .FormPet{
+                    width: 100%;
+
+                        div{
+                            width: 100%;
+                        }           
+
+                }
+
+
+            }
+
         `;

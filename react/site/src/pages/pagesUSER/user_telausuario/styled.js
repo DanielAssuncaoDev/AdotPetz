@@ -106,21 +106,35 @@ padding-top: 4px;
 }
 
 .titulo{
-    padding: 2em;
+    padding-top: .5em;
 
     font-weight: 800;
     font-size: 18px;
 }
 
-.meio-di{
+.Linha{
+    border:3px solid #FAD41B;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 12px;
+
+    background-color: #FAD41B;
+}
+
+.top{
+    display: flex;
+    padding: 3em 2em 3em 2.5em;
+}
+
+/* .meio-di{
     padding-top: 4em;
 
     text-align: center;
-}
+} */
 
-.meio-di img{
+/* .meio-di img{
   height: 9em;
-}
+} */
 
 .obs{
     font-size: 12px;
@@ -129,4 +143,77 @@ padding-top: 4px;
     min-width: 5px;
 }
 
+@media (max-width: 400px){
+        .conteudo{
+            padding: 0px !important;
+            width: auto;
+        }           
+}
+
 `
+
+    export const TabelaUsu = styled.table`
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                margin-top: 1.5em;
+
+                text-align: center;
+                border-collapse: collapse;
+
+            
+                    thead{
+                        height: 3.2em;
+                        color: white;
+
+                            tr{
+                                background-color: #000;
+
+                                    /* th:nth-child(6){
+                                        background-color: #FAD41B;
+                                        width: 20%;
+                                    } */
+                            }
+                    }
+
+                     tbody{
+                        height: 4em;
+
+                            tr{
+                                background-color: #f9f9f9;
+                            }
+                    } 
+
+                    th{
+                        width: 9em;
+                    }
+
+                    td > button {
+                    display: flex;
+                    align-items: center;
+
+                    background-color: #F44D4D;
+                    border: none;
+
+                    padding: 5px 10px 5px 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    }
+
+                .coluna-acao button{
+                    visibility: hidden;
+                }
+                .coluna-acao:hover button{
+                    background-color: #ed5a5a;
+                    transition: 0.2s;
+                }
+                tr:hover{
+                    .coluna-acao > button{
+                        visibility: visible;
+                    }
+                }
+
+
+  `

@@ -8,22 +8,27 @@ width: 20%;
 display: flex;
 flex-direction: column;
 align-items: center;
+text-align: center;
 
-padding-bottom: 10px;
+//padding: 1em;
+margin: 0em 4em 2.2em 1em;
 
-     text-align: center;
+background-color: #e0e0e0;
+border-radius: 8px;
 
-     background-color: #e0e0e0;
-     border-radius: 8px;
+box-shadow: 0px 0px 10px 5px #888888;
 
 .imagemPET{
-    height: auto;
+    //height: auto;
     width: 100%;
 
-}   .imagemPET img {
-        width: 100%;
-        height: 100%;
-    }
+}  
+ .imagemPET img {
+    width: 100%;
+    //height: auto;
+    border-radius: 8px;
+
+}
 
 .NomePET{
     padding: 0px 10px 14px 10px;
@@ -82,6 +87,26 @@ padding-bottom: 10px;
         border: 0.5px solid #101BC4 !important;
         color: #101BC4 !important;
 
+    }
+
+    button{
+        padding: .6em 1em;
+        margin: 1em 0em;
+ 
+        color: #ffff;
+        font-size: 12px;
+        font-weight: 500;
+        
+        border: none;
+        border-radius: 10px;
+        background-color: #FAD41B;
+
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #ffe152;
+        transition: 1s;
     }
 
 `;

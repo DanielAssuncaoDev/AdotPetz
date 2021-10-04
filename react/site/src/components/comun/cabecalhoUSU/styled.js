@@ -12,8 +12,8 @@ export const Container = styled.div`
     align-items: center;
 
     width: 100%;
-    height: 10vh;
-    padding: 0 4vh;
+    min-height: 10vh;
+    padding: 5px 2em;
 
         .line-left{
             display: flex;
@@ -24,7 +24,7 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             
-            height: 6vh;
+            height: 2.6em;
 
                 img {
                         height: 100%;
@@ -39,21 +39,21 @@ export const Container = styled.div`
             display: flex;
             flex-direction: row;
 
-            margin-left: 7vh; 
+            margin-left: 3em; 
             
                 span{
-                    height: 5vh;
-                    padding: 0 .8vh;
+                    /* height: 5vh; */
+                    padding: 6px;
                     /* border-radius: 33px; */
-                    margin-left: .5vh;
-                    font-size: 2.2vh;
+                    margin-left: 6px;
+                    font-size: 1em;
 
                     display: flex;
                     align-items: center;
                     
                     cursor: pointer;
 
-                    border-left: .4vh solid transparent;
+                    border-left: 2px solid transparent;
 
                     transition: .3s;
                     transition-property: all;
@@ -132,17 +132,20 @@ export const Container = styled.div`
                 }
         }
 
-        @media (min-width: 1001px){
+        /* @media (min-width: 1001px){
 
       
             .ButtonMenu{
                 display: none;
             }      
 
-        }
+        } */
 
 
        @media (max-width: 1000px){
+
+            position: sticky;
+            top: 0px;
 
             .Box-Buttons div,
             .Box-Buttons button,

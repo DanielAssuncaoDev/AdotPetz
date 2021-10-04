@@ -15,8 +15,8 @@ export const Container = styled.div`
    text-align: center;
    justify-content: center;
 
-   padding: 3em 2em 2em 2em;
-   height: 90vh;
+   padding: 2em 2em 2em 2em;
+   //height: 90vh;
 }
 
 .quemsomos{

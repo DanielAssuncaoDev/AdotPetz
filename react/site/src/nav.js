@@ -36,12 +36,19 @@ export default function Nav(){
               <span> Dicas e Cuidados </span>
             </Link>
 
+            <Link to="/formadocao">
+              <span> Formulário Adoção </span>
+            </Link>
+
             <Link to="/comocuidarcat">
               <span>Como Cuidar do Cat</span>
             </Link>
 
             <Link to="/comocuidardog">
               <span>Como Cuidar do Dog</span>
+            </Link>
+            <Link to="/faleConosco">
+              <span>Fale Conosco</span>
             </Link>
           </nav>
 
@@ -59,9 +66,14 @@ export default function Nav(){
               <span> Solicitações de Adoção </span>
             </Link>
 
+            <Link to="/admin/addpet">
+              <span> Adicionar Pet </span>
+            </Link>
+
             <Link to="/admin/formadocao">
               <span> Formulário de Adoção ADM </span>
             </Link>
+
 
             <Link to="/admin/home">
               <span> Home ADM </span>

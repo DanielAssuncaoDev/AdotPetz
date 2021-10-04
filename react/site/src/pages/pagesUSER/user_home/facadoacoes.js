@@ -48,6 +48,7 @@ export default function FacaDoacoes(){
                             <li> <span> CNPJ: </span> 12.345.698/1477-x </li>
                         </ul>
                     </div>
+                    
                 </div>
 
                 <div className="RodapeBox">

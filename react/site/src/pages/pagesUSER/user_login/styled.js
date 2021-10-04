@@ -12,6 +12,8 @@ flex-direction: column;
 align-items: center;
 background-color: #FAF8EB;
 
+height: 100vh;
+
 
 `
 export const Conteudo = styled.div`
@@ -91,8 +93,8 @@ align-items: center;
 
 }
 .cachorro img {
-  width: 76vh;
-  height: 0vh;
+  width: 70vh;
+  height: 28vh;
 }
 .cachorro {
 

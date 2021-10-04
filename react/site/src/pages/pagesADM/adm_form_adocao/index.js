@@ -4,6 +4,7 @@ import {Container,
 } from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
+import Options from '../../../components/comun/OptionsADM/index'
 
 export default function FormAdocaoADM(){
 
@@ -12,19 +13,7 @@ export default function FormAdocaoADM(){
             <CabecalhoADM />
 
             <FaixaForm>
-                <div className="ContainerOptions">   
-                    <div className="OptionVoltar">
-                        <span>
-                            <img src="/assets/images/icon_voltar.svg" alt="" />
-                        </span>    
-                    </div>                
-
-                    <div className="OptionRecarregar">
-                        <span>
-                            <img src="/assets/images/icon_refresh.svg" alt="" />
-                        </span>    
-                    </div>   
-                </div>
+                <Options />
            
                 <div  className="TituloFx">
                     Formulário de Solicitação
@@ -73,7 +62,7 @@ export default function FormAdocaoADM(){
                                     </div>
 
                                     <div className="NumeroUser">
-                                        <label> Número: </label>
+                                        <label> N&deg; : </label>
                                         <input />
                                     </div>
                                 </div>

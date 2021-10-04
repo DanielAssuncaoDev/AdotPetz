@@ -1,29 +1,27 @@
 import { BoxPet } from "../BoxPet/styled"
 
-export default function BoxPETZ(){
+export default function BoxPETZ(prosp){
     return(
       <BoxPet>
-
          <div className="imagemPET">
-            <img  src="/assets/images/imagemPET.jpg" alt="" />
+             <img src={prosp.imagem} alt='' /> 
          </div>
          
-         <div className="NomePET"> <b>Panda</b> </div>
-         <div className="local"> SP - São Paulo </div>
+         <div className="NomePET"> <b>{prosp.nome}</b> </div>
+         <div className="local">{prosp.localização} </div>
             
          <div className="sex">
-             <div className="info-sex"> Macho </div>
+             <div className="info-sex"> {prosp.sexo} </div>
              <div className="img-sex">
-               <img  src="/assets/images/sexo-macho.svg" alt="" /> 
+               <img src={prosp.imagemSex} alt="" /> 
              </div>
          </div>
-
          <div className="porte">
             <div className="info-porte-ns"> P </div>
             <div className="info-porte-s"> M </div>
             <div className="info-porte-ns"> G </div>
          </div>
-
+         <div className='botão'> <button>Conhecer mais o Pet</button></div>
       </BoxPet>
         
     )
