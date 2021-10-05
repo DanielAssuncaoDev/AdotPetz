@@ -16,7 +16,7 @@ margin: 0em 4em 2.2em 1em;
 background-color: #e0e0e0;
 border-radius: 8px;
 
-box-shadow: 0px 0px 10px 5px #888888;
+box-shadow: 0px 0px 16px 6px #888888;
 
 .imagemPET{
     //height: auto;
@@ -105,8 +105,8 @@ box-shadow: 0px 0px 10px 5px #888888;
     }
 
     button:hover{
-        background-color: #ffe152;
-        transition: 1s;
+        //background-color: #ffe152;
+        transition: .8s;
+        box-shadow: 8px 8px 10px 0px #888888;
     }
-
 `;
