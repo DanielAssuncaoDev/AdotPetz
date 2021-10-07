@@ -4,6 +4,8 @@ import {Container,
 
     } from './styled'; 
 
+    
+
 import Cabecalho from '../../../components/comun/cabecalhoUSU/index'
 import Rodape from '../../../components/comun/rodape/index'
 
@@ -24,8 +26,8 @@ export default function DicasCuidados() {
                     </div>
 
                     <div className="LineBotoes">
-                        <button style={{'backgroundColor': 'black', 'color': 'white'}} > Doguinho </button>
-                        <button style={{'backgroundColor': '#FAD41B' }} > Gatinho </button>
+                     <button style={{'backgroundColor': 'black', 'color': 'white'}} >  Doguinho  </button>
+                     <button style={{'backgroundColor': '#FAD41B' }} > Gatinho</button>
                     </div>
                 </BoxSelecionarEspecie>
             </Fx1>

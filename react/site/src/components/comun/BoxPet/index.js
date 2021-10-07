@@ -3,7 +3,8 @@ import { BoxPet } from "../BoxPet/styled"
 export default function BoxPETZ(prosp){
     return(
       <BoxPet>
-         <div className="imagemPET">
+        {/* <div className='conteudo-pet'>  */}
+        <div className="imagemPET">
              <img src={prosp.imagem} alt='' /> 
          </div>
          
@@ -22,6 +23,7 @@ export default function BoxPETZ(prosp){
             <div className="info-porte-ns"> G </div>
          </div>
          <div className='botão'> <button>Conhecer mais o Pet</button></div>
+        {/* </div>*/}
       </BoxPet>
         
     )

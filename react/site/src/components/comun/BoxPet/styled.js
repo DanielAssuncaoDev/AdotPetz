@@ -18,6 +18,16 @@ border-radius: 8px;
 
 box-shadow: 0px 0px 16px 6px #888888;
 
+//.conteudo-pet:hover{
+   // display: flex;
+  //  flex-direction: column;
+ //   justify-content: center;
+ //   text-align: center;
+//
+ //   width: 10em;
+  //  transition: 2s;
+//}
+
 .imagemPET{
     //height: auto;
     width: 100%;

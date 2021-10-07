@@ -8,7 +8,9 @@ export default function rodape(){
         <div className="conteudo">
             <div className="empresa">
                 <div className="EM"> <b> Empresa</b>  </div>
+               
                 <div className="info"> Sobre nós </div>
+                
                 <div className="info"> FAQ </div>
                 <div className="info"> Falar conosco </div>
             </div>
@@ -21,9 +23,13 @@ export default function rodape(){
 
             <div className="cuideBEM">
                 <div className="EM"> <b> Cuide bem do seu amiguinho</b>  </div>
+            
                 <div className="info"> Dicas e cuidados </div>
+
                 <div className="info"> como muidar do seu cachorro </div>
+
                 <div className="info"> como muidar do seu gatinho </div>
+
             </div>
         </div>
         <div className="conteudoB">
