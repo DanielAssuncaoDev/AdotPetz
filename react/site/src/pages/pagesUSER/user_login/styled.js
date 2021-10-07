@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-
+export const Line = styled.div`
+width: 1vh;
+`
 export const Container = styled.div`
 display: flex;
 padding: 1vh;
@@ -99,3 +101,6 @@ align-items: center;
 }
 
 `
+
+
+
