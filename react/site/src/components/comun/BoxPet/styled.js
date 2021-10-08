@@ -8,22 +8,37 @@ width: 20%;
 display: flex;
 flex-direction: column;
 align-items: center;
+text-align: center;
 
-padding-bottom: 10px;
+//padding: 1em;
+margin: 0em 4em 2.2em 1em;
 
-     text-align: center;
+background-color: #e0e0e0;
+border-radius: 8px;
 
-     background-color: #e0e0e0;
-     border-radius: 8px;
+box-shadow: 0px 0px 16px 6px #888888;
+
+//.conteudo-pet:hover{
+   // display: flex;
+  //  flex-direction: column;
+ //   justify-content: center;
+ //   text-align: center;
+//
+ //   width: 10em;
+  //  transition: 2s;
+//}
 
 .imagemPET{
-    height: auto;
+    //height: auto;
     width: 100%;
 
-}   .imagemPET img {
-        width: 100%;
-        height: 100%;
-    }
+}  
+ .imagemPET img {
+    width: 100%;
+    //height: auto;
+    border-radius: 8px;
+
+}
 
 .NomePET{
     padding: 0px 10px 14px 10px;
@@ -84,4 +99,24 @@ padding-bottom: 10px;
 
     }
 
+    button{
+        padding: .6em 1em;
+        margin: 1em 0em;
+ 
+        color: #ffff;
+        font-size: 12px;
+        font-weight: 500;
+        
+        border: none;
+        border-radius: 10px;
+        background-color: #FAD41B;
+
+        cursor: pointer;
+    }
+
+    button:hover{
+        //background-color: #ffe152;
+        transition: .8s;
+        box-shadow: 8px 8px 10px 0px #888888;
+    }
 `;

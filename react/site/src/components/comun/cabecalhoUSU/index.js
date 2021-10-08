@@ -1,6 +1,7 @@
 
 import {useState} from 'react';
 
+
 import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
 
@@ -15,12 +16,15 @@ export default function CabecalhoUSU(){
     return(
              <Container>
                 <div className="line-left">
+
                     <div className="box-logo">
                         <img src="/assets/images/logo.svg" alt="" />
                     </div>
-                  
-                    <div className="informacoes">
+
+                    <div className="informacoes"> 
+
                         <span className="Cont-inf"> Sobre </span>
+
                         <span className="Cont-inf"> Adotar </span>
                         <span className="Cont-inf"> Doar </span>
                         <span className="Cont-inf"> FAQ </span>
@@ -40,7 +44,9 @@ export default function CabecalhoUSU(){
                                 </div> 
                             
                             : 
+
                                 <Button>
+                                   
                                     <div className="icon-meuperfil">
                                         <img src="/assets/images/account_circle_white_24dp.svg" alt="" />
                                     </div>
@@ -49,6 +55,7 @@ export default function CabecalhoUSU(){
                                         Meu Perfil
                                     </span>
                                 </Button>
+
                         }
                     </span> 
 
