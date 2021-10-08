@@ -9,7 +9,10 @@ export default function Addpet(){
             <div className="container">
                 <div className="box">
                     <div className="box-esq">
-                        <div className="addimgs"> <img src="/assets/images/image71.svg" alt=""/> <img src="/assets/images/image71.svg" alt=""/> </div>
+                        <div className="imgs">
+                        <div className="quadrado"> <input type="image" src="/assets/images/image71.svg" alt="" width="48" height="48"/> </div> 
+                        <div> <img src="/assets/images/image71.svg" alt=""/> </div>
+                        </div>
                         <div className="inputs"> <input className="input1"  type="text" name="nome" value="Adicionar fotos"/> <input className="input1"  type="text" name="nome" value="Digite o Nome do Pet"/></div>
                         <div className="inputs"> <input className="input2" type="text" name="nome" value="Selecione o Sexo"/> <input className="input2"  type="text" name="nome" value="Nascimento"/> <input className="input2" type="text" name="nome" value="Selecione o Porte"/></div>
                         <div className="inputs"> <input className="input3" type="text" name="nome" value="Nascimento"/> <input className="input3"  type="text" name="nome" value="Espécie"/></div>

@@ -38,8 +38,16 @@ export const Container = styled.div`
     padding: 2em 2em 1.5em 2em;
 }
 
-.addimgs{
-    margin-right: 2em;
+.imgs{
+    display: flex;
+    flex-direction: row;
+    margin-right: 5px;
+}
+
+.quadrado{
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }
 
 .inputs{
