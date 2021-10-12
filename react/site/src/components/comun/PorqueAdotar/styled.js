@@ -29,7 +29,8 @@ export const Container = styled.div`
 
 
 
-        .Cont-box{
+        .Cont-box,
+        .Boxes-PqAdotar{
             display: flex;
             justify-content: space-between;
 
@@ -40,14 +41,34 @@ export const Container = styled.div`
 
         @media (max-width: 1000px){
 
-            .Cont-box{
+            .Cont-box,
+            .Boxes-PqAdotar{
+                width: 100%;
                 flex-direction: column;
                 align-items: center;
 
                 padding: 2.5vh;
                 /* justify-content: space-between; */
             }
+
+            .Boxes-PqAdotar{
+                display: none;
+            }
+
+            .Carrosel{
+                width: 100%;
+            }
    
+        }
+
+        @media (min-width: 1001px){
+            
+
+            .Carrosel{
+                display: none;
+            }
+
+
         }
 
      
@@ -102,7 +123,7 @@ export const BoxPorqueAdotar = styled.div`
             text-align: center;
 
             font-size: 1.1em;
-            color: ${ (props) => props.colortext };
+            color: #000;
             font-weight: 400;
 
         }
