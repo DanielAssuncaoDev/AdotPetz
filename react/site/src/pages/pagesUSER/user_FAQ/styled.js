@@ -11,29 +11,29 @@ export const Container = styled.div`
   .pergunta1 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta2 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta3 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta4 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
 
@@ -53,29 +53,29 @@ background-repeat: no-repeat;
   .pergunta1 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta2 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta3 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   
   .pergunta4 {
     padding: 10px;
     padding: 0px 25px 25px 25px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   
