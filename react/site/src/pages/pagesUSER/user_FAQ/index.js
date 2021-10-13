@@ -3,7 +3,7 @@ import { Container, Conteudo } from './styled';
 
 import CabecalhoADM from '../../../components/comun/cabecalhoUSU';
 
-import rodape from '../../../components/comun/rodape';
+import Rodape from '../../../components/comun/rodape';
 
 export default function FAQ(){
 
@@ -11,8 +11,6 @@ export default function FAQ(){
 
         <Container>
                 <CabecalhoADM />
-                
-
            
     <Conteudo> 
                                 
@@ -59,7 +57,7 @@ export default function FAQ(){
 
     </Conteudo>
 
-           <rodape />
+          <Rodape />
         </Container>
 
     );

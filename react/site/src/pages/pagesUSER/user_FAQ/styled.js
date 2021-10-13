@@ -1,21 +1,11 @@
 import styled from "styled-components";
-
-
-
-//import fundo from '../../../assets/images/fundoquemsomos.svg'
-
-import Imgfundo from "../../../assets/images/imagemfundo_home.svg"
-
-
+import Imgfundo from "../../../assets/images/imagem-faq.svg"
 
 export const Container = styled.div`
 .titulo {
     text-align: center;
     padding: 10px;
-    background-image: url(${Imgfundo});
-    background-size: auto 100%;
-
-    background-repeat: no-repeat;
+    
   }
   
   .pergunta1 {
@@ -51,9 +41,13 @@ export const Container = styled.div`
 
 export const Conteudo = styled.div`
 
+background-image: url(${Imgfundo});
+background-size: auto 190%;
+background-repeat: no-repeat;
+
 .titulo {
     text-align: center;
-    padding: 10px;
+    padding: 1;
   }
   
   .pergunta1 {
