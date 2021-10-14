@@ -7,8 +7,9 @@ import cors from 'cors'
     app.use(cors())
     app.use(express.json())
 
-
-
+// Meu pal na tua mão
+// Escrevi e sai correndo
+// Pal no cu de qm ta lendo
 
 
 app.listen(process.env.PORT,
