@@ -1,4 +1,4 @@
-// import db from './db.js'
+import db from './db.js'
 import express from 'express'
 import cors from 'cors'
 
@@ -7,13 +7,28 @@ import cors from 'cors'
     app.use(cors())
     app.use(express.json())
 
-// Meu pal na tua mão
-// Escrevi e sai correndo
-// Pal no cu de qm ta lendo
 
-// rbdjyyudybdcbutytrurbxcbtyrdxctudxtyedx5txtxtudxetudxdexxtexsteuxed rytufdryiddrdtru6d8u6d6 
-// tuf7ytrifruyfitryryiyirfddr9i
-// tyifd8y6rdtuyrdttrdtuedetruesdtduturydrutydr6utdurdruyt
+        app.post('/cadastrar', async(req, resp) => {
+
+            try {
+
+                let {nome, sobrenome, email, senha} = req.body
+
+                let r = await db.infob_apn_tb_user.create({
+                        NM_USER: nome,
+                        NM_SOBRENOME: sobrenome,
+                        DS_EMAIL: email,
+                        DS_SENHA: senha
+                })
+
+                resp.send(r)
+
+                
+            } catch (e) {
+                resp.send({erro: e.toString()})
+            }
+
+        })
 
 
 
