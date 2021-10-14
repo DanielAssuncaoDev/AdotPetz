@@ -1,6 +1,5 @@
 import {Container, Conteudo} from './styled'
 
-import {Line} from '../../../components/styled/line'
 
 export default function CadastrarUsu() {
 
