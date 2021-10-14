@@ -103,7 +103,7 @@ padding-top: 4px;
 
     margin-left: 3em;
     width: 70%;
-    height: 82.2vh;
+    height: 45.4em;
     overflow-y: scroll;
 }
 
