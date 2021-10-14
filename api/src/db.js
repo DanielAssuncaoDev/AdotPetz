@@ -3,9 +3,9 @@ import initdb from './models/init-models.js'
 import Sequelize from 'sequelize'
 
     const sequelize = new Sequelize(
-        'mysql_17753_nsf2021',
-        'nsf2021',
-        'nsf@2021',
+        'mysql_17753_nsftcc',
+        'nsftcc',
+        'nsf@tcc',
         {
             host: 'my01.winhost.com',
             dialect: 'mysql',
