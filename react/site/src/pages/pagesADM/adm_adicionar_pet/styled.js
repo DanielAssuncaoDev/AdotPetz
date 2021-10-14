@@ -118,9 +118,8 @@ export const Container = styled.div`
 }
 
 select{
-    width: 32%;
-    height: 25px;
-    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 400;
     background: #C4C4C4;
     border: none;
 }
@@ -164,12 +163,6 @@ input.input2{
 
 input.input3{
     width: 48.3%;
-    height: 25px;
-    margin-bottom: 5px;
-}
-
-input.input4{
-    width: 97.2%;
     height: 25px;
     margin-bottom: 5px;
 }

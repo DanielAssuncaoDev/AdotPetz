@@ -14,7 +14,7 @@ export default function Addpet(){
                         <div> <img className="addimg" src="/assets/images/image71.svg" alt=""/> </div>
                         </div>
                         <div className="inputs"> <input className="input1"  type="text" placeholder="Adicionar fotos"/> <input className="input1"  type="text" placeholder="Digite o Nome do Pet" /></div>
-                        <div className="inputs"> <select className="select2" name="select"> <option value="valor1">Selecione o Sexo</option> </select>  <input className="input2"  type="text" placeholder="Nascimento"/> <select className="select2" name="select"> <option value="valor1">Selecione o Porte</option> </select></div>
+                        <div className="inputs"> <select className="select2" name="select"> <option value="valor1">Selecione o Sexo</option> </select>  <input className="input2"  type="text" placeholder="Peso"/> <select className="select2" name="select"> <option value="valor1">Selecione o Porte</option> </select></div>
                         <div className="inputs"> <input className="input3" type="text" placeholder="Nascimento"/> <select className="select3" name="select"> <option value="valor1">Espécie</option> </select></div>
                         <div className="inputs"> <select className="select4" name="select"> <option value="valor1">Raça</option> </select></div>
                         <div className="texta"> Descrição do pet <textarea></textarea> </div>
