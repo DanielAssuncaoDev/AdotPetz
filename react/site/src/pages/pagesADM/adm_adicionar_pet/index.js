@@ -10,13 +10,13 @@ export default function Addpet(){
                 <div className="box">
                     <div className="box-esq">
                         <div className="imgs">
-                        <div className="quadrado"> <input type="image" src="/assets/images/image71.svg" alt="" width="48" height="48"/> </div> 
-                        <div> <img src="/assets/images/image71.svg" alt=""/> </div>
+                        <div className="quadrado"> <input type="image" src="/assets/images/addimg1.svg" alt="" width="20" height="20"/> </div> 
+                        <div> <img className="addimg" src="/assets/images/image71.svg" alt=""/> </div>
                         </div>
-                        <div className="inputs"> <input className="input1"  type="text" name="nome" value="Adicionar fotos"/> <input className="input1"  type="text" name="nome" value="Digite o Nome do Pet"/></div>
-                        <div className="inputs"> <input className="input2" type="text" name="nome" value="Selecione o Sexo"/> <input className="input2"  type="text" name="nome" value="Nascimento"/> <input className="input2" type="text" name="nome" value="Selecione o Porte"/></div>
-                        <div className="inputs"> <input className="input3" type="text" name="nome" value="Nascimento"/> <input className="input3"  type="text" name="nome" value="Espécie"/></div>
-                        <div className="inputs"> <input className="input4"  type="text" name="nome" value="Raça" /></div>
+                        <div className="inputs"> <input className="input1"  type="text" placeholder="Adicionar fotos"/> <input className="input1"  type="text" placeholder="Digite o Nome do Pet" /></div>
+                        <div className="inputs"> <select className="select2" name="select"> <option value="valor1">Selecione o Sexo</option> </select>  <input className="input2"  type="text" placeholder="Nascimento"/> <select className="select2" name="select"> <option value="valor1">Selecione o Porte</option> </select></div>
+                        <div className="inputs"> <input className="input3" type="text" placeholder="Nascimento"/> <select className="select3" name="select"> <option value="valor1">Espécie</option> </select></div>
+                        <div className="inputs"> <select className="select4" name="select"> <option value="valor1">Raça</option> </select></div>
                         <div className="texta"> Descrição do pet <textarea></textarea> </div>
                     </div>
                     <div className="box-dir">

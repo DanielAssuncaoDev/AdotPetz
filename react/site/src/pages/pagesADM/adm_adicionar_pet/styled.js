@@ -34,20 +34,24 @@ export const Container = styled.div`
     flex-direction: column;
     background: #FAD41BE5;
     width: 40vw;
-    height: 25.5em;
+    height: 26.24em;
     padding: 2em 2em 1.5em 2em;
 }
 
 .imgs{
     display: flex;
     flex-direction: row;
-    margin-right: 5px;
+    padding-bottom: 1em;
 }
 
 .quadrado{
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    background-color: #C4C4C4;
+    margin-right: 2em;
 }
 
 .inputs{
@@ -113,6 +117,31 @@ export const Container = styled.div`
     width: 79%;
 }
 
+select{
+    width: 32%;
+    height: 25px;
+    margin-bottom: 5px;
+    background: #C4C4C4;
+    border: none;
+}
+
+select.select2{
+    width: 32%;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+select.select3{
+    width: 48.3%;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+select.select4{
+    width: 97.2%;
+    height: 25px;
+    margin-bottom: 5px;
+}
 
 input{
     font-size: 12px;
@@ -174,6 +203,11 @@ label{
     font-size: 12px;
     font-weight: 400;
     margin-left: 5px;
+}
+
+img.addimg{
+    height: 115px;
+    width: 115px;
 }
 
 `
