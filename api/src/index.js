@@ -11,6 +11,12 @@ import cors from 'cors'
 // Escrevi e sai correndo
 // Pal no cu de qm ta lendo
 
+// rbdjyyudybdcbutytrurbxcbtyrdxctudxtyedx5txtxtudxetudxdexxtexsteuxed rytufdryiddrdtru6d8u6d6 
+// tuf7ytrifruyfitryryiyirfddr9i
+// tyifd8y6rdtuyrdttrdtuedetruesdtduturydrutydr6utdurdruyt
+
+
+
 
 app.listen(process.env.PORT,
                 x => console.log(`- Server up at Port:${process.env.PORT}`))
