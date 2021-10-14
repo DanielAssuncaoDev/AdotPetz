@@ -145,15 +145,6 @@ Caso de uso ADM
 
 ---
 
-### LISTAR FORMULARIO DO USUÁRIO
-
-**DESCRIÇÃO:** Deve ser listado o formulário referente a solicitação de adoção selecionada. deve retornar as informações do usuário e informações da solicitação, juntamente ao animal que o mesmo solicitou.
-
-**REGRAS:** 
-* Todas informações retornadas devem ser referente a solicitação de adoção selecionada.
-* O ADM pode apenas ver os dados retornados.
-
-**EVENTO:** Mouse Click.
 
 ## Caso de Uso Usuário 
 
