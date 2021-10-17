@@ -57,6 +57,22 @@ export const Container = styled.div`
 
             .Carrosel{
                 width: 100%;
+
+                    .slider li {
+                        text-align: -webkit-center;
+                    }
+
+                    .control-arrow {
+                        visibility: hidden;
+                    }
+
+                    .carousel-status{
+                        display: none;
+                    }
+
+                    .control-dots .dot {
+                        background-color: #26251d;
+                    }
             }
    
         }
@@ -133,7 +149,7 @@ export const BoxPorqueAdotar = styled.div`
             &{
                 width: 22em;
 
-                margin-bottom: 3vh;
+                margin-bottom: 6vh;
             }
 
         }
