@@ -153,7 +153,7 @@ Caso de uso ADM
 <br>
 
 
-### CADASTRAR-SE
+### CADASTRAR-SE -- Daniel
  
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario insira suas informações (E-mail, Senha, Nome) para criar um cadastro no site.
  
@@ -168,7 +168,7 @@ Caso de uso ADM
 
 ---
 
-### LOGIN
+### LOGIN -- Daniel
 
  **DESCRIÇÃO:** Essa funcionalidade permite que os usuario entre em sua conta.
 
@@ -181,7 +181,7 @@ Caso de uso ADM
 
 ---
 
-### PROCURAR ANIMAL
+### PROCURAR ANIMAL -- Daniel
 
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario procure animais com base nos filtros selecionados.
 
