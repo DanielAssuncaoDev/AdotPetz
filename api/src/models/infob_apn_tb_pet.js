@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class apn_tb_pet extends Model {
+export default class infob_apn_tb_pet extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     ID_PET: {
@@ -92,7 +92,7 @@ export default class apn_tb_pet extends Model {
     }
   }, {
     sequelize,
-    tableName: 'apn_tb_pet',
+    tableName: 'infob_apn_tb_pet',
     timestamps: false,
     indexes: [
       {
@@ -105,6 +105,6 @@ export default class apn_tb_pet extends Model {
       },
     ]
   });
-  return apn_tb_pet;
+  return infob_apn_tb_pet;
   }
 }

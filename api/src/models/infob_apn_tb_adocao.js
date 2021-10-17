@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class apn_tb_adocao extends Model {
+export default class infob_apn_tb_adocao extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     ID_ADOCAO: {
@@ -68,7 +68,7 @@ export default class apn_tb_adocao extends Model {
     }
   }, {
     sequelize,
-    tableName: 'apn_tb_adocao',
+    tableName: 'infob_apn_tb_adocao',
     timestamps: false,
     indexes: [
       {
@@ -95,6 +95,6 @@ export default class apn_tb_adocao extends Model {
       },
     ]
   });
-  return apn_tb_adocao;
+  return infob_apn_tb_adocao;
   }
 }

@@ -145,15 +145,6 @@ Caso de uso ADM
 
 ---
 
-### LISTAR FORMULARIO DO USUÁRIO
-
-**DESCRIÇÃO:** Deve ser listado o formulário referente a solicitação de adoção selecionada. deve retornar as informações do usuário e informações da solicitação, juntamente ao animal que o mesmo solicitou.
-
-**REGRAS:** 
-* Todas informações retornadas devem ser referente a solicitação de adoção selecionada.
-* O ADM pode apenas ver os dados retornados.
-
-**EVENTO:** Mouse Click.
 
 ## Caso de Uso Usuário 
 
@@ -162,7 +153,7 @@ Caso de uso ADM
 <br>
 
 
-### CADASTRAR-SE
+### CADASTRAR-SE -- Daniel
  
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario insira suas informações (E-mail, Senha, Nome) para criar um cadastro no site.
  
@@ -177,7 +168,7 @@ Caso de uso ADM
 
 ---
 
-### LOGIN
+### LOGIN -- Daniel
 
  **DESCRIÇÃO:** Essa funcionalidade permite que os usuario entre em sua conta.
 
@@ -190,7 +181,7 @@ Caso de uso ADM
 
 ---
 
-### PROCURAR ANIMAL
+### PROCURAR ANIMAL -- Daniel
 
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario procure animais com base nos filtros selecionados.
 
@@ -201,19 +192,6 @@ Caso de uso ADM
 
  **EVENTOS:** Mouse click
 
----
-
-
-### DETALHES PET
-
-**DESCRIÇÂO:** Esta funcionalidade deve retorar as informações do pet selecionado pelo usuário.
-
-**REGRA:**
-* Deve retornar apenas o pet selecionado.
-* Deve converter a data de nascimento para dias(Caso seja um periodo menor que um mês), mês ou anos e meses. 
-* Deve retornar todos os campos.
-
-**EVENTOS:** Mouse click
 
 
 ---
