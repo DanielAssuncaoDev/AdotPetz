@@ -11,7 +11,7 @@ Caso de uso ADM
 <br>
 
 
-### LOGIN ADM -- Erik
+### LOGIN ADM -- Will
 
 **DESCRIÇÃO**: Essa funcionalidade permite que os ADMs entrem em suas contas admistrativas.
 
@@ -38,6 +38,7 @@ Caso de uso ADM
     * (V8, V10) - Cães
     * (V5, V4, V3) - Gatos
     * (Antirrabica) - Ambos
+    * (Castrado) - Ambos
 
 * A descrição do animal deve ter no máximo 250 caracteres.
 * O campo **dt_cadastro** (tb_pet), deve ser preenchido automaticamente com a data e hora atual do cadastro do animal.
@@ -132,7 +133,7 @@ Caso de uso ADM
 ---
 
 
-### LISTAR ANIMAIS CADASTRADOS -- Will
+### LISTAR ANIMAIS CADASTRADOS -- Erik
 
 **DESCRIÇÂO:** Deve ser listado todos os animais cadastrados no sistema.
 
