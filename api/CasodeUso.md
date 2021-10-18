@@ -11,7 +11,7 @@ Caso de uso ADM
 <br>
 
 
-### LOGIN ADM
+### LOGIN ADM -- Erik
 
 **DESCRIÇÃO**: Essa funcionalidade permite que os ADMs entrem em suas contas admistrativas.
 
@@ -25,7 +25,7 @@ Caso de uso ADM
 <br>
 
 
-### ADICIONAR CADASTRO DO PET
+### ADICIONAR CADASTRO DO PET -- Will
 
 
 **DESCRIÇÃO:** Esta funcionalidade permite que o ADM do site cadastre um animal para ser adotado. Nesse cadastro irão ter as informações do animal (idade, porte, personalidade, fotos, sexo e saúde).
@@ -51,7 +51,7 @@ Caso de uso ADM
 
 <br>
 
-### EXCLUIR PET
+### EXCLUIR PET -- Erik
 
  **DESCRIÇÃO:** Essa funcionalidade permite que o ADM exclua o cadastro do animal desejado.
 
@@ -66,7 +66,7 @@ Caso de uso ADM
 
 ---
 
-### EDITAR PET
+### EDITAR PET -- Pedro
 
  **DESCRIÇÃO:** Essa funcionalide permite que o ADM altere as informações de cadastro do animal.
 
@@ -91,7 +91,7 @@ Caso de uso ADM
 
 ---
 
- ### SITUAÇÃO DE ADOÇÃO
+ ### ALTERAR SITUAÇÃO DE ADOÇÃO -- Lele
 
  **DESCRIÇÃO:**  Esta funcionalidade permite que o ADM aceite ou rejeite a solicitação de adoção do usuário.
 
@@ -113,7 +113,7 @@ Caso de uso ADM
 
 ---
 
-### LISTAR SOLICITAÇÕES DE ADOÇÃO
+### LISTAR SOLICITAÇÕES DE ADOÇÃO -- Lele
 
 **DESCRIÇÃO:** Deve ser listados todas as solicitações de adoção para o ADM.
 
@@ -132,7 +132,7 @@ Caso de uso ADM
 ---
 
 
-### LISTAR ANIMAIS CADASTRADOS
+### LISTAR ANIMAIS CADASTRADOS -- Will
 
 **DESCRIÇÂO:** Deve ser listado todos os animais cadastrados no sistema.
 
@@ -197,7 +197,7 @@ Caso de uso ADM
 ---
 
 
-### SOLICITAR ADOÇÃO
+### SOLICITAR ADOÇÃO -- Pedro
 
  **DESCRIÇÂO:** Esta funcionalidade permite que o usuario solicite a adoção do animal
 
@@ -212,7 +212,7 @@ Caso de uso ADM
 
 ---
 
-### LISTAR ANIMAIS SOLICITADOS
+### LISTAR ANIMAIS SOLICITADOS -- Chris
 
 **DESCRIÇÃO:** Esta funcionalidade lista todas as solicitações de adoção do usuário.
 
@@ -224,7 +224,7 @@ Caso de uso ADM
 
 ---
 
-### CANCELAR PEDIDO DE ADOÇÃO
+### CANCELAR PEDIDO DE ADOÇÃO -- Chris
 
 
  **DESCRIÇÂO:** Esta funcionalidade permite que o usuario cancele a solicitação de adoção do animal.
