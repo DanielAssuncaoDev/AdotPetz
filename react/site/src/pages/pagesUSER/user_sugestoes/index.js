@@ -9,7 +9,7 @@ import Fx1 from './buscar.js'
 import Roda from '../../../components/comun/rodape'
 
 
-export default function Sujestoes(){
+export default function Sugestoes(){
     return(
          <Container> 
              <CabecalhoUSU />
