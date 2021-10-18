@@ -1,26 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class apn_tb_adm extends Model {
+export default class infob_apn_tb_user extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    ID_ADM: {
+    ID_USER: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    DS_COD: {
+    NM_USER: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    NM_SOBRENOME: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    DS_EMAIL: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
     DS_SENHA: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(32),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'apn_tb_adm',
+    tableName: 'infob_apn_tb_user',
     timestamps: false,
     indexes: [
       {
@@ -28,11 +36,11 @@ export default class apn_tb_adm extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "ID_ADM" },
+          { name: "ID_USER" },
         ]
       },
     ]
   });
-  return apn_tb_adm;
+  return infob_apn_tb_user;
   }
 }
