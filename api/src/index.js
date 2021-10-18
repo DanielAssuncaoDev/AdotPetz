@@ -111,7 +111,20 @@ import cors from 'cors'
         })
 
 
+    app.delete('/pet/:idPet', async (req, resp) => {
+        try {
+            let { idPet } = req.params;
 
+            console.log(req.params)
+
+            await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
+
+            resp.sendStatus(200)
+        }catch (e) {
+            resp.send({erro: e.toString()})
+        }
+
+    })
 
         
 
