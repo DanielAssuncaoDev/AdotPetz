@@ -11,7 +11,7 @@ Caso de uso ADM
 <br>
 
 
-### LOGIN ADM -- Erik
+### LOGIN ADM -- Will
 
 **DESCRIÇÃO**: Essa funcionalidade permite que os ADMs entrem em suas contas admistrativas.
 
@@ -132,7 +132,7 @@ Caso de uso ADM
 ---
 
 
-### LISTAR ANIMAIS CADASTRADOS -- Will
+### LISTAR ANIMAIS CADASTRADOS -- Erik
 
 **DESCRIÇÂO:** Deve ser listado todos os animais cadastrados no sistema.
 
