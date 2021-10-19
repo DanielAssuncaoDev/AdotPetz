@@ -33,7 +33,7 @@ Caso de uso ADM
 **REGRAS:**
 
 * O cadastro do animal deverá ter no máximo três fotos do mesmo.
-*  Nenhum campo pode deixar de ser preenchido.
+*  Nenhum campo pode deixar de ser preench1ido.
 * As vacinas devem estar de acordo com a espécie. 
     * (V8, V10) - Cães
     * (V5, V4, V3) - Gatos

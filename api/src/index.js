@@ -137,8 +137,9 @@ import cors from 'cors'
                     BT_DISPONIVEL: disponivel
                 })
 
+                let a = NM_RAC
                 resp.send(r)
-                
+
             } catch (e) {
                 resp.send({erro: e.toString()})
             }
