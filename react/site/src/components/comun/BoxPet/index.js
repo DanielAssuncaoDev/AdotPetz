@@ -1,4 +1,5 @@
 import { BoxPet } from "../BoxPet/styled"
+//import anima from 'animate.css';
 
 export default function BoxPETZ(prosp){
     return(

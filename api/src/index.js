@@ -145,9 +145,39 @@ import cors from 'cors'
             }
         })
 
+    app.delete('/pet/:idPet', async (req, resp) => {
+        try {
+            let { idPet } = req.params;
 
+            console.log(req.params)
 
+            await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
         
+
+        app.get('/minhasAdocoes/:idUsuario', async(req, resp) => {
+            try{
+                let r = await db.infob_apn_tb_adocao.findAll({
+                    where: {
+                        ID_USER: req.params.idUsuario
+                    },
+                    include: ['infob_apn_tb_pet'],
+                }); 
+                resp.send(r);
+            }catch(e){
+                resp.send({erro: e.toString})
+            }
+        })
+
+        app.delete('/minhasAdocoes/:idAdocao', async(req, resp) =>{
+            try{
+                let id = req.params.idAdocao;
+
+                let r = await db.infob_apn_tb_adocao.destroy({where: {ID_ADOCAO: id} })
+               resp.sendStatus(200)
+        }catch (e) {
+            resp.send({erro: e.toString()})
+        } 
+    })
 
 
 app.listen(process.env.PORT,
