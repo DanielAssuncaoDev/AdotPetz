@@ -157,7 +157,6 @@ import cors from 'cors'
       })
 
         
-      
         app.get('/minhasAdocoes/:idUsuario', async(req, resp) => {
             try{
             let r = await db.infob_apn_tb_adocao.findAll({
