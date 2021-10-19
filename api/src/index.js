@@ -152,7 +152,6 @@ import cors from 'cors'
 
             await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
 
-<<<<<<< HEAD
         app.get('/minhasAdocoes/:idUsuario', async(req, resp) => {
             try{
                 let r = await db.infob_apn_tb_adocao.findAll({
@@ -170,14 +169,14 @@ import cors from 'cors'
         app.delete('/minhasAdocoes/:idAdocao', async(req, resp) =>{
             try{
                 let id = req.params.idAdocao;
-=======
+
             resp.sendStatus(200)
         }catch (e) {
             resp.send({erro: e.toString()})
         }
 
     })
->>>>>>> 0e856a5dce29b10afd2b0e933f1798de9ade8552
+
 
                 let r = await db.infob_apn_tb_adocao.destroy({
                     where: {
