@@ -16,11 +16,11 @@ return (
 <div className="inputs"> 
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Email:" />
 </div>
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Senha:" />
 </div>
 
 </div>
