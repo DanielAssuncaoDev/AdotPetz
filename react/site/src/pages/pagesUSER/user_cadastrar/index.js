@@ -15,6 +15,8 @@ export default function CadastrarUsu() {
 
     <div className="title"> Para conseguir ver mais informações do pet, por favor, cadastre-se no nosso site! </div>
 
+<div className="Form"> 
+
 <div className="cadastrar"> CADASTRE-SE </div>
 
 <div className="inputs"> 
@@ -48,6 +50,8 @@ export default function CadastrarUsu() {
 
 
    <div className="cachorro"> <img src="../assets/images/image 1 (2).svg" alt=""/> </div> 
+
+   </div>
 </Conteudo>
 
     </Container>
