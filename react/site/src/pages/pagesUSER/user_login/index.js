@@ -16,11 +16,11 @@ return (
 <div className="inputs"> 
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Email:" />
 </div>
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Senha:" />
 </div>
 
 </div>
@@ -28,7 +28,7 @@ return (
 <div className="buton"><button> ENTRAR </button> </div>
 
     
-   <div className="cachorro"> <img src="../assets/images/image 1 (1).svg" alt=""/> </div> 
+   <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 
 </Conteudo>
 
     </Container>

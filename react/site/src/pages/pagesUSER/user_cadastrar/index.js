@@ -20,16 +20,16 @@ export default function CadastrarUsu() {
 <div className="inputs"> 
 
 <div className="inpe"> 
-<input type="text" />
-<input type="text" />
+<input type="text" placeholder="Email:" />
+<input type="text" placeholder="Email:" />
 </div>
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Email:" />
 </div>
 
 <div className="box-input"> 
-<input type="text" />
+<input type="text" placeholder="Email:" />
 </div>
 
 </div>
