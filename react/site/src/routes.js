@@ -20,7 +20,7 @@ import Login from './pages/pagesUSER/user_login'
 
 import SolicitacaoAdocao from './pages/pagesADM/adm_solicitacoes_adocoes/index'
 import AddPet from './pages/pagesADM/adm_adicionar_pet'
-// import AnimaisCadastrados from './pages/pagesADM/adm_animais_cadastrados'
+import AnimaisCadastrados from './pages/pagesADM/adm_animais_cadastrados'
 import FormAdocaoADM from './pages/pagesADM/adm_form_adocao'
 
 import HomeADM from './pages/pagesADM/adm_home'
@@ -55,7 +55,7 @@ export default function Rotas() {
 
                 <Route path="/admin/solicitacoes" exact={true} component={SolicitacaoAdocao} />
                 <Route path="/admin/addpet" exact={true} component={AddPet} />
-                {/* <Route path="/admin/animaiscadastrados" exact={true} component={AnimaisCadastrados} /> */}
+                <Route path="/admin/animaiscadastrados" exact={true} component={AnimaisCadastrados} />
                 <Route path="/admin/formadocao" exact={true} component={FormAdocaoADM} />
                  <Route path="/admin/home" exact={true} component={HomeADM} /> 
                 <Route path="/admin/login" exact={true} component={LoginADM} />
