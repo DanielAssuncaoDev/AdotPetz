@@ -16,7 +16,7 @@ margin: 0em 4em 2.2em 1em;
 background-color: #e0e0e0;
 border-radius: 8px;
 
-box-shadow: 0px 0px 16px 6px #888888;
+box-shadow: 0px 0px 20px 4px #888888;
 
 //.conteudo-pet:hover{
    // display: flex;
@@ -118,5 +118,21 @@ box-shadow: 0px 0px 16px 6px #888888;
         //background-color: #ffe152;
         transition: .8s;
         box-shadow: 8px 8px 10px 0px #888888;
+    }
+
+    @media (max-width: 800px){
+       width: 40%;
+
+       margin: 15px 5px;
+
+       box-shadow: none;
+    }
+    @media (max-width: 375px){
+     width: 47%;
+
+        button{
+        padding: .6em .6em;
+        margin: 1em 0em;
+        }
     }
 `;

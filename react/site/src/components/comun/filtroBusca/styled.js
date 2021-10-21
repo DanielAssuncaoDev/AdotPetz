@@ -133,6 +133,7 @@ const BoxFiltro = styled.div`
     }
 
     @media (max-width: 700px){
+        padding: 1em;
 
         &{      
             width: 100%;
