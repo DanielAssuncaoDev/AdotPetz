@@ -207,3 +207,10 @@ import cors from 'cors'
 
 app.listen(process.env.PORT,
                 x => console.log(`- Server up at Port:${process.env.PORT}`))
+
+
+
+
+
+                // $ git config --global user.name "erikal21"
+                // $ git config --global user.email erik.alexandre@0912.com
