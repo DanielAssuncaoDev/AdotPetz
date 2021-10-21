@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const Line = styled.div`
-width: 1vh;
-`
+
 export const Container = styled.div`
 display: flex;
 padding: 1vh;
@@ -10,21 +8,22 @@ overflow: hidden;
 
 flex-direction: column;
 align-items: center;
-background-color: #FAF8EB;
-
-height: 100vh;
-
 
 `
 export const Conteudo = styled.div`
 display: flex;
 flex-direction: column;
+
 align-items: center;
+background-color: #FAF8EB;
+width: 100vh; 
+height: 98vh;
+
 
 .title {
-  /* padding: 0em 5em 0em 5em; */
+
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 60px;
   width: 85%;
 
   font: 3vh Montserrat;
@@ -32,7 +31,7 @@ align-items: center;
 }
 .existente {
   color: #fad41b;
-  font: 3.3vh Montserrat;
+  font: 4vh Montserrat;
   font-weight: 700;
 
   margin-top: 00px;
@@ -41,7 +40,7 @@ align-items: center;
 }
 
 .inputs {
-  width: 70%;
+  width: 65%;
   font: 3.3vh Montserrat;
   font-weight: 600;
 }
@@ -50,8 +49,7 @@ align-items: center;
   border-radius: 1.5vh;
   background-color: #8e8e8e33;
 
-  
-  width: 100%;
+  width: 100%; 
   height: 100%;
 }
 
@@ -82,10 +80,11 @@ align-items: center;
 
 .cachorro img {
   width: 100%;
-  height: 140%;
+  height: 170%;
 }
 .cachorro {
   margin-top: 1%;
+  /* margin-right: 5em; */
 }
 
 `

@@ -28,7 +28,7 @@ return (
 <div className="buton"><button> ENTRAR </button> </div>
 
     
-   <div className="cachorro"> <img src="../assets/images/image 1 (1).svg" alt=""/> </div> 
+   <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 
 </Conteudo>
 
     </Container>
