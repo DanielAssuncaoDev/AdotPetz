@@ -42,7 +42,7 @@ Caso de uso ADM
 
 * A descrição do animal deve ter no máximo 250 caracteres.
 * O campo **dt_cadastro** (tb_pet), deve ser preenchido automaticamente com a data e hora atual do cadastro do animal.
-* O campo **bl_disponivel**(tb_pet), deve iniciar como **true**
+* O campo **bt_disponivel**(tb_pet), deve iniciar como **true**
 
 <br>
 
