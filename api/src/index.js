@@ -144,15 +144,13 @@ import cors from 'cors'
             }
         })
 
-      app.delete('/pet/:idPet', async (req, resp) => {
+    app.delete('/pet/:idPet', async (req, resp) => {
         try {
             let { idPet } = req.params;
 
             console.log(req.params)
 
             await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
-<<<<<<< HEAD
-
             resp.sendStatus(200)
         }catch (e) {
             resp.send({erro: e.toString()})
@@ -200,43 +198,11 @@ import cors from 'cors'
             
             
         } catch (error) {
-=======
-            resp.sendStatus(200)
-            } catch(e){ resp.send({erro: e.toString})}
-            
-      })
-
-        
-        app.get('/minhasAdocoes/:idUsuario', async(req, resp) => {
-            try{
-            let r = await db.infob_apn_tb_adocao.findAll({
-                where: { ID_USER: req.params.idUsuario },
-                include: ['infob_apn_tb_pet'],
-            });     
-            resp.send(r);
-            }catch(e){ resp.send({erro: e.toString})}
-        })
-
-        app.delete('/minhasAdocoes/:idAdocao', async(req, resp) =>{
-        try{
-            let id = req.params.idAdocao;
-            let r = await db.infob_apn_tb_adocao.destroy({where: {ID_ADOCAO: id} })
-            resp.sendStatus(200)
-        }catch (e) { 
->>>>>>> f0e181f43afa46b37873d14247533d10324402e2
             resp.send({erro: e.toString()})
         }
 
     })
 
 
-
 app.listen(process.env.PORT,
                 x => console.log(`- Server up at Port:${process.env.PORT}`))
-
-
-
-
-
-                // $ git config --global user.name "erikal21"
-                // $ git config --global user.email erik.alexandre@0912.com
