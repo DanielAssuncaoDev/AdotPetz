@@ -144,13 +144,13 @@ import cors from 'cors'
             }
         })
 
-    app.delete('/pet/:idPet', async (req, resp) => {
-        try {
-            let { idPet } = req.params;
+    // app.delete('/pet/:idPet', async (req, resp) => {
+    //     try {
+    //         let { idPet } = req.params;
 
-            console.log(req.params)
+    //         console.log(req.params)
 
-            await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
+    //         await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
         
 
         app.get('/minhasAdocoes/:idUsuario', async(req, resp) => {
