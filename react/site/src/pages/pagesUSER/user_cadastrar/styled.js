@@ -27,7 +27,7 @@ padding: 2em;
   /* position: absolute; */
   top: 2em;
   width: 85%;
-
+  position: absolute;
   font: 1.1em Montserrat;
   font-weight: 600;
   text-align: center;
