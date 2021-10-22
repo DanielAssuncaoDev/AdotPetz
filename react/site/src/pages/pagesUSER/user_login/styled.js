@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 display: flex;
-padding: 1vh;
+/* padding: 1vh; */
 overflow: hidden;
 
 flex-direction: column;
@@ -13,36 +13,59 @@ align-items: center;
 export const Conteudo = styled.div`
 display: flex;
 flex-direction: column;
+justify-content: center;
 
 align-items: center;
 background-color: #FAF8EB;
-width: 100vh; 
-height: 98vh;
+width: 100vw; 
+height: 100vh;
+padding: 2em;
+
 
 
 .title {
 
-  margin-bottom: 20px;
-  margin-top: 60px;
+  /* margin-bottom: 20px; */
+  /* margin-top: 60px; */
+  position: absolute;
+  top: 2em;
   width: 85%;
 
-  font: 3vh Montserrat;
+  font: 1.1em Montserrat;
   font-weight: 600;
+  text-align: center;
 }
+
+.Form{
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.2);
+  transition-property: all;
+  transition-duration: .4s;
+
+    /* &:hover{
+      box-shadow: 0px 0px 18px 8px rgba(0, 0, 0, 0.2);
+
+    } */
+}
+
 .existente {
   color: #fad41b;
   font: 4vh Montserrat;
   font-weight: 700;
 
-  margin-top: 00px;
-  margin-bottom: 23px;
-
+  margin: 50px;
 }
 
 .inputs {
-  width: 65%;
+  width: 88%;
   font: 3.3vh Montserrat;
   font-weight: 600;
+  margin-top: 45px
 }
 .box-input input {
   border: none;
@@ -54,7 +77,7 @@ height: 98vh;
 }
 
 .box-input{
-  height: 4.8vh;
+  height: 50px;
   margin-bottom: 2vh;
   width: 100%;
 }
@@ -65,12 +88,12 @@ height: 98vh;
   background-color: #fad41b;
 
   color: #ffffff;
-  width: 83%;
-  height: 5vh;
+  width: 88%;
+  height: 50px;
   
 }
 .buton {
-  width: 83%;
+  width: 100%;
   display: flex;
   justify-content: center;
 
@@ -80,11 +103,16 @@ height: 98vh;
 
 .cachorro img {
   width: 100%;
-  height: 170%;
+  height: auto;
 }
 .cachorro {
-  margin-top: 1%;
-  /* margin-right: 5em; */
+  margin-top: 3em;
+  width: 100%;
+
+  position: relative;
+    left: -0.5%;
+    bottom: -4px;
+    width: 100.9%;
 }
 
 `

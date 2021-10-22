@@ -52,7 +52,11 @@ Caso de uso ADM
 
 <br>
 
+<<<<<<< HEAD
+### EXCLUIR PET -- Erik 
+=======
 ### EXCLUIR PET -- Erik okk
+>>>>>>> f0e181f43afa46b37873d14247533d10324402e2
 
  **DESCRIÇÃO:** Essa funcionalidade permite que o ADM exclua o cadastro do animal desejado.
 
