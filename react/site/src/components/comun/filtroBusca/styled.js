@@ -144,6 +144,8 @@ const BoxFiltro = styled.div`
 
     }
 
+    /* @media (max-width: 200px){padding: 1em } */
+
 
 `;
 

@@ -128,7 +128,7 @@ box-shadow: 0px 0px 20px 4px #888888;
        box-shadow: none;
     }
     @media (max-width: 375px){
-     width: 47%;
+     width: 470%;
 
         button{
         padding: .6em .6em;
