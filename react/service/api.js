@@ -21,5 +21,16 @@ import Axios from 'axios'
                 return r.data
             }
 
+            async listarAnimaisCadastrados(filtro){
+                let r = await api.get('/admin/animaisCadastrados', filtro )
+                return r.data
+            }
+
+            async remover(id) {
+                let r = await api.delete('/pet/:idPet/${id}')
+                return r.data
+            }
+
+
 
         }
