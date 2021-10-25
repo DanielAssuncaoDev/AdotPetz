@@ -29,7 +29,7 @@ import cors from 'cors'
             }
         })
 
-        app.get('/login', async(req, resp) => {
+        app.post('/login', async(req, resp) => {
             try {
                 
                 let {email, senha} = req.body
