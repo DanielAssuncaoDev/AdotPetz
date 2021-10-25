@@ -27,7 +27,7 @@ import Axios from 'axios'
             }
 
             async remover(id) {
-                let r = await api.delete('/pet/:idPet/${id}')
+                let r = await api.delete('/pet/:idPet}')
                 return r.data
             }
 
