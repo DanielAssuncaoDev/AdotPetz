@@ -30,7 +30,10 @@ import Axios from 'axios'
                 let r = await api.delete(`/pet/:idPet/${id}`)
                 return r.data
             }
-
-
+            
+            async listarMinhasAdocoes() {
+                let r = await api.get('/minhasAdocoes/:idUsuario');
+                return r.data;
+            }
 
         }
