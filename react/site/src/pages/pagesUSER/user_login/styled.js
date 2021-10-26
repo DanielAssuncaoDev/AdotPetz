@@ -149,7 +149,7 @@ padding: 1em;
           height: 40px;
 
           input {
-            font-size: .5em;         
+            font-size: .9em;         
             margin-bottom: .5em;
 
           }
