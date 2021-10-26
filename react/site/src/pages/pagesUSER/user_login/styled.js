@@ -130,10 +130,11 @@ padding: 1em;
       
         } */
         /* align-items: flex-start; */
+        display: block;
 
         .title{
           font-size: .9em;
-
+          width: auto;
         }
 
         .existente{
@@ -141,18 +142,26 @@ padding: 1em;
           margin: 1em 0 0 1em;
         }
 
-        .buton button{
+        .buton{
+          margin-bottom: 1em;
+
+         button{
           font-size: .75em;
           height: 40px
         }
         .box-input{
           height: 40px;
 
+          input::placeholder { 
+            font-size: .85em;
+          }
+
           input {
-            font-size: .9em;         
+            font-size: .55em;      
             margin-bottom: .5em;
 
           }
+        }
 
       }
 
