@@ -22,8 +22,8 @@ export default function CadastrarUsu() {
 <div className="inputs"> 
 
 <div className="inpe"> 
-<input type="text" placeholder="Email:" />
-<input type="text" placeholder="Email:" />
+<input type="text" placeholder="Nome:" />
+<input type="text" placeholder="Sobrenome:" />
 </div>
 
 <div className="box-input"> 
@@ -31,7 +31,7 @@ export default function CadastrarUsu() {
 </div>
 
 <div className="box-input"> 
-<input type="text" placeholder="Email:" />
+<input type="text" placeholder="Senha:" />
 </div>
 
 </div>
