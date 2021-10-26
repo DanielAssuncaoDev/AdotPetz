@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 display: flex;
 /* padding: 1vh; */
-overflow: hidden;
+/* overflow: hidden; */
 
 flex-direction: column;
 align-items: center;
@@ -18,8 +18,9 @@ justify-content: center;
 align-items: center;
 background-color: #FAF8EB;
 width: 100vw; 
-height: 100vh;
-padding: 2em;
+height: auto;
+min-height: 100vh;
+padding: 1em;
 
 
 
@@ -27,8 +28,9 @@ padding: 2em;
 
   /* margin-bottom: 20px; */
   /* margin-top: 60px; */
-  position: absolute;
-  top: 2em;
+  position: relative;
+  /* top: 2em; */
+  margin-bottom: 3em;
   width: 85%;
 
   font: 1.1em Montserrat;
@@ -37,7 +39,8 @@ padding: 2em;
 }
 
 .Form{
-  width: 700px;
+  width: 100%;
+  max-width: 636px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,17 +58,19 @@ padding: 2em;
 
 .existente {
   color: #fad41b;
-  font: 4vh Montserrat;
+  font-size: 2.5em ;
   font-weight: 700;
 
-  margin: 50px;
+  margin: 40px 0 0 40px;
 }
 
 .inputs {
   width: 88%;
   font: 3.3vh Montserrat;
   font-weight: 600;
+
   margin-top: 45px
+  
 }
 .box-input input {
   border: none;
@@ -74,12 +79,15 @@ padding: 2em;
 
   width: 100%; 
   height: 100%;
+  padding-left: 10px;
+  
 }
 
 .box-input{
   height: 50px;
   margin-bottom: 2vh;
   width: 100%;
+  
 }
 
 .buton button {
@@ -113,7 +121,42 @@ padding: 2em;
     left: -0.5%;
     bottom: -4px;
     width: 100.9%;
-}
+    
+  }
+      @media(max-width: 600px){
+
+      /* .cachorro img {
+        width: 10vw;
+      
+        } */
+        /* align-items: flex-start; */
+
+        .title{
+          font-size: .9em;
+
+        }
+
+        .existente{
+          font-size: 1.5em;
+          margin: 1em 0 0 1em;
+        }
+
+        .buton button{
+          font-size: .75em;
+          height: 40px
+        }
+        .box-input{
+          height: 40px;
+
+          input {
+            font-size: .9em;         
+            margin-bottom: .5em;
+
+          }
+
+      }
+
+    }
 
 `
 
