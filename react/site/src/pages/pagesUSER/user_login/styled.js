@@ -132,7 +132,8 @@ padding: 1em;
         /* align-items: flex-start; */
 
         .title{
-          font-size: .75em;
+          font-size: .9em;
+
         }
 
         .existente{
