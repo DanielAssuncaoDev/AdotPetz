@@ -151,7 +151,7 @@ import e from 'express'
                     && porte === '' && descricao === '' && imgPet1 === '' && imgPet2 === '' && imgPet3 === '' === false){
                     resp.send({erro: "Preencha todos os campos obrigatórios"})
                     return
-                } if()
+                }
                 
 
                 resp.send(r)
@@ -160,6 +160,7 @@ import e from 'express'
                 resp.send({erro: e.toString()})
             }
         })
+        
 
     app.delete('/pet/:idPet', async (req, resp) => {
         try {
@@ -201,7 +202,7 @@ import e from 'express'
     } 
 })
 
-    app.get('/admin/animaisCadastrados', async(req, resp) => {
+    app.get('c', async(req, resp) => {
 
         try {
             let r = await db.infob_apn_tb_pet.findAll({

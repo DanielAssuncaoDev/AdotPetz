@@ -7,10 +7,11 @@ export default function Addpet(){
         <Container>
             <Cabecalho/>
             <div className="container">
+            <div className="bts"> <button className="vltr"> <img className="vlt" src="/assets/images/icon_voltar.svg" alt=""/> </button> </div>
                 <div className="box">
                     <div className="box-esq">
                         <div className="imgs">
-                        <div className="quadrado"> <input type="image" src="/assets/images/addimg1.svg" alt="" width="20" height="20"/> </div> 
+                        <div className="quadrado"> <input type="image" src="/assets/images/addimg1.svg" alt="" width="20" height="20"/>  </div> 
                         <div> <img className="addimg" src="/assets/images/image71.svg" alt=""/> </div>
                         </div>
                         <div className="inputs"> <input className="input1"  type="text" placeholder="Adicionar fotos"/> <input className="input1"  type="text" placeholder="Digite o Nome do Pet" /></div>
