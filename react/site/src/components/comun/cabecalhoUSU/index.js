@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
-
+import {Link} from 'react-router-dom' 
 import Menu from '../Menu/index'
 
 // {}
@@ -22,9 +22,7 @@ export default function CabecalhoUSU(){
                     </div>
 
                     <div className="informacoes"> 
-
-                        <span className="Cont-inf"> Sobre </span>
-
+                        <span className="Cont-inf"> Sobre  </span>
                         <span className="Cont-inf"> Adotar </span>
                         <span className="Cont-inf"> Doar </span>
                         <span className="Cont-inf"> FAQ </span>

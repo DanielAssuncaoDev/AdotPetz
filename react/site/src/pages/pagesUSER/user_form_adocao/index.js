@@ -9,22 +9,6 @@ import Mensagem from '../../../components/popups/MensagemForm/index'
 import { useState } from 'react';
 
 export default function Sujestoes(){
-
-    // function Prosseguir() {
-    //     confirmAlert({
-    //         title: 'Adoção em processo',
-    //         message: `Muito obrigada por confirmar seu interesse em adotar o petzinho, o seu pedido de adoção será analisado pela equipe administrativa da ONG Adot Petz. Por favor, aguarde nossa equipe entrar em contato com você para mais detalhes.`,
-    //         buttons: [
-    //             {
-    //                 label: 'Sim',
-    //             },
-    //             {
-    //                 label: 'Não'
-    //             }
-    //         ]
-    //     });
-    // }
-
     const [popUp, setPopUp] = useState(false)
 
     

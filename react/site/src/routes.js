@@ -14,7 +14,7 @@ import DicasCuidados from './pages/pagesUSER/user_dicascuidados'
 import FAQ from './pages/pagesUSER/user_FAQ'
 import FormAdocao from './pages/pagesUSER/user_form_adocao'
 import Login from './pages/pagesUSER/user_login'
-// import Pet from './pages/pagesUSER/user_pet'
+import Pet from './pages/pagesUSER/user_pet'
  import QSN from './pages/pagesUSER/user_QSN'
  import MinhaConta from './pages/pagesUSER/user_telausuario'
 
@@ -49,7 +49,7 @@ export default function Rotas() {
                 <Route path="/faq" exact={true} component={FAQ} />
                 <Route path="/formadocao" exact={true} component={FormAdocao} />
                 <Route path="/login" exact={true} component={Login} />
-                {/* <Route path="/pet" exact={true} component={Pet} /> */}
+                <Route path="/pet" exact={true} component={Pet} /> 
                  <Route path="/quemsomosnos" exact={true} component={QSN} /> 
                  <Route path="/minhaconta" exact={true} component={MinhaConta} /> 
 
