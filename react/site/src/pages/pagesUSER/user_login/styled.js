@@ -47,10 +47,10 @@ padding: 2em;
   transition-property: all;
   transition-duration: .4s;
 
-    &:hover{
+    /* &:hover{
       box-shadow: 0px 0px 18px 8px rgba(0, 0, 0, 0.2);
 
-    }
+    } */
 }
 
 .existente {
@@ -108,7 +108,6 @@ padding: 2em;
 .cachorro {
   margin-top: 3em;
   width: 100%;
-  /* margin-right: 5em; */
 
   position: relative;
     left: -0.5%;
