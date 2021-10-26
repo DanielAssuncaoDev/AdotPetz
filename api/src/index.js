@@ -30,7 +30,7 @@ import e from 'express'
             }
         })
 
-        app.get('/login', async(req, resp) => {
+        app.post('/login', async(req, resp) => {
             try {
                 
                 let {email, senha} = req.body

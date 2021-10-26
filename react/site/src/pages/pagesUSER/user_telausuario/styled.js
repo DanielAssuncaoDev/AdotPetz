@@ -15,7 +15,6 @@ padding :2em 2em 0em 2em;
 }
 
 
-
 .conteudo-esq{
    height: 56vh;
 }
@@ -160,11 +159,28 @@ padding-top: 4px;
     min-width: 5px;
 }
 
-@media (max-width: 400px){
+@media (max-width: 600px){
         .conteudo{
-            padding: 0px !important;
+            padding: .8em ;
             width: auto;
-        }           
+
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .rodape{ display: none;}
+
+        .direita{ 
+            overflow-y: initial;
+            width: 100%;
+            margin: 10px 0px 0px 0px;
+
+         }
+
+         .meio-di{
+            padding: 1em;
+
+         }
 }
 
 `

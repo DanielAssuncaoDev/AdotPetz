@@ -55,7 +55,7 @@ padding: 2em;
 
 .existente {
   color: #fad41b;
-  font: 4vh Montserrat;
+  font: 2.5em Montserrat;
   font-weight: 700;
 
   margin: 50px;
@@ -65,7 +65,9 @@ padding: 2em;
   width: 88%;
   font: 3.3vh Montserrat;
   font-weight: 600;
+
   margin-top: 45px
+  
 }
 .box-input input {
   border: none;
@@ -74,12 +76,15 @@ padding: 2em;
 
   width: 100%; 
   height: 100%;
+  padding-left: 10px;
+  
 }
 
 .box-input{
   height: 50px;
   margin-bottom: 2vh;
   width: 100%;
+  
 }
 
 .buton button {
@@ -113,8 +118,13 @@ padding: 2em;
     left: -0.5%;
     bottom: -4px;
     width: 100.9%;
-}
+    
+      @media(max-width: 600px){
 
+    .cachorro img {
+      width: 10vw;
+    }
+      }
 `
 
 
