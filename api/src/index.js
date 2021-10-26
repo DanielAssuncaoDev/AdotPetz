@@ -14,6 +14,17 @@ import cors from 'cors'
 
                 let {nome, sobrenome, email, senha} = req.body
 
+                let user = await db.infob_apn_tb_user.findOne({
+                    where: {
+                        ds_email: email
+                    }
+                })
+                    if( user != null){
+                        resp.send({erro: 'Email inserido já foi cadastrado!'})
+                        return
+                    }
+                    
+
                 let r = await db.infob_apn_tb_user.create({
                         NM_USER: nome,
                         NM_SOBRENOME: sobrenome,
