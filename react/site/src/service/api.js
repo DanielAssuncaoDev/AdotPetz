@@ -34,7 +34,10 @@ import Axios from 'axios'
 >>>>>>> aa5ca246d6ae1dee046182dedc207f9c0f63c859:react/site/src/service/api.js
                 return r.data
             }
-
-
+            
+            async listarMinhasAdocoes() {
+                let r = await api.get('/minhasAdocoes/:idUsuario');
+                return r.data;
+            }
 
         }
