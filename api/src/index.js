@@ -15,6 +15,16 @@ import Crypto from 'crypto-js'
 
                 let {nome, sobrenome, email, senha} = req.body
 
+                    let usuExistente = await db.infob_apn_tb_user.findOne({
+                        where: {
+                            DS_EMAIL: email
+                        }
+                    })
+                        if( usuExistente != null ){
+                            resp.send({erro: 'Email ja foi cadastrado'})
+                            return
+                        }
+
                 let r = await db.infob_apn_tb_user.create({
                         NM_USER: nome,
                         NM_SOBRENOME: sobrenome,
