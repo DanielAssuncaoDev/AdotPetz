@@ -30,7 +30,9 @@ import Axios from 'axios'
                 let r = await api.delete(`/pet/:idPet/${id}`)
                 return r.data
             }
-
-
-
+            async adicionarPets( pet ){
+                // let pet = { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3}
+                let r = await api.post('/admin/addpet', pet)
+                return r.data
+            }
         }

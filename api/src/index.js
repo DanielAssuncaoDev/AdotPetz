@@ -138,23 +138,23 @@ import e from 'express'
                     BT_DISPONIVEL: true
                 })
                 
-                if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
-                    resp.send({erro: "Você não pode inserir Vacinas de Gatos para Cães"})
-                    return 
-                } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
-                    resp.send({erro: "Você não pode inserir Vacinas de Cães para Gatos"})
-                    return
-                } if(descricao > 250 === false){
-                    resp.send({erro: "Números de caracteres atingido"})
-                    return
-                } if(nome === '' && especie === '' && raca === '' && sexo === '' && peso === '' && nascimento === '' 
-                    && porte === '' && descricao === '' && imgPet1 === '' && imgPet2 === '' && imgPet3 === '' === false){
-                    resp.send({erro: "Preencha todos os campos obrigatórios"})
-                    return
-                }
+                // if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
+                //     resp.send({erro: "Você não pode inserir Vacinas de Gatos para Cães"})
+                //     return 
+                // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
+                //     resp.send({erro: "Você não pode inserir Vacinas de Cães para Gatos"})
+                //     return
+                // } if(descricao > 250 === false){
+                //     resp.send({erro: "Números de caracteres atingido"})
+                //     return
+                // } if(nome === '' && especie === '' && raca === '' && sexo === '' && peso === '' && nascimento === '' 
+                //     && porte === '' && descricao === '' && imgPet1 === '' && imgPet2 === '' && imgPet3 === '' === false){
+                //     resp.send({erro: "Preencha todos os campos obrigatórios"})
+                //     return
+                // }
                 
 
-                resp.send(r)
+                resp.sendStatus(200)
 
             } catch (e) {
                 resp.send({erro: e.toString()})
