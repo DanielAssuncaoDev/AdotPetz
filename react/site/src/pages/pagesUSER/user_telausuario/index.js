@@ -1,12 +1,12 @@
 import {Container, TabelaUsu} from './styled'
 
-import CabecalhoADM from '../../../components/comun/cabecalhoADM';
+import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 
 
 export default function telaUSU(){
     return(
     <Container>
-       <CabecalhoADM />
+       <CabecalhoUSU />
        <div className='conteudo'>
          <div className='esquerda'> 
          <div className='conteudo-esq'>

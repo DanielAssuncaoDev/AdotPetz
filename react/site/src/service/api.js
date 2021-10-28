@@ -12,7 +12,7 @@ import Axios from 'axios'
             }
 
             async login(credenciais){
-                let r = await api.get('/login', credenciais)
+                let r = await api.post('/login', credenciais)
                 return r.data
             }
 
@@ -27,7 +27,11 @@ import Axios from 'axios'
             }
 
             async remover(id) {
+<<<<<<< HEAD:react/service/api.js
                 let r = await api.delete('/pet/:idPet}')
+=======
+                let r = await api.delete(`/pet/:idPet/${id}`)
+>>>>>>> aa5ca246d6ae1dee046182dedc207f9c0f63c859:react/site/src/service/api.js
                 return r.data
             }
 

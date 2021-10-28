@@ -35,7 +35,7 @@ box-shadow: 0px 0px 20px 4px #888888;
 }  
  .imagemPET img {
     width: 100%;
-    //height: auto;
+    /* height: 15em; */
     border-radius: 8px;
 
 }
@@ -128,7 +128,7 @@ box-shadow: 0px 0px 20px 4px #888888;
        box-shadow: none;
     }
     @media (max-width: 375px){
-     width: 470%;
+     width: 47%;
 
         button{
         padding: .6em .6em;
