@@ -1,6 +1,7 @@
 import db from './db.js'
 import express from 'express'
 import cors from 'cors'
+import Crypto from 'crypto-js'
 // import Sequelize from 'sequelize'
 
     
@@ -18,7 +19,7 @@ import cors from 'cors'
                         NM_USER: nome,
                         NM_SOBRENOME: sobrenome,
                         DS_EMAIL: email,
-                        DS_SENHA: senha
+                        DS_SENHA: Crypto.SHA256(senha).toString(Crypto.enc.Base64)
                 })
 
                 resp.send(r)
@@ -33,6 +34,7 @@ import cors from 'cors'
             try {
                 
                 let {email, senha} = req.body
+                senha = Crypto.SHA256(senha).toString(Crypto.enc.Base64)
 
                 let r = await db.infob_apn_tb_user.findOne({ 
                     where: {
