@@ -33,7 +33,7 @@ Caso de uso ADM
 **REGRAS:**
 
 * O cadastro do animal deverá ter no máximo três fotos do mesmo.
-*  Nenhum campo pode deixar de ser preenchido.
+*  Nenhum campo pode deixar de ser preench1ido.
 * As vacinas devem estar de acordo com a espécie. 
     * (V8, V10) - Cães
     * (V5, V4, V3) - Gatos
@@ -42,7 +42,7 @@ Caso de uso ADM
 
 * A descrição do animal deve ter no máximo 250 caracteres.
 * O campo **dt_cadastro** (tb_pet), deve ser preenchido automaticamente com a data e hora atual do cadastro do animal.
-* O campo **bl_disponivel**(tb_pet), deve iniciar como **true**
+* O campo **bt_disponivel**(tb_pet), deve iniciar como **true**
 
 <br>
 
@@ -52,9 +52,11 @@ Caso de uso ADM
 
 <br>
 
-<<<<<<< HEAD
 ### EXCLUIR PET -- Erik 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 452289b0d882097170bda3cf556dcdfa6545106e
 
  **DESCRIÇÃO:** Essa funcionalidade permite que o ADM exclua o cadastro do animal desejado.
 

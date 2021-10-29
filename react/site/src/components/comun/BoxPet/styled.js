@@ -18,7 +18,7 @@ border-radius: 8px;
 
 box-shadow: 0px 0px 15px 4px #888888;
 
-:hover{ box-shadow: 0px 0px 25px 6px #888888; transition: .4s; }
+:hover{ box-shadow: 0px 0px 25px 6px #888888; transition: .4s; cursor: pointer; }
 
 //.conteudo-pet:hover{
    // display: flex;
