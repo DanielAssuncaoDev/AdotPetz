@@ -29,7 +29,7 @@ import cors from 'cors'
             }
         })
 
-        app.get('/login', async(req, resp) => {
+        app.post('/login', async(req, resp) => {
             try {
                 
                 let {email, senha} = req.body
@@ -185,7 +185,7 @@ import cors from 'cors'
     } 
 })
 
-    app.get('/admin/animaisCadastrados', async(req, resp) => {
+    app.get('c', async(req, resp) => {
 
         try {
             let r = await db.infob_apn_tb_pet.findAll({
