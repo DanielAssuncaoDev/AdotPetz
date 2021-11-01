@@ -23,6 +23,14 @@ export default function AnimaisCadastrados(){
             { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
             { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
             { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' }
         ])
     }, [])
 
