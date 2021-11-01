@@ -5,11 +5,9 @@ export const Container = styled.div`
 .container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #8E8E8E;
     height: 90vh;
-    padding-top: 3em;
-    padding-bottom: 4em;
+    padding: 6em 4em 0em 8em;
 }
 
 .box{
@@ -36,6 +34,9 @@ export const Container = styled.div`
     width: 40vw;
     height: 26.24em;
     padding: 2em 2em 1.5em 2em;
+}
+
+.bts{
 }
 
 .imgs{
@@ -114,7 +115,8 @@ export const Container = styled.div`
 .botao{
     display: flex;
     justify-content: flex-end;
-    width: 79%;
+    width: 81.5%;
+    margin-left: 8.5em;
 }
 
 select{
@@ -191,6 +193,16 @@ button.button1{
     margin-top: 3em;
 }
 
+button.vltr{
+    display: flex;
+    border: none;
+    border-radius: 100%;
+    background: #000;
+    width: 4em;
+    height: 3.2em;
+    margin-bottom: 1em;
+}
+
 label{
     background: #C4C4C4;
     font-size: 12px;
@@ -201,6 +213,11 @@ label{
 img.addimg{
     height: 115px;
     width: 115px;
+}
+
+img.vlt{
+    height: 40px;
+    width: 50px;
 }
 
 `
