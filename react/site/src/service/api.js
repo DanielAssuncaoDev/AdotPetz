@@ -26,21 +26,10 @@ import Axios from 'axios'
                 return r.data
             }
 
-<<<<<<< HEAD
-//             async remover(id) {
-// <<<<<<< HEAD:react/service/api.js
-//                 let r = await api.delete('/pet/:idPet}')
-// =======
-//                 let r = await api.delete(`/pet/:idPet/${id}`)
-// >>>>>>> aa5ca246d6ae1dee046182dedc207f9c0f63c859:react/site/src/service/api.js
-//                 return r.data
-//             }
-=======
             async remover(id) {
                 let r = await api.delete(`/pet/:idPet/${id}`)
                 return r.data;
             }
->>>>>>> 452289b0d882097170bda3cf556dcdfa6545106e
             
             async listarMinhasAdocoes(id) {
                 let r = await api.get(`/minhasAdocoes/${id}`);
