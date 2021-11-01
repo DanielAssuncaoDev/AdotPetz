@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react';
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
+import { useHistory } from 'react-router-dom'
 
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
+
+    const nav = useHistory ();
 
     useEffect(() => {
         setAnimals([
@@ -32,10 +35,10 @@ export default function AnimaisCadastrados(){
                 { value: item.sexo }, 
                 { value: item.porte },
                 { value: item.registrationDate },
-                { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
-                { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
-                { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
-                { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) }
+                { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
+                { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
+                { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
+                { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' }
             ]
         })
     }
@@ -45,10 +48,12 @@ export default function AnimaisCadastrados(){
             <Cabecalho />
             <div class="ContainerBody">
                 <div class="ButtonsContainer"> 
-                    <div class="BackButton"> <button> <img src="/assets/images/setaAdotPetz.svg" width="25" alt=""/> </button> </div>
+                
+                    <div class="BackButton">  <button>  <img onClick={ () => nav.push('/admin/home') } src="/assets/images/setaAdotPetz.svg" width="25" alt=""/>  </button> </div> 
+                
                     <div class="right-buttons">
                         <div class="RefreshButton"> <button> <img src="/assets/images/refresh2 2.svg" width="17" alt=""/> </button> </div>
-                        <div class="PlusButton"> <button> <img src="/assets/images/plusAdotPetz.svg" alt="" width="23.5"/> </button> </div>
+                        <div class="PlusButton"> <button> <img onClick={ () => nav.push('/admin/addpet') } src="/assets/images/plusAdotPetz.svg" alt="" width="23.5"/> </button> </div>
                     </div>
                 </div>
                 <div class="tableAnimals"> 
