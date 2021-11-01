@@ -6,7 +6,7 @@ import Api from '../../../service/api';
 import { useState } from 'react';
 const api = new Api();
 
-export default function telaUSU(){
+export default function TelaUSU(){
  const [animais, setAnimais] = useState([]);
 
 
