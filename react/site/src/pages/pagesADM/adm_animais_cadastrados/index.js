@@ -34,23 +34,26 @@ export default function AnimaisCadastrados(){
         ])
     }, [])
 
-    function toRow() {
-        return animals.map(item => {
-            return [
-                { value: item.ra },
-                { value: item.petName },
-                { value: item.specie },
-                { value: item.sexo }, 
-                { value: item.porte },
-                { value: item.registrationDate },
-                { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
-                { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
-                { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' },
-                { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value), background: '#000' }
-            ]
-        })
-    }
 
+    // comentei e sai correndo, pal no cu de qm ta lendo
+
+    // function toRow() {
+    //     return animals.map(item => {
+    //         return [
+    //             { value: item.ra },
+    //             { value: item.petName },
+    //             { value: item.specie },
+    //             { value: item.sexo }, 
+    //             { value: item.porte },
+    //             { value: item.registrationDate },
+    //             { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
+    //             { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
+    //             { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
+    //             { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) }
+    //         ]
+    //     })
+    // }
+   
     return(
         <Container>
             <Cabecalho />
