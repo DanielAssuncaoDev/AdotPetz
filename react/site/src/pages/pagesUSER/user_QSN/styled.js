@@ -66,4 +66,8 @@ font-weight: 500;
 padding-top: 20px;
 font-weight: 500;
 }
+
+@media(max-width: 500px){
+  .quemsomos, .nossamicao, .valores{ width: 18em;}
+}
 `

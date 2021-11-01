@@ -122,10 +122,9 @@ const BoxFiltro = styled.div`
         justify-content: center !important;
     }
 
-
+    @media (max-width: 600px){ padding: 1em;  }
 
     @media (max-width: 950px){
-
         &{
             width: 100%;
         }
@@ -133,7 +132,6 @@ const BoxFiltro = styled.div`
     }
 
     @media (max-width: 700px){
-
         &{      
             width: 100%;
 
@@ -142,6 +140,8 @@ const BoxFiltro = styled.div`
         }
 
     }
+
+    /* @media (max-width: 200px){padding: 1em } */
 
 
 `;

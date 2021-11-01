@@ -11,7 +11,7 @@ Caso de uso ADM
 <br>
 
 
-### LOGIN ADM
+### LOGIN ADM -- Will
 
 **DESCRIÇÃO**: Essa funcionalidade permite que os ADMs entrem em suas contas admistrativas.
 
@@ -25,7 +25,7 @@ Caso de uso ADM
 <br>
 
 
-### ADICIONAR CADASTRO DO PET
+### ADICIONAR CADASTRO DO PET -- Will
 
 
 **DESCRIÇÃO:** Esta funcionalidade permite que o ADM do site cadastre um animal para ser adotado. Nesse cadastro irão ter as informações do animal (idade, porte, personalidade, fotos, sexo e saúde).
@@ -33,15 +33,16 @@ Caso de uso ADM
 **REGRAS:**
 
 * O cadastro do animal deverá ter no máximo três fotos do mesmo.
-*  Nenhum campo pode deixar de ser preenchido.
+*  Nenhum campo pode deixar de ser preench1ido.
 * As vacinas devem estar de acordo com a espécie. 
     * (V8, V10) - Cães
     * (V5, V4, V3) - Gatos
     * (Antirrabica) - Ambos
+    * (Castrado) - Ambos
 
 * A descrição do animal deve ter no máximo 250 caracteres.
 * O campo **dt_cadastro** (tb_pet), deve ser preenchido automaticamente com a data e hora atual do cadastro do animal.
-* O campo **bl_disponivel**(tb_pet), deve iniciar como **true**
+* O campo **bt_disponivel**(tb_pet), deve iniciar como **true**
 
 <br>
 
@@ -51,7 +52,11 @@ Caso de uso ADM
 
 <br>
 
-### EXCLUIR PET
+### EXCLUIR PET -- Erik 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 452289b0d882097170bda3cf556dcdfa6545106e
 
  **DESCRIÇÃO:** Essa funcionalidade permite que o ADM exclua o cadastro do animal desejado.
 
@@ -66,7 +71,7 @@ Caso de uso ADM
 
 ---
 
-### EDITAR PET
+### EDITAR PET -- Pedro
 
  **DESCRIÇÃO:** Essa funcionalide permite que o ADM altere as informações de cadastro do animal.
 
@@ -91,7 +96,7 @@ Caso de uso ADM
 
 ---
 
- ### SITUAÇÃO DE ADOÇÃO
+ ### ALTERAR SITUAÇÃO DE ADOÇÃO -- Lele
 
  **DESCRIÇÃO:**  Esta funcionalidade permite que o ADM aceite ou rejeite a solicitação de adoção do usuário.
 
@@ -113,7 +118,7 @@ Caso de uso ADM
 
 ---
 
-### LISTAR SOLICITAÇÕES DE ADOÇÃO
+### LISTAR SOLICITAÇÕES DE ADOÇÃO -- Lele
 
 **DESCRIÇÃO:** Deve ser listados todas as solicitações de adoção para o ADM.
 
@@ -132,7 +137,7 @@ Caso de uso ADM
 ---
 
 
-### LISTAR ANIMAIS CADASTRADOS
+### LISTAR ANIMAIS CADASTRADOS -- Erik
 
 **DESCRIÇÂO:** Deve ser listado todos os animais cadastrados no sistema.
 
@@ -153,7 +158,7 @@ Caso de uso ADM
 <br>
 
 
-### CADASTRAR-SE
+### CADASTRAR-SE -- Daniel
  
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario insira suas informações (E-mail, Senha, Nome) para criar um cadastro no site.
  
@@ -168,7 +173,7 @@ Caso de uso ADM
 
 ---
 
-### LOGIN
+### LOGIN -- Daniel
 
  **DESCRIÇÃO:** Essa funcionalidade permite que os usuario entre em sua conta.
 
@@ -181,7 +186,7 @@ Caso de uso ADM
 
 ---
 
-### PROCURAR ANIMAL
+### PROCURAR ANIMAL -- Daniel
 
  **DESCRIÇÃO:** Esta funcionalidade permite que o usuario procure animais com base nos filtros selecionados.
 
@@ -197,7 +202,7 @@ Caso de uso ADM
 ---
 
 
-### SOLICITAR ADOÇÃO
+### SOLICITAR ADOÇÃO -- Pedro
 
  **DESCRIÇÂO:** Esta funcionalidade permite que o usuario solicite a adoção do animal
 
@@ -212,7 +217,7 @@ Caso de uso ADM
 
 ---
 
-### LISTAR ANIMAIS SOLICITADOS
+### LISTAR ANIMAIS SOLICITADOS -- Chris
 
 **DESCRIÇÃO:** Esta funcionalidade lista todas as solicitações de adoção do usuário.
 
@@ -224,7 +229,7 @@ Caso de uso ADM
 
 ---
 
-### CANCELAR PEDIDO DE ADOÇÃO
+### CANCELAR PEDIDO DE ADOÇÃO -- Chris
 
 
  **DESCRIÇÂO:** Esta funcionalidade permite que o usuario cancele a solicitação de adoção do animal.

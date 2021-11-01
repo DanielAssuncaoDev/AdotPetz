@@ -15,6 +15,8 @@ export const Container = styled.div`
     min-height: 10vh;
     padding: 5px 2em;
 
+    z-index: 5;
+
         .line-left{
             display: flex;
             align-items: center;
@@ -96,8 +98,8 @@ export const Container = styled.div`
                         button{
                             text-align: center;
 
-                            height: 4.4vh;
-                            font-size: 2vh;
+                            height: 2.5em;
+                            /* font-size: 2vh; */
                             margin-left: 1.3vh;
                             padding: 0;
                             border-radius: 0.6vh;
@@ -105,7 +107,7 @@ export const Container = styled.div`
                             cursor: pointer;
 
                                 &:nth-child(1){
-                                    width: 17%;
+                                    padding: 0 1em;
                                     background-color: #FFF;
 
                                     transition: 0.65s;
@@ -117,7 +119,8 @@ export const Container = styled.div`
                                 }
 
                                 &:nth-child(2){
-                                    width: 10%;
+                                    /* width: 10%; */
+                                    padding: 0 1em;
                                     background-color: #FAD41B;
 
                                     transition: 0.65s;

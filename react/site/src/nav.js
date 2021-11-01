@@ -50,6 +50,9 @@ export default function Nav(){
             <Link to="/faleConosco">
               <span>Fale Conosco</span>
             </Link>
+            <Link to="/faq">
+              <span>FAQ</span>
+            </Link>
           </nav>
 
         </div>

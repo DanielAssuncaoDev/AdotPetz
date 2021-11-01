@@ -68,6 +68,12 @@ export const Container = styled.div`
 
   cursor: pointer;
 }
+
+@media (max-width: 700px){
+     .animaisSU{
+         text-align:center; 
+      }
+      }
 `;
 
     export const ContainerBusca = styled.div`
@@ -77,7 +83,7 @@ export const Container = styled.div`
         justify-content: center;
         align-items: center;
 
-        //padding-left: 10em;
+        padding: 1em;
 
 
     
