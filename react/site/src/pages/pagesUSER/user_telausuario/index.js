@@ -59,6 +59,7 @@ export default function TelaUSU(){
     return(
     <Container>
        <CabecalhoUSU />
+       <ToastContainer />
        <div className='conteudo'>
          <div className='esquerda'> 
          <div className='conteudo-esq'>
@@ -96,7 +97,7 @@ export default function TelaUSU(){
             <div className='meio-di'> 
             {
               animais.length === 0 
-              ? <div className='nenhuma-solici'> <img className='kaka' src='/assets/images/image 82.svg' />
+              ? <div className='nenhuma-solici'> <img className='kaka' src='/assets/images/image 82.svg' alt="" />
                                                  <div className='tex-nenhuma'> OPS!! Nenhuma solicitação foi localizada </div>
                                       </div>
 
