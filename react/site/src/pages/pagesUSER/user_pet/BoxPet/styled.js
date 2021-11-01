@@ -39,6 +39,7 @@ export const Container = styled.div`
     }
     .informations-pet{
         margin: 0 1em;
+        flex-wrap: wrap;
     }
     .info, .text-dog-castrated, .text-vaccines, .text-description{
         font-weight: lighter;
@@ -85,6 +86,19 @@ export const Container = styled.div`
             cursor: pointer;
         }
 
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+
+        .informations-box {
+            width: 100%;
+            margin: 0;
+        }
+
+        .informations-pet{
+            margin: 0 1em;
+        }
     }
 
 `;
@@ -181,8 +195,8 @@ padding: 0 0 1em;
      
 
      .img-pet img{
-                width: 300px;
-                
-            }
+        width: 300px;
+        
+    }
     }
 `;

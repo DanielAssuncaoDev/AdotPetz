@@ -41,6 +41,7 @@ export const Container = styled.div`
             display: flex;
             flex-direction: row;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .box{
@@ -80,17 +81,24 @@ export const Container = styled.div`
 
         @media (max-width: 1024px) {
             padding: 0;
-            .pets-informations-container, .other-container{
+            .pets-informations-container{
                 flex-direction: column;
-                align-items: center;
-               
+                align-items: center;  
             }
+
+            .other-container{
+                width: 80%;
+            }
+
             .img-pet img{
-                width: 300px;
-                
+                width: 100%;  
             }
 
             .informations-box{
+                width: 100%;
+            }
+
+            .carrosel{
                 width: 100%;
             }
         }
