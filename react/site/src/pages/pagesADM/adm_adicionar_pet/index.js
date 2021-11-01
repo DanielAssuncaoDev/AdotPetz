@@ -3,8 +3,8 @@ import { Container } from './styled';
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
-import Api from '../../../service/api';
-const api = new Api()
+// import Api from '../../../service/api';
+// const api = new Api()
 
 export default function Addpet(){
     const nav = useHistory();
