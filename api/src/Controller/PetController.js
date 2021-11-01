@@ -61,7 +61,7 @@ import express from 'express'
         try {
             let { idPet } = req.params;
 
-            console.log(req.params)
+            // console.log(req.params)
 
             await db.infob_apn_tb_pet.destroy({ where: { ID_PET: idPet } })
             resp.sendStatus(200)
@@ -97,34 +97,34 @@ import express from 'express'
     app.put('/alterar/:idpet',async(req, resp) =>  {   
         try {
   
-          let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3, cadastro, disponivel } = req.body; 
+            let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3, cadastro, disponivel } = req.body; 
+                    
+            let r = await db.infob_apn_tb_pet.update({
+                NM_PET: nome,
+                DS_ESPECIE: especie,
+                NM_RACA: raca,
+                DS_SEXO: sexo,
+                DS_PESO: peso,
+                DT_NASCIMENTO: nascimento,
+                DS_PORTE: porte,
+                DS_DESC: descricao,
+                IMG_PET1: imgPet1,
+                IMG_PET2: imgPet2,
+                IMG_PET3: imgPet3,
+                BT_CASTRADO: castrado,
+                BT_VACINA_V10: vacinaV10,
+                BT_VACINA_V8: vacinaV8,
+                BT_VACINA_V5: vacinaV5,
+                BT_VACINA_V4: vacinaV4,
+                BT_VACINA_V3: vacinaV3,
+                BT_VACINA_ANTIRRABICA: vacinaAntirrabica,
+                DT_CADASTRO: cadastro,
+                BT_DISPONIVEL: disponivel
+            },{where:{
+                ID_PET:req.params.idpet
+            }}
                 
-          let r = await db.infob_apn_tb_pet.update({
-              NM_PET: nome,
-              DS_ESPECIE: especie,
-              NM_RACA: raca,
-              DS_SEXO: sexo,
-              DS_PESO: peso,
-              DT_NASCIMENTO: nascimento,
-              DS_PORTE: porte,
-              DS_DESC: descricao,
-              IMG_PET1: imgPet1,
-              IMG_PET2: imgPet2,
-              IMG_PET3: imgPet3,
-              BT_CASTRADO: castrado,
-              BT_VACINA_V10: vacinaV10,
-              BT_VACINA_V8: vacinaV8,
-              BT_VACINA_V5: vacinaV5,
-              BT_VACINA_V4: vacinaV4,
-              BT_VACINA_V3: vacinaV3,
-              BT_VACINA_ANTIRRABICA: vacinaAntirrabica,
-              DT_CADASTRO: cadastro,
-              BT_DISPONIVEL: disponivel
-          },{where:{
-              ID_PET:req.params.idpet
-          }}
-               
-          )
+            )
   
   
           resp.send(r)
