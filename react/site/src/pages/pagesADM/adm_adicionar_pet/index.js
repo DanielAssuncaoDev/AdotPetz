@@ -1,9 +1,10 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom';
+
 import Api from '../../../service/api';
 const api = new Api()
-import { useHistory } from 'react-router';
 
 export default function Addpet(){
     const nav = useHistory();
