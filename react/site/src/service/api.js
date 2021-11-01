@@ -26,12 +26,10 @@ import Axios from 'axios'
                 return r.data
             }
 
-
             async remover(id) {
                 let r = await api.delete(`/pet/:idPet/${id}`)
                 return r.data;
             }
-
             
             async listarMinhasAdocoes(id) {
                 let r = await api.get(`/minhasAdocoes/${id}`);
