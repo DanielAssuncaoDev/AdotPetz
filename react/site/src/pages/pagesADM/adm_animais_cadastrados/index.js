@@ -40,7 +40,6 @@ export default function AnimaisCadastrados(){
         })
     }
 
-
     return(
         <Container>
             <Cabecalho />
@@ -52,15 +51,12 @@ export default function AnimaisCadastrados(){
                         <div class="PlusButton"> <button> <img src="/assets/images/plusAdotPetz.svg" alt="" width="23.5"/> </button> </div>
                     </div>
                 </div>
-
                 <div class="tableAnimals"> 
                     <div class="row-bar"> 
                         <div class= "bar-new-animal"> </div>
                         <div class="text-registered-animal"> Animais cadastrados </div>
                     </div>
                 
-
-
                     <TableAdmin
                         columns={[
                             { title: 'RA' },
@@ -101,7 +97,7 @@ export default function AnimaisCadastrados(){
                                 </Td>
                             </Tr>    
                         )}
-                </TableAdmin>
+                    </TableAdmin>
                 </div>
             </div>
         </Container>

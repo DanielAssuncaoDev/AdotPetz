@@ -1,24 +1,25 @@
 import styled  from "styled-components";
 
 export const BoxPet = styled.div`
-width: 100%;
+ width:180px;
 display: flex;
 flex-direction: column;
 align-items: center;
 text-align: center;
-margin: 0em 4em 2.2em 1em;
+margin: 0em 1em 2.2em 1em;
 
 background-color: #e0e0e0;
 border-radius: 8px;
 
 padding: 0 0 1em;
 
+
 .imagemPET{
     width: 100%;
 }  
 
  .imagemPET img {
-    width: 100%;
+     width:180px;
     border-radius: 8px;
 }
 

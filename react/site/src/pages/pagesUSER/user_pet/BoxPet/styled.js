@@ -7,7 +7,7 @@ export const Container = styled.div`
 
         padding: 2em;
     
-    .more-images, .vaccines{
+    .more-images, .vaccines, .informations-pet{
         display: flex;
         flex-direction: row;
     }
@@ -37,12 +37,17 @@ export const Container = styled.div`
         background: rgba(0, 0, 0, 0.08);
         padding: 1.2em; 
     }
-
-    .text-dog-castrated, .text-vaccines, .text-description{
+    .informations-pet{
+        margin: 0 1em;
+    }
+    .info, .text-dog-castrated, .text-vaccines, .text-description{
         font-weight: lighter;
         font-size: .8em;
     }
 
+    .info{
+        padding: .2em;
+    }
     .title{
         font-size: .8em;
         margin: 0 .3em 0 -.4em;
@@ -82,7 +87,7 @@ export const Container = styled.div`
 
     }
 
-`
+`;
 
 
 export const BoxPet = styled.div`

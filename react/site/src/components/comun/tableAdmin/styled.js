@@ -69,6 +69,10 @@ const TableAdm = styled.table`
     tr:nth-child(even) {
         background-color: #FFFFFF;
     }
+
+    @media (max-width: 1024px) {
+        width: 1180px;  
+    }
 `
 
 

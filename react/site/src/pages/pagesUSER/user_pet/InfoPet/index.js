@@ -5,16 +5,16 @@ export default function BoxPETZ(prosp){
     return(
       <BoxPet>
             <div className="imagemPET">
-                <img src={prosp.imagem} alt='' /> 
+                <img src={prosp.info.imagem} alt='' /> 
             </div>
             
-            <div className="NomePET"> <b>{prosp.nome}</b> </div>
-            <div className="local">{prosp.localização} </div>
+            <div className="NomePET"> <b>{prosp.info.nome}</b> </div>
+            <div className="local">{prosp.info.localização} </div>
                 
             <div className="sex">
-                <div className="info-sex"> {prosp.sexo} </div>
+                <div className="info-sex"> {prosp.info.sexo} </div>
                 <div className="img-sex">
-                  <img src={prosp.imagemSex} alt="" /> 
+                  <img src={prosp.info.imagemSex} alt="" /> 
                 </div>
             </div>
             <div className="porte">

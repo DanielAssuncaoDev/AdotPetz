@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-import { Container } from "../styled";
+import { Container } from "./styled";
 
 import LineText from '../../../../components/comun/line/index'
 
@@ -32,26 +32,14 @@ export default function BoxPet(props) {
                 <div className="informations-box"> 
                     <div className="infopet">
                         <LineText titulo="Panda"/>
-                        <BoxPet>
-                            <div className="imagemPET">
-                                <img src={props.imagem} alt='' /> 
-                            </div>
-                            
-                            <div className="NomePET"> <b>{props.nome}</b> </div>
-                            <div className="local">{props.localização} </div>
-                                
-                            <div className="sex">
-                                <div className="info-sex"> {props.sexo} </div>
-                                <div className="img-sex">
-                                <img src={props.imagemSex} alt="" /> 
-                                </div>
-                            </div>
-                            <div className="porte">
-                                <div className="info-porte-ns"> P </div>
-                                <div className="info-porte-s"> M </div>
-                                <div className="info-porte-ns"> G </div>
-                            </div>
-                        </BoxPet>
+                        <div className="informations-pet"> 
+                            <div className="info"> {props.especie + ' | '} </div>
+                            <div className="info"> {props.sexo + ' | '} </div>
+                            <div className="info"> {props.porte + ' | '} </div>
+                            <div className="info"> {props.age + ' | '} </div>
+                            <div className="info"> {props.kg + ' | '} </div>
+                            <div className="info"> {props.raca} </div>
+                        </div>
                     </div>
                     <div className="box-saude-pet">
                         <LineText titulo="Saúde"/>
@@ -63,7 +51,7 @@ export default function BoxPet(props) {
                     </div>
                     <div className="info-desc-pet">
                         <LineText titulo="Descrição"/>
-                        <div className="text-description"> Cachorrinho lindo uiui </div>
+                        <div className="text-description"> {props.Description} </div>
                     </div>
                     <div className="Adopt-button"> <button> QUERO ADOTAR ESSE PET </button></div>
                 </div>
