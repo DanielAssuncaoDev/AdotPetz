@@ -20,16 +20,16 @@ import express from 'express'
 
     // Cancelar Adoção do Usuario
 
-    Server.delete('/:idAdocao', async(req, resp) =>{
+    app.delete('/:idAdocao', async(req, resp) =>{
         try{
             let id = req.params.idAdocao;
 
             let r = await db.infob_apn_tb_adocao.destroy({where: {ID_ADOCAO: id} })
         resp.sendStatus(200)
-    }catch (e) {
-        resp.send({erro: e.toString()})
-    } 
-})
+        }catch (e) {
+            resp.send({erro: e.toString()})
+        } 
+    })
 
 
 export default app
