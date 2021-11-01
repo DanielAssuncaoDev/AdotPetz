@@ -70,7 +70,7 @@ export const Container = styled.div`
         }
 
         .endereco input{
-            width: 410px;
+            width: 395px;
         }
         .complemento input, .cidade input{
             width: 200px;
@@ -99,5 +99,23 @@ export const Container = styled.div`
             }
         }
 
+
+        @media (max-width: 1024px) {
+            .ContainerForm {
+                padding: 2em;
+            }
+            
+            .InputsGroup{
+                flex-direction: column;
+            }
+
+            input, .Name input,   .Nascimento input, .complemento input, .cidade input, .bairro input, .rg input, .telefone input, .cep input, .endereco input {
+                width: 100%;
+            }
+
+            .obs-for-user {
+                padding: 2em;
+            }
+        }
     
 `
