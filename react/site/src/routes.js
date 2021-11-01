@@ -14,7 +14,11 @@ import DicasCuidados from './pages/pagesUSER/user_dicascuidados'
 import FAQ from './pages/pagesUSER/user_FAQ'
 import FormAdocao from './pages/pagesUSER/user_form_adocao'
 import Login from './pages/pagesUSER/user_login'
+<<<<<<< HEAD
 import Pet from './pages/pagesUSER/user_pet'
+=======
+// import Pet from './pages/pagesUSER/user_pet' 
+>>>>>>> e571e6c0b9b689f6d0e1eebd33eb83219868dea7
  import QSN from './pages/pagesUSER/user_QSN'
  import MinhaConta from './pages/pagesUSER/user_telausuario'
 

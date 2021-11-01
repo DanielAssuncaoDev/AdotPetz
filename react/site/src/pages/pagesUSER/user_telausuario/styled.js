@@ -102,7 +102,7 @@ padding-top: 4px;
 
     margin-left: 3em;
     width: 70%;
-    height: 45.4em;
+    //height: 45.4em;
     overflow-y: scroll;
 }
 
@@ -112,7 +112,7 @@ padding-top: 4px;
 }
 
 .direita::-webkit-scrollbar-track{
-  background-color: #00000050;
+  background-color: #1f1f1f;
   border-radius: 20px;
 }
 
