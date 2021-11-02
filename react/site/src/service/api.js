@@ -43,7 +43,7 @@ import Axios from 'axios'
             }
 
             async removerSoliAdo(id){
-            let r = await api.delete(`/minhasAdocoes/${id}`);
-            return r.data;
+                let r = await api.delete(`/minhasAdocoes/${id}`);
+                return r.data;
             }
         }

@@ -59,6 +59,7 @@ export default function TelaUSU(){
     return(
     <Container>
        <CabecalhoUSU />
+       <ToastContainer />
        <div className='conteudo'>
          <div className='esquerda'> 
          <div className='conteudo-esq'>
@@ -93,8 +94,15 @@ export default function TelaUSU(){
               <div className="Linha"></div>
               <div className='titulo'> MINHAS ADOÇÕES </div>
             </div>
-           <TabelaUsu>
-              <div className='meio-di'> 
+            <div className='meio-di'> 
+            {
+              animais.length === 0 
+              ? <div className='nenhuma-solici'> <img className='kaka' src='/assets/images/image 82.svg' alt="" />
+                                                 <div className='tex-nenhuma'> OPS!! Nenhuma solicitação foi localizada </div>
+                                      </div>
+
+              : <TabelaUsu>
+              
                   <thead>
                     <tr>
                       <th className='img'> </th>
@@ -110,17 +118,19 @@ export default function TelaUSU(){
 
                   {animais.map ((item) =>
                         <tr>
-                          <td> <img src={item.infob_apn_tb_pet.IMG_PET1} alt='' style={{width: '90px', height: '70px'}} /> </td>
+                          <td> <img src={item.infob_apn_tb_pet.IMG_PET1} alt='' style={{width: '90px', height: '70px'}} /> </td> 
                           <td> {item.infob_apn_tb_pet.NM_PET} </td>
                           <td> {item.infob_apn_tb_pet.DS_ESPECIE} </td>
                           <td> {item.infob_apn_tb_pet.DS_SEXO} </td>
-                          <td> {item.infob_apn_tb_pet.ID_PET} </td>
+                          <td> {item.infob_apn_tb_pet.ID_PET} </td> 
                           <td className='coluna-acao'> <button onClick={() => remover(item.ID_ADOCAO )}> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
                         </tr>
                   )}
                  </tbody>
-              </div>
-           </TabelaUsu>
+             
+                </TabelaUsu>
+            }
+            </div>
          </div>
     </div>
       

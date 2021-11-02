@@ -7,7 +7,12 @@ app.use(cors())
 app.use(express.json())
 
 import UserController from './Controller/UserController.js'
+
 // import UserAdocoesController from './Controller/UserAdocaoController.js'
+
+import UserAdocoesController from './Controller/UserAdocaoController.js'
+import PetsController from './Controller/PetController.js'
+
 // import Crypto from 'crypto-js'
 
 // import e from 'express'
@@ -19,7 +24,9 @@ import UserController from './Controller/UserController.js'
 
 
     Server.use('/user', UserController);
-    Server.use('/adocoes', User)
+    Server.use('/adocoes', UserAdocoesController);
+    Server.use('/pets', PetsController);
+
 
 
 
@@ -229,50 +236,9 @@ app.put('/pet/:idpet',async(req, resp) =>  {
           resp.send({erro:e.toString()})
           
       }
+    })
+
     
-
-})
-     
-
-app.post ('/pet/:idPet/:idUser',async(req, resp) => {
-
-    try {
-        let {nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro} = req.body
-
-        let r = await db.infob_apn_tb_adocao.create({
-
-            ID_USER:req.params.idUser,
-            ID_PET:req.params.idPet,
-            NM_NOME_COMPLETO:nomeCompleto,
-            DT_NASCIMENTO:nascimento,
-            DS_RG:rg,
-            DS_TELEFONE:telefone,
-            DS_CEP:cep,
-            DS_ENDERECO:endereco,
-            DS_NUMERO:numero,
-            DS_COMPLEMENTO:complemento,
-            DS_BAIRRO:bairro,
-            DT_SOLICITACAO:new Date(),
-            BT_ADOCAO_CONCLUIDA:false
-        })
-
-        resp.sendStatus(200)
-        
-    } catch (e) {
-        resp.send({erro:e.toString()})
-
-    } 
-
-
-
-
-
-
-    }
-
-
-)
-
 
 
 

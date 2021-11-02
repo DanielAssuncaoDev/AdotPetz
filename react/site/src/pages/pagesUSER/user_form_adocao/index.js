@@ -43,7 +43,7 @@ export default function Sujestoes(){
                         <div className="InputsGroup"> 
                             <div className="Nascimento"> <input type="text" placeholder="Nascimento"/> </div>
                             <div className="rg"> <input type="text" placeholder="RG"/> </div>
-                            <div className="telefone"> <input type="number" placeholder="Telefone"/> </div>
+                            <div className="telefone"> <input type="text" placeholder="Telefone"/> </div>
                         </div>
                         <div className="InputsGroup"> 
                             <div className="cep"> <input type="text" placeholder="CEP"/> </div>

@@ -5,7 +5,11 @@ import { Container } from "./styled";
 
 import LineText from '../../../../components/comun/line/index'
 
+import { useHistory } from 'react-router-dom'
+
 export default function BoxPet(props) {
+
+    const nav = useHistory();
 
     const Imgs = [
         {
@@ -53,7 +57,7 @@ export default function BoxPet(props) {
                         <LineText titulo="Descrição"/>
                         <div className="text-description"> {props.Description} </div>
                     </div>
-                    <div className="Adopt-button"> <button> QUERO ADOTAR ESSE PET </button></div>
+                    <div className="Adopt-button"> <button onClick={ () => nav.push('/formadocao') }> QUERO ADOTAR ESSE PET </button></div>
                 </div>
             </Container>
     )
