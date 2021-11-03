@@ -1,7 +1,7 @@
 import db from './db.js'
 import express from 'express'
 import cors from 'cors'
-// import Sequelize from 'sequelize'
+import Sequelize from 'sequelize'
 
     
     const app = express()
@@ -65,43 +65,107 @@ import cors from 'cors'
         })
 
 
+        app.get('/racasDisponiveis', async(req, resp) => {
+            try {
+                let registros = await db.infob_apn_tb_pet.findAll({
+                    where: {
+                        BT_DISPONIVEL: true
+                    }
+                })
+                    // console.log(registros)
+
+                let racas = []
+                for (let r of registros){
+                    if( !racas.includes(r.NM_RACA) ){
+                        racas.push(r.NM_RACA)
+                    }
+                }
+
+                resp.send(racas)
+                
+            } catch (e) {
+                resp.send({erro: e.toString()})
+            }
+        })
+  
+
     // ATENÇÃO É necessario declarar as requisições quando for chamar o endpoint. 
 
-        app.get("/pets", async(req, resp) => {
+        app.post("/pets", async(req, resp) => {
             try {
                 let {
-                    DS_SEXO,
-                    DS_PORTE,
-                    DT_NASCIMENTO,
-                    DS_ESPECIE,
-                    NM_RACA,          
+                    sexo,
+                    porte,
+                    idade,
+                    especie,
+                    raca,          
 
-                } = req.query
+                } = req.body
 
-                    let filtro = [
-                        {
-                            DS_SEXO,
-                            valor: DS_SEXO
-                        }, 
-                        {
-                            DS_PORTE,
-                            valor: DS_PORTE
-                        },
-                        {
-                            DT_NASCIMENTO,
-                            valor: DT_NASCIMENTO
-                        }, 
-                        {
-                            DS_ESPECIE,
-                            valor: DS_ESPECIE
-                        }, 
-                        {
-                            NM_RACA,
-                            valor: NM_RACA
-                        } 
-                    ]
+                const {Op} = Sequelize
 
-                        filtro = filtro.filter( (item) => item.valor !== '')
+                console.log(idade)
+
+                    let filtro = null
+                    
+                    if( idade.dataFinish != null ){
+                        console.log('NOT NULL')
+
+                        filtro = [
+                            {
+                                DS_SEXO: sexo,
+                                valor: sexo
+                            }, 
+                            {
+                                DS_PORTE: porte,
+                                valor: porte
+                            },
+                            {
+                                DT_NASCIMENTO: {
+                                    [Op.between]: [idade.dataStart, idade.dataFinish]
+                                },
+                                valor: idade.dataStart
+                            }, 
+                            {
+                                DS_ESPECIE: especie,
+                                valor: especie
+                            }, 
+                            {
+                                NM_RACA: raca,
+                                valor: raca
+                            } 
+                        ]
+                    } else {
+                        console.log('NULL')
+
+                        filtro = [
+                            {
+                                DS_SEXO: sexo,
+                                valor: sexo
+                            }, 
+                            {
+                                DS_PORTE: porte,
+                                valor: porte
+                            },
+                            {
+                                DT_NASCIMENTO: {
+                                    [Op.lte]: idade.dataStart
+                                },
+                                valor: idade.dataStart
+                            }, 
+                            {
+                                DS_ESPECIE: especie,
+                                valor: especie
+                            }, 
+                            {
+                                NM_RACA: raca,
+                                valor: raca
+                            } 
+                        ]
+                    }
+                    
+
+                        filtro = filtro.filter( (item) => item.valor != '')
                      
                             for (let index = 0; index < filtro.length; index++) {
                                 let ob = filtro[index]
@@ -120,6 +184,27 @@ import cors from 'cors'
                 resp.send({erro: e.toString()})
             }
         })
+          
+
+
+        app.get('/teste', async(req, resp) => {
+            
+            const {Op} = Sequelize
+
+            let r = await db.infob_apn_tb_pet.findAll({
+                where: {
+                    DT_NASCIMENTO: {
+                        [Op.between]: ['2021-04-28T20:05:46.082Z', new Date() ]
+                    }
+                }
+            })
+
+            resp.send(r)
+
+        })
+
+
+
         
         app.post('/admin/addpet', async(req, resp) => {
             try{

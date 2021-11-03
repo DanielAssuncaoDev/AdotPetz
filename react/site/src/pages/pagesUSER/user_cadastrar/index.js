@@ -1,6 +1,8 @@
 import {Container, Conteudo} from './styled'
 
+import Cookie from 'js-cookie'
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Api from '../../../service/api'
 const api = new Api()
@@ -11,6 +13,8 @@ const [nome, setNome] = useState('')
 const [sobrenome, setSobrenome] = useState('')
 const [email, setEmail] = useState('')
 const [senha, setSenha] = useState('')
+
+const nav = useHistory()
 
     const CadastrarUsuario = async() => {
         
@@ -59,7 +63,8 @@ const [senha, setSenha] = useState('')
         if( usu.erro !== undefined ){
             alert(usu.erro)
         } else {
-            alert('Cadastrado com Sucesso')
+            Cookie.set('User', JSON.stringify(usu) )
+            nav.push('/home')
         }
 
     }
@@ -75,18 +80,9 @@ const [senha, setSenha] = useState('')
 
                 <div className="Form"> 
 
-{/* <<<<<<< HEAD */}
                     <div className="cadastrar"> CADASTRE-SE </div>
 
-{/* <div className="inpe"> 
-<input type="text" placeholder="Nome:" />
-<input type="text" placeholder="Sobrenome:" />
-</div> */}
-{/* >>>>>>> 526bc2d468cc2057f89e51942df0cbe8fed650ed */}
-
                     <div className="inputs"> 
-
-{/* <<<<<<< HEAD */}
                         <div className="inpe"> 
                             <input type="text" placeholder="Nome:" 
                                     value={nome}
@@ -97,11 +93,6 @@ const [senha, setSenha] = useState('')
                                     onChange={ (e) => setSobrenome(e.target.value) }
                             />
                         </div>
-{/* ======= */}
-{/* <div className="box-input"> 
-<input type="text" placeholder="Senha:" />
-</div> */}
-{/* >>>>>>> 526bc2d468cc2057f89e51942df0cbe8fed650ed */}
 
                         <div className="box-input"> 
                             <input type="text" placeholder="Email:"

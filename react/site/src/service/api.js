@@ -15,8 +15,13 @@ import axios from 'axios'
                 return r.data
             }
 
+            async racasDisponiveis(){
+                let r = await api.get('/racasDisponiveis')
+                return r.data
+            }
+
             async listarPets(filtro){
-                let r = await api.get('/pets', filtro)
+                let r = await api.post(`/pets`, filtro)
                 return r.data
             }
 
