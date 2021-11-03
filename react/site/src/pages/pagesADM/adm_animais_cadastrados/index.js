@@ -8,8 +8,22 @@ import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
 import { useHistory } from 'react-router-dom'
 
+import Api from '../../service/api';
+const api = new Api();
+
+
+
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
+
+    async function listarAnimaisCadastrados() {
+        let r = await api.listarAnimaisCadastrados();
+        setAnimals(r);
+    }
+
+    useEffect (() => {
+        listarAnimaisCadastrados();
+    }, [])
 
     const nav = useHistory ();
 
