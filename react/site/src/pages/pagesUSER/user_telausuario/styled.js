@@ -102,7 +102,7 @@ padding-top: 4px;
 
     margin-left: 3em;
     width: 70%;
-    height: 45.4em;
+    //height: 45.4em;
     overflow-y: scroll;
 }
 
@@ -112,7 +112,7 @@ padding-top: 4px;
 }
 
 .direita::-webkit-scrollbar-track{
-  background-color: #00000050;
+  background-color: #1f1f1f;
   border-radius: 20px;
 }
 
@@ -142,15 +142,20 @@ padding-top: 4px;
     padding: 3em 2em 2em 2.5em;
 }
 
-/* .meio-di{
+ .meio-di{
     padding-top: 4em;
 
     text-align: center;
-} */
+} 
 
-/* .meio-di img{
-  height: 9em;
-} */
+ .meio-di img{
+  height: 10em;
+} 
+
+.tex-nenhuma{ 
+    font-size: 16px;
+    font-weight: 300;
+}
 
 .obs{
     font-size: 12px;
