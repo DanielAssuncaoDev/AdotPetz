@@ -7,27 +7,32 @@ import {Button} from '../cabecalhoADM/styled'
 
 import Menu from '../Menu/index'
 
+import Cookie from 'js-cookie';
+import { useHistory } from 'react-router-dom'
+
 // {}
 
 export default function CabecalhoUSU(){
 
     const [login] = useState(true);
 
+    const nav = useHistory()
+
     return(
              <Container>
                 <div className="line-left">
 
                     <div className="box-logo">
-                        <img src="/assets/images/logo.svg" alt="" />
+                        <img onClick={ () => nav.push('/home') }  src="/assets/images/logo.svg" alt="" />
                     </div>
 
                     <div className="informacoes"> 
 
-                        <span className="Cont-inf"> Sobre </span>
+                        <span className="Cont-inf" onClick={ () => nav.push('/quemsomosnos') } > Sobre </span>
 
-                        <span className="Cont-inf"> Adotar </span>
-                        <span className="Cont-inf"> Doar </span>
-                        <span className="Cont-inf"> FAQ </span>
+                        <span className="Cont-inf"  onClick={ () => nav.push('/sugestoesadocao') }> Adotar </span>
+                        <span className="Cont-inf"  onClick={ () => nav.push('/home') }> Doar </span>
+                        <span className="Cont-inf"  onClick={ () => nav.push('/FAQ') }> FAQ </span>
                     </div>
                 </div>
 
@@ -35,17 +40,17 @@ export default function CabecalhoUSU(){
                     <span className="Box-Buttons">
                         { 
                         
-                            login === false 
+                            Cookie.get('User') === undefined 
                             
                             ?                            
                                 <div className="botoes">
-                                    <button className="Cad"> Cadastrar-se </button>
-                                    <button className="lo"> Login </button>
+                                    <button className="Cad" onClick={ () => nav.push('/cadastrarse') } > Cadastrar-se </button>
+                                    <button className="lo"onClick={ () => nav.push('/login') } > Login </button>
                                 </div> 
                             
                             : 
 
-                                <Button>
+                                <Button onClick={ () => nav.push('/minhaconta') }>
                                    
                                     <div className="icon-meuperfil">
                                         <img src="/assets/images/account_circle_white_24dp.svg" alt="" />

@@ -51,6 +51,7 @@ padding: 2em;
   height: 4.8vh;
   margin-bottom: 2vh;
   justify-content: space-between;
+  padding-left: 10px;
 }
 .inpe {
   display: flex;
@@ -64,6 +65,7 @@ padding: 2em;
 
   width: 100%;
   height: 100%;
+  padding-left: 10px;
 }
 
 .box-input{

@@ -1,12 +1,20 @@
 import {Container, TabelaUsu} from './styled'
 
-import CabecalhoADM from '../../../components/comun/cabecalhoADM';
+import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 
+import Api from '../../../service/api';
+import { useState } from 'react';
+const api = new Api();
 
 export default function telaUSU(){
+ const [animais, setAnimais] = useState([]);
+
+
+
+
     return(
     <Container>
-       <CabecalhoADM />
+       <CabecalhoUSU />
        <div className='conteudo'>
          <div className='esquerda'> 
          <div className='conteudo-esq'>
@@ -55,80 +63,18 @@ export default function telaUSU(){
                   </thead>
                  
                  <tbody>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                 </tbody>
 
+                  {animais.map ((item) =>
+                        <tr>
+                          <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
+                          <td> {item.NM_PET} </td>
+                          <td> {item.DS_ESPECIE} </td>
+                          <td> {item.DS_SEXO} </td>
+                          <td> {item.ID_ADOCAO} </td>
+                          <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
+                        </tr>
+                  )}
+                 </tbody>
               </div>
            </TabelaUsu>
          </div>

@@ -1,7 +1,7 @@
 import {Container} from './styled'
 
 
-import CabecalhoADM from '../../../components/comun/cabecalhoADM';
+import CabecalhoADM from '../../../components/comun/cabecalhoUSU';
 import Roda from '../../../components/comun/rodape'
 
 

@@ -11,7 +11,7 @@ import axios from 'axios'
             }
 
             async login(credenciais){
-                let r = await api.get('/login', credenciais)
+                let r = await api.post('/login', credenciais)
                 return r.data
             }
 
@@ -26,10 +26,13 @@ import axios from 'axios'
             }
 
             async remover(id) {
-                let r = await api.delete('/pet/:idPet/${id}')
+                let r = await api.delete(`/pet/:idPet/${id}`)
                 return r.data
             }
-
-
+            
+            async listarMinhasAdocoes() {
+                let r = await api.get('/minhasAdocoes/:idUsuario');
+                return r.data;
+            }
 
         }
