@@ -55,6 +55,8 @@ export default function TelaUSU(){
   listar()
  }, [] )
 
+    if( Cookie.get('User') === undefined )
+        nav.push('/login')
 
     return(
     <Container>
@@ -72,7 +74,15 @@ export default function TelaUSU(){
                   <div className='NomeUSU'> E-mail: </div>
                   <div className='NomeUSU'> Telefone: </div>
                   </div>
-              <div className='imagemBA'> <img src='/assets/images/image 80.svg' alt='' /> </div>     
+              <div className='imagemBA'> 
+                <img onClick={ () => {
+                          Cookie.remove('User') 
+                          nav.push('/home')
+                        }
+                      }
+                        src='/assets/images/image 80.svg' alt='' 
+                /> 
+              </div>     
             </div>
           </div>
           <div className='rodape'> 

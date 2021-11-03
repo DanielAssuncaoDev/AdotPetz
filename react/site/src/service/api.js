@@ -1,6 +1,5 @@
-import Axios from 'axios'
-
-    const api = Axios.create({
+import axios from 'axios'
+    const api = axios.create({
         baseURL: 'http://localhost:3030'
     })
 
@@ -16,8 +15,13 @@ import Axios from 'axios'
                 return r.data
             }
 
+            async racasDisponiveis(){
+                let r = await api.get('/racasDisponiveis')
+                return r.data
+            }
+
             async listarPets(filtro){
-                let r = await api.get('/pets', filtro)
+                let r = await api.post(`/pets`, filtro)
                 return r.data
             }
 

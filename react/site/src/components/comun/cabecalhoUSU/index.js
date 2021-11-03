@@ -5,13 +5,17 @@ import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
 import Menu from '../Menu/index'
 
+
 import Cookie from 'js-cookie';
 import { useHistory } from 'react-router-dom'
 
 export default function CabecalhoUSU(){
 
-    const [login] = useState(true);
-
+    console.log(
+        Cookie.get('User') !== undefined
+        ?  JSON.parse(Cookie.get('User')) 
+        : 'Usuario não logado!'
+    )
     const nav = useHistory()
 
     return(
@@ -59,7 +63,7 @@ export default function CabecalhoUSU(){
                     </span> 
 
                     
-                    <Menu type="User" hidden="1001px" login={login} />
+                    <Menu type="User" hidden="1001px" />
                     
 
                     
