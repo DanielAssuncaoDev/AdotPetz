@@ -9,14 +9,17 @@ import Cookie from 'js-cookie';
 
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
+
 
 import Api from '../../../service/api';
-import { useState, useEffect } from 'react';
 const api = new Api();
 
 export default function TelaUSU(){
  const [animais, setAnimais] = useState([]);
 
+const nav = useHistory()
  
  async function listar(){
    let id = JSON.parse(Cookie.get('User')).ID_USER;

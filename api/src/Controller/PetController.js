@@ -1,4 +1,6 @@
 import express from 'express'
+import Sequelize from 'sequelize';
+import db from '../db.js'
 
     const app = express.Router()
 
@@ -141,39 +143,79 @@ import express from 'express'
 
 // Listar pets
 
-  app.get("/pets", async(req, resp) => {
+  app.post("/", async(req, resp) => {
     try {
         let {
-            DS_SEXO,
-            DS_PORTE,
-            DT_NASCIMENTO,
-            DS_ESPECIE,
-            NM_RACA,          
+            sexo,
+            porte,
+            idade,
+            especie,
+            raca,            
 
-        } = req.query
+        } = req.body
 
-            let filtro = [
-                {
-                    DS_SEXO,
-                    valor: DS_SEXO
-                }, 
-                {
-                    DS_PORTE,
-                    valor: DS_PORTE
-                },
-                {
-                    DT_NASCIMENTO,
-                    valor: DT_NASCIMENTO
-                }, 
-                {
-                    DS_ESPECIE,
-                    valor: DS_ESPECIE
-                }, 
-                {
-                    NM_RACA,
-                    valor: NM_RACA
-                } 
-            ]
+        const {Op} = Sequelize
+
+        console.log(idade)
+
+            let filtro = null
+
+            if( idade.dataFinish != null ){
+                console.log('NOT NULL')
+
+                filtro = [
+                    {
+                        DS_SEXO: sexo,
+                        valor: sexo
+                    }, 
+                    {
+                        DS_PORTE: porte,
+                        valor: porte
+                    },
+                    {
+                        DT_NASCIMENTO: {
+                            [Op.between]: [idade.dataStart, idade.dataFinish]
+                        },
+                        valor: idade.dataStart
+                    }, 
+                    {
+                        DS_ESPECIE: especie,
+                        valor: especie
+                    }, 
+                    {
+                        NM_RACA: raca,
+                        valor: raca
+                    } 
+                ]
+            } else {
+                console.log('NULL')
+
+                filtro = [
+                    {
+                        DS_SEXO: sexo,
+                        valor: sexo
+                    }, 
+                    {
+                        DS_PORTE: porte,
+                        valor: porte
+                    },
+                    {
+                        DT_NASCIMENTO: {
+                            [Op.lte]: idade.dataStart
+                        },
+                        valor: idade.dataStart
+                    }, 
+                    {
+                        DS_ESPECIE: especie,
+                        valor: especie
+                    }, 
+                    {
+                        NM_RACA: raca,
+                        valor: raca
+                    } 
+                ]
+            }
+
 
                 filtro = filtro.filter( (item) => item.valor !== '')
              
