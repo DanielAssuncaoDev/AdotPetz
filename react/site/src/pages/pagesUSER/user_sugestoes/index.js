@@ -19,7 +19,7 @@ const [pets, setPets] = useState([])
     const listarPets = async() => {
         let pets = await api.listarPets(props.location.state)
         setPets(pets)
-        // console.log(pets)
+        console.log(pets)
     }
         useEffect( () => {
             listarPets()
