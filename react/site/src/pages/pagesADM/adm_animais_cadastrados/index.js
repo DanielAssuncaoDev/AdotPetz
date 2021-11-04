@@ -24,6 +24,7 @@ export default function AnimaisCadastrados(){
         listarAnimaisCadastrados();
     }, [])
 
+
     const nav = useHistory ();
 
     useEffect(() => {

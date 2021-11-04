@@ -56,7 +56,7 @@ export default function TelaUSU(){
  }, [] )
 
     if( Cookie.get('User') === undefined )
-        nav.push('/login')
+        // nav.push('/login')
 
     return(
     <Container>
@@ -77,7 +77,7 @@ export default function TelaUSU(){
               <div className='imagemBA'> 
                 <img onClick={ () => {
                           Cookie.remove('User') 
-                          nav.push('/home')
+                          // nav.push('/home')
                         }
                       }
                         src='/assets/images/image 80.svg' alt='' 
