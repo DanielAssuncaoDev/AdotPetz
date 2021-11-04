@@ -48,7 +48,7 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-    // comentei e sai correndo, pal no cu de qm ta lendo
+    // comentei e sai correndo, pal no cu de qm ta lendo /////////////////// eu sou doido
 
     // function toRow() {
     //     return animals.map(item => {
