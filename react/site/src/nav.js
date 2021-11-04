@@ -53,6 +53,11 @@ export default function Nav(){
             <Link to="/faq">
               <span>FAQ</span>
             </Link>
+
+            <Link to="/pet">
+              <span> Informações do Pet </span>
+            </Link>
+
           </nav>
 
         </div>
@@ -84,6 +89,10 @@ export default function Nav(){
 
             <Link to="/admin/login">
               <span> Login ADM </span>
+            </Link>
+
+            <Link to="/admin/animaiscadastrados">
+              <span> Animais cadastrados </span>
             </Link>
           </nav>
 
