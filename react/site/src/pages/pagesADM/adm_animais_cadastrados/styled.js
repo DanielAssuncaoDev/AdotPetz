@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     .ContainerBody{
         background: #8E8E8E;
-        height:100%;
+        height:100vh;
         width: 100%;
         padding: 4em;
     }
@@ -65,7 +65,7 @@ export const Container = styled.div`
         padding: 1.5em;
         margin-top: 2em;
         overflow-y: scroll;
-        height: 80vh;
+        height: 650px;
     }
 
     .align-items, .edit, .delete, .visu, .selo{

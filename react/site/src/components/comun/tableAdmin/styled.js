@@ -50,6 +50,7 @@ const Td = styled.td`
     & :nth-child(1) {
         visibility: ${props => props.config && props.config.visibility ? props.config.visibility : 'visible'};
     }
+
 `
 
 const TableAdm = styled.table`

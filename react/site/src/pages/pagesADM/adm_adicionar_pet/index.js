@@ -1,46 +1,53 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
-import Api from '../../../service/api';
+import { useHistory } from 'react-router-dom';
 
+// import Api from '../../../service/api';
+// const api = new Api()
 
 export default function Addpet(){
+    const nav = useHistory();
 
-const [nome, setNome] = useState('')
-const [especie, setEspecie] = useState('')
-const [raca, setRaca] = useState('')
-const [sexo, setSexo] = useState('')
-const [peso, setPeso] = useState('')
-const [nascimento, setNascimento] = useState('')
-const [porte, setPorte] = useState('')
-const [descricao, setDescricao] = useState('')
-const [imgPet1, setImgPet1] = useState('')
-const [imgPet2, setImgPet2] = useState('')
-const [imgPet3, setImgpet3] = useState('')
-const [castrado, setCastrado] = useState('')
-const [vacinaV10, setVacinaV10] = useState('')
-const [vacinaV8, setVacinaV8] = useState('')
-const [vacinaV5, setVacinaV5] = useState('')
-const [vacinaV4, setVacinaV4] = useState('')
-const [vacinaV3, setVacinaV3] = useState('')
-const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
+    // const [nome, setNome] = useState('')
+    const [especie, setEspecie] = useState('')
+    const [raca, setRaca] = useState('')
+    const [sexo, setSexo] = useState('')
+    const [peso, setPeso] = useState('')
+    const [nascimento, setNascimento] = useState('')
+    const [porte, setPorte] = useState('')
+    const [descricao, setDescricao] = useState('')
+    // const [imgPet1, setImgPet1] = useState('')
+    // const [imgPet2, setImgPet2] = useState('')
+    // const [imgPet3, setImgpet3] = useState('')
+    const [castrado, setCastrado] = useState('')
+    const [vacinaV10, setVacinaV10] = useState('')
+    const [vacinaV8, setVacinaV8] = useState('')
+    const [vacinaV5, setVacinaV5] = useState('')
+    const [vacinaV4, setVacinaV4] = useState('')
+    const [vacinaV3, setVacinaV3] = useState('')
+    const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
 
-    async function adicionarPets() {
-        let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
-            if(r.erro !== undefined){
-                alert(r.erro)
-                return
-            } else {
-                alert('Pet cadastrado')
-            }
-     } 
+// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs
+
+    // async function adicionarPets() {
+    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+    //         if(r.erro !== undefined){
+    //             alert(r.erro)
+    //             return
+    //         } else {
+    //             alert('Pet cadastrado')
+    //         }
+    //  } 
+
+
 
     return(
         <Container>
             <Cabecalho/>
             <div className="container">
-            <div className="bts"> <button className="vltr"> <img className="vlt" src="/assets/images/icon_voltar.svg" alt=""/> </button> </div>
+            <div className="bts"> <button className="vltr"> <img  onClick={ () => nav.push('/admin/home') } className="vlt" src="/assets/images/icon_voltar.svg" alt=""/> </button> </div>
                 <div className="box">
                     <div className="box-esq">
                         <div className="imgs">

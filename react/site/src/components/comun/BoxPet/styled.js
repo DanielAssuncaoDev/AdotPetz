@@ -2,6 +2,7 @@ import styled  from "styled-components";
 
 // {}
 
+
 export const BoxPet = styled.div`
 
 width: 20%;
@@ -95,9 +96,9 @@ box-shadow: 0px 0px 15px 4px #888888;
         color: rgba(0, 0, 0, 0.29);
     }
 
-    .info-porte-s{
-        border: 0.5px solid #101BC4 !important;
-        color: #101BC4 !important;
+    .info-porteSelect{
+        border: 0.5px solid ${(props) => props.colorPet}  !important;
+        color: ${(props) => props.colorPet} !important;
 
     }
 
