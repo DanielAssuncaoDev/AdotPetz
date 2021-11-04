@@ -2,7 +2,12 @@ import {Container} from './styled.js'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index.js'
 
+import { useHistory } from 'react-router-dom'
+
     export default function HomeADM(){
+
+        const nav = useHistory();
+
         return(
             <Container>
                 <CabecalhoADM/>
@@ -17,9 +22,9 @@ import CabecalhoADM from '../../../components/comun/cabecalhoADM/index.js'
                         </div>
                     </div>
                     <div className="box2">
-                        <div className= "item1-bx2"> <button> <img src='/assets/images/image42.svg' alt=''/> <img className="icon" src='/assets/images/image43.svg' alt=''/> </button> Adicionar pet </div>
-                        <div className= "item2-bbx2"> <button> <img src='/assets/images/image54.svg' alt=''/></button> Ver pets cadastrados </div>
-                        <div className= "item3-bx2"> <button> <img src='/assets/images/image44.svg' alt=''/> </button> Ver solicitações de <p> adoções </p> </div>
+                        <div className= "item1-bx2"> <button> <img onClick={ () => nav.push('/admin/addpet') } src='/assets/images/image42.svg' alt=''/> <img className="icon" src='/assets/images/image43.svg' alt=''/> </button> Adicionar pet </div>
+                        <div className= "item2-bbx2"> <button> <img onClick={ () => nav.push('/admin/animaiscadastrados') } src='/assets/images/image54.svg' alt=''/></button> Ver pets cadastrados </div>
+                        <div className= "item3-bx2"> <button> <img onClick={ () => nav.push('/admin/solicitacoes') } src='/assets/images/image44.svg' alt=''/> </button> Ver solicitações de <p> adoções </p> </div>
                     </div>
                 </div>
 

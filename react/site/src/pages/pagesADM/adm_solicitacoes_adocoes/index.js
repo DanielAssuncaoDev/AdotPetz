@@ -1,15 +1,10 @@
-import {Container,
-            FaixaCRUD,
-            TabelaSolicitacoes
-
-} from './styled'
+import {Container, FaixaCRUD, TabelaSolicitacoes} from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
 import Filtros from '../../../components/comun/Filtro/index'
 
 export default function SolicitacaoAdocao() {
-
     return(
         <Container>
             <CabecalhoADM />

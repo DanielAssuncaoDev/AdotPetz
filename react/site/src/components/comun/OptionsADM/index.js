@@ -1,12 +1,15 @@
+import { useHistory } from 'react-router';
 import {OptionsContainer} from './styled';
 
 export default function OptionsADM(){
 
+    const nav = useHistory();
+    
     return(
         <OptionsContainer>
             <div className="option-voltar">
                 <span>
-                    <img src="/assets/images/icon_voltar.svg" alt="" />
+                    <img onClick={ () => nav.push('/admin/home') } src="/assets/images/icon_voltar.svg" alt="" />
                 </span>
             </div>
 
