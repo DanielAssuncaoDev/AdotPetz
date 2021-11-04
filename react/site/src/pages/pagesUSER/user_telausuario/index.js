@@ -35,7 +35,7 @@ export default function TelaUSU(){
             onClick: async() => {
                 let r = await api.removerSoliAdo(id);
                 if(r.erro !== undefined)
-                  tooast.error(` ${r.erro}`);
+                  toast.error(` ${r.erro}`);
                 else{
                     toast.dark('Adocao cancelada!');
                     listar();
