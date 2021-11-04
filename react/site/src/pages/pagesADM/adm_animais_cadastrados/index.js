@@ -8,7 +8,7 @@ import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
 import { useHistory } from 'react-router-dom'
 
-import Api from '../../service/api';
+import Api from '../../../service/api';
 const api = new Api();
 
 
