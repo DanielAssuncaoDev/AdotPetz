@@ -18,6 +18,9 @@ export default function AnimaisCadastrados(){
     async function listarAnimaisCadastrados() {
         let r = await api.listarAnimaisCadastrados();
         setAnimals(r);
+        // console.log("Data - " + typeof(new Date(r[0].DT_CADASTRO))
+
+        console.log(new Date(r[0].DT_CADASTRO).toLocaleDateString('pt-BR'))
     }
 
     useEffect (() => {
@@ -26,26 +29,28 @@ export default function AnimaisCadastrados(){
 
     const nav = useHistory ();
 
-    useEffect(() => {
-        setAnimals([
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-            { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' }
-        ])
-    }, [])
+    // useEffect(() => {
+    //     // setAnimals([
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' }
+    //     // ])
+
+
+    // }, [])
 
 
     // comentei e sai correndo, pal no cu de qm ta lendo /////////////////// eu sou doido
@@ -101,13 +106,13 @@ export default function AnimaisCadastrados(){
                         ]}>
                    
                         {animals.map(item => 
-                            <Tr key={item.ra}>
-                                <Td className="ra"> {item.ra} </Td>
-                                <Td> {item.petName}  </Td>
-                                <Td> {item.specie}  </Td>
-                                <Td> {item.sexo}  </Td>
-                                <Td> {item.porte}  </Td>
-                                <Td> {item.registrationDate}  </Td>
+                            <Tr key={item.ID_PET}>
+                                <Td className="ra"> {item.ID_PET} </Td>
+                                <Td> {item.NM_PET}  </Td>
+                                <Td> {item.DS_SEXO} </Td>
+                                <Td> {item.DS_ESPECIE}  </Td>
+                                <Td> {item.DS_PORTE}  </Td>
+                                <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => alert(item.initials)}> 
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
@@ -120,7 +125,7 @@ export default function AnimaisCadastrados(){
                                     onClick={() => alert(item.initials)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
                                 </Td>
-                                <Td className="actions" config={{ visibility: 'hidden' }}
+                                <Td className="actions" 
                                     onClick={() => alert(item.initials)}>
                                     <img src="/assets/images/selo.svg" alt="" />
                                 </Td>

@@ -84,7 +84,12 @@ import db from '../db.js'
                 }, 
                 order: [['ID_PET', 'desc']]
             })
-            
+
+            // for( let data of r ){
+            //     data.DT_CADASTRO = new Date(data.DT_CADASTRO.toLocaleDateString('pt-BR'))
+            //     // console.log(data.DT_CADASTRO)
+            // }
+
             resp.send(r)
             
             
