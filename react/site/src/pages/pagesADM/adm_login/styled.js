@@ -15,7 +15,7 @@ background-repeat: no-repeat;
 display: flex;
 justify-content: flex-end;
 
-padding: 5em;
+/* padding: 5em; */
 height: 90vh;
 
 .titulo {
@@ -33,7 +33,8 @@ height: 90vh;
   .contbox {
     display: flex;
     flex-direction: column;
-    align-items: ;
+    /* align-items: ; */
+    width: 100%;
   }
   
   .box {
@@ -43,7 +44,7 @@ height: 90vh;
     background-color: #fad41b;
 
     /* height: 265px; */
-   width: 3;
+   width: 100%;
 
     border: none;
     border-radius: 9px;
