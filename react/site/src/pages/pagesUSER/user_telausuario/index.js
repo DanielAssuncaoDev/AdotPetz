@@ -1,12 +1,67 @@
 import {Container, TabelaUsu} from './styled'
 
-import CabecalhoADM from '../../../components/comun/cabecalhoADM';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
+import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 
-export default function telaUSU(){
+import Cookie from 'js-cookie';
+
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+
+import Api from '../../../service/api';
+import { useState, useEffect } from 'react';
+const api = new Api();
+
+export default function TelaUSU(){
+ const [animais, setAnimais] = useState([]);
+
+ 
+ async function listar(){
+   let id = JSON.parse(Cookie.get('User')).ID_USER;
+   let r = await api.listarMinhasAdocoes(id);
+   setAnimais(r);
+   console.log(r);
+ }
+
+ async function remover(id){
+  confirmAlert({
+    title: 'Cancela Adoção',
+    message: `Tem certeza que deseja cancela o processo de adoção ${id} ?`,
+    buttons: [
+        {
+            label: 'Sim',
+            onClick: async() => {
+                let r = await api.removerSoliAdo(id);
+                if(r.erro !== undefined)
+                  toast.error(` ${r.erro}`);
+                else{
+                    toast.dark('Adocao cancelada!');
+                    listar();
+                }  
+            }
+        },
+        {
+            label: 'Não',
+            onClick: () => toast.dark('Caonfgod')
+        }
+    ]
+});
+    
+}
+
+ useEffect( () => {
+  listar()
+ }, [] )
+
+    if( Cookie.get('User') === undefined )
+        nav.push('/login')
+
     return(
     <Container>
-       <CabecalhoADM />
+       <CabecalhoUSU />
+       <ToastContainer />
        <div className='conteudo'>
          <div className='esquerda'> 
          <div className='conteudo-esq'>
@@ -19,7 +74,15 @@ export default function telaUSU(){
                   <div className='NomeUSU'> E-mail: </div>
                   <div className='NomeUSU'> Telefone: </div>
                   </div>
-              <div className='imagemBA'> <img src='/assets/images/image 80.svg' alt='' /> </div>     
+              <div className='imagemBA'> 
+                <img onClick={ () => {
+                          Cookie.remove('User') 
+                          nav.push('/home')
+                        }
+                      }
+                        src='/assets/images/image 80.svg' alt='' 
+                /> 
+              </div>     
             </div>
           </div>
           <div className='rodape'> 
@@ -41,8 +104,15 @@ export default function telaUSU(){
               <div className="Linha"></div>
               <div className='titulo'> MINHAS ADOÇÕES </div>
             </div>
-           <TabelaUsu>
-              <div className='meio-di'> 
+            <div className='meio-di'> 
+            {
+              animais.length === 0 
+              ? <div className='nenhuma-solici'> <img className='kaka' src='/assets/images/image 82.svg' alt="" />
+                                                 <div className='tex-nenhuma'> OPS!! Nenhuma solicitação foi localizada </div>
+                                      </div>
+
+              : <TabelaUsu>
+              
                   <thead>
                     <tr>
                       <th className='img'> </th>
@@ -55,82 +125,22 @@ export default function telaUSU(){
                   </thead>
                  
                  <tbody>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet1.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Ammy </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 1 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet2.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Jujuba </td>
-                     <td> Gato </td>
-                     <td> Fêmea </td>
-                     <td> 2 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                   <tr>
-                     <td> <img src='/assets/images/pet3.svg' alt='' style={{width: '90px', height: '70px'}} /> </td>
-                     <td> Max </td>
-                     <td> Cachorro </td>
-                     <td> Macho </td>
-                     <td> 3 </td>
-                     <td className='coluna-acao'> <button> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                   </tr>
-                 </tbody>
 
-              </div>
-           </TabelaUsu>
+                  {animais.map ((item) =>
+                        <tr>
+                          <td> <img src={item.infob_apn_tb_pet.IMG_PET1} alt='' style={{width: '90px', height: '70px'}} /> </td> 
+                          <td> {item.infob_apn_tb_pet.NM_PET} </td>
+                          <td> {item.infob_apn_tb_pet.DS_ESPECIE} </td>
+                          <td> {item.infob_apn_tb_pet.DS_SEXO} </td>
+                          <td> {item.infob_apn_tb_pet.ID_PET} </td> 
+                          <td className='coluna-acao'> <button onClick={() => remover(item.ID_ADOCAO )}> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
+                        </tr>
+                  )}
+                 </tbody>
+             
+                </TabelaUsu>
+            }
+            </div>
          </div>
     </div>
       

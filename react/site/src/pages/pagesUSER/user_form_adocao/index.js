@@ -9,22 +9,6 @@ import Mensagem from '../../../components/popups/MensagemForm/index'
 import { useState } from 'react';
 
 export default function Sujestoes(){
-
-    // function Prosseguir() {
-    //     confirmAlert({
-    //         title: 'Adoção em processo',
-    //         message: `Muito obrigada por confirmar seu interesse em adotar o petzinho, o seu pedido de adoção será analisado pela equipe administrativa da ONG Adot Petz. Por favor, aguarde nossa equipe entrar em contato com você para mais detalhes.`,
-    //         buttons: [
-    //             {
-    //                 label: 'Sim',
-    //             },
-    //             {
-    //                 label: 'Não'
-    //             }
-    //         ]
-    //     });
-    // }
-
     const [popUp, setPopUp] = useState(false)
 
     
@@ -59,7 +43,7 @@ export default function Sujestoes(){
                         <div className="InputsGroup"> 
                             <div className="Nascimento"> <input type="text" placeholder="Nascimento"/> </div>
                             <div className="rg"> <input type="text" placeholder="RG"/> </div>
-                            <div className="telefone"> <input type="number" placeholder="Telefone"/> </div>
+                            <div className="telefone"> <input type="text" placeholder="Telefone"/> </div>
                         </div>
                         <div className="InputsGroup"> 
                             <div className="cep"> <input type="text" placeholder="CEP"/> </div>

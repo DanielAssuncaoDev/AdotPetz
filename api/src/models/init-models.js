@@ -11,8 +11,8 @@ export default function initModels(sequelize) {
   var infob_apn_tb_pet = _infob_apn_tb_pet.init(sequelize, DataTypes);
   var infob_apn_tb_user = _infob_apn_tb_user.init(sequelize, DataTypes);
   
-  infob_apn_tb_pet.belongsTo(infob_apn_tb_adocao, { as: "infob_apn_tb_adocao", foreignKey: "id_pet"});
-  infob_apn_tb_adocao.hasMany(infob_apn_tb_pet, { as: "infob_apn_tb_pet", foreignKey: "id_pet"});
+  infob_apn_tb_pet.hasMany(infob_apn_tb_adocao, { as: "infob_apn_tb_adocao", foreignKey: "id_pet"});
+  infob_apn_tb_adocao.belongsTo(infob_apn_tb_pet, { as: "infob_apn_tb_pet", foreignKey: "id_pet"});
 
   return {
     

@@ -2,6 +2,7 @@ import styled  from "styled-components";
 
 // {}
 
+
 export const BoxPet = styled.div`
 
 width: 20%;
@@ -16,7 +17,9 @@ margin: 0em 4em 2.2em 1em;
 background-color: #e0e0e0;
 border-radius: 8px;
 
-box-shadow: 0px 0px 16px 6px #888888;
+box-shadow: 0px 0px 15px 4px #888888;
+
+:hover{ box-shadow: 0px 0px 25px 6px #888888; transition: .4s; cursor: pointer; }
 
 //.conteudo-pet:hover{
    // display: flex;
@@ -35,7 +38,7 @@ box-shadow: 0px 0px 16px 6px #888888;
 }  
  .imagemPET img {
     width: 100%;
-    //height: auto;
+    /* height: 15em; */
     border-radius: 8px;
 
 }
@@ -93,9 +96,9 @@ box-shadow: 0px 0px 16px 6px #888888;
         color: rgba(0, 0, 0, 0.29);
     }
 
-    .info-porte-s{
-        border: 0.5px solid #101BC4 !important;
-        color: #101BC4 !important;
+    .info-porteSelect{
+        border: 0.5px solid ${(props) => props.colorPet}  !important;
+        color: ${(props) => props.colorPet} !important;
 
     }
 
@@ -118,5 +121,21 @@ box-shadow: 0px 0px 16px 6px #888888;
         //background-color: #ffe152;
         transition: .8s;
         box-shadow: 8px 8px 10px 0px #888888;
+    }
+
+    @media (max-width: 800px){
+       width: 40%;
+
+       margin: 15px 5px;
+
+       box-shadow: none;
+    }
+    @media (max-width: 375px){
+     width: 47%;
+
+        button{
+        padding: .6em .6em;
+        margin: 1em 0em;
+        }
     }
 `;

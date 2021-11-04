@@ -78,6 +78,14 @@ background-repeat: no-repeat;
     flex-direction: column;
   }
 
+  @media (max-width: 1000px) {
+    .conteiner{
+
+    }
+  }
+
+  
+
   
 
 `

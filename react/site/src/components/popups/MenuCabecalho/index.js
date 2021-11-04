@@ -1,6 +1,8 @@
 import {ContainerPopUpMenu} from './styled'
 import BoxMenu from './BoxMenu';
 
+import Cookie from 'js-cookie'
+
 export default function PopUpMenu(props){
 
         return(
@@ -15,7 +17,7 @@ export default function PopUpMenu(props){
                                             
 
                     :
-                        props.login === true
+                        Cookie.get('User') !== undefined
 
                         ?        
                             <BoxMenu Topicos={[{icon: "/assets/images/account_circle_white_24dp.svg", NomeTopico: "Minha Conta" }]}

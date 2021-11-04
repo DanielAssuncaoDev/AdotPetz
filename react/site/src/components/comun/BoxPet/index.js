@@ -1,30 +1,76 @@
 import { BoxPet } from "../BoxPet/styled"
 //import anima from 'animate.css';
 
-export default function BoxPETZ(prosp){
+import { useState, useEffect } from 'react'
+
+export default function BoxPETZ(props){
+
+const [colorPorte, setColorPorte] = useState('')
+
+
+useEffect( () => {
+  if( props.Animal.DS_SEXO === 'Macho' ){
+    setColorPorte('#101BC4')
+  } else {
+    setColorPorte('rgb(207, 40, 160)')
+  }
+}, [] )
+  
+
     return(
-      <BoxPet>
-        {/* <div className='conteudo-pet'>  */}
-        <div className="imagemPET">
-             <img src={prosp.imagem} alt='' /> 
-         </div>
-         
-         <div className="NomePET"> <b>{prosp.nome}</b> </div>
-         <div className="local">{prosp.localização} </div>
+      <BoxPet colorPet={colorPorte} >
+          {/* <div className='conteudo-pet'>    */}
+            <div className="imagemPET">
+                <img src={props.Animal.IMG_PET1} alt='' /> 
+            </div>
             
-         <div className="sex">
-             <div className="info-sex"> {prosp.sexo} </div>
-             <div className="img-sex">
-               <img src={prosp.imagemSex} alt="" /> 
-             </div>
-         </div>
-         <div className="porte">
-            <div className="info-porte-ns"> P </div>
-            <div className="info-porte-s"> M </div>
-            <div className="info-porte-ns"> G </div>
-         </div>
-         <div className='botão'> <button>Conhecer mais o Pet</button></div>
-        {/* </div>*/}
+            <div className="NomePET"> <b>{props.Animal.NM_PET}</b> </div>
+            <div className="local"> São Paulo - SP </div>
+                
+            <div className="sex">
+                <div className="info-sex"> {props.Animal.DS_SEXO} </div>
+                <div className="img-sex">
+                  {
+                    props.Animal.DS_SEXO === 'Macho'
+
+                    ? <img src="/assets/images/sexo-macho.svg" alt="" /> 
+
+                    : <img src="/assets/images/sexo-femea.svg" alt="" /> 
+
+                  }
+                </div>
+            </div>
+            
+              {
+                props.Animal.DS_PORTE === 'Pequeno'
+                  ? 
+                    <div className="porte">
+                      <div className="info-porteSelect"> P </div>
+                      <div className="info-porte"> M </div>
+                      <div className="info-porte"> G </div>
+                    </div>
+
+                  : props.Animal.DS_PORTE === 'Médio'
+
+                  ?
+                    <div className="porte">
+                      <div className="info-porte"> P </div>
+                      <div className="info-porteSelect"> M </div>
+                      <div className="info-porte"> G </div>
+                    </div>
+
+                  : 
+                    <div className="porte">
+                      <div className="info-porte"> P </div>
+                      <div className="info-porte"> M </div>
+                      <div className="info-porteSelect"> G </div>
+                    </div>
+
+
+              }
+                
+            <div className='botão'> <button>Conhecer mais o Pet</button></div>
+          {/* </div>  */}
       </BoxPet>
         
     )

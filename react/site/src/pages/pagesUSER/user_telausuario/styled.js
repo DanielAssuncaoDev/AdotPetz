@@ -15,7 +15,6 @@ padding :2em 2em 0em 2em;
 }
 
 
-
 .conteudo-esq{
    height: 56vh;
 }
@@ -103,7 +102,7 @@ padding-top: 4px;
 
     margin-left: 3em;
     width: 70%;
-    height: 45.4em;
+    //height: 45.4em;
     overflow-y: scroll;
 }
 
@@ -113,7 +112,7 @@ padding-top: 4px;
 }
 
 .direita::-webkit-scrollbar-track{
-  background-color: #00000050;
+  background-color: #1f1f1f;
   border-radius: 20px;
 }
 
@@ -143,15 +142,20 @@ padding-top: 4px;
     padding: 3em 2em 2em 2.5em;
 }
 
-/* .meio-di{
+ .meio-di{
     padding-top: 4em;
 
     text-align: center;
-} */
+} 
 
-/* .meio-di img{
-  height: 9em;
-} */
+ .meio-di img{
+  height: 10em;
+} 
+
+.tex-nenhuma{ 
+    font-size: 16px;
+    font-weight: 300;
+}
 
 .obs{
     font-size: 12px;
@@ -160,11 +164,28 @@ padding-top: 4px;
     min-width: 5px;
 }
 
-@media (max-width: 400px){
+@media (max-width: 600px){
         .conteudo{
-            padding: 0px !important;
+            padding: .8em ;
             width: auto;
-        }           
+
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .rodape{ display: none;}
+
+        .direita{ 
+            overflow-y: initial;
+            width: 100%;
+            margin: 10px 0px 0px 0px;
+
+         }
+
+         .meio-di{
+            padding: 1em;
+
+         }
 }
 
 `
