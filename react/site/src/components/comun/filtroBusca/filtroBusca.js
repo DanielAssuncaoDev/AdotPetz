@@ -187,7 +187,7 @@ const nav = useHistory()
                 </div>
 
                 <div className="ButtonForm">
-                    <Button onClick={ () => {nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca}}); window.location.reload(); } } >
+                    <Button onClick={ () => {nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca}});  } } >
                         Procurar
                     </Button>
                 </div>
