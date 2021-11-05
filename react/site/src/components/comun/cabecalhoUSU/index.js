@@ -1,6 +1,4 @@
 
-import {useState} from 'react';
-
 import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
 import Menu from '../Menu/index'

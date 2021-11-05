@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import Api from '../../../service/api'
 const api = new Api()
 
-export default function Filtro(){
+export default function Filtro( ){
 
 const [sexo, setSexo] = useState('')
 const [porte, setPorte] = useState('')
@@ -28,52 +28,54 @@ const nav = useHistory()
         }, [] )
 
 
-        function ConverterDatas(){
-            let dataStart = new Date()
-            let dataFinish = new Date()
+        
+            useEffect( () => {
 
-            if(idadeTexto === ''){
-                setIdade({dataStart: '', dataFinish: ''})
-                return
-            }
-
-                if( idadeTexto === '3a6meses' ){
-                    dataStart.setMonth( new Date().getMonth() - 6 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setMonth( new Date().getMonth() - 3 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-
-
-                } else if ( idadeTexto === '6a1ano' ){
-                    dataStart.setFullYear( (new Date().getFullYear() - 1) )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setMonth( new Date().getMonth() - 6 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-                
-                } else if ( idadeTexto === '1a3anos' ){
-                    dataStart.setFullYear( new Date().getFullYear() - 3 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setFullYear( new Date().getFullYear() - 1 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-
-                } else if ( idadeTexto === '3+anos' ){
-                    // console.log('Caiu Poxa')
-                    dataStart.setFullYear( new Date().getFullYear() - 3 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    setIdade({dataStart: new Date(dataStart), dataFinish: null })
-                    return
-
+                const ConverterDatas = () => {
+                    let dataStart = new Date()
+                    let dataFinish = new Date()
+        
+                    if(idadeTexto === ''){
+                        setIdade({dataStart: '', dataFinish: ''})
+                        return
+                    }
+        
+                        if( idadeTexto === '3a6meses' ){
+                            dataStart.setMonth( new Date().getMonth() - 6 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setMonth( new Date().getMonth() - 3 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+        
+        
+                        } else if ( idadeTexto === '6a1ano' ){
+                            dataStart.setFullYear( (new Date().getFullYear() - 1) )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setMonth( new Date().getMonth() - 6 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+                        
+                        } else if ( idadeTexto === '1a3anos' ){
+                            dataStart.setFullYear( new Date().getFullYear() - 3 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setFullYear( new Date().getFullYear() - 1 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+        
+                        } else if ( idadeTexto === '3+anos' ){
+                            // console.log('Caiu Poxa')
+                            dataStart.setFullYear( new Date().getFullYear() - 3 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            setIdade({dataStart: new Date(dataStart), dataFinish: null })
+                            return
+        
+                        }
+        
+                    setIdade({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
                 }
 
-            console.log({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
-            setIdade({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
-        }
-            useEffect( () => {
-                ConverterDatas()
+                ConverterDatas() 
             }, [idadeTexto] )
 
 
@@ -83,7 +85,7 @@ const nav = useHistory()
                 <b> Encontre um novo amiguinho! </b>
             </div>
 
-            <form className="FiltroBusca">
+            <div className="FiltroBusca">
                 <div className="Row1Form">
                     <SelectRow 
                         onChange={ (e) => setPorte(e.target.value) } 
@@ -185,12 +187,12 @@ const nav = useHistory()
                 </div>
 
                 <div className="ButtonForm">
-                    <Button onClick={ () => nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }) } >
+                    <Button onClick={ () => {nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca}}); window.location.reload(); } } >
                         Procurar
                     </Button>
                 </div>
 
-            </form>
+            </div>
         </BoxFiltro>
     );
 }

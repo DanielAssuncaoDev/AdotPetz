@@ -15,7 +15,7 @@ background-repeat: no-repeat;
 display: flex;
 justify-content: flex-end;
 
-/* padding: 5em; */
+padding: 5em;
 height: 90vh;
 
 .titulo {
@@ -33,8 +33,12 @@ height: 90vh;
   .contbox {
     display: flex;
     flex-direction: column;
-    /* align-items: ; */
-    width: 100%;
+    height: 100%;
+    justify-content: center;
+    /* align-items: center ; */
+    /* width: 100%; */
+    /* position: absolute; */
+
   }
   
   .box {
@@ -71,14 +75,14 @@ height: 90vh;
   
   
     width: 40%;
-    height: 170%;
+    height: 100%;
   }
   .buton {
     display: flex;
     justify-content: center;
   
-    margin-top: 1em;
     width: 100%;
+    height: 2em
   }
   .input {
     display: flex;
@@ -104,7 +108,19 @@ height: 90vh;
     padding: 0em .5em;
 
   }
-  @media(max-width: 600px){
+  @media(max-width: 650px){
+
+    padding: 0.5em;
+
+      .contbox {
+       width: 100%;
+      }
+      .titulo {
+        width: 100%;
+      }
+      .box{
+        padding: 2em 1em;
+      }
 
   }
 `

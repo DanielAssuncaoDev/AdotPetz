@@ -16,14 +16,35 @@ export default function Sugestoes(props){
 
 const [pets, setPets] = useState([])
 
-    const listarPets = async() => {
-        let pets = await api.listarPets(props.location.state)
-        setPets(pets)
-        console.log(pets)
-    }
+const [filtroPets] = useState(props.location.state)
+
+
+    
         useEffect( () => {
+const listarPets = async() => {
+        let pets = null
+        
+            if(filtroPets !== undefined){
+                pets = await api.listarPets(filtroPets)
+
+            } else{
+                pets = await api.listarPets({
+                    "sexo": "",
+                    "porte": "",
+                    "idade": {
+                      "dataStart": "",
+                      "dataFinish": null
+                    },
+                    "especie": "",
+                    "raca": ""
+                  })
+            }
+        setPets(pets)
+        // console.log(pets)
+    }
+
             listarPets()
-        }, [])
+        }, [filtroPets])
 
     return(
          <Container> 
@@ -44,14 +65,6 @@ const [pets, setPets] = useState([])
                                 <Box Animal={pet} />
                             )
                         }
-                        {/* <Box imagem='/assets/images/pet5.svg' nome='Bob' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet4.svg' nome='Billy' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/> */}
                     </div>
                     <div className='nupags'> 
                       <div className='nu'> 1 </div>

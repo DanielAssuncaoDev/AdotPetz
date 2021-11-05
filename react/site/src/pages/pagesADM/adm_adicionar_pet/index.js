@@ -2,7 +2,6 @@ import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
 import Api from '../../../service/api';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 
@@ -12,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 export default function Addpet(){
     const nav = useHistory();
 
-    // const [nome, setNome] = useState('')
+    const [nome] = useState('')
     const [especie, setEspecie] = useState('')
     const [raca, setRaca] = useState('')
     const [sexo, setSexo] = useState('')
@@ -20,9 +19,9 @@ export default function Addpet(){
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
-    // const [imgPet1, setImgPet1] = useState('')
-    // const [imgPet2, setImgPet2] = useState('')
-    // const [imgPet3, setImgpet3] = useState('')
+    const [imgPet1] = useState('')
+    const [imgPet2] = useState('')
+    const [imgPet3] = useState('')
     const [castrado, setCastrado] = useState('')
     const [vacinaV10, setVacinaV10] = useState('')
     const [vacinaV8, setVacinaV8] = useState('')
@@ -46,39 +45,41 @@ export default function Addpet(){
 
 
 
-    async function cadastrarPet() {
-        let formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('especie', especie);
-        formData.append('raca', raca);
-        formData.append('sexo', sexo);
-        formData.append('peso', peso);
-        formData.append('nascimento', nascimento);
-        formData.append('porte', porte);
-        formData.append('descricao', descricao);
-        formData.append('imgPet1', imgPet1);
-        formData.append('imgPet2', imgPet2);
-        formData.append('imgPet3', imgPet3);
-        formData.append('castrado', castrado);
-        formData.append('vacinaV10', vacinaV10);
-        formData.append('vacinaV8', vacinaV8);
-        formData.append('vacinaV5', vacinaV5);
-        formData.append('vacinaV4', vacinaV4);
-        formData.append('vacinaV3', vacinaV3);
-        formData.append('vacinaAntirrabica', vacinaAntirrabica);
+    // Opa, comentei só pra fazer deploy, ok? :)
 
-        let resp = await axios.post('/admin/addpet', formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }})
-        console.log(resp.data);
-    }
+    // async function cadastrarPet() {
+    //     let formData = new FormData();
+    //     formData.append('nome', nome);
+    //     formData.append('especie', especie);
+    //     formData.append('raca', raca);
+    //     formData.append('sexo', sexo);
+    //     formData.append('peso', peso);
+    //     formData.append('nascimento', nascimento);
+    //     formData.append('porte', porte);
+    //     formData.append('descricao', descricao);
+    //     formData.append('imgPet1', imgPet1);
+    //     formData.append('imgPet2', imgPet2);
+    //     formData.append('imgPet3', imgPet3);
+    //     formData.append('castrado', castrado);
+    //     formData.append('vacinaV10', vacinaV10);
+    //     formData.append('vacinaV8', vacinaV8);
+    //     formData.append('vacinaV5', vacinaV5);
+    //     formData.append('vacinaV4', vacinaV4);
+    //     formData.append('vacinaV3', vacinaV3);
+    //     formData.append('vacinaAntirrabica', vacinaAntirrabica);
 
-    function previewImage() {
-        if (imgPet1) {
-            return URL.createObjectURL(imgPet1);
-        }
-    }
+    //     let resp = await axios.post('/admin/addpet', formData, {
+    //         headers: {
+    //             "Content-Type": "multipart/form-data"
+    //         }})
+    //     console.log(resp.data);
+    // }
+
+    // function previewImage() {
+    //     if (imgPet1) {
+    //         return URL.createObjectURL(imgPet1);
+    //     }
+    // }
 
     async function adicionarPets() {
         let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
@@ -103,7 +104,7 @@ export default function Addpet(){
                             <div className="quadrado"> 
                                 <input type="image" src="/assets/images/addimg1.svg" alt="" width="20" height="20"/>  
                             </div> 
-                            {imgPet1 && <div className="input-file"> <input id="capa-input-file" type="file" onChange={e => setCapa(e.target.files[0])} /> </div> }
+                            {/* {imgPet1 && <div className="input-file"> <input id="capa-input-file" type="file" onChange={e => setCapa(e.target.files[0])} /> </div> } */}
                         </div>
                         <div className="inputs"> 
                             <input className="input1" type="text" placeholder="Adicionar fotos" src=""/> 

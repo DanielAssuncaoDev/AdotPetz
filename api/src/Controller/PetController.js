@@ -6,7 +6,7 @@ import db from '../db.js'
 
     // Adiocionar Pet
 
-    app.post('/addpet', async(req, resp) => {
+    app.post('/pets/admin/addpet', async(req, resp) => {
         try{
             let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3} = req.body;
 
@@ -223,7 +223,7 @@ import db from '../db.js'
 
 
                 filtro = filtro.filter( (item) => item.valor !== '')
-             
+            
                     for (let index = 0; index < filtro.length; index++) {
                         let ob = filtro[index]
                         delete(ob.valor)
@@ -236,6 +236,29 @@ import db from '../db.js'
         })
 
         resp.send(r)
+
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
+})
+
+app.get('/racasDisponiveis', async(req, resp) => {
+    try {
+        let registros = await db.infob_apn_tb_pet.findAll({
+            where: {
+                BT_DISPONIVEL: true
+            }
+        })
+            // console.log(registros)
+
+        let racas = []
+        for (let r of registros){
+            if( !racas.includes(r.NM_RACA) ){
+                racas.push(r.NM_RACA)
+            }
+        }
+
+        resp.send(racas)
 
     } catch (e) {
         resp.send({erro: e.toString()})

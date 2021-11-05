@@ -6,17 +6,17 @@ import axios from 'axios'
         export default class Api{
 
             async cadastrarse(credenciais){
-                let r = await api.post('/cadastrar', credenciais)
+                let r = await api.post('/user/cadastrar', credenciais)
                 return r.data
             }
 
             async login(credenciais){
-                let r = await api.post('/login', credenciais)
+                let r = await api.post('/user/login', credenciais)
                 return r.data
             }
 
             async racasDisponiveis(){
-                let r = await api.get('/racasDisponiveis')
+                let r = await api.get('/pets/racasDisponiveis')
                 return r.data
             }
 
@@ -31,12 +31,12 @@ import axios from 'axios'
             }
 
             async remover(id) {
-                let r = await api.delete(`/pet/:idPet/${id}`)
+                let r = await api.delete(`/pets/admin/:idPet/${id}`)
                 return r.data;
             }
             
             async listarMinhasAdocoes(id) {
-                let r = await api.get(`/minhasAdocoes/${id}`);
+                let r = await api.get(`/adocoes/minhasAdocoes/${id}`);
                 return r.data;
             }
 
@@ -47,7 +47,7 @@ import axios from 'axios'
             }
 
             async removerSoliAdo(id){
-                let r = await api.delete(`/minhasAdocoes/${id}`);
+                let r = await api.delete(`adocoes/minhasAdocoes/${id}`);
                 return r.data;
             }
         }
