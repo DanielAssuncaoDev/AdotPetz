@@ -25,8 +25,8 @@ import axios from 'axios'
                 return r.data
             }
 
-            async listarAnimaisCadastrados(filtro){
-                let r = await api.get('/admin/animaisCadastrados', filtro )
+            async listarAnimaisCadastrados(){
+                let r = await api.get('pets/admin/animaisCadastrados' )
                 return r.data
             }
 
