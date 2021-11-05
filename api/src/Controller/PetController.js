@@ -96,7 +96,6 @@ import db from '../db.js'
         } catch (error) {
             resp.send({erro: e.toString()})
         }
-
     })
 
     // Alterar pet
@@ -132,17 +131,10 @@ import db from '../db.js'
             }}
                 
             )
-  
-  
-          resp.send(r)
-  
-            
+          resp.send(r)           
         } catch (e) {
             resp.send({erro:e.toString()})
-            
-        }
-      
-  
+     } 
   })
 
 
@@ -264,6 +256,10 @@ app.get('/racasDisponiveis', async(req, resp) => {
         resp.send({erro: e.toString()})
     }
 })
+
+
+// Listar Solicitações de Adoção 
+
 
 // function getOrderCriterio(criterio) {
 //     switch (criterio) {
