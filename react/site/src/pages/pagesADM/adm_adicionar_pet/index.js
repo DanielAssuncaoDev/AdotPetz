@@ -107,24 +107,16 @@ export default function Addpet(){
                             {/* {imgPet1 && <div className="input-file"> <input id="capa-input-file" type="file" onChange={e => setCapa(e.target.files[0])} /> </div> } */}
                         </div>
                         <div className="inputs"> 
-                            <input className="input1" type="text" placeholder="Adicionar fotos" src=""/> 
-                            <input className="input1" type="text" placeholder="Digite o Nome do Pet" />
+                            <input className="input1" type="text" placeholder="Adicionar fotos" src=""/> <input className="input1" type="text" placeholder="Digite o Nome do Pet" />
                         </div>
                         <div className="inputs"> 
-                            <select className="select2" name="select" value={sexo} onChange={e => setSexo(e.target.value)}> 
-                                <option value="valor1">Selecione o Sexo</option> 
-                            </select>  
-                            <input className="input2"  type="text" placeholder="Peso" value={peso} onChange={e => setPeso(e.target.value)}/> 
-                            <select className="select2" name="select" value={porte} onChange={e => setPorte(e.target.value)}> 
+                            <select className="select2" name="select" value={sexo} onChange={e => setSexo(e.target.value)}> <option value="valor1">Selecione o Sexo</option> </select> <input className="input2"  type="text" placeholder="Peso" value={peso} onChange={e => setPeso(e.target.value)}/> <select className="select2" name="select" value={porte} onChange={e => setPorte(e.target.value)}> 
                                 <option value="valor1">Selecione o Porte</option>
                                 <option value="valor2">Médio</option> 
                             </select>
                         </div>
                         <div className="inputs"> 
-                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)}/> 
-                                <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>  
-                                    <option value="valor1">Espécie</option>
-                                </select>
+                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)}/> <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>  <option value="valor1">Espécie</option> </select>
                         </div>
                         <div className="inputs"> 
                             <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}> 
