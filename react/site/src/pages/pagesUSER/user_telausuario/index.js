@@ -61,6 +61,8 @@ const nav = useHistory()
     if( Cookie.get('User') === undefined )
         nav.push('/login')
 
+const cookieUser = JSON.parse(Cookie.get('User'))
+
     return(
     <Container>
        <CabecalhoUSU />
@@ -73,9 +75,8 @@ const nav = useHistory()
               <div className='meuperfil'> Meu Perfil </div>
               <div className='imagemusu'> <img src="/assets/images/image 79.svg" alt="" /> </div>
               <div className='infoUSU'>
-                  <div className='NomeUSU'> Nome Usuario: </div>
-                  <div className='NomeUSU'> E-mail: </div>
-                  <div className='NomeUSU'> Telefone: </div>
+                  <div className='NomeUSU'> Bem vindo <label> {`${cookieUser.NM_USER} ${cookieUser.NM_SOBRENOME}`} </label> ! </div>
+                  <div className='NomeUSU'> E-mail: <label> {`${cookieUser.DS_EMAIL}`} </label> </div>
                   </div>
               <div className='imagemBA'> 
                 <img onClick={ () => {

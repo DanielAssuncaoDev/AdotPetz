@@ -1,4 +1,4 @@
-import {Container, FaixaCRUD, TabelaSolicitacoes} from './styled'
+import {Container, FaixaCRUD} from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
@@ -9,14 +9,14 @@ import { useEffect, useState } from 'react';
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 
 export default function SolicitacaoAdocao() {
 
     const [solicitacoes, setSolicitacoes] = useState([]);
 
-    const nav = useHistory ();
+    // const nav = useHistory ();
 
      useEffect(() => {
           setSolicitacoes([
@@ -39,20 +39,6 @@ export default function SolicitacaoAdocao() {
          ])
      }, [])
 
-     function toRow() {
-         return solicitacoes.map(item => {
-             return [
-                 { value: item.cod },
-                 { value: item.usuName },
-                 { value: item.petName },
-                 { value: item.telefone }, 
-                 { value: item.dtSolicitacao },
-                 { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
-                 { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
-                 { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) }
-             ]
-         })
-     }
     return(
         <Container>
             <CabecalhoADM />

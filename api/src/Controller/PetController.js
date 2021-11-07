@@ -158,7 +158,6 @@ import db from '../db.js'
             let filtro = null
 
             if( idade.dataFinish != null ){
-                console.log('NOT NULL')
 
                 filtro = [
                     {
@@ -185,8 +184,8 @@ import db from '../db.js'
                     } 
                 ]
             } else {
-                console.log('NULL')
 
+            
                 filtro = [
                     {
                         DS_SEXO: sexo,
@@ -224,15 +223,22 @@ import db from '../db.js'
                 // console.log(filtro)
 
         let r = await db.infob_apn_tb_pet.findAll({
+            where: filtro,
+            limit: Number(req.query.limit),
+            offset: Number(req.query.offset)
+        })
+        let qtd = await db.infob_apn_tb_pet.findAll({
             where: filtro
         })
 
-        resp.send(r)
+        resp.send({petsOffSet: r, totalPets: qtd.length})
 
     } catch (e) {
         resp.send({erro: e.toString()})
     }
 })
+
+
 
 app.get('/racasDisponiveis', async(req, resp) => {
     try {
@@ -241,7 +247,6 @@ app.get('/racasDisponiveis', async(req, resp) => {
                 BT_DISPONIVEL: true
             }
         })
-            // console.log(registros)
 
         let racas = []
         for (let r of registros){

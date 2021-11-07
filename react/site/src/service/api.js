@@ -21,8 +21,8 @@ import axios from 'axios'
                 return r.data
             }
 
-            async listarPets(filtro){
-                let r = await api.post(`/pets`, filtro)
+            async listarPets(filtro, limit, offset){
+                let r = await api.post(`/pets?limit=${limit}&offset=${offset}`, filtro)
                 return r.data
             }
 
