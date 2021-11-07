@@ -183,6 +183,10 @@ textarea{
     margin-top: 5px;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 button.button1{
     border: none;
     border-radius: 5px;
@@ -218,6 +222,10 @@ img.addimg{
 img.vlt{
     height: 40px;
     width: 50px;
+}
+
+@media (max-width: 600px){
+    
 }
 
 `
