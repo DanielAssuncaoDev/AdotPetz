@@ -1,6 +1,13 @@
 import {ContBoxMenu} from './styled'
 
+import { useHistory } from 'react-router-dom'
+
 export default function BoxMenu(props){
+
+const nav = useHistory()
+
+console.log(props)
+
 
     return(
         <ContBoxMenu>
@@ -8,7 +15,8 @@ export default function BoxMenu(props){
                 {
                     props.Topicos.map( (item) =>
 
-                        <div className="MinhaConta">
+                        <div onClick={() => nav.push(`/${item.pathname}`)} 
+                                className="MinhaConta">
                             {
                                 item.icon === ""
                                 
@@ -19,7 +27,9 @@ export default function BoxMenu(props){
                                     <img src={item.icon} alt="" />
                             }
                             
-                            <span> {item.NomeTopico} </span>
+                            <span>
+                                {item.NomeTopico}
+                            </span>
                         </div>
                     )
                 }
@@ -34,7 +44,10 @@ export default function BoxMenu(props){
             <div className="Options">
                 {
                     props.SubTopicos.map( (item) =>
-                        <span className="Cont-inf"> {item} </span>
+                        <span onClick={() => nav.push(`/${item.pathname}`)}
+                                className="Cont-inf"> 
+                            {item.NomeSub} 
+                        </span>
 
                     )
                 }

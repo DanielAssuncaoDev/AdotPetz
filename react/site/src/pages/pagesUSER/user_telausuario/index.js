@@ -97,8 +97,11 @@ const cookieUser = JSON.parse(Cookie.get('User'))
             <div className='inforoda'> Quero fazer uma adoção </div>
             <div className='voltaroda'>
                 <img src='/assets/images/image 83.svg' alt='' />
-                <div className='voltar'> Voltar para a página inicial </div>
-                 </div>
+                <div onClick={() => nav.push('/home')}  
+                      className='voltar'> 
+                    Voltar para a página inicial
+                </div>
+            </div>
           </div>
          </div>
 
