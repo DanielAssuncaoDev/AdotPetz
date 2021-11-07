@@ -80,7 +80,8 @@ background-repeat: no-repeat;
 
   @media (max-width: 1000px) {
     .conteiner{
-
+      height: 0em;
+      width: 0em;
     }
   }
 
