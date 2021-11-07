@@ -1,38 +1,42 @@
-import Axios from 'axios'
-
-    const api = Axios.create({
-        baseURL: 'http://localhost:3030'
+import axios from 'axios'
+    const api = axios.create({
+        baseURL: 'https://tcc-adotpetz.herokuapp.com'
     })
 
         export default class Api{
 
             async cadastrarse(credenciais){
-                let r = await api.post('/cadastrar', credenciais)
+                let r = await api.post('/user/cadastrar', credenciais)
                 return r.data
             }
 
             async login(credenciais){
-                let r = await api.post('/login', credenciais)
+                let r = await api.post('/user/login', credenciais)
+                return r.data
+            }
+
+            async racasDisponiveis(){
+                let r = await api.get('/pets/racasDisponiveis')
                 return r.data
             }
 
             async listarPets(filtro){
-                let r = await api.get('/pets', filtro)
+                let r = await api.post(`/pets`, filtro)
                 return r.data
             }
 
-            async listarAnimaisCadastrados(filtro){
-                let r = await api.get('/admin/animaisCadastrados', filtro )
+            async listarAnimaisCadastrados(){
+                let r = await api.get('pets/admin/animaisCadastrados' )
                 return r.data
             }
 
             async remover(id) {
-                let r = await api.delete(`/pet/:idPet/${id}`)
+                let r = await api.delete(`/pets/admin/:idPet/${id}`)
                 return r.data;
             }
             
             async listarMinhasAdocoes(id) {
-                let r = await api.get(`/minhasAdocoes/${id}`);
+                let r = await api.get(`/adocoes/minhasAdocoes/${id}`);
                 return r.data;
             }
 
@@ -43,7 +47,7 @@ import Axios from 'axios'
             }
 
             async removerSoliAdo(id){
-                let r = await api.delete(`/minhasAdocoes/${id}`);
+                let r = await api.delete(`adocoes/minhasAdocoes/${id}`);
                 return r.data;
             }
         }

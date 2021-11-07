@@ -10,8 +10,8 @@ import InfoPet from './BoxPet'
 
 import Box from './InfoPet'
 
-export default function InfoPetz() {
-    const [animals, setAniamls] = useState([]);
+export default function InfoPetz(props) {
+    const [animals, setAniamls] = useState([])
 
   function listar() {
     const r = [
@@ -66,7 +66,7 @@ export default function InfoPetz() {
     return (
         <Container>
             <Cabecalho/>
-            <InfoPet especie="Cachorro" sexo="Macho" porte="Porte Médio" age="7 Meses" kg="5kg" raca="Raça SRD" Description="Cachorrinho lindo uiuiuiui"/>
+            <InfoPet pet={props.location.state} />
             <div className="others-pets">
                 <div className="title-f2"> Outros bichinhos que esperando para fazer parte de uma família </div>
                 <div className="other-container"> 

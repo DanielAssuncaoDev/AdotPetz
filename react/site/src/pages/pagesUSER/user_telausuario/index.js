@@ -9,14 +9,17 @@ import Cookie from 'js-cookie';
 
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
+
 
 import Api from '../../../service/api';
-import { useState, useEffect } from 'react';
 const api = new Api();
 
 export default function TelaUSU(){
  const [animais, setAnimais] = useState([]);
 
+const nav = useHistory()
  
  async function listar(){
    let id = JSON.parse(Cookie.get('User')).ID_USER;
@@ -55,6 +58,8 @@ export default function TelaUSU(){
   listar()
  }, [] )
 
+    if( Cookie.get('User') === undefined )
+        nav.push('/login')
 
     return(
     <Container>
@@ -72,7 +77,15 @@ export default function TelaUSU(){
                   <div className='NomeUSU'> E-mail: </div>
                   <div className='NomeUSU'> Telefone: </div>
                   </div>
-              <div className='imagemBA'> <img src='/assets/images/image 80.svg' alt='' /> </div>     
+              <div className='imagemBA'> 
+                <img onClick={ () => {
+                          Cookie.remove('User') 
+                          nav.push('/home')
+                        }
+                      }
+                        src='/assets/images/image 80.svg' alt='' 
+                /> 
+              </div>     
             </div>
           </div>
           <div className='rodape'> 

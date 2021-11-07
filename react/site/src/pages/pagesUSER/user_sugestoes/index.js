@@ -1,15 +1,51 @@
 import {Container} from './styled'
 
 //import Img1 from '../../../../public/assets/images/pet1.png'
-
-
 import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 import Box from '../../../components/comun/BoxPet'
 import Fx1 from './buscar.js'
 import Roda from '../../../components/comun/rodape'
 
+import { useState, useEffect } from 'react'
 
-export default function Sugestoes(){
+import Api from '../../../service/api'
+const api = new Api()
+
+
+export default function Sugestoes(props){
+
+const [pets, setPets] = useState([])
+
+const [filtroPets] = useState(props.location.state)
+
+
+    
+        useEffect( () => {
+const listarPets = async() => {
+        let pets = null
+        
+            if(filtroPets !== undefined){
+                pets = await api.listarPets(filtroPets)
+
+            } else{
+                pets = await api.listarPets({
+                    "sexo": "",
+                    "porte": "",
+                    "idade": {
+                      "dataStart": "",
+                      "dataFinish": null
+                    },
+                    "especie": "",
+                    "raca": ""
+                  })
+            }
+        setPets(pets)
+        // console.log(pets)
+    }
+
+            listarPets()
+        }, [filtroPets])
+
     return(
          <Container> 
              <CabecalhoUSU />
@@ -24,15 +60,11 @@ export default function Sugestoes(){
                           </div>
                       </div>
                     <div className='box-petz'> 
-                        <Box imagem='/assets/images/pet6.svg' nome='Panda' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg' />
-                        <Box imagem='/assets/images/pet5.svg' nome='Bob' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet4.svg' nome='Billy' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
+                        {
+                            pets.map( (pet) => 
+                                <Box Animal={pet} />
+                            )
+                        }
                     </div>
                     <div className='nupags'> 
                       <div className='nu'> 1 </div>
