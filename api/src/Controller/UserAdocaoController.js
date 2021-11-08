@@ -99,15 +99,31 @@ import db from '../db.js'
         }
     })
 
-    // Alterar situacao da Adoção
+    // Deletar solicitação de Adoção
 
-    app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
-        try {
-            
-        } catch (e) {
-            resp.send({erro:e.toString()})
-    } 
-    })
+    // app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
+    //     try {
+    //         let { idAdocao } = req.params;
+
+    //         let r = await db.infob_apn_tb_adocao.update({
+    //             where: {
+    //                 ID_ADOCAO: idAdocao
+    //             }
+    //         })
+
+    //         if ( BT_ADOCAO_CONCLUIDA === false ) {
+                
+    //         } else {
+
+    //         }
+    //         resp.sendStatus(200);
+    //     } catch (e) {
+    //         resp.send({erro:e.toString()})
+    //     }  
+
+    // })
+
+    
 
 
 export default app

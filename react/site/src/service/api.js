@@ -65,5 +65,9 @@ import axios from 'axios'
                 let r = await api.post(`/adocoes/adotarPet/${idPet}`,{nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro});
                 return r.data;
             }
+            async ordenarSolicitacoes () {
+                let r = await api.get('/admin/solicitacoes/');
+                return r.data;
+            }
 
-        }
+                    }
