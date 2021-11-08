@@ -2,6 +2,8 @@ import express from 'express'
 import Sequelize from 'sequelize';
 import db from '../db.js'
 
+
+
     const app = express.Router()
 
     // Adiocionar Pet
