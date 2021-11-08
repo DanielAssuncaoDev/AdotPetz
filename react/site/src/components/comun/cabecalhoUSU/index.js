@@ -1,17 +1,19 @@
 
-import {useState} from 'react';
-
 import {Container} from './styled'
 import {Button} from '../cabecalhoADM/styled'
 import Menu from '../Menu/index'
+
 
 import Cookie from 'js-cookie';
 import { useHistory } from 'react-router-dom'
 
 export default function CabecalhoUSU(){
 
-    const [login] = useState(true);
-
+    console.log(
+        Cookie.get('User') !== undefined
+        ?  JSON.parse(Cookie.get('User')) 
+        : 'Usuario não logado!'
+    )
     const nav = useHistory()
 
     return(
@@ -58,8 +60,77 @@ export default function CabecalhoUSU(){
                         }
                     </span> 
 
-                    
-                    <Menu type="User" hidden="1001px" login={login} />
+                    {
+                        Cookie.get('User') === undefined 
+
+                        ? 
+                            <Menu hidden="1001px"
+                                    configMenu={{
+                                        Topicos: [
+                                            {
+                                                icon: "", 
+                                                NomeTopico: "Entrar",
+                                                pathname: 'login'
+                                            },
+                                            {
+                                                icon: "",
+                                                NomeTopico: "Cadastrar-se",
+                                                pathname: 'cadastrarse'
+                                            }
+                                        ],
+                                        SubTopicos: [
+                                            {
+                                                NomeSub: "Sobre",
+                                                pathname: 'quemsomosnos' 
+                                            },
+                                            {
+                                                NomeSub: "Adotar",
+                                                pathname: 'sugestoesadocao' 
+                                            },
+                                            {
+                                                NomeSub: "Doar",
+                                                pathname: 'home' 
+                                            },
+                                            {
+                                                NomeSub: "FAQ",
+                                                pathname: 'faq' 
+                                            }
+                                        ]
+                                    }}
+                            />
+
+                        : 
+                        <Menu hidden="1001px"
+                        configMenu={{
+                            Topicos: [
+                                {
+                                    icon: "/assets/images/account_circle_white_24dp.svg",
+                                    NomeTopico: "Minha Conta",
+                                    pathname: 'minhaconta'
+                                }
+                            ],
+                            SubTopicos: [
+                                {
+                                    NomeSub: "Sobre",
+                                    pathname: 'quemsomosnos' 
+                                },
+                                {
+                                    NomeSub: "Adotar",
+                                    pathname: 'sugestoesadocao' 
+                                },
+                                {
+                                    NomeSub: "Doar",
+                                    pathname: 'home' 
+                                },
+                                {
+                                    NomeSub: "FAQ",
+                                    pathname: 'faq' 
+                                }
+                            ]
+                        }}
+                />
+                    }
+                   
                     
 
                     

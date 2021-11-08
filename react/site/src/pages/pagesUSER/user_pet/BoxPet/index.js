@@ -5,19 +5,72 @@ import { Container } from "./styled";
 
 import LineText from '../../../../components/comun/line/index'
 
+import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
 export default function BoxPet(props) {
+
+// const [pet, setPet] = useState(props.pet)
+const [vacinas, setVacinas] = useState([])
+
+// console.log(props.pet)
+
+
+    const nav = useHistory();
 
     const Imgs = [
         {
-            img: '/assets/images/photopet.svg'
+            img: props.pet.IMG_PET1
         },
         {
-            img: '/assets/images/photopet.svg'
+            img: props.pet.IMG_PET2
         },
         {
-            img: '/assets/images/photopet.svg'
+            img: props.pet.IMG_PET1
         }
     ]
+    
+    
+        useEffect( () => {
+            const FiltroVacinas = () => {
+
+                let {BT_VACINA_V10, BT_VACINA_V8, BT_VACINA_V5, BT_VACINA_V4, BT_VACINA_V3, BT_VACINA_ANTIRRABICA } = props.pet
+        
+                let arrayVacinas = [
+                    {
+                        vacina: "V10",
+                        ativo: BT_VACINA_V10
+                    },
+                    {
+                        vacina: "V8",
+                        ativo: BT_VACINA_V8
+                    },
+                    {
+                        vacina: "V5",
+                        ativo: BT_VACINA_V5
+                    },
+                    {
+                        vacina: "V4",
+                        ativo: BT_VACINA_V4
+                    },
+                    {
+                        vacina: "V3",
+                        ativo: BT_VACINA_V3
+                    },
+                    {
+                        vacina: "Antirrabica",
+                        ativo: BT_VACINA_ANTIRRABICA
+                    }
+                    
+                ]
+        
+                arrayVacinas = arrayVacinas.filter( (v) => v.ativo === true )
+                setVacinas(arrayVacinas)
+            }
+
+            FiltroVacinas()
+        }, [props] )
+
 
     return (
         <Container> 
@@ -31,29 +84,45 @@ export default function BoxPet(props) {
                 </div>
                 <div className="informations-box"> 
                     <div className="infopet">
-                        <LineText titulo="Panda"/>
+                        <LineText titulo={props.pet.NM_PET}/>
                         <div className="informations-pet"> 
-                            <div className="info"> {props.especie + ' | '} </div>
-                            <div className="info"> {props.sexo + ' | '} </div>
-                            <div className="info"> {props.porte + ' | '} </div>
-                            <div className="info"> {props.age + ' | '} </div>
-                            <div className="info"> {props.kg + ' | '} </div>
-                            <div className="info"> {props.raca} </div>
+                            <div className="info"> {props.pet.DS_ESPECIE + ' | '} </div>
+                            <div className="info"> {props.pet.DS_SEXO + ' | '} </div>
+                            <div className="info"> {props.pet.DS_PORTE + ' | '} </div>
+                            <div className="info"> {new Date(props.pet.DT_NASCIMENTO).toDateString("Pt-BR") + ' | '} </div>
+                            <div className="info"> {props.pet.DS_PESO  + ' | '} </div>
+                            <div className="info"> {props.pet.NM_RACA} </div>
                         </div>
                     </div>
                     <div className="box-saude-pet">
                         <LineText titulo="Saúde"/>
-                        <div className="text-dog-castrated"> Castrado </div>
-                        <div className="vaccines"> 
-                            <div className="title"> Vacinas: </div>
-                            <div className="text-vaccines"> V8, V10, Antirrabica </div>
-                        </div>
+                        {
+                            props.pet.BT_CASTRADO === true
+                            ? <div className="text-dog-castrated"> Castrado </div>
+                            : <div className="text-dog-castrated"> <b>Não</b> Castrado </div>
+                        }
+                        
+                        {
+                            vacinas.length === 0
+
+                            ? 
+                            <div className="vaccines"> 
+                                <div className="title"> O Animal ainda não foi vacinado </div>
+                            </div>
+                            :  vacinas.map( (v) =>   
+                            <div className="vaccines"> 
+                                <div className="title"> Vacinas: </div>
+                                <div className="text-vaccines"> {v.vacina + " "} </div> 
+                            </div>
+                                )
+                        }
+                        
                     </div>
                     <div className="info-desc-pet">
                         <LineText titulo="Descrição"/>
-                        <div className="text-description"> {props.Description} </div>
+                        <div className="text-description"> {props.pet.DS_DESC} </div>
                     </div>
-                    <div className="Adopt-button"> <button> QUERO ADOTAR ESSE PET </button></div>
+                    <div className="Adopt-button"> <button onClick={ () => nav.push({pathname: '/formadocao', state: props.pet }) }> QUERO ADOTAR ESSE PET </button></div>
                 </div>
             </Container>
     )

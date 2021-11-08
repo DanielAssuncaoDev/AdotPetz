@@ -8,9 +8,10 @@ import { Container } from './styled';
 import Mensagem from '../../../components/popups/MensagemForm/index'
 import { useState } from 'react';
 
-export default function Sujestoes(){
+export default function Sujestoes(props ){
     const [popUp, setPopUp] = useState(false)
 
+    // console.log(props.location.state)
     
 
     return( 
@@ -43,7 +44,7 @@ export default function Sujestoes(){
                         <div className="InputsGroup"> 
                             <div className="Nascimento"> <input type="text" placeholder="Nascimento"/> </div>
                             <div className="rg"> <input type="text" placeholder="RG"/> </div>
-                            <div className="telefone"> <input type="number" placeholder="Telefone"/> </div>
+                            <div className="telefone"> <input type="text" placeholder="Telefone"/> </div>
                         </div>
                         <div className="InputsGroup"> 
                             <div className="cep"> <input type="text" placeholder="CEP"/> </div>

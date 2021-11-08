@@ -18,8 +18,6 @@ export default function Menu(props){
 
     }
 
-    console.log(props.login)
-
     return(
         <ContainerMenu hidden={props.hidden}>
             <div>
@@ -30,7 +28,8 @@ export default function Menu(props){
                 popUp === true
 
                 ?
-                    <PopUp type={props.type} login={props.login} />
+                    <PopUp configPopUp={props.configMenu}  />
+
 
                 : 
                     ''
