@@ -43,7 +43,7 @@ export default function AnimaisCadastrados(){
                             toast(r.erro)
                         }
                         else{
-                            toast.dark('Adoção cancelada') 
+                            toast.dark('Animal removido') 
                         }
         
                         listarAnimaisCadastrados()
