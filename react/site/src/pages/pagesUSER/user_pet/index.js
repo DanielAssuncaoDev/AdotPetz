@@ -18,17 +18,25 @@ export default function InfoPetz(props) {
 
 
   const [pagsOffSet, setPagsOffSet] = useState(0)
-  const [pagsLimit, setPagsLimit] = useState(5)
+  const [pagsLimit, setPagsLimit] = useState(3)
 
   useEffect( () => {
     console.log("Caiu Effect")
 
       const listarPets = async() => {
-
-          let pets = await api.listarPets(filtroPets, pagsLimit, pagsOffSet)
-          // setPets(pets.petsOffSet)
-          console.log(pets)
-          console.log(filtroPets)
+            let filtro = {
+              "sexo": "",
+                "porte": "",
+                "idade": {
+                    "dataStart": "",
+                    "dataFinish": null
+                },
+                "especie": "",
+                "raca": ""
+            }
+            let pets = await api.listarPets(filtro, pagsLimit, pagsOffSet)
+            setPets(pets.petsOffSet)
+            console.log(pets)
       }
 
   listarPets()

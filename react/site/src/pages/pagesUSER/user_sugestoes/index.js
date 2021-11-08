@@ -45,8 +45,8 @@ const [pagsLimit, setPagsLimit] = useState(6)
                                 "sexo": "",
                                 "porte": "",
                                 "idade": {
-                                "dataStart": "",
-                                "dataFinish": null
+                                    "dataStart": "",
+                                    "dataFinish": null
                                 },
                                 "especie": "",
                                 "raca": ""

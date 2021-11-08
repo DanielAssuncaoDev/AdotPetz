@@ -3,19 +3,7 @@ import Sequelize from 'sequelize';
 import db from '../db.js'
 import multer from 'multer'
 
-
-
     const app = express.Router()
-
-    const Server = express()
-        Server.use(cors())
-        Server.use(express.json())
-
-
-    Server.use('/user', UserController);
-    Server.use('/adocoes', UserAdocoesController);
-    Server.use('/pets', PetsController);
-
 
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -29,7 +17,7 @@ import multer from 'multer'
 
     const upload = multer({ storage: storage})
 
-        Server.get('/admin/addpet', async (req, resp) =>{
+        app.get('/admin/addpet', async (req, resp) =>{
             let dirname = path.resolve();
             resp.sendFile(req.query.imagem, { root: path.join(dirname) })
         })
@@ -241,7 +229,7 @@ import multer from 'multer'
             }
 
 
-                filtro = filtro.filter( (item) => item.valor !== '')
+                filtro = filtro.filter( (item) => item.valor !== '' || item.valor == undefined)
             
                     for (let index = 0; index < filtro.length; index++) {
                         let ob = filtro[index]
