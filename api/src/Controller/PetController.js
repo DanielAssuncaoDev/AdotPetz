@@ -238,3 +238,7 @@ import db from '../db.js'
 })
 
 export default app
+
+
+// git config --global user.email "danielaristotelis@gmail.com"
+// git config --global user.name "DanielAssuncaoDev"
