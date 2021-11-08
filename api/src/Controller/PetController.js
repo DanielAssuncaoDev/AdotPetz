@@ -77,7 +77,7 @@ import db from '../db.js'
 
     //  Deletar Pet
 
-    app.delete('/admin/:idPet', async (req, resp) => {
+    app.delete('/admin/:idPet/', async (req, resp) => {
         try {
             let { idPet } = req.params;
 
@@ -281,7 +281,6 @@ app.get('/racasDisponiveis', async(req, resp) => {
 })
 
 
-
     app.put('/alterar/:idpet',async(req, resp) =>  {   
         try {
   
@@ -325,49 +324,8 @@ app.get('/racasDisponiveis', async(req, resp) => {
   
   })
 
-// Listar Solicitações de Adoção 
 
 
- function getOrderCriterio(criterio) {
-
-     switch (criterio) {
-         case 'Cód': return ['ID_ADOCAO', 'asc'];
-         case 'Mais Recentes': return ['DT_SOLICITACAO', 'desc'];
-         case 'Mais Antigas': return ['DT_SOLICITACAO', 'asc'];
-         case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
-         case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
-
-         default: return  ['ID_ADOCAO', 'asc'];
-     }
- }
-
-
- app.get('/admin/solicitacoes', async(req, resp) => {
-     try {
-         let orderCriterio = getOrderCriterio(req.query.ordenacao)
-         let solicitacoes = await db.infob_apn_tb_adocao.findAll({
-             where: {
-                 BT_ADOCAO_CONCLUIDA: 0
-             },
-             order: [
-                 [orderCriterio]
-             ]
-         })       
-         resp.send(solicitacoes)
-     } catch (e) {
-         resp.send({erro: e.toString()})
-     }
-})
-
- // Alterar situacao da Adoção
-
- app.put('/alterar/:idSolicitacao',async(req, resp) =>  {   
-     try {
-           
-     } catch (e) {
-         resp.send({erro:e.toString()})
-  } 
- })
 
     app.post('/admin/login', async (req, resp) => {
         try{
