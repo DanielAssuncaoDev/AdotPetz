@@ -14,6 +14,7 @@ import { useHistory } from 'react-router-dom'
 
 import Api from '../../../service/api';
 import { set } from 'js-cookie';
+import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
 
@@ -29,12 +30,34 @@ export default function AnimaisCadastrados(){
     }
                                 
     async function remover(id) {
-        let r = await api.remover(id)
-        toast('Animal removido');
+    //     let r = await api.remover(id)
+       confirmAlert ({
+           title: 'Excluir animal',
+           message: 'Tem certeza que deseja excluir o animal ?',
+           buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async() => {
+                        let r = await api.remover(id)
+                        if(r.erro !== undefined){
+                            toast(r.erro)
+                        }
+                        else{
+                            toast.dark('Adoção cancelada') 
+                        }
+        
+                        listarAnimaisCadastrados()
+                    }
+                },
+                {
+                    label: 'Não'
+                }
+
+           ]
+       })
         
         listarAnimaisCadastrados();
     }
-
 
 
     useEffect (() => {

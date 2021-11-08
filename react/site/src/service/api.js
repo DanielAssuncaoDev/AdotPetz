@@ -1,6 +1,12 @@
 import axios from 'axios'
     const api = axios.create({
+<<<<<<< HEAD
         baseURL: 'https://tcc-adotpetz.herokuapp.com'
+=======
+        baseURL: 'http://localhost:3030'
+
+         /*baseURL: 'https://tcc-adotpetz.herokuapp.com'*/  // API Hero
+>>>>>>> f0c3bf96d384fd77546badba6405306e4fd5603c
     })
 
         export default class Api{
@@ -31,7 +37,7 @@ import axios from 'axios'
             }
 
             async remover(id) {
-                let r = await api.delete(`/pets/admin/:idPet/${id}`)
+                let r = await api.delete(`/pets/admin/${id}`)
                 return r.data;
             }
             

@@ -87,7 +87,7 @@ import multer from 'multer'
 
     //  Deletar Pet
 
-    app.delete('/admin/:idPet', async (req, resp) => {
+    app.delete('/admin/:idPet/', async (req, resp) => {
         try {
             let { idPet } = req.params;
 
@@ -291,47 +291,6 @@ app.get('/racasDisponiveis', async(req, resp) => {
 })
 
 
-// Listar Solicitações de Adoção 
-
-
-// function getOrderCriterio(criterio) {
-
-//     switch (criterio) {
-//         case 'Cód': return ['ID_ADOCAO', 'asc'];
-//         case 'Data Solicitação': return ['DT_SOLICITACAO', 'desc'];
-//         case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
-//         case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
-
-//         default: return  ['ID_ADOCAO', 'asc'];
-//     }
-// }
-
-// app.get('/admin/solicitacoes', async(req, resp) => {
-//     try {
-//         let orderCriterio = getOrderCriterio(req.query.ordernacao)
-//         let solicitacoes = await db.infob_apn_tb_adocao.findAll({
-//             where: {
-//                 BT_ADOCAO_CONCLUIDA: null
-//             },
-//             order: [
-//                 [orderCriterio]
-//             ]
-//         })       
-//         resp.send(solicitacoes)
-//     } catch (e) {
-//         resp.send({erro: e.toString()})
-//     }
-// })
-
-// Alterar situacao da Adoção
-
-// app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
-//     try {
-           
-//     } catch (e) {
-//         resp.send({erro:e.toString()})
-//  } 
-// })
 
     app.post('/admin/login', async (req, resp) => {
         try{
