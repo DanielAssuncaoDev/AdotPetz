@@ -34,6 +34,8 @@ export const Container = styled.div`
                 .TituloConteudo{
                     font-size: 1.8em;
                     display: flex;
+
+                    margin: 0 0 1.5em;
                 }
 
                 .Line{
@@ -62,116 +64,16 @@ export const Container = styled.div`
                 }
 
 
+            .actions button{
+                padding: 0em 2em;
+                border: none;
+                border-radius: 5px;
+
+                margin: 0 1%;       
+                height: 70%;
+                max-height: 35px;
+
+                background-color: #DDDDDD;
+            }
+
 `;
-
-            export const TabelaSolicitacoes = styled.table`
-            
-                margin-top: 2.5em;
-                width: 100%;
-                min-width: 520px;
-
-                text-align: center;
-                /* border: 1px solid black; */
-                border-collapse: collapse;
-
-                            
-                    thead{
-                        height: 4em;
-                        color: white;
-
-                            tr{
-                                background-color: #FAD41B;
-
-                                    th:nth-child(6){
-                                        background-color: #000;
-                                        width: 24%;
-                                    }
-
-                            }
-                    }
-
-                     tbody{
-                        height: 4em;
-
-                            tr{
-                                background-color: #f9f9f9;
-
-                                &:nth-child(odd) {
-
-                                    background-color: #f5f5f5;
-                                }
-
-                            }
-
-
-
-
-                             td:nth-child(6){
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-
-                                height: 4em;
-                                padding: 5px;
-
-                                    /* button{
-                                        margin: 0 6px;
-                                    } */
-                            } 
-
-                            button{
-                                padding: 0;
-                                display: flex;
-                                align-items: center;
-                                border: none;   
-
-                                margin: 0 1%;       
-                                height: 70%;
-                                max-height: 35px;
-
-                                background-color: transparent;
-
-                                    img{
-                                        width: 100%;
-                                        height: 100%;
-                                    }
-
-
-                                &:nth-child(3){
-                                    background-color: #00000010;
-                                    border-radius: 6px;
-                                    display: flex;
-                                    justify-content: center;
-
-                                    padding: 2px;
-
-                                    height: 80%;
-                                    max-height:30px;
-                                    width: 68%;
-                                    max-width: 163px;
-                                }
-                            }
-
-                    } 
-
-                
-                @media (max-width: 1000px){
-
-                    font-size: 12px;
-
-                        button{
-                            font-size: 11px;
-                            /* margin: 0 2.5px; */
-                        }
-                }
-
-                @media (max-width: 800px){
-
-                    font-size: 10px;
-
-                        button{
-                            font-size: 9px;
-                        }
-                }
-
-            `;

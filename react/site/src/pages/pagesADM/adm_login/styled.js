@@ -3,26 +3,20 @@ import Imgfundo from "../../../assets/images/imagemfundo_home.svg"
 
 
 export const Container = styled.div`
-height: 100vh;
-overflow: hidden;
-
+height: 100%;
+/* overflow: hidden; */
 background-color: #8e8e8e;
 `
 export const Conteudo = styled.div`
 background-image: url(${Imgfundo});
 background-size: auto 100%;
-
 background-repeat: no-repeat;
-
 
 display: flex;
 justify-content: flex-end;
 
 padding: 5em;
 height: 90vh;
-
-/* padding: 4em 2em  2em 2em; */
-
 
 .titulo {
     width: 500px;
@@ -39,24 +33,30 @@ height: 90vh;
   .contbox {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* padding: 0em 12em 3em 50em; */
+    height: 100%;
+    justify-content: center;
+    /* align-items: center ; */
+    /* width: 100%; */
+    /* position: absolute; */
+
   }
   
   .box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
     background-color: #fad41b;
-    padding: 3em;
-    height: 265px;
 
-    width: 600px;
+    /* height: 265px; */
+   width: 100%;
+
     border: none;
     border-radius: 9px;
-
     padding: 3.5em;
+   
+    
+
+
   }
   input {
     border: none;
@@ -66,26 +66,23 @@ height: 90vh;
     width: 100%;
     height: 180%;
     padding-left: 1em;
-  
-    /* padding: 0em 2em 0.5em 7em; */
   }
   button {
     border: none;
     border-radius: 7px;
     background-color: #000000;
     color: #ffffff;
-    /* padding: 0em 4em 1em 4em; */
+  
   
     width: 40%;
-    height: 170%;
+    height: 100%;
   }
   .buton {
-    /* padding: 0.5em 6em 6em 4em; */
     display: flex;
     justify-content: center;
   
-    margin-top: 1em;
     width: 100%;
+    height: 2em
   }
   .input {
     display: flex;
@@ -111,5 +108,19 @@ height: 90vh;
     padding: 0em .5em;
 
   }
-  
+  @media(max-width: 650px){
+
+    padding: 0.5em;
+
+      .contbox {
+       width: 100%;
+      }
+      .titulo {
+        width: 100%;
+      }
+      .box{
+        padding: 2em 1em;
+      }
+
+  }
 `

@@ -36,26 +36,28 @@ export const Container = styled.div`
     padding: 2em 2em 1.5em 2em;
 }
 
-.bts{
-}
-
 .imgs{
     display: flex;
-    flex-direction: row;
-    padding-bottom: 1em;
+    width: 8em;
+    height: 8em;
+    overflow: hidden;
+    margin-bottom: 5px;
 }
 
-.quadrado{
+.input-file{
+    background-color: #FAD41B;
+}
+
+.Load-img{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 110px;
-    height: 110px;
-    background-color: #C4C4C4;
-    margin-right: 2em;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 5px;
 }
 
@@ -120,7 +122,7 @@ export const Container = styled.div`
 }
 
 select{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     background: #C4C4C4;
     border: none;
@@ -130,29 +132,31 @@ select.select2{
     width: 32%;
     height: 25px;
     margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 select.select3{
     width: 48.3%;
     height: 25px;
     margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 select.select4{
-    width: 97.2%;
+    width: 98.5%;
     height: 25px;
     margin-bottom: 5px;
 }
 
 input{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     background: #C4C4C4;
     border: none;
 }
 
 input.input1{
-    width: 48.3%;
+    width: 98.5%;
     height: 25px;
     margin-bottom: 5px;
 }
@@ -161,6 +165,7 @@ input.input2{
     width: 32%;
     height: 25px;
     margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 input.input3{
@@ -173,6 +178,9 @@ input.input5{
     margin-right: 5px;
 }
 
+input.bdimg{
+    
+}
 
 textarea{
     background: #0000002B;
@@ -181,6 +189,10 @@ textarea{
     height: 9em;
     width: 97%;
     margin-top: 5px;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 button.button1{
@@ -198,26 +210,39 @@ button.vltr{
     border: none;
     border-radius: 100%;
     background: #000;
-    width: 4em;
-    height: 3.2em;
+    width: 3em;
+    height: 2.4em;
     margin-bottom: 1em;
+}
+
+button.Loadimg{
+    border: none;
+    border-radius: 10px;
+    background-color: #FAD41B;
+    /* box-shadow: 5px 5px 10px black; */
+    height: 20px;
+    width: 12em;
 }
 
 label{
     background: #C4C4C4;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     margin-left: 5px;
 }
 
 img.addimg{
-    height: 115px;
-    width: 115px;
+    height: 114px;
+    width: 128px;
 }
 
 img.vlt{
-    height: 40px;
-    width: 50px;
+    height: 28px;
+    width: 30px;
+}
+
+@media (max-width: 600px){
+    
 }
 
 `
