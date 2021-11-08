@@ -68,9 +68,6 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async deletarSolicitacao (id) {
-                let r = await api.delete(`/admin/solicitacoes/${id}`)
-                return r.data;
-            }
+            
 
         }
