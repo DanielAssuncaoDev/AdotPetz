@@ -63,4 +63,14 @@ import axios from 'axios'
 
             }
 
+            async ordenarSolicitacoes () {
+                let r = await api.get('/admin/solicitacoes/');
+                return r.data;
+            }
+
+            async deletarSolicitacao (id) {
+                let r = await api.delete(`/admin/solicitacoes/${id}`)
+                return r.data;
+            }
+
         }
