@@ -1,12 +1,12 @@
 import {BoxFiltro, SelectRow, Select, Button} from './styled' 
 
 import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import Api from '../../../service/api'
 const api = new Api()
 
-export default function Filtro( ){
+export default function Filtro( props ){
 
 const [sexo, setSexo] = useState('')
 const [porte, setPorte] = useState('')
@@ -17,6 +17,8 @@ const [raca, setRaca] = useState('')
 const [idadeTexto, setIdadeTexto] = useState('')
 const [racasDisponiveis, setRacasDisponiveis] = useState([])
 
+
+const location = useLocation()
 const nav = useHistory()
 
     const ChamarRacas = async() => {
@@ -25,6 +27,8 @@ const nav = useHistory()
     }
         useEffect( () => {
             ChamarRacas()
+            // props.teste("Ent Tabo uai")
+            // console.log(props.teste)
         }, [] )
 
 
@@ -85,12 +89,13 @@ const nav = useHistory()
                 <b> Encontre um novo amiguinho! </b>
             </div>
 
+
             <div className="FiltroBusca">
                 <div className="Row1Form">
                     <SelectRow 
                         onChange={ (e) => setPorte(e.target.value) } 
                     >
-                        <option value="Porte">
+                        <option value="">
                             Porte
                         </option>
 
@@ -110,7 +115,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setIdadeTexto(e.target.value) } 
                     >
-                        <option value="Idade">
+                        <option value="">
                             Idade
                         </option>
 
@@ -137,7 +142,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setEspecie(e.target.value) } 
                     >
-                        <option value="Espécie">
+                        <option value="">
                             Espécie
                         </option>
 
@@ -153,7 +158,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setSexo(e.target.value) } 
                     >
-                        <option value="Sexo">
+                        <option value="">
                             Sexo
                         </option>
  
@@ -171,7 +176,7 @@ const nav = useHistory()
                     <Select  
                         onChange={ (e) => setRaca(e.target.value) } 
                     >
-                        <option value="Raça"> 
+                        <option value=""> 
                             Raça
                         </option>
 
@@ -188,8 +193,15 @@ const nav = useHistory()
 
                 <div className="ButtonForm">
                     <Button onClick={ () => {
-                        nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca}}); 
-                        // window.location.reload(); - Não Funciona no Netlfy 
+
+                        if( location.pathname === "/home" ){
+                            nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }); 
+
+                        } else if ( location.pathname === "/sugestoesadocao" ){
+                            props.setFiltroPets({sexo, porte, idade, especie, raca})
+
+                        }
+            
                     } } >
                         Procurar
                     </Button>

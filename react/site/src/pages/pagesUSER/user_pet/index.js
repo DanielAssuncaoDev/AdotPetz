@@ -1,67 +1,38 @@
 import { Container } from './styled';
 
-import { useState, useEffect } from 'react';
-
 import Cabecalho from '../../../components/comun/cabecalhoUSU'
 import Rodape from '../../../components/comun/rodape'
 import PorqueAdotar from '../../../components/comun/PorqueAdotar/index'
 
 import InfoPet from './BoxPet'
+import Box from '../../../components/comun/BoxPet/index.js'
 
-import Box from './InfoPet'
+import { useState, useEffect } from 'react';
+
+import Api from '../../../service/api.js'
+const api = new Api()
 
 export default function InfoPetz(props) {
-    const [animals, setAniamls] = useState([])
+  const [pets, setPets] = useState([])
+  const [filtroPets, setFiltroPets] = useState(props.location.state)
 
-  function listar() {
-    const r = [
-        {
-        id: 10002,
-        imagem: "/assets/images/bartolomeu.svg",
-        nome: "Bartolomeu",
-        localizaçao: "São Paulo - SP",
-        sexo: "Macho",
-        imagemSex: '/assets/images/sexo-macho.svg'
-        },
-      {
-        id: 10002,
-        imagem: "/assets/images/bartolomeu.svg",
-        nome: "Bartolomeu",
-        localizaçao: "São Paulo - SP",
-        sexo: "Macho",
-        imagemSex: '/assets/images/sexo-macho.svg'
-      },
-      {
-        id: 10002,
-        imagem: "/assets/images/bartolomeu.svg",
-        nome: "Bartolomeu",
-        localizaçao: "São Paulo - SP",
-        sexo: "Macho",
-        imagemSex: '/assets/images/sexo-macho.svg'
-      },
-      {
-        id: 10002,
-        imagem: "/assets/images/bartolomeu.svg",
-        nome: "Bartolomeu",
-        localizaçao: "São Paulo - SP",
-        sexo: "Macho",
-        imagemSex: '/assets/images/sexo-macho.svg'
-      },
-      {
-        id: 10002,
-        imagem: "/assets/images/bartolomeu.svg",
-        nome: "Bartolomeu",
-        localizaçao: "São Paulo - SP",
-        sexo: "Macho",
-        imagemSex: '/assets/images/sexo-macho.svg'
+
+  const [pagsOffSet, setPagsOffSet] = useState(0)
+  const [pagsLimit, setPagsLimit] = useState(5)
+
+  useEffect( () => {
+    console.log("Caiu Effect")
+
+      const listarPets = async() => {
+
+          let pets = await api.listarPets(filtroPets, pagsLimit, pagsOffSet)
+          // setPets(pets.petsOffSet)
+          console.log(pets)
+          console.log(filtroPets)
       }
-    ]
 
-    setAniamls(r)
-  }
-    useEffect( () => {
-        listar()
-    }, [])
+  listarPets()
+  }, [filtroPets])
 
     return (
         <Container>
@@ -70,8 +41,8 @@ export default function InfoPetz(props) {
             <div className="others-pets">
                 <div className="title-f2"> Outros bichinhos que esperando para fazer parte de uma família </div>
                 <div className="other-container"> 
-                    {animals.map(item => 
-                        <Box info={item} />
+                    {pets.map(item => 
+                        <Box Animal={item} />
                     )} 
                    
                 </div>

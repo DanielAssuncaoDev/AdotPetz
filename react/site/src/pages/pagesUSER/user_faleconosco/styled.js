@@ -68,4 +68,11 @@ export const Container = styled.div`
 
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .conteiner{
+      height: 0em;
+      width: 0em;
+    }
+  }
 `

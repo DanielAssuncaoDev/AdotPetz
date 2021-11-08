@@ -1,6 +1,7 @@
 import axios from 'axios'
     const api = axios.create({
-        baseURL: 'http://localhost:3030'
+        // baseURL: 'https://tcc-adotpetz.herokuapp.com'  // API Heroku
+        baseURL: 'http://localhost:3030' // API Local
     })
 
         export default class Api{
@@ -20,8 +21,8 @@ import axios from 'axios'
                 return r.data
             }
 
-            async listarPets(filtro){
-                let r = await api.post(`/pets`, filtro)
+            async listarPets(filtro, limit, offset){
+                let r = await api.post(`/pets?limit=${limit}&offset=${offset}`, filtro)
                 return r.data
             }
 

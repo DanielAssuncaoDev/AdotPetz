@@ -40,7 +40,6 @@ export default function Filtros(props){
                                         ''
                                     :
                                         <div className="RegistroPFiltrar">
-                                            {/* {alert(nomeFiltro)} */}
                                             <input type="text" placeholder={`Onde${nomeFiltro}for:`} />                                
                                         </div>
                             :
