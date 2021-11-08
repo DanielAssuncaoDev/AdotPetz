@@ -1,6 +1,8 @@
 import axios from 'axios'
     const api = axios.create({
-        baseURL: 'http://localhost:3030'
+        //baseURL: 'http://localhost:3030'
+
+         baseURL: 'https://tcc-adotpetz.herokuapp.com'  // API Hero
     })
 
         export default class Api{
@@ -20,8 +22,8 @@ import axios from 'axios'
                 return r.data
             }
 
-            async listarPets(filtro){
-                let r = await api.post(`/pets`, filtro)
+            async listarPets(filtro, limit, offset){
+                let r = await api.post(`/pets?limit=${limit}&offset=${offset}`, filtro)
                 return r.data
             }
 
@@ -50,7 +52,15 @@ import axios from 'axios'
                 return r.data;
             }
 
+
             // async loginAdm(){
 
             // }
+
+            async editarPet(id, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
+                let r = await api.put('/alterar/:idpet', { id,  nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+                return r.data;
+
+            }
+
         }

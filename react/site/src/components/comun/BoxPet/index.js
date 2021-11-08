@@ -10,8 +10,6 @@ const [colorPorte, setColorPorte] = useState('')
 
 const nav = useHistory()
 
-
-
 useEffect( () => {
     if( props.Animal.DS_SEXO === 'Macho' ){
       setColorPorte('#101BC4')
