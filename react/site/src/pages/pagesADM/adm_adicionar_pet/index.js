@@ -1,11 +1,9 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
-<<<<<<< HEAD
+
 import axios from 'axios';
-=======
-import Api from '../../../service/api';
->>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
+
 import { useHistory } from 'react-router-dom';
 
 
@@ -15,11 +13,11 @@ const api = new Api()
 export default function Addpet(){
     const nav = useHistory();
 
-<<<<<<< HEAD
-    const [nome, setNome] = useState('')
-=======
+
+    // const [nome, setNome] = useState('')
+
     const [nome] = useState('')
->>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
+
     const [especie, setEspecie] = useState('')
     const [raca, setRaca] = useState('')
     const [sexo, setSexo] = useState('')
@@ -27,15 +25,9 @@ export default function Addpet(){
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
-<<<<<<< HEAD
-    const [imgPet1, setImgPet1] = useState('')
-    const [imgPet2, setImgPet2] = useState('')
-    const [imgPet3, setImgpet3] = useState('')
-=======
     const [imgPet1] = useState('')
     const [imgPet2] = useState('')
     const [imgPet3] = useState('')
->>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
     const [castrado, setCastrado] = useState('')
     const [vacinaV10, setVacinaV10] = useState('')
     const [vacinaV8, setVacinaV8] = useState('')
