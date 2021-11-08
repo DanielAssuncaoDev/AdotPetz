@@ -57,10 +57,17 @@ import axios from 'axios'
 
             // }
 
-            async editarPet(id, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
-                let r = await api.put('/alterar/:idpet', { id,  nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+            async editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
+                let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
                 return r.data;
 
             }
+
+            async adotarPet( idPet, nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro){
+            let r = await api.post(`/adocoes/adotarPet/${idPet}`,{nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro});
+            return r.data;
+            }
+ 
+            
 
         }
