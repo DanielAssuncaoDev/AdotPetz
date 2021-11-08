@@ -38,12 +38,21 @@ const nav = useHistory()
             onClick: async() => {
                 let r = await api.removerSoliAdo(id);
                 if(r.erro !== undefined)
+<<<<<<< HEAD
+                  toast.error(` ${r.erro}`);
+                else{
+                    toast.dark('Adocao cancelada!');
+                    listar();
+                }  
+            }
+=======
                   toast.error(`       else{
                     toast.dark('Adocao cancelada!');
 ${r.erro}`);
                               listar();
                 }  
             
+>>>>>>> f0c3bf96d384fd77546badba6405306e4fd5603c
         },
         {
             label: 'Não',
@@ -59,7 +68,11 @@ ${r.erro}`);
  }, [] )
 
     if( Cookie.get('User') === undefined )
+<<<<<<< HEAD
+         nav.push('/login')
+=======
         nav.push('/login')
+>>>>>>> f0c3bf96d384fd77546badba6405306e4fd5603c
 
 const cookieUser = JSON.parse(Cookie.get('User'))
 
