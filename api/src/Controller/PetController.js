@@ -59,7 +59,7 @@ import db from '../db.js'
 
     //  Deletar Pet
 
-    app.delete('/admin/:idPet', async (req, resp) => {
+    app.delete('/admin/:idPet/', async (req, resp) => {
         try {
             let { idPet } = req.params;
 
