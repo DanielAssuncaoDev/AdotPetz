@@ -18,34 +18,6 @@ import PetsController from './Controller/PetController.js'
 
 // import Sequelize from 'sequelize'
 
-    
-    const Server = express()
-        Server.use(cors())
-        Server.use(express.json())
-
-
-    Server.use('/user', UserController);
-    Server.use('/adocoes', UserAdocoesController);
-    Server.use('/pets', PetsController);
-
-
-    const storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-          cb(null, 'uploads/')
-        },
-        filename: function (req, file, cb) {
-          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-          cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname))
-        }
-      })
-
-    const upload = multer({ storage: storage})
-
-        Server.get('/admin/addpet', async (req, resp) =>{
-            let dirname = path.resolve();
-            resp.sendFile(req.query.imagem, { root: path.join(dirname) })
-        })
-
     // ATENÇÃO É necessario declarar as requisições quando for chamar o endpoint. 
 
         Server.get("/pets", async(req, resp) => {
