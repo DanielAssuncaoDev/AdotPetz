@@ -1,6 +1,10 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
@@ -26,7 +30,7 @@ export default function AnimaisCadastrados(){
                                 
     async function remover(id) {
         let r = await api.remover(id)
-        alert('Animal removido');
+        toast('Animal removido');
         
         listarAnimaisCadastrados();
     }
@@ -85,6 +89,7 @@ export default function AnimaisCadastrados(){
    
     return(
         <Container>
+            <ToastContainer/>
             <Cabecalho />
             <div class="ContainerBody">
                 <div class="ButtonsContainer"> 

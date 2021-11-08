@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
+import { toast } from 'react-toastify';
 
 // import { useHistory } from 'react-router-dom'
 
@@ -74,15 +75,15 @@ export default function SolicitacaoAdocao() {
                                 <Td> {item.telefone}  </Td>
                                 <Td> {item.dtSolicitacao} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alert(item.initials)}> 
+                                    onClick={() => toast(item.initials)}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alert(item.initials)}>
+                                    onClick={() => toast(item.initials)}>
                                     <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alert(item.initials)}>
+                                    onClick={() => toast(item.initials)}>
                                         <button className="actions"> Verificar Formulário </button>
                                 </Td>
                             </Tr>    
