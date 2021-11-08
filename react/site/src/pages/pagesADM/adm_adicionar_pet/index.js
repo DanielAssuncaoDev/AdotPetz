@@ -1,7 +1,11 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import Api from '../../../service/api';
+>>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
 import { useHistory } from 'react-router-dom';
 
 
@@ -11,7 +15,11 @@ const api = new Api()
 export default function Addpet(){
     const nav = useHistory();
 
+<<<<<<< HEAD
     const [nome, setNome] = useState('')
+=======
+    const [nome] = useState('')
+>>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
     const [especie, setEspecie] = useState('')
     const [raca, setRaca] = useState('')
     const [sexo, setSexo] = useState('')
@@ -19,9 +27,15 @@ export default function Addpet(){
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
+<<<<<<< HEAD
     const [imgPet1, setImgPet1] = useState('')
     const [imgPet2, setImgPet2] = useState('')
     const [imgPet3, setImgpet3] = useState('')
+=======
+    const [imgPet1] = useState('')
+    const [imgPet2] = useState('')
+    const [imgPet3] = useState('')
+>>>>>>> 5e8a3c81a22c3e3d393f606c4c57203ee5eaa68d
     const [castrado, setCastrado] = useState('')
     const [vacinaV10, setVacinaV10] = useState('')
     const [vacinaV8, setVacinaV8] = useState('')
@@ -45,39 +59,41 @@ export default function Addpet(){
 
 
 
-    async function cadastrarPet() {
-        let formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('especie', especie);
-        formData.append('raca', raca);
-        formData.append('sexo', sexo);
-        formData.append('peso', peso);
-        formData.append('nascimento', nascimento);
-        formData.append('porte', porte);
-        formData.append('descricao', descricao);
-        formData.append('imgPet1', imgPet1);
-        formData.append('imgPet2', imgPet2);
-        formData.append('imgPet3', imgPet3);
-        formData.append('castrado', castrado);
-        formData.append('vacinaV10', vacinaV10);
-        formData.append('vacinaV8', vacinaV8);
-        formData.append('vacinaV5', vacinaV5);
-        formData.append('vacinaV4', vacinaV4);
-        formData.append('vacinaV3', vacinaV3);
-        formData.append('vacinaAntirrabica', vacinaAntirrabica);
+    // Opa, comentei só pra fazer deploy, ok? :)
 
-        let resp = await axios.post('/admin/addpet', formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }})
-        console.log(resp.data);
-    }
+    // async function cadastrarPet() {
+    //     let formData = new FormData();
+    //     formData.append('nome', nome);
+    //     formData.append('especie', especie);
+    //     formData.append('raca', raca);
+    //     formData.append('sexo', sexo);
+    //     formData.append('peso', peso);
+    //     formData.append('nascimento', nascimento);
+    //     formData.append('porte', porte);
+    //     formData.append('descricao', descricao);
+    //     formData.append('imgPet1', imgPet1);
+    //     formData.append('imgPet2', imgPet2);
+    //     formData.append('imgPet3', imgPet3);
+    //     formData.append('castrado', castrado);
+    //     formData.append('vacinaV10', vacinaV10);
+    //     formData.append('vacinaV8', vacinaV8);
+    //     formData.append('vacinaV5', vacinaV5);
+    //     formData.append('vacinaV4', vacinaV4);
+    //     formData.append('vacinaV3', vacinaV3);
+    //     formData.append('vacinaAntirrabica', vacinaAntirrabica);
 
-    function previewImage() {
-        if (imgPet1) {
-            return URL.createObjectURL(imgPet1);
-        }
-    }
+    //     let resp = await axios.post('/admin/addpet', formData, {
+    //         headers: {
+    //             "Content-Type": "multipart/form-data"
+    //         }})
+    //     console.log(resp.data);
+    // }
+
+    // function previewImage() {
+    //     if (imgPet1) {
+    //         return URL.createObjectURL(imgPet1);
+    //     }
+    // }
 
     async function adicionarPets() {
         let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
@@ -105,24 +121,16 @@ export default function Addpet(){
                             {/* {imgPet1 && <div className="input-file"> <input id="capa-input-file" type="file" onChange={e => setCapa(e.target.files[0])} /> </div> } */}
                         </div>
                         <div className="inputs"> 
-                            <input className="input1" type="text" placeholder="Adicionar fotos" src=""/> 
-                            <input className="input1" type="text" placeholder="Digite o Nome do Pet" />
+                            <input className="input1" type="text" placeholder="Adicionar fotos" src=""/> <input className="input1" type="text" placeholder="Digite o Nome do Pet" />
                         </div>
                         <div className="inputs"> 
-                            <select className="select2" name="select" value={sexo} onChange={e => setSexo(e.target.value)}> 
-                                <option value="valor1">Selecione o Sexo</option> 
-                            </select>  
-                            <input className="input2"  type="text" placeholder="Peso" value={peso} onChange={e => setPeso(e.target.value)}/> 
-                            <select className="select2" name="select" value={porte} onChange={e => setPorte(e.target.value)}> 
+                            <select className="select2" name="select" value={sexo} onChange={e => setSexo(e.target.value)}> <option value="valor1">Selecione o Sexo</option> </select> <input className="input2"  type="text" placeholder="Peso" value={peso} onChange={e => setPeso(e.target.value)}/> <select className="select2" name="select" value={porte} onChange={e => setPorte(e.target.value)}> 
                                 <option value="valor1">Selecione o Porte</option>
                                 <option value="valor2">Médio</option> 
                             </select>
                         </div>
                         <div className="inputs"> 
-                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)}/> 
-                                <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>  
-                                    <option value="valor1">Espécie</option>
-                                </select>
+                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)}/> <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>  <option value="valor1">Espécie</option> </select>
                         </div>
                         <div className="inputs"> 
                             <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}> 

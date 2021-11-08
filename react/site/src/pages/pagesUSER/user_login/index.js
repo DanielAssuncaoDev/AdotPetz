@@ -1,5 +1,8 @@
 import {Container, Conteudo} from './styled'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Cookie from 'js-cookie'
@@ -17,10 +20,12 @@ const nav = useHistory()
     const FazerLogin = async() => {
         let user = await api.login( {email, senha} )
 
+        if( email === '' || senha === '' )
+            return toast.error('Nenhum campo pode estar vazio')
+
             if( user.erro !== undefined ) {
-                alert(user.erro)
+                toast.error(user.erro)
             } else {
-                // alert('Usuario Logado')
                 Cookie.set('User', JSON.stringify(user))
                 nav.push('/home')
             }
@@ -31,7 +36,7 @@ return (
     <Container> 
     
         <Conteudo>
-
+        <ToastContainer />     
             <div className="title"> Para conseguir ver mais informações do pet, por favor, logue no nosso site! </div>
 
             <div className="Form">

@@ -26,36 +26,25 @@ export default function Filtros(props){
                         <div className="FiltrarPor">
                             <label> Filtrar Solicitações Por:</label>
                             <select id="selectFiltro" onChange={AlterarOption}>
-                                <option> Selecione </option>
-                                
+                                <option> Selecione </option>        
                                 {props.listaOption.map(item =>   
-
                                     <option> {item} </option>
-                                
                                 )}
-
                             </select>
                         </div>
-
                         {
-                            filtroSelecionado === true 
-                            
-                            ?
-                                
-                                document.getElementById("selectFiltro").selectedIndex === 0
-
+                            filtroSelecionado === true    
+                            ?  
+                              document.getElementById("selectFiltro").selectedIndex === 0
                                     ?
                                         ''
-
                                     :
                                         <div className="RegistroPFiltrar">
-                                            {/* {alert(nomeFiltro)} */}
                                             <input type="text" placeholder={`Onde${nomeFiltro}for:`} />                                
                                         </div>
                             :
 
-                                ''
-                                    
+                                ''                                 
                         }
 
             </ContainerFiltros>

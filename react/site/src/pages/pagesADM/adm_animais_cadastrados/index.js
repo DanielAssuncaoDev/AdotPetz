@@ -23,9 +23,23 @@ export default function AnimaisCadastrados(){
         console.log(new Date(r[0].DT_CADASTRO).toLocaleDateString('pt-BR'))
     }
 
+    async function remover(id) {
+        let r = await api.remover(id)
+        alert('Animal removido');
+
+        listarAnimaisCadastrados();
+    }
+
+
+
     useEffect (() => {
         listarAnimaisCadastrados();
     }, [])
+
+
+
+
+
 
 
     const nav = useHistory ();
@@ -122,6 +136,11 @@ export default function AnimaisCadastrados(){
                                     onClick={() => alert(item.initials)}>
                                     <img src="/assets/images/editt.svg" alt="" width="25" />
                                 </Td>
+                                             {/* <Td className="actions"> 
+                                          <img onClick={ () => remover(item.ID_PET)}>
+                                                 src="/assets/images/deletee.svg" alt="" />
+                                                 </Td> */}
+
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => alert(item.initials)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
@@ -129,7 +148,11 @@ export default function AnimaisCadastrados(){
                                 <Td className="actions" 
                                     onClick={() => alert(item.initials)}>
                                     <img src="/assets/images/selo.svg" alt="" />
+                                    
                                 </Td>
+
+                        
+
                             </Tr>    
                         )}
                     </TableAdmin>

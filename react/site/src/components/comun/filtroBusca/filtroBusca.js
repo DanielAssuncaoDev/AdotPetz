@@ -1,12 +1,12 @@
 import {BoxFiltro, SelectRow, Select, Button} from './styled' 
 
 import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import Api from '../../../service/api'
 const api = new Api()
 
-export default function Filtro(){
+export default function Filtro( props ){
 
 const [sexo, setSexo] = useState('')
 const [porte, setPorte] = useState('')
@@ -17,6 +17,8 @@ const [raca, setRaca] = useState('')
 const [idadeTexto, setIdadeTexto] = useState('')
 const [racasDisponiveis, setRacasDisponiveis] = useState([])
 
+
+const location = useLocation()
 const nav = useHistory()
 
     const ChamarRacas = async() => {
@@ -25,55 +27,59 @@ const nav = useHistory()
     }
         useEffect( () => {
             ChamarRacas()
+            // props.teste("Ent Tabo uai")
+            // console.log(props.teste)
         }, [] )
 
 
-        function ConverterDatas(){
-            let dataStart = new Date()
-            let dataFinish = new Date()
+        
+            useEffect( () => {
 
-            if(idadeTexto === ''){
-                setIdade({dataStart: '', dataFinish: ''})
-                return
-            }
-
-                if( idadeTexto === '3a6meses' ){
-                    dataStart.setMonth( new Date().getMonth() - 6 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setMonth( new Date().getMonth() - 3 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-
-
-                } else if ( idadeTexto === '6a1ano' ){
-                    dataStart.setFullYear( (new Date().getFullYear() - 1) )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setMonth( new Date().getMonth() - 6 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-                
-                } else if ( idadeTexto === '1a3anos' ){
-                    dataStart.setFullYear( new Date().getFullYear() - 3 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    dataFinish.setFullYear( new Date().getFullYear() - 1 )
-                    dataFinish.setDate( new Date().getDate() + 1 )
-
-                } else if ( idadeTexto === '3+anos' ){
-                    // console.log('Caiu Poxa')
-                    dataStart.setFullYear( new Date().getFullYear() - 3 )
-                    dataStart.setDate( new Date().getDate() - 1 )
-
-                    setIdade({dataStart: new Date(dataStart), dataFinish: null })
-                    return
-
+                const ConverterDatas = () => {
+                    let dataStart = new Date()
+                    let dataFinish = new Date()
+        
+                    if(idadeTexto === ''){
+                        setIdade({dataStart: '', dataFinish: ''})
+                        return
+                    }
+        
+                        if( idadeTexto === '3a6meses' ){
+                            dataStart.setMonth( new Date().getMonth() - 6 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setMonth( new Date().getMonth() - 3 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+        
+        
+                        } else if ( idadeTexto === '6a1ano' ){
+                            dataStart.setFullYear( (new Date().getFullYear() - 1) )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setMonth( new Date().getMonth() - 6 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+                        
+                        } else if ( idadeTexto === '1a3anos' ){
+                            dataStart.setFullYear( new Date().getFullYear() - 3 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            dataFinish.setFullYear( new Date().getFullYear() - 1 )
+                            dataFinish.setDate( new Date().getDate() + 1 )
+        
+                        } else if ( idadeTexto === '3+anos' ){
+                            // console.log('Caiu Poxa')
+                            dataStart.setFullYear( new Date().getFullYear() - 3 )
+                            dataStart.setDate( new Date().getDate() - 1 )
+        
+                            setIdade({dataStart: new Date(dataStart), dataFinish: null })
+                            return
+        
+                        }
+        
+                    setIdade({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
                 }
 
-            console.log({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
-            setIdade({dataStart: new Date(dataStart), dataFinish: new Date(dataFinish)})
-        }
-            useEffect( () => {
-                ConverterDatas()
+                ConverterDatas() 
             }, [idadeTexto] )
 
 
@@ -83,12 +89,13 @@ const nav = useHistory()
                 <b> Encontre um novo amiguinho! </b>
             </div>
 
-            <form className="FiltroBusca">
+
+            <div className="FiltroBusca">
                 <div className="Row1Form">
                     <SelectRow 
                         onChange={ (e) => setPorte(e.target.value) } 
                     >
-                        <option value="Porte">
+                        <option value="">
                             Porte
                         </option>
 
@@ -108,7 +115,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setIdadeTexto(e.target.value) } 
                     >
-                        <option value="Idade">
+                        <option value="">
                             Idade
                         </option>
 
@@ -135,7 +142,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setEspecie(e.target.value) } 
                     >
-                        <option value="Espécie">
+                        <option value="">
                             Espécie
                         </option>
 
@@ -151,7 +158,7 @@ const nav = useHistory()
                     <SelectRow
                             onChange={ (e) => setSexo(e.target.value) } 
                     >
-                        <option value="Sexo">
+                        <option value="">
                             Sexo
                         </option>
  
@@ -169,7 +176,7 @@ const nav = useHistory()
                     <Select  
                         onChange={ (e) => setRaca(e.target.value) } 
                     >
-                        <option value="Raça"> 
+                        <option value=""> 
                             Raça
                         </option>
 
@@ -185,12 +192,22 @@ const nav = useHistory()
                 </div>
 
                 <div className="ButtonForm">
-                    <Button onClick={ () => nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }) } >
+                    <Button onClick={ () => {
+
+                        if( location.pathname === "/home" ){
+                            nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }); 
+
+                        } else if ( location.pathname === "/sugestoesadocao" ){
+                            props.setFiltroPets({sexo, porte, idade, especie, raca})
+
+                        }
+            
+                    } } >
                         Procurar
                     </Button>
                 </div>
 
-            </form>
+            </div>
         </BoxFiltro>
     );
 }

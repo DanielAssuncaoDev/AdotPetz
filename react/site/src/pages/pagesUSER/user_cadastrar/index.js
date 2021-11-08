@@ -1,5 +1,8 @@
 import {Container, Conteudo} from './styled'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Cookie from 'js-cookie'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
@@ -19,12 +22,12 @@ const nav = useHistory()
     const CadastrarUsuario = async() => {
         
             if(nome === '' || sobrenome === '' || email === '' ||  senha === ''){
-                alert('Todos os campos devem estar preenchidos!')
+                toast.error('Todos os campos devem estar preenchidos!')
                 return
             }
 
             if( !email.includes('@') ){
-                alert('O email deve ser válido!')
+                toast.error('O email deve ser válido!')
                 return
             }
 
@@ -50,18 +53,18 @@ const nav = useHistory()
 
 
             if( senha.length < 6 ){
-                alert('A senha deve ter mais que seis carecteres')
+                toast.error('A senha deve ter mais que seis carecteres')
                 return
             }
             if( !numbers ){
-                alert('a senha deve ser no mínimo 2 números')
+                toast.error('a senha deve ser no mínimo 2 números')
                 return
             }
 
         let usu = await api.cadastrarse( {nome, sobrenome, email, senha} )
 
         if( usu.erro !== undefined ){
-            alert(usu.erro)
+            toast.error(usu.erro)
         } else {
             Cookie.set('User', JSON.stringify(usu) )
             nav.push('/home')
@@ -75,6 +78,7 @@ const nav = useHistory()
         <Container> 
 
             <Conteudo> 
+            <ToastContainer />
 
                 <div className="title"> Para conseguir ver mais informações do pet, por favor, cadastre-se no nosso site! </div>
 
