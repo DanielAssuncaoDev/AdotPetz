@@ -279,12 +279,13 @@ app.get('/racasDisponiveis', async(req, resp) => {
      }
  }
 
+
  app.get('/admin/solicitacoes', async(req, resp) => {
      try {
-         let orderCriterio = getOrderCriterio(req.query.ordernacao)
+         let orderCriterio = getOrderCriterio(req.query.ordenacao)
          let solicitacoes = await db.infob_apn_tb_adocao.findAll({
              where: {
-                 BT_ADOCAO_CONCLUIDA: null
+                 BT_ADOCAO_CONCLUIDA: 0
              },
              order: [
                  [orderCriterio]
@@ -296,15 +297,15 @@ app.get('/racasDisponiveis', async(req, resp) => {
      }
 })
 
-// Alterar situacao da Adoção
+ // Alterar situacao da Adoção
 
-// app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
-//     try {
+ app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
+     try {
            
-//     } catch (e) {
-//         resp.send({erro:e.toString()})
-//  } 
-// })
+     } catch (e) {
+         resp.send({erro:e.toString()})
+  } 
+ })
 
     app.post('/admin/login', async (req, resp) => {
         try{
