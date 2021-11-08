@@ -38,12 +38,12 @@ const nav = useHistory()
             onClick: async() => {
                 let r = await api.removerSoliAdo(id);
                 if(r.erro !== undefined)
-                  toast.error(`       else{
+                  toast.error(` ${r.erro}`);
+                else{
                     toast.dark('Adocao cancelada!');
-${r.erro}`);
-                              listar();
+                    listar();
                 }  
-            
+            }
         },
         {
             label: 'Não',
@@ -59,7 +59,7 @@ ${r.erro}`);
  }, [] )
 
     if( Cookie.get('User') === undefined )
-        nav.push('/login')
+       nav.push('/login')
 
 const cookieUser = JSON.parse(Cookie.get('User'))
 

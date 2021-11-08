@@ -1,8 +1,12 @@
 import axios from 'axios'
     const api = axios.create({
+<<<<<<< HEAD
+        baseURL: 'https://tcc-adotpetz.herokuapp.com'
+=======
         baseURL: 'http://localhost:3030'
 
          /*baseURL: 'https://tcc-adotpetz.herokuapp.com'*/  // API Hero
+>>>>>>> f0c3bf96d384fd77546badba6405306e4fd5603c
     })
 
         export default class Api{
@@ -22,8 +26,8 @@ import axios from 'axios'
                 return r.data
             }
 
-            async listarPets(filtro, limit, offset){
-                let r = await api.post(`/pets?limit=${limit}&offset=${offset}`, filtro)
+            async listarPets(filtro){
+                let r = await api.post(`/pets`, filtro)
                 return r.data
             }
 
@@ -42,8 +46,9 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/){
-                let r = await api.post('/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/})
+            async adicionarPets( pet ){
+                // let pet = { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3}
+                let r = await api.post('/admin/addpet', pet)
                 return r.data
             }
 
@@ -52,15 +57,9 @@ import axios from 'axios'
                 return r.data;
             }
 
-
-            // async loginAdm(){
-
-            // }
-
-            async editarPet(id, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
-                let r = await api.put('/alterar/:idpet', { id,  nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+            async loginAdm(){
+                let r = await api.post('/admin/login');
                 return r.data;
-
             }
 
             async ordenarSolicitacoes () {
@@ -69,5 +68,6 @@ import axios from 'axios'
             }
 
             
+
 
         }
