@@ -1,6 +1,6 @@
 import axios from 'axios'
     const api = axios.create({
-        baseURL: 'https://tcc-adotpetz.herokuapp.com'
+        baseURL: 'http://localhost:3030'
     })
 
         export default class Api{
@@ -40,9 +40,8 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async adicionarPets(pet){
-                // let pet = { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3}
-                let r = await api.post('/admin/addpet', pet)
+            async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/){
+                let r = await api.post('/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/})
                 return r.data
             }
 
@@ -50,4 +49,8 @@ import axios from 'axios'
                 let r = await api.delete(`adocoes/minhasAdocoes/${id}`);
                 return r.data;
             }
+
+            // async loginAdm(){
+
+            // }
         }

@@ -8,7 +8,7 @@ import db from '../db.js'
 
     app.post('/pets/admin/addpet', async(req, resp) => {
         try{
-            let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3} = req.body;
+            let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3 /* castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3 */ } = req.body;
 
             let r = await db.infob_apn_tb_pet.create({
                 NM_PET: nome,
@@ -22,15 +22,15 @@ import db from '../db.js'
                 IMG_PET1: imgPet1,
                 IMG_PET2: imgPet2,
                 IMG_PET3: imgPet3,
-                BT_CASTRADO: castrado,
-                BT_VACINA_V10: vacinaV10,
-                BT_VACINA_V8: vacinaV8,
-                BT_VACINA_V5: vacinaV5,
-                BT_VACINA_V4: vacinaV4,
-                BT_VACINA_V3: vacinaV3,
-                BT_VACINA_ANTIRRABICA: vacinaAntirrabica,
+                BT_CASTRADO: 1,
+                BT_VACINA_V10: 1,
+                BT_VACINA_V8: 1,
+                BT_VACINA_V5: 1,
+                BT_VACINA_V4: 1,
+                BT_VACINA_V3: 1,
+                BT_VACINA_ANTIRRABICA: 1,
                 DT_CADASTRO: new Date(),
-                BT_DISPONIVEL: true
+                BT_DISPONIVEL: 1
             })
             
             // if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
@@ -299,6 +299,26 @@ app.get('/racasDisponiveis', async(req, resp) => {
 //         resp.send({erro:e.toString()})
 //  } 
 // })
+
+    app.post('/admin/login', async (req, resp) => {
+        try{
+            let {codigo, senha} = req.body
+            let r = await db.infob_apn_tb_adm.findOne({
+                where: {
+                    DS_COD: codigo,
+                    DS_SENHA: senha
+                }
+            })
+
+            if(r === null){
+                resp.send({erro: 'Credenciais Inválidas!'})
+                return
+            }
+            resp.send(r)
+        } catch (e){
+            resp.send({erro: e.toString()})
+        }
+    })
 
 
 export default app
