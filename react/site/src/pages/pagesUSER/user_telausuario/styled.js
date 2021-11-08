@@ -48,8 +48,12 @@ height: 4.5em;
 }
 
 .NomeUSU{
-font-weight: 700;
-padding-top: 4px;
+    font-weight: 400;
+    padding-top: 4px;
+
+        label{
+            font-weight: 700;
+        }
 }
 
 .imagemBA img{

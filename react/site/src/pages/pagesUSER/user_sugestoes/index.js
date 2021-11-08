@@ -15,21 +15,58 @@ const api = new Api()
 export default function Sugestoes(props){
 
 const [pets, setPets] = useState([])
+const [filtroPets, setFiltroPets] = useState(props.location.state)
 
-    const listarPets = async() => {
-        let pets = await api.listarPets(props.location.state)
-        setPets(pets)
-        // console.log(pets)
+const [pagList, setPagList] = useState([])
+const [pagsOffSet, setPagsOffSet] = useState(0)
+const [pagsLimit, setPagsLimit] = useState(6) 
+    function Paginacao(qtd){
+        let listPags = []
+        let qtdPags = Math.ceil(qtd/pagsLimit)
+        console.log(qtdPags)
+        
+            for( let i = 1; i <= qtdPags; i++ ){
+                listPags.push(i)
+            }
+
+        setPagList(listPags)
     }
+
+
         useEffect( () => {
+                const listarPets = async() => {
+                    let pets = null
+                
+                        if(filtroPets !== undefined){
+                            pets = await api.listarPets(filtroPets, pagsLimit, pagsOffSet)
+
+                        } else{
+                            pets = await api.listarPets({
+                                "sexo": "",
+                                "porte": "",
+                                "idade": {
+                                "dataStart": "",
+                                "dataFinish": null
+                                },
+                                "especie": "",
+                                "raca": ""
+                            }, pagsLimit, pagsOffSet)
+                        }
+                    Paginacao(pets.totalPets)
+                    setPets(pets.petsOffSet)
+                    console.log(pets)
+                }
+
             listarPets()
-        }, [])
+        }, [filtroPets, pagsOffSet])
+
+
 
     return(
          <Container> 
              <CabecalhoUSU />
 
-             <Fx1 />
+             <Fx1  setFiltroPets={setFiltroPets}/>
 
              <div className="conteudopag">
                  <div className="animais">
@@ -44,24 +81,23 @@ const [pets, setPets] = useState([])
                                 <Box Animal={pet} />
                             )
                         }
-                        {/* <Box imagem='/assets/images/pet5.svg' nome='Bob' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet4.svg' nome='Billy' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet3.svg' nome='Max' localização='São Paulo - SP' sexo='Macho' imagemSex='/assets/images/sexo-macho.svg' />
-                        <Box imagem='/assets/images/pet2.svg' nome='Jujuba' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/>
-                        <Box imagem='/assets/images/pet1.svg' nome='Ammy' localização='São Paulo - SP' sexo='Fêmea' imagemSex='/assets/images/sexo-femea.svg'/> */}
                     </div>
                     <div className='nupags'> 
-                      <div className='nu'> 1 </div>
-                      <div className='nu'> 2 </div>
-                      <div className='nu'> 3 </div>
-                      <div className='nu'> 4 </div>
-                      <div className='nu'> 5 </div>
-                      <div className='pon'> ... </div>
-                      <div className='nu'> 12 </div>
-                      <button> Próximo </button>
+                    {
+                        pagList.map((i) =>
+                            <div className='nu'
+                                onClick={ () => setPagsOffSet( pagsLimit * (i - 1) ) }
+                            >
+                                {i} 
+                            </div>
+                        )
+                    }
+                      
+ 
+                      <button onClick={ () => {
+                          setPagsOffSet( pagsOffSet + pagsLimit )
+                      } }  
+                      > Próximo </button>
                     </div>
                  </div> 
             <Roda />

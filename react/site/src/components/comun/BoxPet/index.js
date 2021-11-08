@@ -2,19 +2,22 @@ import { BoxPet } from "../BoxPet/styled"
 //import anima from 'animate.css';
 
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function BoxPETZ(props){
 
 const [colorPorte, setColorPorte] = useState('')
 
+const nav = useHistory()
 
 useEffect( () => {
-  if( props.Animal.DS_SEXO === 'Macho' ){
-    setColorPorte('#101BC4')
-  } else {
-    setColorPorte('rgb(207, 40, 160)')
-  }
-}, [] )
+    if( props.Animal.DS_SEXO === 'Macho' ){
+      setColorPorte('#101BC4')
+    } else {
+      setColorPorte('rgb(207, 40, 160)')
+    }
+  
+}, [props] )
   
 
     return(
@@ -69,7 +72,7 @@ useEffect( () => {
 
               }
                 
-            <div className='botão'> <button>Conhecer mais o Pet</button></div>
+            <div className='botão'> <button onClick={ () => nav.push({pathname: '/pet', state: props.Animal }) } >Conhecer mais o Pet</button></div>
           {/* </div>  */}
       </BoxPet>
         
