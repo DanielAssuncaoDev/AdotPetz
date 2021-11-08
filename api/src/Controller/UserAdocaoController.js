@@ -68,27 +68,27 @@ import db from '../db.js'
 
     // Deletar solicitação de Adoção
 
-    app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
-        try {
-            let { idAdocao } = req.params;
+    // app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
+    //     try {
+    //         let { idAdocao } = req.params;
 
-            let r = await db.infob_apn_tb_adocao.update({
-                where: {
-                    ID_ADOCAO: idAdocao
-                }
-            })
+    //         let r = await db.infob_apn_tb_adocao.update({
+    //             where: {
+    //                 ID_ADOCAO: idAdocao
+    //             }
+    //         })
 
-            if ( BT_ADOCAO_CONCLUIDA === false ) {
+    //         if ( BT_ADOCAO_CONCLUIDA === false ) {
                 
-            } else {
+    //         } else {
 
-            }
-            resp.sendStatus(200);
-        } catch (e) {
-            resp.send({erro:e.toString()})
-        }  
+    //         }
+    //         resp.sendStatus(200);
+    //     } catch (e) {
+    //         resp.send({erro:e.toString()})
+    //     }  
 
-    })
+    // })
 
     
 
