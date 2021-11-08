@@ -362,44 +362,46 @@ app.post('/pet/:idPet/:idUser', async(req, resp) => {
 // Listar Solicitações de Adoção 
 
 
-function getOrderCriterio(criterio) {
+ function getOrderCriterio(criterio) {
 
-    switch (criterio) {
-        case 'Cód': return ['ID_ADOCAO', 'asc'];
-        case 'Data Solicitação': return ['DT_SOLICITACAO', 'desc'];
-        case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
-        case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
+     switch (criterio) {
+         case 'Cód': return ['ID_ADOCAO', 'asc'];
+         case 'Mais Recentes': return ['DT_SOLICITACAO', 'desc'];
+         case 'Mais Antigas': return ['DT_SOLICITACAO', 'asc'];
+         case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
+         case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
 
-        default: return  ['ID_ADOCAO', 'asc'];
-    }
-}
+         default: return  ['ID_ADOCAO', 'asc'];
+     }
+ }
 
-app.get('/admin/solicitacoes', async(req, resp) => {
-    try {
-        let orderCriterio = getOrderCriterio(req.query.ordernacao)
-        let solicitacoes = await db.infob_apn_tb_adocao.findAll({
-            where: {
-                BT_ADOCAO_CONCLUIDA: null
-            },
-            order: [
-                [orderCriterio]
-            ]
-        })       
-        resp.send(solicitacoes)
-    } catch (e) {
-        resp.send({erro: e.toString()})
-    }
+
+ app.get('/admin/solicitacoes', async(req, resp) => {
+     try {
+         let orderCriterio = getOrderCriterio(req.query.ordenacao)
+         let solicitacoes = await db.infob_apn_tb_adocao.findAll({
+             where: {
+                 BT_ADOCAO_CONCLUIDA: 0
+             },
+             order: [
+                 [orderCriterio]
+             ]
+         })       
+         resp.send(solicitacoes)
+     } catch (e) {
+         resp.send({erro: e.toString()})
+     }
 })
 
-// Alterar situacao da Adoção
+ // Alterar situacao da Adoção
 
-// app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
-//     try {
+ app.put('/alterar/:idSolicitacao',async(req, resp) =>  {   
+     try {
            
-//     } catch (e) {
-//         resp.send({erro:e.toString()})
-//  } 
-// })
+     } catch (e) {
+         resp.send({erro:e.toString()})
+  } 
+ })
 
     app.post('/admin/login', async (req, resp) => {
         try{
