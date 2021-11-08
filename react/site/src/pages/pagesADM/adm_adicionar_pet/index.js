@@ -1,17 +1,23 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState } from 'react'
-import Api from '../../../service/api';
+
+import axios from 'axios';
+
 import { useHistory } from 'react-router-dom';
 
 
-// import Api from '../../../service/api';
-// const api = new Api()
+import Api from '../../../service/api';
+const api = new Api()
 
 export default function Addpet(){
     const nav = useHistory();
 
+
+    // const [nome, setNome] = useState('')
+
     const [nome] = useState('')
+
     const [especie, setEspecie] = useState('')
     const [raca, setRaca] = useState('')
     const [sexo, setSexo] = useState('')
@@ -30,7 +36,7 @@ export default function Addpet(){
     const [vacinaV3, setVacinaV3] = useState('')
     const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
 
-// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs
+// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
     // async function adicionarPets() {
     //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 

@@ -9,6 +9,7 @@ import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 import { useHistory } from 'react-router-dom'
 
 import Api from '../../../service/api';
+import { set } from 'js-cookie';
 const api = new Api();
 
 
@@ -22,10 +23,20 @@ export default function AnimaisCadastrados(){
 
         console.log(new Date(r[0].DT_CADASTRO).toLocaleDateString('pt-BR'))
     }
+                                
+    async function remover(id) {
+        let r = await api.remover(id)
+        alert('Animal removido');
+        
+        listarAnimaisCadastrados();
+    }
+
+
 
     useEffect (() => {
         listarAnimaisCadastrados();
     }, [])
+
 
     const nav = useHistory ();
 
@@ -104,8 +115,9 @@ export default function AnimaisCadastrados(){
                             { title: '' },
                             { title: '' }
                         ]}>
-                   
-                        {animals.map(item => 
+
+                            {animals.map(item => 
+                            
                             <Tr key={item.ID_PET}>
                                 <Td className="ra"> {item.ID_PET} </Td>
                                 <Td> {item.NM_PET}  </Td>
@@ -122,14 +134,15 @@ export default function AnimaisCadastrados(){
                                     <img src="/assets/images/editt.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alert(item.initials)}>
+                                    onClick={() => remover(item.ID_PET)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
                                 </Td>
                                 <Td className="actions" 
                                     onClick={() => alert(item.initials)}>
                                     <img src="/assets/images/selo.svg" alt="" />
                                 </Td>
-                            </Tr>    
+                            </Tr>
+
                         )}
                     </TableAdmin>
                 </div>
