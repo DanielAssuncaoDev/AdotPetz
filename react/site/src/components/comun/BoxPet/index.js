@@ -1,5 +1,4 @@
 import { BoxPet } from "../BoxPet/styled"
-import anima from 'animate.css';
 
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
@@ -21,7 +20,7 @@ useEffect( () => {
   
 
     return(
-      <BoxPet colorPet={colorPorte} class='animate__animated animate__bounce' >
+      <BoxPet colorPet={colorPorte}  >
           {/* <div className='conteudo-pet'>    */}
             <div className="imagemPET">
                 <img src={props.Animal.IMG_PET1} alt='' /> 

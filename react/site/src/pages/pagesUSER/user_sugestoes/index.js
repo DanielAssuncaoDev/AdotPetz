@@ -19,7 +19,7 @@ const [filtroPets, setFiltroPets] = useState(props.location.state)
 
 const [pagList, setPagList] = useState([])
 const [pagsOffSet, setPagsOffSet] = useState(0)
-const [pagsLimit, setPagsLimit] = useState(6) 
+const [pagsLimit, setPagsLimit] = useState(18) 
     function Paginacao(qtd){
         let listPags = []
         let qtdPags = Math.ceil(qtd/pagsLimit)
