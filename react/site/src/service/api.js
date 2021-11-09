@@ -57,8 +57,8 @@ import axios from 'axios'
                 let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
                 return r.data
             }
-            async loginAdm(){
-                let r = await api.post('/admin/login');
+            async loginAdm(codigo, senha){
+                let r = await api.post('/adm/login', {codigo, senha});
                 return r.data;
             }
 

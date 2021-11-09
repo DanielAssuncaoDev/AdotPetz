@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 
 import UserController from './Controller/UserController.js'
-
+import AdmController from './Controller/AdmController.js'
 import UserAdocoesController from './Controller/UserAdocaoController.js'
 import PetsController from './Controller/PetController.js'
 
@@ -27,6 +27,8 @@ import PetsController from './Controller/PetController.js'
     Server.use('/user', UserController);
     Server.use('/adocoes', UserAdocoesController);
     Server.use('/pets', PetsController);
+    Server.use('/adm', AdmController);
+
 
 
     
