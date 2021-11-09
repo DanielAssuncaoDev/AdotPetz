@@ -1,8 +1,7 @@
 import axios from 'axios'
     const api = axios.create({
-        baseURL: 'http://localhost:3030'
 
-         /*baseURL: 'https://tcc-adotpetz.herokuapp.com'*/  // API Hero
+        baseURL: 'http://localhost:3030' 
     })
 
         export default class Api{
@@ -42,8 +41,9 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/){
-                let r = await api.post('/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao/*, imgPet1, imgPet2, imgPet3*/})
+            async adicionarPets( pet ){
+                // let pet = { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3}
+                let r = await api.post('/admin/addpet', pet)
                 return r.data
             }
 
@@ -53,14 +53,22 @@ import axios from 'axios'
             }
 
 
-            // async loginAdm(){
-
-            // }
-
-            async editarPet(id, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
-                let r = await api.put('/alterar/:idpet', { id,  nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+            async editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
+                let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+                return r.data
+            }
+            async loginAdm(){
+                let r = await api.post('/admin/login');
                 return r.data;
-
             }
 
-        }
+            async adotarPet( idPet, nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro){
+                let r = await api.post(`/adocoes/adotarPet/${idPet}`,{nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro});
+                return r.data;
+            }
+            async ordenarSolicitacoes () {
+                let r = await api.get('/admin/solicitacoes/');
+                return r.data;
+            }
+
+    }

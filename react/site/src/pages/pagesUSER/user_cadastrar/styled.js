@@ -8,8 +8,8 @@ overflow: hidden;
 background-color: #FAF8EB;
 flex-direction: column;
 align-items: center;
-height: 100vh;
-
+min-height: 100vh;
+height: auto;
 
 `
 export const Conteudo = styled.div`
@@ -19,18 +19,20 @@ justify-content: center;
 
 align-items: center;
 
-width: 100vw; 
-height: 100vh;
-padding: 2em;
+/* width: 100vw;  */
+/* min-height: 100vh; */
+height: auto;
+/* padding: 2em; */
 
 .title {
   /* position: absolute; */
   top: 2em;
   width: 85%;
-  position: absolute;
+  position: relative;
   font: 1.1em Montserrat;
   font-weight: 600;
   text-align: center;
+  margin-bottom: 4em;
 }
 .cadastrar {
   color: #fad41b;

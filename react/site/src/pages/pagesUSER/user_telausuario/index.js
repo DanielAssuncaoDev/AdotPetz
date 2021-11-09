@@ -21,6 +21,9 @@ export default function TelaUSU(){
 
 const nav = useHistory()
  
+if( Cookie.get('User') === undefined )
+       nav.push('/login')   
+
  async function listar(){
    let id = JSON.parse(Cookie.get('User')).ID_USER;
    let r = await api.listarMinhasAdocoes(id);
@@ -38,12 +41,12 @@ const nav = useHistory()
             onClick: async() => {
                 let r = await api.removerSoliAdo(id);
                 if(r.erro !== undefined)
-                  toast.error(`       else{
+                  toast.error(` ${r.erro}`);
+                else{
                     toast.dark('Adocao cancelada!');
-${r.erro}`);
-                              listar();
+                    listar();
                 }  
-            
+            }
         },
         {
             label: 'Não',
@@ -58,8 +61,7 @@ ${r.erro}`);
   listar()
  }, [] )
 
-    if( Cookie.get('User') === undefined )
-        nav.push('/login')
+    
 
 const cookieUser = JSON.parse(Cookie.get('User'))
 
@@ -81,7 +83,7 @@ const cookieUser = JSON.parse(Cookie.get('User'))
               <div className='imagemBA'> 
                 <img onClick={ () => {
                           Cookie.remove('User') 
-                          // nav.push('/home')
+                          nav.push('/home')
                         }
                       }
                         src='/assets/images/image 80.svg' alt='' 

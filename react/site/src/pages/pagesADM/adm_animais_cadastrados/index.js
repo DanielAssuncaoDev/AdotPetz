@@ -101,7 +101,7 @@ export default function AnimaisCadastrados(){
     //             { value: item.specie },
     //             { value: item.sexo }, 
     //             { value: item.porte },
-    //             { value: item.registrationDate },
+    //             { value: item.registrationDate },    
     //             { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
     //             { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
     //             { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },

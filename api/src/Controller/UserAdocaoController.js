@@ -19,6 +19,39 @@ import db from '../db.js'
         }
     })
 
+
+
+
+
+    app.post('/adotarPet/:idPet', async(req, resp) => {
+        try {
+            let {nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro} = req.body
+
+            let r = await db.infob_apn_tb_adocao.create({
+                ID_PET:req.params.idPet,
+                NM_NOME_COMPLETO:nomeCompleto,
+                DT_NASCIMENTO:nascimento,
+                DS_RG:rg,
+                DS_TELEFONE:telefone,
+                DS_CEP:cep,
+                DS_ENDERECO:endereco,
+                DS_NUMERO:numero,
+                DS_COMPLEMENTO:complemento,
+                DS_BAIRRO:bairro,
+                DT_SOLICITACAO:new Date(),
+                BT_ADOCAO_CONCLUIDA:false
+            })
+
+            resp.sendStatus(200)
+
+        } catch (e) {
+            resp.send({erro:e.toString()})
+
+        }
+})
+ 
+
+
     // Cancelar Adoção do Usuario
 
     app.delete('/minhasAdocoes/:idAdocao', async(req, resp) =>{
@@ -66,15 +99,31 @@ import db from '../db.js'
         }
     })
 
-    // Alterar situacao da Adoção
+    // Deletar solicitação de Adoção
 
-    app.put('/alterar/:idsolicitacao',async(req, resp) =>  {   
-        try {
-            
-        } catch (e) {
-            resp.send({erro:e.toString()})
-    } 
-    })
+    // app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
+    //     try {
+    //         let { idAdocao } = req.params;
+
+    //         let r = await db.infob_apn_tb_adocao.update({
+    //             where: {
+    //                 ID_ADOCAO: idAdocao
+    //             }
+    //         })
+
+    //         if ( BT_ADOCAO_CONCLUIDA === false ) {
+                
+    //         } else {
+
+    //         }
+    //         resp.sendStatus(200);
+    //     } catch (e) {
+    //         resp.send({erro:e.toString()})
+    //     }  
+
+    // })
+
+    
 
 
 export default app

@@ -1,5 +1,6 @@
 import {Container, Conteudo} from './styled'
 
+import Cabecalho from '../../../components/comun/cabecalhoUSU'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,7 +35,7 @@ const nav = useHistory()
 
 return (
     <Container> 
-    
+        <Cabecalho />
         <Conteudo>
         <ToastContainer />     
             <div className="title"> Para conseguir ver mais informações do pet, por favor, logue no nosso site! </div>
@@ -52,7 +53,7 @@ return (
                 </div>
 
                 <div className="box-input"> 
-                    <input type="text" placeholder="Senha:" 
+                    <input type="password" placeholder="Senha:" 
                             value={ senha }
                             onChange={ (e) => setSenha(e.target.value) }
                     />
