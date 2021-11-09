@@ -45,8 +45,8 @@ const [pagsLimit, setPagsLimit] = useState(6)
                                 "sexo": "",
                                 "porte": "",
                                 "idade": {
-                                "dataStart": "",
-                                "dataFinish": null
+                                    "dataStart": "",
+                                    "dataFinish": null
                                 },
                                 "especie": "",
                                 "raca": ""
@@ -70,7 +70,8 @@ const [pagsLimit, setPagsLimit] = useState(6)
 
              <div className="conteudopag">
                  <div className="animais">
-                     <div className="animais-sugeridos">
+                     <div className=
+                     "animais-sugeridos">
                          <div className="animaisSU"> Animais sugeridos</div>
                          <img src="/assets/images/coracaopata.svg" alt="" />
                           </div>

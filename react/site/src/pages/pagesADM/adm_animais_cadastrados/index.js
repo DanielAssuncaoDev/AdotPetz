@@ -1,6 +1,10 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
@@ -10,6 +14,7 @@ import { useHistory } from 'react-router-dom'
 
 import Api from '../../../service/api';
 import { set } from 'js-cookie';
+import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
 
@@ -25,12 +30,34 @@ export default function AnimaisCadastrados(){
     }
                                 
     async function remover(id) {
-        let r = await api.remover(id)
-        alert('Animal removido');
+    //     let r = await api.remover(id)
+       confirmAlert ({
+           title: 'Excluir animal',
+           message: 'Tem certeza que deseja excluir o animal ?',
+           buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async() => {
+                        let r = await api.remover(id)
+                        if(r.erro !== undefined){
+                            toast(r.erro)
+                        }
+                        else{
+                            toast.dark('Adoção cancelada') 
+                        }
+        
+                        listarAnimaisCadastrados()
+                    }
+                },
+                {
+                    label: 'Não'
+                }
+
+           ]
+       })
         
         listarAnimaisCadastrados();
     }
-
 
 
     useEffect (() => {
@@ -74,7 +101,7 @@ export default function AnimaisCadastrados(){
     //             { value: item.specie },
     //             { value: item.sexo }, 
     //             { value: item.porte },
-    //             { value: item.registrationDate },
+    //             { value: item.registrationDate },    
     //             { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
     //             { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
     //             { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
@@ -85,6 +112,7 @@ export default function AnimaisCadastrados(){
    
     return(
         <Container>
+            <ToastContainer/>
             <Cabecalho />
             <div class="ContainerBody">
                 <div class="ButtonsContainer"> 

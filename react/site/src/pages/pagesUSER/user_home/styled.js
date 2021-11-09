@@ -140,7 +140,7 @@ export const Container = styled.div`
 
 
                     }   .ListasBox li{
-                            font-size: .6em;
+                            font-size: 13.5px;
                             font-weight: 300;
 
 

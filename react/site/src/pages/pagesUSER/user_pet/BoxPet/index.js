@@ -109,12 +109,12 @@ const [vacinas, setVacinas] = useState([])
                             <div className="vaccines"> 
                                 <div className="title"> O Animal ainda não foi vacinado </div>
                             </div>
-                            :  vacinas.map( (v) =>   
+                            :    
                             <div className="vaccines"> 
                                 <div className="title"> Vacinas: </div>
-                                <div className="text-vaccines"> {v.vacina + " "} </div> 
+                                <div className="text-vaccines">  { vacinas.map( (v) => v.vacina + " ")} </div> 
                             </div>
-                                )
+                            
                         }
                         
                     </div>

@@ -1,7 +1,7 @@
 import axios from 'axios'
     const api = axios.create({
-        // baseURL: 'https://tcc-adotpetz.herokuapp.com'  // API Heroku
-        baseURL: 'http://localhost:3030' // API Local
+
+        baseURL: 'http://localhost:3030' 
     })
 
         export default class Api{
@@ -32,7 +32,7 @@ import axios from 'axios'
             }
 
             async remover(id) {
-                let r = await api.delete(`/pets/admin/:idPet/${id}`)
+                let r = await api.delete(`/pets/admin/${id}`)
                 return r.data;
             }
             
@@ -52,11 +52,23 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async editarPet(id, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
-                let r = await api.put('/alterar/:idpet', { id,  nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
-                return r.data;
 
+            async editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
+                let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
+                return r.data
+            }
+            async loginAdm(){
+                let r = await api.post('/admin/login');
+                return r.data;
             }
 
-        
-        }
+            async adotarPet( idPet, nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro){
+                let r = await api.post(`/adocoes/adotarPet/${idPet}`,{nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro});
+                return r.data;
+            }
+            async ordenarSolicitacoes () {
+                let r = await api.get('/admin/solicitacoes/');
+                return r.data;
+            }
+
+    }
