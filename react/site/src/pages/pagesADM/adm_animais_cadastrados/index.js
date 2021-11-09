@@ -4,16 +4,15 @@ import { Container } from './styled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import Api from '../../../service/api';
-import { set } from 'js-cookie';
+// import { set } from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
@@ -65,7 +64,7 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-    const nav = useHistory ();
+    const nav = useHistory();
 
     // useEffect(() => {
     //     // setAnimals([
@@ -157,8 +156,7 @@ export default function AnimaisCadastrados(){
                                     onClick={() => alert(item.initials)}> 
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
                                 </Td> 
-                                <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alert(item.initials)}>
+                                <Td className="actions" config={{ visibility: 'hidden'}}>
                                     <img src="/assets/images/editt.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
