@@ -143,27 +143,54 @@ import db from '../db.js'
 
     // Deletar solicitação de Adoção
 
-    // app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
-    //     try {
-    //         let { idAdocao } = req.params;
+    app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
+        try {
+            let { idAdocao } = req.params;
 
-    //         let r = await db.infob_apn_tb_adocao.update({
-    //             where: {
-    //                 ID_ADOCAO: idAdocao
-    //             }
-    //         })
+            let adocao = await db.infob_apn_tb_adocao.findOne({
+                where: {
+                    ID_ADOCAO: idAdocao
+                }
+            })
 
-    //         if ( BT_ADOCAO_CONCLUIDA === false ) {
-                
-    //         } else {
+                if(req.body.solicitacaoAceita == false){
 
-    //         }
-    //         resp.sendStatus(200);
-    //     } catch (e) {
-    //         resp.send({erro:e.toString()})
-    //     }  
+                    let r = await db.infob_apn_tb_adocao.destroy({
+                        where: {
+                            ID_ADOCAO: idAdocao
+                        }
+                    })
 
-    // })
+                    return resp.sendStatus(200)
+
+                    
+                } else if ( req.body.solicitacaoAceita == true){
+
+                    let r = await db.infob_apn_tb_adocao.update({
+                        BT_ADOCAO_CONCLUIDA: true,
+                        DT_ADOCAO: new Date()
+                    }, {
+                        where: {
+                            ID_ADOCAO: idAdocao
+                        }
+                    })
+
+                    let pet = await db.infob_apn_tb_pet.update({
+                        BT_ADOCAO_CONCLUIDA: true
+                    }, {
+                        where: {
+                            ID_PET: adocao.ID_PET
+                        }
+                    })
+
+                    return resp.sendStatus(200)
+                }
+
+        } catch (e) {
+            resp.send({erro: e.toString()})
+        }  
+
+    })
 
     
 

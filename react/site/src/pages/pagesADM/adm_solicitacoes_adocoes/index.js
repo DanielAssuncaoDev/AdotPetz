@@ -8,8 +8,9 @@ import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
+import { confirmAlert } from 'react-confirm-alert';
 
 import Api from '../../../service/api';
 const api = new Api();
@@ -20,6 +21,7 @@ const api = new Api();
 export default function SolicitacaoAdocao() {
     const [ordenacao, setOrdenacao] = useState('Cód');
     const [solicitacoes, setSolicitacoes] = useState([]);
+    // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
 
      async function listar () {
@@ -27,12 +29,84 @@ export default function SolicitacaoAdocao() {
         setSolicitacoes([...resp.data])
      }
 
+     async function alterarSituacao (solicitacaoAceita, IdAdocao) {
+        //  let r = await api.alterarSituacao(idAdocao, solicitacaoAceita);
+        //  setSolicitacoes(r)
+
+        //  if (solicitacaoAceita == true){
+        //     return toast.dark('Solicitação Aceita')
+        //  }
+        console.log(IdAdocao)
+
+        if (solicitacaoAceita === false)
+        {
+            confirmAlert ({
+                title: 'Excluir Solicitação',
+                message: 'Tem certeza que deseja excluir a solicitação?',
+                buttons: [
+                     {
+                         label: 'Sim',
+                         onClick: async() => {
+                             let r = await api.alterarSituacao( IdAdocao , false)
+                             if(r.erro !== undefined){
+                                 toast.dark(r.erro)
+                             }
+                             else{
+                                 toast.dark('Solicitação Excluída') 
+                                 listar();    
+                             }
+             
+                         }
+                     },
+                     {
+                         label: 'Não'
+                     }
+     
+                ]
+            })
+
+            
+
+        } else if ( solicitacaoAceita === true ){
+            confirmAlert ({
+                title: 'Aceitar Solicitação',
+                message: 'Tem certeza que deseja Aceitar a solicitação?',
+                buttons: [
+                     {
+                         label: 'Sim',
+                         onClick: async() => {
+                             let r = await api.alterarSituacao( IdAdocao , true)
+                             console.log(r)
+                             if(r.erro !== undefined){
+                                 toast.dark(r.erro)
+                             }
+                             else{
+                                 toast.dark('Solicitação Aceita') 
+                                 listar();
+                             }
+             
+                            
+                         }
+                     },
+                     {
+                         label: 'Não'
+                     }
+     
+                ]
+            })
+
+            
+
+        }
+         
+     }
 
      useEffect(() =>{
          listar();
      }, [ordenacao])
     return(
         <Container>
+            <ToastContainer/>
             <CabecalhoADM />
            
             <FaixaCRUD>    
@@ -74,11 +148,11 @@ export default function SolicitacaoAdocao() {
                                 <Td> {item.Telefone}  </Td>
                                 <Td> {item.DataSolicitacao} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => toast(item.initials)}> 
+                                    onClick={() => alterarSituacao( true, item.IdAdocao  )}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => toast(item.initials)}>
+                                    onClick={() => alterarSituacao( false, item.IdAdocao  )}>
                                     <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}

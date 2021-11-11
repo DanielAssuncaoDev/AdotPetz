@@ -64,9 +64,6 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-<<<<<<< HEAD
-    const nav = useHistory ();
-=======
     const nav = useHistory();
 
     // useEffect(() => {
@@ -112,7 +109,6 @@ export default function AnimaisCadastrados(){
     //     })
     // }
    
->>>>>>> fd30c1247fbe9178a15031156abee31b99271504
     return(
         <Container>
             <ToastContainer/>
