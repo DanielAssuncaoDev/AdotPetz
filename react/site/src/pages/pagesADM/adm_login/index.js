@@ -12,7 +12,7 @@ export default function LoginAdm() {
    const [senha, setSenha] = useState('')
 
   async function Login(){
-    let r = await api.loginAdm({ codigo, senha })
+    let r = await api.loginAdm( codigo, senha )
     console.log(r)
     if(codigo === '' || senha === '')
       return toast.error('Os campos devem ser preenchidos')
