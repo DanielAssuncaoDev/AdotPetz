@@ -7,12 +7,60 @@ import { Container } from './styled';
 
 import Mensagem from '../../../components/popups/MensagemForm/index'
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+import Cookie from 'js-cookie'
+
+import Api from '../../../service/api.js'
+const api = new Api()
 
 export default function Sujestoes(props ){
     const [popUp, setPopUp] = useState(false)
 
+    const [pet] = useState(props.location.state)
     // console.log(props.location.state)
+    const [formUser, setFormUser] = useState({})
+    const [nomeCompleto, setNomeCompleto] = useState('')
+    const [nascimento, setNascimento] = useState('')
+    const [rg, setRg] = useState('')
+    const [telefone, setTelefone] = useState('')
+    const [cep, setCep] = useState('')
+    const [numero, setNumero] = useState('')
+    const [cidade, setCidade] = useState('')
+    const [endereco, setEndereco] = useState('')
+    const [complemento, setComplemento] = useState('')
+    const [bairro, setBairro] = useState('')
+
     
+const nav = useHistory()
+
+    if(pet === undefined){
+        nav.push('/sugestoesadocao')
+    }
+
+    if(Cookie.get('User') === undefined ){
+        nav.push('/login')
+    }
+
+    function ChamarPopUp(){
+        let idUser = JSON.parse(Cookie.get('User')).ID_USER
+        console.log(idUser)
+
+        let FormUser= {
+            idUser,
+            nomeCompleto, 
+            nascimento,
+            rg,
+            telefone,
+            cep,
+            numero, 
+            complemento, 
+            bairro
+        }
+        setFormUser(FormUser)
+        setPopUp(true)
+    }
+
+
 
     return( 
         <Container>
@@ -24,7 +72,9 @@ export default function Sujestoes(props ){
                 ?
                     <Mensagem popUp={popUp}
                                 setPopUp={setPopUp} 
-                                    NomePet="Panda" 
+                                    Form={formUser}
+                                    Pet={pet} 
+
                     />
 
                 : 
@@ -40,24 +90,64 @@ export default function Sujestoes(props ){
                         <div className="img"> <img src="/assets/images/core.png" width="100" alt=""/> </div>
                     </div>
                     <div className="ContainerInputs"> 
-                        <div className="Name"> <input type="text" placeholder="Nome completo"/> </div>
-                        <div className="InputsGroup"> 
-                            <div className="Nascimento"> <input type="text" placeholder="Nascimento"/> </div>
-                            <div className="rg"> <input type="text" placeholder="RG"/> </div>
-                            <div className="telefone"> <input type="text" placeholder="Telefone"/> </div>
+                        <div className="Name">
+                            <input type="text" placeholder="Nome completo"
+                                value={nomeCompleto} onChange={(e) => setNomeCompleto(e.target.value)}
+                            /> 
                         </div>
                         <div className="InputsGroup"> 
-                            <div className="cep"> <input type="text" placeholder="CEP"/> </div>
-                            <div className="endereco"> <input type="text" placeholder="Endereço"/> </div>
-                            <div className="numero"> <input type="text" placeholder="Número"/> </div>
+                            <div className="Nascimento"> 
+                                <input type="text" placeholder="Nascimento"
+                                    value={nascimento} onChange={(e) => setNascimento(e.target.value)}
+                                /> 
+                            </div>
+                            <div className="rg">
+                                <input type="text" placeholder="RG"
+                                    value={rg} onChange={(e) => setRg(e.target.value)}
+                                />
+                            </div>
+                            <div className="telefone"> 
+                                <input type="text" placeholder="Telefone"
+                                    value={telefone} onChange={(e) => setTelefone(e.target.value)}  
+                                />
+                            </div>
                         </div>
                         <div className="InputsGroup"> 
-                            <div className="complemento">  <input type="text" placeholder="Complemento"/> </div>
-                            <div className="cidade"> <input type="text" placeholder="Cidade"/> </div>
-                            <div className="bairro"> <input type="text" placeholder="Bairro"/> </div>
+                            <div className="cep"> 
+                                <input type="text" placeholder="CEP"
+                                    value={cep} onChange={(e) => setCep(e.target.value)}
+                                />
+                            </div>
+                            <div className="endereco">
+                                <input type="text" placeholder="Endereço"
+                                    value={endereco} onChange={(e) => setEndereco(e.target.value)}
+                                />
+                            </div>
+                            <div className="numero">
+                                <input type="text" placeholder="Número"
+                                    value={numero} onChange={(e) => setNumero(e.target.value)}
+                                /> 
+                            </div>
+                        </div>
+                        <div className="InputsGroup"> 
+                            <div className="complemento">  
+                                <input type="text" placeholder="Complemento"
+                                    value={complemento} onChange={(e) => setComplemento(e.target.value)}
+                                />
+                            </div>
+                            <div className="cidade"> 
+                                <input type="text" placeholder="Cidade"
+                                    value={cidade} onChange={(e) => setCidade(e.target.value)}
+                                />
+                            </div>
+                            <div className="bairro"> 
+                                <input type="text" placeholder="Bairro"
+                                        value={bairro} onChange={(e) => setBairro(e.target.value)}
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div class="button"> <button onClick={() => setPopUp(true)}> Prosseguir com o processo de adoção </button> </div>
+                    <div class="button"> <button onClick={() => ChamarPopUp()}> Prosseguir com o processo de adoção </button> </div>
                 </div>
             </div>
         <Rodape/>

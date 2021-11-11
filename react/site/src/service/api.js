@@ -62,9 +62,10 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async adotarPet( idPet, nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro){
-                let r = await api.post(`/adocoes/adotarPet/${idPet}`,{nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro});
+            async adotarPet( idPet, formUser){
+                let r = await api.post(`/adocoes/adotarPet/${idPet}`, formUser);
                 return r.data;
+                // {nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro}
             }
             async ordenarSolicitacoes () {
                 let r = await api.get('/admin/solicitacoes/');
