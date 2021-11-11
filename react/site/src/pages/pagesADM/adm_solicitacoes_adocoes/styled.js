@@ -6,7 +6,34 @@ import styled from 'styled-components';
 // Styled Solicitações de Adoção ADM
 
 export const Container = styled.div`
+.ordenacao{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 
+    margin: 2em 0;
+    align-items: center;
+}
+
+            label{
+                margin-right: 6px;
+                margin-bottom: 5px;
+            }
+
+        select{
+                background-color: #AEAEAE;
+
+                border: none;
+                border-radius: 4px;
+                font-weight: 500;
+                color: #00000046;
+                fill: #00000046;
+                font-size: .8em;
+                
+                margin-top: 3px;
+                width: 200px;
+                height: 30px;
+            }
 `;
 
         export const FaixaCRUD = styled.div`

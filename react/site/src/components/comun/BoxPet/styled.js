@@ -5,14 +5,15 @@ import styled  from "styled-components";
 
 export const BoxPet = styled.div`
 
-width: 20%;
+width:250px;
 display: flex;
 flex-direction: column;
 align-items: center;
 text-align: center;
+justify-content: flex-end;
 
 //padding: 1em;
-margin: 0em 4em 2.2em 1em;
+margin: 0em 4em 2.5em;
 
 background-color: #e0e0e0;
 border-radius: 8px;
