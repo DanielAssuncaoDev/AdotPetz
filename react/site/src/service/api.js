@@ -62,6 +62,7 @@ export default class Api {
     }
 
 
+<<<<<<< HEAD
     async editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3) {
         let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3 });
         return r.data;
@@ -79,6 +80,13 @@ export default class Api {
     async ordenarSolicitacoes() {
         let r = await api.get('/admin/solicitacoes/');
         return r.data;
+=======
+            async alterarSituacao (idAdocao, solicitacaoAceita) {
+                let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
+                return r.data;
+            }
+
+>>>>>>> a5d1295816f52eafdf80f03ca759f6ccd674b501
     }
 
 }
