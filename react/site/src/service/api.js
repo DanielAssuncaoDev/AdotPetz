@@ -28,7 +28,7 @@ import axios from 'axios'
 
             async listarAnimaisCadastrados(){
                 let r = await api.get('pets/admin/animaisCadastrados' )
-                return r.data
+                return r.data;
             }
 
             async remover(id) {
@@ -41,10 +41,9 @@ import axios from 'axios'
                 return r.data;
             }
 
-            async adicionarPets( pet ){
-                // let pet = { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3}
-                let r = await api.post('/admin/addpet', pet)
-                return r.data
+            async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
+                let r = await api.post('pets/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3})
+                return r.data;
             }
 
             async removerSoliAdo(id){
@@ -55,7 +54,7 @@ import axios from 'axios'
 
             async editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
                 let r = await api.put(`/pet/alterar/${idPet}`, { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3});
-                return r.data
+                return r.data;
             }
             async loginAdm(codigo, senha){
                 let r = await api.post('/adm/login', {codigo, senha});
@@ -69,6 +68,11 @@ import axios from 'axios'
             }
             async ordenarSolicitacoes () {
                 let r = await api.get('/admin/solicitacoes/');
+                return r.data;
+            }
+
+            async alterarSituacao (idAdocao, solicitacaoAceita) {
+                let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
                 return r.data;
             }
 

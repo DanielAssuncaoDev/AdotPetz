@@ -24,7 +24,7 @@ export default function Addpet(props){
     const [imgPet3, setImgpet3] = useState('')
     const [castrado, setCastrado] = useState(false)
     const [vacinaV10, setVacinaV10] = useState(false)
-    const [vacinaV8, setVacinaV8] = useState({name:"vacinaV8", value: true })
+    const [vacinaV8, setVacinaV8] = useState({name:"vacinaV8", value: false })
     const [vacinaV5, setVacinaV5] = useState(false)
     const [vacinaV4, setVacinaV4] = useState(false)
     const [vacinaV3, setVacinaV3] = useState(false)
@@ -100,36 +100,42 @@ export default function Addpet(props){
         // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
         //     return toast.error('Preencha os campos vazios')
         
-        
-        let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+
+    if(nome === ('')){
+        return toast.error('Nome inválido');
+    } if(especie === ('')){
+        return toast.error('Espécie inválida');
+    } if(raca === ('')){
+        return toast.error('Raça inválida');
+    } if(sexo === ('')){
+        return toast.error('Sexo inválido');
+    } if(peso === ('')){
+        return toast.error('Peso inválido');
+    } if(nascimento === ('')){
+        return toast.error('Data inválida');
+    } if(porte === ('')){
+        return toast.error('Porte inválido');
+    } if(descricao.length > 250){
+        return toast.error('Números de caracteres atingido')
+    // } if(imgPet1 === ('')){
+    //     return toast.error('❌ Imagem inválida');
+    // } if(imgPet2 === ('')){
+    //     return toast.error('❌ Imagem inválido');
+    // } if(imgPet3 === ('')){
+    //     return toast.error('❌ Imagem inválido');
+    } else {
+        let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
+
             if(r.erro !== undefined){
-               return toast.error(r.erro)
-            }if(nome === ('')){
-                return toast.error('Nome inválido');
-            } if(especie === ('')){
-                return toast.error('Espécie inválida');
-            } if(raca === ('')){
-                return toast.error('Raça inválida');
-            } if(sexo === ('')){
-                return toast.error('Sexo inválido');
-            } if(peso === ('')){
-                return toast.error('Peso inválido');
-            } if(nascimento === ('')){
-                return toast.error('Data inválida');
-            } if(porte === ('')){
-                return toast.error('Porte inválido');
-            } if(descricao.length > 250){
-                return toast.error('Números de caracteres atingido')
-            // } if(imgPet1 === ('')){
-            //     return toast.error('❌ Imagem inválida');
-            // } if(imgPet2 === ('')){
-            //     return toast.error('❌ Imagem inválido');
-            // } if(imgPet3 === ('')){
-            //     return toast.error('❌ Imagem inválido');
-            } else {
-                return toast('Pet cadastrado')
+                return toast.error('Os campos devem ser preenchidos')
             }
+
+            toast('Pet cadastrado')
+
+    }
+
+        
      }
     
     function previewImage() {

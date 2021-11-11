@@ -22,9 +22,12 @@ import multer from 'multer'
             resp.sendFile(req.query.imagem, { root: path.join(dirname) })
         })
 
-    app.post('/pets/admin/addpet', upload.single('imgPet1'), async(req, resp) => {
+    app.post('/admin/addpet', upload.single('imgPet1'), async(req, resp) => {
         try{
             let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3 /* castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3 */ } = req.body;
+
+            console.log(nome)
+
 
             let r = await db.infob_apn_tb_pet.create({
                 NM_PET: nome,

@@ -24,13 +24,13 @@ const api = new Api();
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
 
-    useEffect(()=> {
-        if ( props.local.state !== undefined){
-            let pet = props.location.state
+    // /useEffect(()=> {
+    //     if ( props.local.state !== undefined){
+    //         let pet = props.location.state
 
             
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    })
+    //     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    // })
 
     async function editarPet (idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3) {
         let r = api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3);
@@ -81,9 +81,7 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-
-    const nav = useHistory ();
-
+    const nav = useHistory();
 
     // useEffect(() => {
     //     // setAnimals([
@@ -127,9 +125,7 @@ export default function AnimaisCadastrados(){
     //         ]
     //     })
     // }
-   
-
-    return(
+   return(
         <Container>
             <ToastContainer/>
             <Cabecalho />
