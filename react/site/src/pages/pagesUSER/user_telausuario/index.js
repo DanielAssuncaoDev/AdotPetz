@@ -50,7 +50,7 @@ if( Cookie.get('User') === undefined )
         },
         {
             label: 'Não',
-            onClick: () => toast.dark('Caonfgod')
+            onClick: () => toast.dark('Seu processo de adoção, continua em andamento!!')
         }
     ]
 });
