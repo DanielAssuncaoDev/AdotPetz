@@ -11,14 +11,31 @@ import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
 import { useHistory, Link } from 'react-router-dom'
 
+
+
 import Api from '../../../service/api';
 // import { set } from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
 
+
+
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
+
+    useEffect(()=> {
+        if ( props.local.state !== undefined){
+            let pet = props.location.state
+
+            
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    })
+
+    async function editarPet (idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3) {
+        let r = api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3);
+
+    }
 
     async function listarAnimaisCadastrados() {
         let r = await api.listarAnimaisCadastrados();
@@ -64,10 +81,9 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-<<<<<<< HEAD
+
     const nav = useHistory ();
-=======
-    const nav = useHistory();
+
 
     // useEffect(() => {
     //     // setAnimals([
@@ -112,7 +128,7 @@ export default function AnimaisCadastrados(){
     //     })
     // }
    
->>>>>>> fd30c1247fbe9178a15031156abee31b99271504
+
     return(
         <Container>
             <ToastContainer/>
@@ -161,7 +177,10 @@ export default function AnimaisCadastrados(){
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}>
-                                    <img src="/assets/images/editt.svg" alt="" width="25" />
+                                    <img src="/assets/images/editt.svg" alt="" width="25" 
+                                     onClick={ () => nav.push({pathname: '/admin/addpet', state: item}) }
+                                    />
+
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => remover(item.ID_PET)}>

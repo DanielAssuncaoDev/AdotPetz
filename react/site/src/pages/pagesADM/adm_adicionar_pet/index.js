@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Api from '../../../service/api';
 const api = new Api()
 
-export default function Addpet(){
+export default function Addpet(props){
     const nav = useHistory();
     const [nome, setNome] = useState('')
     const [especie, setEspecie] = useState('')
@@ -29,6 +29,36 @@ export default function Addpet(){
     const [vacinaV4, setVacinaV4] = useState(false)
     const [vacinaV3, setVacinaV3] = useState(false)
     const [vacinaAntirrabica, setVacinaAntirrabica] = useState(false)
+
+    const [alterarPet, setAlterarPet] = useState(props.location.state)
+
+    
+    useEffect( ()=> {
+        if ( props.location.state !== undefined ){
+            let pet =  props.location.state
+
+            setNome(pet.NM_PET)
+            setEspecie(pet.DS_ESPECIE)
+            setRaca(pet.NM_RACA)
+            setSexo(pet.DS_SEXO)
+            setPeso(pet.DS_PESO)
+            setNascimento(pet.DT_NASCIMENTO)
+            setPorte(pet.DS_PORTE)
+            setDescricao(pet.DS_DESC)
+            // setImgPet1(pet.IMG_PET1)
+            // setImgPet1(pet.IMG_PET2)
+            // setImgPet1(pet.IMG_PET3)
+            setCastrado(pet.BT_CASTRADO)
+            setVacinaV10(pet.BT_VACINA_V10)
+            setVacinaV10(pet.BT_VACINA_V8)
+            setVacinaV10(pet.BT_VACINA_V5)
+            setVacinaV10(pet.BT_VACINA_V4)
+            setVacinaV10(pet.BT_VACINA_V3)
+            setVacinaAntirrabica(pet.BT_VACINA_ANTIRRABICA)
+
+   
+        }
+    }, [] )
 
 // Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
@@ -124,7 +154,7 @@ export default function Addpet(){
         const IniciarChecked = () => {
             let vacinas = [vacinaV8]
 
-            for ( let v of vacinas){
+            for ( let v of vacinas){ 
 
                 if(v.value === true){
                     let checkbox = document.getElementById(v.name)
