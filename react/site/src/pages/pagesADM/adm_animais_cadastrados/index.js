@@ -63,10 +63,6 @@ export default function AnimaisCadastrados(){
         listarAnimaisCadastrados();
     }, [])
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0e896a8ed377497102417921fb8700c6ffd2d7d5
     const nav = useHistory();
 
     // useEffect(() => {
