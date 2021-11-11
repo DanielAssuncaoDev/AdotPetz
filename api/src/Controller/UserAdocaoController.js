@@ -25,16 +25,18 @@ import db from '../db.js'
 
     app.post('/adotarPet/:idPet', async(req, resp) => {
         try {
-            let {nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro} = req.body
+            let {idUser, nomeCompleto, nascimento, rg, telefone, cep, endereco, cidade, numero, complemento, bairro} = req.body
 
             let r = await db.infob_apn_tb_adocao.create({
                 ID_PET:req.params.idPet,
+                ID_USER: idUser,
                 NM_NOME_COMPLETO:nomeCompleto,
                 DT_NASCIMENTO:nascimento,
                 DS_RG:rg,
                 DS_TELEFONE:telefone,
                 DS_CEP:cep,
                 DS_ENDERECO:endereco,
+                DS_CIDADE: cidade,
                 DS_NUMERO:numero,
                 DS_COMPLEMENTO:complemento,
                 DS_BAIRRO:bairro,

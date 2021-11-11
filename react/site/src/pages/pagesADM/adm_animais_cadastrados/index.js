@@ -4,16 +4,15 @@ import { Container } from './styled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import Api from '../../../service/api';
-import { set } from 'js-cookie';
+// import { set } from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
@@ -65,7 +64,55 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
+<<<<<<< HEAD
     const nav = useHistory ();
+=======
+    const nav = useHistory();
+
+    // useEffect(() => {
+    //     // setAnimals([
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
+    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' }
+    //     // ])
+
+
+    // }, [])
+
+
+    // comentei e sai correndo, pal no cu de qm ta lendo /////////////////// eu sou doido
+
+    // function toRow() {
+    //     return animals.map(item => {
+    //         return [
+    //             { value: item.ra },
+    //             { value: item.petName },
+    //             { value: item.specie },
+    //             { value: item.sexo }, 
+    //             { value: item.porte },
+    //             { value: item.registrationDate },    
+    //             { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
+    //             { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
+    //             { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
+    //             { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) }
+    //         ]
+    //     })
+    // }
+   
+>>>>>>> fd30c1247fbe9178a15031156abee31b99271504
     return(
         <Container>
             <ToastContainer/>
@@ -113,8 +160,7 @@ export default function AnimaisCadastrados(){
                                     onClick={() => alert(item.initials)}> 
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
                                 </Td> 
-                                <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alert(item.initials)}>
+                                <Td className="actions" config={{ visibility: 'hidden'}}>
                                     <img src="/assets/images/editt.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}

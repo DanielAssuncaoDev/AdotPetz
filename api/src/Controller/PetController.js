@@ -323,6 +323,7 @@ app.get('/racasDisponiveis', async(req, resp) => {
 
 
 
+<<<<<<< HEAD
     app.post('/admin/login', async (req, resp) => {
         try{
             let {codigo, senha} = req.body
@@ -341,6 +342,10 @@ app.get('/racasDisponiveis', async(req, resp) => {
             resp.send({erro: e.toString()})
         }
     })
+=======
+
+    
+>>>>>>> fd30c1247fbe9178a15031156abee31b99271504
 
 
 export default app

@@ -1,16 +1,12 @@
- import db from './db.js'
 import express from 'express'
 import cors from 'cors'
-
-import path from 'path'
-import multer from 'multer'
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
 import UserController from './Controller/UserController.js'
-
+import AdmController from './Controller/AdmController.js'
 import UserAdocoesController from './Controller/UserAdocaoController.js'
 import PetsController from './Controller/PetController.js'
 
@@ -27,6 +23,8 @@ import PetsController from './Controller/PetController.js'
     Server.use('/user', UserController);
     Server.use('/adocoes', UserAdocoesController);
     Server.use('/pets', PetsController);
+    Server.use('/adm', AdmController);
+
 
 
     

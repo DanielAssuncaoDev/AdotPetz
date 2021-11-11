@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,28 +20,28 @@ export default function Addpet(){
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
     const [imgPet1, setImgPet1] = useState(null)
-    // const [imgPet2, setImgPet2] = useState('')
-    // const [imgPet3, setImgpet3] = useState('')
-    // const [castrado, setCastrado] = useState('')
-    // const [vacinaV10, setVacinaV10] = useState('')
-    // const [vacinaV8, setVacinaV8] = useState('')
-    // const [vacinaV5, setVacinaV5] = useState('')
-    // const [vacinaV4, setVacinaV4] = useState('')
-    // const [vacinaV3, setVacinaV3] = useState('')
-    // const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
+    const [imgPet2, setImgPet2] = useState('')
+    const [imgPet3, setImgpet3] = useState('')
+    const [castrado, setCastrado] = useState(false)
+    const [vacinaV10, setVacinaV10] = useState(false)
+    const [vacinaV8, setVacinaV8] = useState({name:"vacinaV8", value: true })
+    const [vacinaV5, setVacinaV5] = useState(false)
+    const [vacinaV4, setVacinaV4] = useState(false)
+    const [vacinaV3, setVacinaV3] = useState(false)
+    const [vacinaAntirrabica, setVacinaAntirrabica] = useState(false)
 
 // Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
-    // async function adicionarPets() {
-    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
-    //         if(r.erro !== undefined){
-    //             alert(r.erro)
-    //             return
-    //         } else {
-    //             alert('Pet cadastrado')
-    //         }
-    //  } 
+    async function adicionarPets() {
+        let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+            if(r.erro !== undefined){
+                alert(r.erro)
+                return
+            } else {
+                alert('Pet cadastrado')
+            }
+     } 
 
      async function inserirPet() {
         let formData = new FormData();
@@ -83,7 +83,7 @@ export default function Addpet(){
             return toast.error('❌ Data inválida');
         } if(porte === ('')){
             return toast.error('❌ Porte inválido');
-        } if(descricao > 250 === false){
+        } if(descricao.length > 250){
             return toast.error('❌ Números de caracteres atingido')
         // } if(imgPet1 === ('')){
         //     return toast.error('❌ Imagem inválida');
@@ -107,6 +107,37 @@ export default function Addpet(){
     function selectFile() {
         let input = document.getElementById("Imgs");
             input.click()
+    }
+
+    useEffect(() => {
+        console.log(vacinaV8)
+    }, [vacinaV8])
+
+    useEffect(() => {
+
+        const IniciarChecked = () => {
+            let vacinas = [vacinaV8]
+
+            for ( let v of vacinas){
+
+                if(v.value === true){
+                    let checkbox = document.getElementById(v.name)
+                    checkbox.setAttribute('checked', 'checked')
+                }
+
+            }
+        } 
+        
+        IniciarChecked()
+    }, [])
+
+const alterarvacinas = (setVacina, vacina) => {
+
+        if( vacina.value === true ){
+            setVacina({name: vacina.name, value: false})
+        } else{
+            setVacina({name: vacina.name, value: true})
+        }
     }
 
     return(
@@ -165,11 +196,15 @@ export default function Addpet(){
                             <div className="tipopet"> VACINAS CANINAS</div>
                             <div className="checkvcn">
                                 <label className="label1" /*value={vacinaV8} onChange={e => setVacinaV8(e.target.value)}*/> V8 </label>
-                                <input className="input5" type="checkbox" />
+                                <input className="input5" type="checkbox" id={vacinaV8.name}
+                                    value={vacinaV8.value} onChange={() => alterarvacinas(setVacinaV8, vacinaV8)}
+                                />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1" /*value={vacinaV10} onChange={e => setVacinaV10(e.target.value)}*/>  V10 </label>
-                                <input className="input5" type="checkbox"/>
+                                <input className="input5" type="checkbox"
+                                    
+                                />
                             </div>
                         </div>
                         <div className="boxvacina">
