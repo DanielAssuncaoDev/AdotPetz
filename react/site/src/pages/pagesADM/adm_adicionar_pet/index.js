@@ -32,16 +32,16 @@ export default function Addpet(){
 
 // Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
-    async function adicionarPets() {
-        let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
-            if(r.erro !== undefined){
-                alert(r.erro)
-                return
-            } else {
-                alert('Pet cadastrado')
-            }
-     } 
+    // async function adicionarPets() {
+    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+    //         if(r.erro !== undefined){
+    //             toast.error(r.erro)
+    //             return
+    //         } else {
+    //             toast('Pet cadastrado')
+    //         }
+    //  } 
 
      async function inserirPet() {
         let formData = new FormData();
@@ -69,31 +69,37 @@ export default function Addpet(){
         //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
         // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
         //     return toast.error('Preencha os campos vazios')
-        if(nome === ('')){
-            return toast.error('❌ Nome inválido');
-        } if(especie === ('')){
-            return toast.error('❌ Espécie inválida');
-        } if(raca === ('')){
-            return toast.error('❌ Raça inválida');
-        } if(sexo === ('')){
-            return toast.error('❌ Sexo inválido');
-        } if(peso === ('')){
-            return toast.error('❌ Peso inválido');
-        } if(nascimento === ('')){
-            return toast.error('❌ Data inválida');
-        } if(porte === ('')){
-            return toast.error('❌ Porte inválido');
-        } if(descricao.length > 250){
-            return toast.error('❌ Números de caracteres atingido')
-        // } if(imgPet1 === ('')){
-        //     return toast.error('❌ Imagem inválida');
-        // } if(imgPet2 === ('')){
-        //     return toast.error('❌ Imagem inválido');
-        // } if(imgPet3 === ('')){
-        //     return toast.error('❌ Imagem inválido');
-        } else {
-            return toast.dark('Pet cadastrado')
-        }
+        
+        
+        let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+            castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+            if(r.erro !== undefined){
+               return toast.error(r.erro)
+            }if(nome === ('')){
+                return toast.error('Nome inválido');
+            } if(especie === ('')){
+                return toast.error('Espécie inválida');
+            } if(raca === ('')){
+                return toast.error('Raça inválida');
+            } if(sexo === ('')){
+                return toast.error('Sexo inválido');
+            } if(peso === ('')){
+                return toast.error('Peso inválido');
+            } if(nascimento === ('')){
+                return toast.error('Data inválida');
+            } if(porte === ('')){
+                return toast.error('Porte inválido');
+            } if(descricao.length > 250){
+                return toast.error('Números de caracteres atingido')
+            // } if(imgPet1 === ('')){
+            //     return toast.error('❌ Imagem inválida');
+            // } if(imgPet2 === ('')){
+            //     return toast.error('❌ Imagem inválido');
+            // } if(imgPet3 === ('')){
+            //     return toast.error('❌ Imagem inválido');
+            } else {
+                return toast('Pet cadastrado')
+            }
      }
     
     function previewImage() {

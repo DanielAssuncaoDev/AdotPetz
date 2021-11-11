@@ -3,6 +3,7 @@ import {Container, Conteudo} from './styled'
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import { useState } from 'react';
 import Api from '../../../service/api';
+import { toast, ToastContainer } from 'react-toastify';
 const api = new Api()
 
 
@@ -13,17 +14,20 @@ export default function LoginAdm() {
   async function Login(){
     let r = await api.loginAdm({ codigo, senha })
     console.log(r)
-    if(r.erro !== undefined){
-        alert(r.erro)
+    if(codigo === '' || senha === '')
+      return toast.error('Os campos devem ser preenchidos')
+      if(r.erro !== undefined){
+        toast.error(r.erro)
         return
     } else {
-      alert('Login feito com sucesso')
+      toast('Login feito com sucesso')
     }
   }
 
     return (
 
-  <Container> 
+  <Container>
+    <ToastContainer/> 
   
   <CabecalhoADM/>
   
@@ -42,7 +46,7 @@ export default function LoginAdm() {
             </div>
     
             <div className="input">
-              <input type="text" placeholder="Senha:" value={senha} onChange={e => setSenha(e.target.value)} />
+              <input type="password" placeholder="Senha:" value={senha} onChange={e => setSenha(e.target.value)} />
             </div>
     
             <div className="buton">
