@@ -2,7 +2,7 @@ import {Container, FaixaCRUD} from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
-import Filtros from '../../../components/comun/Filtro/index'
+import axios from 'axios'
 
 import { useEffect, useState } from 'react';
 
@@ -10,44 +10,43 @@ import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 import { toast } from 'react-toastify';
 
+
+import Api from '../../../service/api';
+const api = new Api();
+
 // import { useHistory } from 'react-router-dom'
 
 
 export default function SolicitacaoAdocao() {
-
+    const [ordenacao, setOrdenacao] = useState('Cód');
     const [solicitacoes, setSolicitacoes] = useState([]);
 
-    // const nav = useHistory ();
 
-     useEffect(() => {
-          setSolicitacoes([
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },{ cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-         ])
-     }, [])
+     async function listar () {
+        const resp = await axios.get('http://localhost:3030/adocoes/admin/solicitacoes?ordenacao=' + ordenacao)
+        setSolicitacoes([...resp.data])
+     }
 
+
+     useEffect(() =>{
+         listar();
+     }, [ordenacao])
     return(
         <Container>
             <CabecalhoADM />
            
             <FaixaCRUD>    
                 <Options />
-
-                <Filtros listaOption={["Cód", "Nome Usuário", "Nome Pet", "Telefone", "Data Solicitação" ]} />                
+                <div className="ordenacao">
+                    <label> Filtrar Solicitações Por:</label> 
+                    <select value={ordenacao} onChange={e => setOrdenacao(e.target.value)}> 
+                        <option value="Cód"> Cód </option>
+                        <option value="Mais Recentes"> Mais Recentes </option>
+                        <option value="Mais Antigas"> Mais Antigas </option>
+                        <option value="De A a Z"> De A a Z </option>
+                        <option value="De Z a A"> De Z a A </option>
+                    </select>
+                </div>             
 
                 <div className="conteudo">
                     <div className="TituloConteudo">
@@ -69,11 +68,11 @@ export default function SolicitacaoAdocao() {
                    
                         {solicitacoes.map(item => 
                             <Tr>
-                                <Td className="ra"> {item.cod} </Td>
-                                <Td> {item.usuName}  </Td>
-                                <Td> {item.petName} </Td>
-                                <Td> {item.telefone}  </Td>
-                                <Td> {item.dtSolicitacao} </Td>
+                                <Td className="ra"> {item.IdAdocao} </Td>
+                                <Td> {item.NomeUsu}  </Td>
+                                <Td> {item.NomePet} </Td>
+                                <Td> {item.Telefone}  </Td>
+                                <Td> {item.DataSolicitacao} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => toast(item.initials)}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />

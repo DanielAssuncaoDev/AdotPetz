@@ -70,8 +70,7 @@ const [pagsLimit, setPagsLimit] = useState(18)
 
              <div className="conteudopag">
                  <div className="animais">
-                     <div className=
-                     "animais-sugeridos">
+                     <div className= "animais-sugeridos">
                          <div className="animaisSU"> Animais sugeridos</div>
                          <img src="/assets/images/coracaopata.svg" alt="" />
                           </div>

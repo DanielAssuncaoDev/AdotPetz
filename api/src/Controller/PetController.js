@@ -278,7 +278,6 @@ app.get('/racasDisponiveis', async(req, resp) => {
     }
 })
 
-
     app.put('/alterar/:idpet',async(req, resp) =>  {   
         try {
   
@@ -322,10 +321,24 @@ app.get('/racasDisponiveis', async(req, resp) => {
   
   })
 
-
-
-
-    
+    app.post('/admin/login', async (req, resp) => {
+        try{
+            let {codigo, senha} = req.body
+            let r = await db.infob_apn_tb_adm.findOne({
+                where: {
+                    DS_COD: codigo,
+                    DS_SENHA: senha
+                }
+            })
+            if(r === null){
+                resp.send({erro: 'Credenciais Inválidas!'})
+                return
+            }
+            resp.send(r)
+        } catch (e){
+            resp.send({erro: e.toString()})
+        }
+    })
 
 
 export default app
