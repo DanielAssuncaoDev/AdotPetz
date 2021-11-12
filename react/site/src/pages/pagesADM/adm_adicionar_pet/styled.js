@@ -38,14 +38,19 @@ export const Container = styled.div`
 
 .imgs{
     display: flex;
+    flex-direction: row;
     width: 8em;
     height: 8em;
     overflow: hidden;
     margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .input-file{
-    background-color: #FAD41B;
+    font-size: 18px;
+        color: #615858;
+        margin-right: 1em;
+        font-weight: 800;
 }
 
 .Load-img{
@@ -241,7 +246,10 @@ img.vlt{
     width: 30px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 1200px){
+    .container{
+        height: 70vh;
+    }
     
 }
 
