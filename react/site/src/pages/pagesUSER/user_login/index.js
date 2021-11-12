@@ -13,6 +13,8 @@ import {Link} from 'react-router-dom'
 import Api from '../../../service/api'
 const api = new Api()
 
+
+
 export default function LoginUsu() {
 
 const [ email, setEmail ] = useState('')
@@ -65,9 +67,12 @@ return (
 
                 <div className="buton"><button onClick={ () => FazerLogin() } > ENTRAR </button> </div>
 
-                {/* <div className="label">   Entrar como administrador  </div> */}
+         
 
-                <Link to="/admin/login"> Entrar como administrador  </Link>
+                <div onClick={() => nav.push('/admin/login')} 
+                        className="adm"> 
+                    Entrar como administrador
+                </div>
                 
 
                 <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 
