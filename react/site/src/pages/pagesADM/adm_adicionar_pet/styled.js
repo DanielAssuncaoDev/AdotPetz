@@ -203,7 +203,7 @@ textarea{
     background: #0000002B;
     border: none;
     resize: none;
-    height: 9em;
+    height: 11em;
     width: 97%;
     margin-top: 5px;
 }
@@ -258,10 +258,41 @@ img.vlt{
     width: 30px;
 }
 
-@media (max-width: 1200px){
+@media (max-width: 600px){
     .container{
-        height: 70vh;
+        height: 100vh;
+        width: 100vw;
+        padding-left: 1em;
     }
+
+    .box{
+        height: 100vh;
+        width: 90vw;
+        padding-top: 1em;
+    }
+    .box-esq{
+        width: 40vw;
+        padding: 0em;
+    }
+    .box-dir{
+        height: 40vh;
+        width: 40vw;
+        padding: 0em;
+    }
+
+    .saudepet{
+        padding: 0cm;
+    }
+    .boxvacina{
+        padding: 1em;
+    }
+    input{
+        width: 0;
+    }
+    select{
+        width: 0;
+    }
+    
     
 }
 

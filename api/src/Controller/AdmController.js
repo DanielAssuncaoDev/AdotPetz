@@ -14,8 +14,6 @@ app.post('/login', async (req, resp) => {
                 DS_SENHA: senha
             }
         })
-
-        
         if(r == null){
             resp.send({erro: 'Credenciais Inválidas!'})
             return

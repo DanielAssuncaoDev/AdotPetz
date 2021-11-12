@@ -11,6 +11,8 @@ import Cookie from 'js-cookie'
 import Api from '../../../service/api'
 const api = new Api()
 
+
+
 export default function LoginUsu() {
 
 const [ email, setEmail ] = useState('')
@@ -63,7 +65,7 @@ return (
 
                 <div className="buton"><button onClick={ () => FazerLogin() } > ENTRAR </button> </div>
 
-                {/* <div className="label">   Entrar como administrador  </div> */}
+         
 
                 <label className="EntrarAdm" onClick={() => nav.push('/admin/login')}> Entrar como administrador  </label>
                 

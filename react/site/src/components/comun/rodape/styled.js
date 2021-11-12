@@ -44,6 +44,11 @@ color: #ffff;
     
 }
 
+.info:hover {
+  cursor: pointer;
+
+  }
+
 @media (max-width: 1000px){
     .conteudo{
     display: flex;

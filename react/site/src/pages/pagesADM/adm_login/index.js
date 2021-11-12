@@ -11,7 +11,7 @@ const api = new Api()
 
 
 export default function LoginAdm() {
-   const [codigo, setCodigo] = useState('')
+   const [email, setEmail] = useState('')
    const [senha, setSenha] = useState('')
 
 const nav = useHistory()
@@ -21,9 +21,9 @@ if(Cookie.get('Adm') !== undefined){
 }
 
   async function Login(){
-    let r = await api.loginAdm( codigo, senha )
+    let r = await api.loginAdm( email, senha )
     console.log(r)
-    if(codigo === '' || senha === '')
+    if(email === '' || senha === '')
       return toast.error('Os campos devem ser preenchidos')
       if(r.erro !== undefined){
         toast.error(r.erro)
@@ -52,7 +52,7 @@ if(Cookie.get('Adm') !== undefined){
               Login
             </div>
             <div className="input">
-              <input type="text" placeholder="Código de ADM:" value={codigo} onChange={e => setCodigo(e.target.value)}/>
+              <input type="text" placeholder="Email de ADM:" value={email} onChange={e => setEmail(e.target.value)}/>
             </div>
     
             <div className="input">
