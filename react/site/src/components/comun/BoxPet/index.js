@@ -20,6 +20,7 @@ export default function BoxPETZ(props) {
 
   function getImage() {
     return props.Animal.IMG_PET1;
+ 
   }
 
 

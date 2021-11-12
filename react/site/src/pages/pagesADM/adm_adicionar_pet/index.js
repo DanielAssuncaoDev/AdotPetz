@@ -56,6 +56,18 @@ const nav = useHistory();
         console.log(data);
         return data;
     };
+
+    useEffect(( ) => {
+
+        const alterarpoint = () => {
+            let r = peso.replace(",", ".");
+            console.log(r)
+            setPeso(r);
+        }
+
+        alterarpoint()
+    }, [peso])
+
     
     useEffect( () => {
         const ListarRacas = async() => { 
@@ -170,7 +182,7 @@ const nav = useHistory();
                     }
             }
                 toast('Pet cadastrado')
-                nav.push('/admin/petscadastrados')
+                nav.push('/admin/animaiscadastrados')
     
             }
     
@@ -222,7 +234,10 @@ const nav = useHistory();
                                 <option value="Macho">Macho</option>
                                 <option value="Fêmea">Fêmea</option>
                             </select>
-                            <input className="input2" type="text" placeholder="Peso" value={peso} onChange={e => setPeso(e.target.value)} />
+                            <input className="input2" type="text" placeholder="Peso" value={peso} 
+                                onChange={(e) => {
+                                        setPeso(e.target.value)
+                                    }} />
                             <select className="select2" name="select" value={porte} onChange={e => setPorte(e.target.value)}>
                                 <option value="SelecioneoPorte">Selecione o Porte</option>
                                 <option value="Grande">Grande</option>

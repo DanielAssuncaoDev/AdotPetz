@@ -148,7 +148,6 @@ app.post("/", async (req, resp) => {
 
         const { Op } = Sequelize
 
-        console.log(idade)
 
         let filtro = null
 
@@ -208,14 +207,16 @@ app.post("/", async (req, resp) => {
         }
 
 
-        filtro = filtro.filter((item) => item.valor !== '' || item.valor == undefined)
+        filtro = filtro.filter((item) => item.valor !== '' )
 
         for (let index = 0; index < filtro.length; index++) {
             let ob = filtro[index]
             delete (ob.valor)
         }
 
-        // console.log(filtro)
+        filtro.push({
+            BT_DISPONIVEL: true
+        })
 
         let r = await db.infob_apn_tb_pet.findAll({
             where: filtro,

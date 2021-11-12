@@ -68,7 +68,7 @@ const nav = useHistory()
             toast.error(usu.erro)
         } else {
             Cookie.set('User', JSON.stringify(usu) )
-            nav.push('/home')
+            nav.push('/')
         }
 
     }

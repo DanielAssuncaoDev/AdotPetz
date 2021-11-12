@@ -75,6 +75,11 @@ export default class Api {
         let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
         return r.data;
     }
+
+    async SolicitacoesAdocao(  ){
+        let r = await api.get('/adocoes/admin/solicitacoes')
+        return r.data
+    }
     
 
 }
