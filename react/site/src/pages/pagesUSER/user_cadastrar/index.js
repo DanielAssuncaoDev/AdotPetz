@@ -124,7 +124,12 @@ const nav = useHistory()
                     <div className="box">
                         <div className="conta"> Já tem uma conta?  </div>
                          
-                         <div className="login"> <Link to="/login"> Login </Link> </div>
+                         {/* <div className="login"> <Link to="/login"> Login </Link> </div> */}
+
+                         <div onClick={() => nav.push('/login')} 
+                        className="login"> 
+                    Login
+                </div>
                     </div>
 
                 <div className="cachorro"> <img src="../assets/images/image 1 (2).svg" alt=""/> </div> 

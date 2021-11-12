@@ -1,10 +1,10 @@
-import Site from './pages/pagesUSER/user_home'
+// import Site from './pages/pagesUSER/user_home'
 
-export default function Home(){
+// export default function Home(){
 
-    return(
+//     return(
 
-      <Site />
+//       <Site />
 
      
       // <div className="ContainerNav">
