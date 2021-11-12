@@ -8,6 +8,8 @@ import Cookie from 'js-cookie'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import {Link} from 'react-router-dom' 
+
 import Api from '../../../service/api'
 const api = new Api()
 
@@ -121,7 +123,8 @@ const nav = useHistory()
 
                     <div className="box">
                         <div className="conta"> Já tem uma conta?  </div>
-                        <div className="login"> Login </div>
+                         
+                         <div className="login"> <Link to="/login"> Login </Link> </div>
                     </div>
 
                 <div className="cachorro"> <img src="../assets/images/image 1 (2).svg" alt=""/> </div> 
