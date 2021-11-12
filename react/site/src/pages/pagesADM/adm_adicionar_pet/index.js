@@ -196,6 +196,13 @@ const nav = useHistory();
                             <div className="input-file">
                                 <input className="bdimg" id="Imgs" type="file" multiple={true} onChange={e => setImgPet1(e.target.files)} />
                             </div>
+    
+                            <div className="input-file"> 
+                                <input input className="bdimg" id="Imgs" type="file" multiple={true} onChange={e => setImgPet1(e.target.files)}/> 
+                            </div>
+                            <div className="input-file"> 
+                                <input input className="bdimg" id="Imgs" type="file" multiple={true} onChange={e => setImgPet1(e.target.files)}/> 
+                            </div>
                         </div>
                         <div className="Load-img"> <button className="Loadimg" onClick={selectFile}> Carregar Imagem </button></div>
                         <div className="inputs">

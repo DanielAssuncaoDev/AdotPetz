@@ -80,10 +80,11 @@ export default class Api {
         let r = await api.get('/admin/solicitacoes/');
         return r.data;
     }
-            async alterarSituacao (idAdocao, solicitacaoAceita) {
-                let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
-                return r.data;
-            }
+    
+    async alterarSituacao (idAdocao, solicitacaoAceita) {
+        let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
+        return r.data;
+    }
     
 
 }

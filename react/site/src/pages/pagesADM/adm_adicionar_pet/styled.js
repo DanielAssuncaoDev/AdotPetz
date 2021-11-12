@@ -38,10 +38,12 @@ export const Container = styled.div`
 
 .imgs{
     display: flex;
+    flex-direction: row;
     width: 8em;
     height: 8em;
     overflow: hidden;
     margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .input-file{
