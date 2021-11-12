@@ -132,34 +132,6 @@ const nav = useHistory();
                     toast.dark('Pet Alterado com Sucesso!')
                     nav.push('/admin/animaiscadastrados')
                 }
-
-
-        } else {
-            let formData = new FormData();
-            formData.append('nome', nome);
-            formData.append('especie', especie);
-            formData.append('raca', raca);
-            formData.append('sexo', sexo);
-            formData.append('peso', peso);
-            formData.append('nascimento', nascimento);
-            formData.append('porte', porte);
-            formData.append('descricao', descricao);
-            formData.append('imgPet1', imgPet1);
-            // formData.append('imgPet2', imgPet2);
-            // formData.append('imgPet3', imgPet3);
-            // formData.append('castrado', castrado);
-            // formData.append('vacinaV10', vacinaV10);
-            // formData.append('vacinaV8', vacinaV8);
-            // formData.append('vacinaV5', vacinaV5);
-            // formData.append('vacinaV4', vacinaV4);
-            // formData.append('vacinaV3', vacinaV3);
-            // formData.append('vacinaAntirrabica', vacinaAntirrabica);
-            //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
-            //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
-            // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
-            //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
-            // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
-            //     return toast.error('Preencha os campos vazios')
     
     
             // if (nome === ('')) {
@@ -217,7 +189,7 @@ const nav = useHistory();
             return toast.error('Imagem inválida');
         }if (imgPet3 === ('')){
             return toast.error('Imagem inválida');
-        }else {
+       }else {
             let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
                 castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value);
             if (r.erro !== undefined) {
@@ -237,14 +209,7 @@ const nav = useHistory();
     
     
         }
-    }
-
-    function validar() {
-        let a = document.getElementById("nome");
-            if (a.options[a.selectedIndex].value == "" ){
-                    toast.error("Selecione uma raça antes de prosseguir");
-            }
-        }    
+    }   
 
         
     
@@ -307,7 +272,7 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
-                            <select className="select4" id="" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
+                            <select className="select3" id="" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
                                 <option value="">Raça</option>
                                 <option value="">Vira-Lata</option>
                                 <option value=""></option>
@@ -317,7 +282,7 @@ const nav = useHistory();
                         {
                             addRaca === false
                             ?   
-                            <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
+                            <select className="select3" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
                                 <option value="Raça">Raça</option>
                                 <option value="addRaca" > Adicionar Raça </option>
                                 {
