@@ -169,6 +169,9 @@ app.put('/alterar/:idpet', async (req, resp) => {
         }
 
         )
+
+        console.log(r)
+
         resp.send(r)
     } catch (e) {
         resp.send({ erro: e.toString() })
