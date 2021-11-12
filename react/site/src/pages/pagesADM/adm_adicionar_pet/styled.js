@@ -232,14 +232,7 @@ button.vltr{
     margin-bottom: 1em;
 }
 
-button.Loadimg{
-    border: none;
-    border-radius: 10px;
-    background-color: #FAD41B;
-    /* box-shadow: 5px 5px 10px black; */
-    height: 20px;
-    width: 12em;
-}
+
 
 label{
     background: #C4C4C4;
@@ -278,6 +271,7 @@ img.vlt{
         height: 40vh;
         width: 40vw;
         padding: 0em;
+        margin-left: 5px;
     }
 
     .saudepet{
@@ -285,6 +279,7 @@ img.vlt{
     }
     .boxvacina{
         padding: 1em;
+        margin: 5px;
     }
     input{
         width: 0;
@@ -292,7 +287,9 @@ img.vlt{
     select{
         width: 0;
     }
-    
+    button{
+
+    }
     
 }
 
