@@ -90,32 +90,34 @@ import db from '../db.js'
             let solicitacoes = await db.infob_apn_tb_adocao.findAll({
                 where: {
                     BT_ADOCAO_CONCLUIDA: 0
-                },
+                }, 
+                include: ['infob_apn_tb_pet', 'infob_apn_tb_user'],
                 order: [
                     [orderCriterio]
                 ]
-            })       
-            solicitacoes = solicitacoes.map(item => {
-                return {
-                    IdAdocao: item.ID_ADOCAO,
-                    IdUser: item.ID_USER,
-                    IdPet: item.ID_PET,
-                    NomeUsu: item.NM_NOME_COMPLETO,
-                    Nascimento: item.DT_NASCIMENTO,
-                    RG: item.DS_RG,
-                    Telefone: item.DS_TELEFONE,
-                    CEP: item.DS_CEP,
-                    Endereco: item.DS_ENDERECO,
-                    Numero: item.DS_NUMERO,
-                    complemento: item.DS_COMPLEMENTO,
-                    Bairro: item.DS_BAIRRO,
-                    DataSolicitacao: item.DT_SOLICITACAO,
-                    AdocaoConcluida: item.BT_ADOCAO_CONCLUIDA,
-                    DataAdocao: item.DT_ADOCAO
-                }
-            })
 
-            resp.send(solicitacoes)
+            })       
+            // solicitacoes = solicitacoes.map(item => {
+            //     return {
+            //         IdAdocao: item.ID_ADOCAO,
+            //         IdUser: item.ID_USER,
+            //         IdPet: item.ID_PET,
+            //         NomeUsu: item.NM_NOME_COMPLETO,
+            //         Nascimento: item.DT_NASCIMENTO,
+            //         RG: item.DS_RG,
+            //         Telefone: item.DS_TELEFONE,
+            //         CEP: item.DS_CEP,
+            //         Endereco: item.DS_ENDERECO,
+            //         Numero: item.DS_NUMERO,
+            //         complemento: item.DS_COMPLEMENTO,
+            //         Bairro: item.DS_BAIRRO,
+            //         DataSolicitacao: item.DT_SOLICITACAO,
+            //         AdocaoConcluida: item.BT_ADOCAO_CONCLUIDA,
+            //         DataAdocao: item.DT_ADOCAO
+            //     }
+            // })
+
+             resp.send(solicitacoes)
             
         } catch (e) {
             resp.send({erro: e.toString()})
