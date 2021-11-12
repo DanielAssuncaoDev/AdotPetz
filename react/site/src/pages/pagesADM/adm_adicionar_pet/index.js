@@ -11,6 +11,7 @@ const api = new Api()
 
 export default function Addpet(props){
 const nav = useHistory();
+    const [idPet, setIdPet] = useState('')
     const [nome, setNome] = useState('')
     const [especie, setEspecie] = useState('')
     const [raca, setRaca] = useState('')
@@ -39,6 +40,7 @@ const nav = useHistory();
             if ( props.location.state !== undefined ){
                 let pet =  props.location.state
     
+                setIdPet(pet.ID_PET)
                 setNome(pet.NM_PET)
                 setEspecie(pet.DS_ESPECIE)
                 setRaca(pet.NM_RACA)
@@ -70,8 +72,6 @@ const nav = useHistory();
         const IniciarChecked = () => {
             let vacinas = [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado]
 
-            console.log(vacinas)
-
             for ( let v of vacinas){ 
 
                 if (v.value === true) {
@@ -100,69 +100,84 @@ const nav = useHistory();
     //  } 
 
     async function inserirPet() {
-        let formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('especie', especie);
-        formData.append('raca', raca);
-        formData.append('sexo', sexo);
-        formData.append('peso', peso);
-        formData.append('nascimento', nascimento);
-        formData.append('porte', porte);
-        formData.append('descricao', descricao);
-        formData.append('imgPet1', imgPet1);
-        // formData.append('imgPet2', imgPet2);
-        // formData.append('imgPet3', imgPet3);
-        // formData.append('castrado', castrado);
-        // formData.append('vacinaV10', vacinaV10);
-        // formData.append('vacinaV8', vacinaV8);
-        // formData.append('vacinaV5', vacinaV5);
-        // formData.append('vacinaV4', vacinaV4);
-        // formData.append('vacinaV3', vacinaV3);
-        // formData.append('vacinaAntirrabica', vacinaAntirrabica);
-        //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
-        //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
-        // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
-        //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
-        // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
-        //     return toast.error('Preencha os campos vazios')
 
+        if( alterarPet !== undefined ){
+            let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
 
-        if (nome === ('')) {
-            return toast.error('Nome inválido');
-        } if (especie === ('')) {
-            return toast.error('Espécie inválida');
-        } if (raca === ('')) {
-            return toast.error('Raça inválida');
-        } if (sexo === ('')) {
-            return toast.error('Sexo inválido');
-        } if (peso === ('')) {
-            return toast.error('Peso inválido');
-        } if (nascimento === ('')) {
-            return toast.error('Data inválida');
-        } if (porte === ('')) {
-            return toast.error('Porte inválido');
-        } if (descricao.length > 250) {
-            return toast.error('Números de caracteres atingido')
-            // } if(imgPet1 === ('')){
-            //     return toast.error('❌ Imagem inválida');
-            // } if(imgPet2 === ('')){
-            //     return toast.error('❌ Imagem inválido');
-            // } if(imgPet3 === ('')){
-            //     return toast.error('❌ Imagem inválido');
+                if( alterar.erro !== undefined ){
+                    toast.dark(alterar.erro)
+                } else {
+                    toast.dark('Pet Alterado com Sucesso!')
+                }
+
         } else {
-            let r = await api.adicionarPets(formData);
-            // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-            //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
-
-            if (r.erro !== undefined) {
-                return toast.error(r.erro)
+            let formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('especie', especie);
+            formData.append('raca', raca);
+            formData.append('sexo', sexo);
+            formData.append('peso', peso);
+            formData.append('nascimento', nascimento);
+            formData.append('porte', porte);
+            formData.append('descricao', descricao);
+            formData.append('imgPet1', imgPet1);
+            // formData.append('imgPet2', imgPet2);
+            // formData.append('imgPet3', imgPet3);
+            // formData.append('castrado', castrado);
+            // formData.append('vacinaV10', vacinaV10);
+            // formData.append('vacinaV8', vacinaV8);
+            // formData.append('vacinaV5', vacinaV5);
+            // formData.append('vacinaV4', vacinaV4);
+            // formData.append('vacinaV3', vacinaV3);
+            // formData.append('vacinaAntirrabica', vacinaAntirrabica);
+            //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
+            //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
+            // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
+            //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
+            // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
+            //     return toast.error('Preencha os campos vazios')
+    
+    
+            if (nome === ('')) {
+                return toast.error('Nome inválido');
+            } if (especie === ('')) {
+                return toast.error('Espécie inválida');
+            } if (raca === ('')) {
+                return toast.error('Raça inválida');
+            } if (sexo === ('')) {
+                return toast.error('Sexo inválido');
+            } if (peso === ('')) {
+                return toast.error('Peso inválido');
+            } if (nascimento === ('')) {
+                return toast.error('Data inválida');
+            } if (porte === ('')) {
+                return toast.error('Porte inválido');
+            } if (descricao.length > 250) {
+                return toast.error('Números de caracteres atingido')
+                // } if(imgPet1 === ('')){
+                //     return toast.error('❌ Imagem inválida');
+                // } if(imgPet2 === ('')){
+                //     return toast.error('❌ Imagem inválido');
+                // } if(imgPet3 === ('')){
+                //     return toast.error('❌ Imagem inválido');
+            } else {
+                let r = await api.adicionarPets(formData);
+                // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
+    
+                if (r.erro !== undefined) {
+                    return toast.error(r.erro)
+                }
+    
+                toast('Pet cadastrado')
+    
             }
-
-            toast('Pet cadastrado')
-
+    
+    
         }
 
-
+        
     }
 
     function previewImage() {
@@ -188,6 +203,7 @@ const nav = useHistory();
             setVacina({ name: vacina.name, value: true })
         }
     }
+
 
     return (
         <Container>
@@ -246,13 +262,13 @@ const nav = useHistory();
                             <div className="checkvcn">
                                 <label className="label1" /*value={vacinaV8} onChange={e => setVacinaV8(e.target.value)}*/> V8 </label>
                                 <input className="input5" type="checkbox" id={vacinaV8.name}
-                                    value={vacinaV8.value} onChange={() => alterarvacinas(setVacinaV8, vacinaV8)}
+                                    value={vacinaV8.value} onClick={() => alterarvacinas(setVacinaV8, vacinaV8)}
                                 />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1" /*value={vacinaV10} onChange={e => setVacinaV10(e.target.value)}*/>  V10 </label>
                                 <input className="input5" type="checkbox" id={vacinaV10.name}
-                                    value={vacinaV10.value} onChange={() => alterarvacinas(setVacinaV10, vacinaV10)}
+                                    value={vacinaV10.value} onClick={() => alterarvacinas(setVacinaV10, vacinaV10)}
                                 />
                             </div>
                         </div>
@@ -261,20 +277,20 @@ const nav = useHistory();
                             <div className="checkvcn">
                                 <label className="label1"> V3 </label>
                                 <input className="input5" type="checkbox" id={vacinaV3.name}
-                                    value={vacinaV3.value} onChange={() => alterarvacinas(setVacinaV3, vacinaV3)}
+                                    value={vacinaV3.value} onClick={() => alterarvacinas(setVacinaV3, vacinaV3)}
                                 
                                 />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1"> V4 </label>
                                 <input className="input5" type="checkbox" id={vacinaV4.name}
-                                    value={vacinaV4.value} onChange={() => alterarvacinas(setVacinaV4, vacinaV4)}
+                                    value={vacinaV4.value} onClick={() => alterarvacinas(setVacinaV4, vacinaV4)}
                                 />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1"> V5 </label>
                                 <input className="input5" type="checkbox" id={vacinaV5.name}
-                                    value={vacinaV5.value} onChange={() => alterarvacinas(setVacinaV5, vacinaV5)}
+                                    value={vacinaV5.value} onClick={() => alterarvacinas(setVacinaV5, vacinaV5)}
                                 />
                             </div>
                         </div>
@@ -282,13 +298,13 @@ const nav = useHistory();
                             <div className="checkvcn2">
                                 <label /*value={castrado} onChange={e => setCastrado(e.target.value)} */> Castrado </label>
                                 <input className="input5" type="checkbox" id={castrado.name}
-                                    value={castrado.value} onChange={() => alterarvacinas(setCastrado, castrado)}
+                                    value={castrado.value} onClick={() => alterarvacinas(setCastrado, castrado)}
                                 />
                             </div>
                             <div className="checkvcn2">
                                 <label /*value={vacinaAntirrabica} onChange={e => setVacinaAntirrabica(e.target.value)}*/> Antirrabica </label>
                                 <input className="input5" type="checkbox" id={vacinaAntirrabica.name}
-                                    value={vacinaAntirrabica.value} onChange={() => alterarvacinas(setVacinaAntirrabica, vacinaAntirrabica)}
+                                    value={vacinaAntirrabica.value} onClick={() => alterarvacinas(setVacinaAntirrabica, vacinaAntirrabica)}
                                 />
                             </div>
                         </div>
