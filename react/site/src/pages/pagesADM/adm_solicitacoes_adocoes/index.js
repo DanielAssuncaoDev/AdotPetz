@@ -3,7 +3,6 @@ import {Container, FaixaCRUD} from './styled'
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
 import axios from 'axios'
-
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
@@ -12,17 +11,21 @@ import { toast, ToastContainer } from 'react-toastify';
 
 import { confirmAlert } from 'react-confirm-alert';
 
+import { useHistory } from 'react-router';
+
 import Api from '../../../service/api';
 const api = new Api();
 
 // import { useHistory } from 'react-router-dom'
 
 
-export default function SolicitacaoAdocao() {
+export default function SolicitacaoAdocao(prosp) {
     const [ordenacao, setOrdenacao] = useState('Cód');
     const [solicitacoes, setSolicitacoes] = useState([]);
     // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
+
+    const nav = useHistory;
 
      async function listar () {
         const resp = await axios.get('http://localhost:3030/adocoes/admin/solicitacoes?ordenacao=' + ordenacao)
@@ -157,7 +160,7 @@ export default function SolicitacaoAdocao() {
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => toast(item.initials)}>
-                                        <button className="actions"> Verificar Formulário </button>
+                                        <button className="actions" onClick={() => nav.push('/admin/formadocao')} > Verificar Formulário </button>
                                 </Td>
                             </Tr>    
                         )}

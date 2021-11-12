@@ -6,7 +6,11 @@ import {Container,
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
 
+
+
+
 export default function FormAdocaoADM(){
+
 
     return(
         <Container>
@@ -31,7 +35,7 @@ export default function FormAdocaoADM(){
                                 <div className="Row1">
                                     <div className="NomeUse">
                                         <label>Nome Usuário:</label>
-                                        <input />
+                                         <input />
                                     </div>
 
                                     <div className="dtNascimento">
