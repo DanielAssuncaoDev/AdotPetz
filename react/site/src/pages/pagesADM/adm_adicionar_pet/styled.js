@@ -246,9 +246,17 @@ img.vlt{
     width: 30px;
 }
 
-@media (max-width: 1200px){
+@media (max-width: 600px){
     .container{
-        height: 70vh;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .box{
+        display: flex;
+        justify-content: center;
+        height: 50vh;
+        padding-right: 5em;
     }
     
 }

@@ -102,9 +102,14 @@ const nav = useHistory();
         } if (descricao.length > 250) {
             return toast.error('Números de caracteres atingido')
         }if (imgPet1 === ('')){
+            return toast.error('Imagem inválida'); 
+        }if (imgPet2 === ('')){
             return toast.error('Imagem inválida');
-        } else {
-            let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3);
+        }if (imgPet3 === ('')){
+            return toast.error('Imagem inválida');
+        }else {
+            let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value);
             if (r.erro !== undefined) {
                 return toast.error(r.erro)
             }if( alterarPet !== undefined ){
@@ -122,6 +127,13 @@ const nav = useHistory();
     
     
         }
+
+    function validar() {
+        let a = document.getElementById("nome");
+            if (a.options[a.selectedIndex].value == "" ){
+                    toast.error("Selecione uma raça antes de prosseguir");
+            }
+        }    
 
         
     
@@ -143,16 +155,10 @@ const nav = useHistory();
                 <div> <button className="vltr"> <img onClick={() => nav.push('/admin/home')} className="vlt" src="/assets/images/icon_voltar.svg" alt="" /> </button> </div>
                 <div className="box">
                     <div className="box-esq">
-                        <div className="imgs">
-                            <div className="inputs">
-                                <input className="input1" type="text" value={imgPet1} onChange={e => setImgPet1(e.target.value)} />
-                            </div>
-                            <div className="inputs">
-                                <input className="input1" type="text" value={imgPet2} onChange={e => setImgPet2(e.target.value)} />
-                            </div>
-                            <div className="inputs">
-                                <input className="input1" type="text" value={imgPet3} onChange={e => setImgPet3(e.target.value)} />
-                            </div>
+                        <div className="inputs">
+                            <input className="input2" type="text" placeholder="Insira o Link da 1° Imagem" value={imgPet1} onChange={e => setImgPet1(e.target.value)} />
+                            <input className="input2" type="text" placeholder="Insira o Link da 2° Imagem" value={imgPet2} onChange={e => setImgPet2(e.target.value)} />
+                            <input className="input2" type="text" placeholder="Insira o Link da 3° Imagem" value={imgPet3} onChange={e => setImgPet3(e.target.value)} />
                         </div>
                         <div className="inputs">
                             <input className="input1" type="text" placeholder="Digite o Nome do Pet" value={nome} onChange={e => setNome(e.target.value)} />
@@ -180,11 +186,11 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
-                            <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
+                            <select className="select4" id="" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
                                 <option value="">Raça</option>
-                                <option value="Vira-Lata">Vira-Lata</option>
-                                <option value="Labrador">Labrador</option>
-                                <option value="Golden">Golden</option>
+                                <option value="">Vira-Lata</option>
+                                <option value=""></option>
+                                <option value=""></option>
                             </select>
                         </div>
                         <div className="texta"> Descrição do pet <textarea value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> </div>
