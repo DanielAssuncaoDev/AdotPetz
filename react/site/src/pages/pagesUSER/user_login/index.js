@@ -8,6 +8,8 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Cookie from 'js-cookie'
 
+import {Link} from 'react-router-dom' 
+
 import Api from '../../../service/api'
 const api = new Api()
 
@@ -62,6 +64,11 @@ return (
                 </div>
 
                 <div className="buton"><button onClick={ () => FazerLogin() } > ENTRAR </button> </div>
+
+                {/* <div className="label">   Entrar como administrador  </div> */}
+
+                <Link to="/admin/login"> Entrar como administrador  </Link>
+                
 
                 <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 
             </div>

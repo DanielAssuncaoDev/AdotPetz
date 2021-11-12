@@ -123,6 +123,10 @@ padding: 1em;
     width: 100.9%;
     
   }
+  .label {
+  
+    
+  }
       @media(max-width: 600px){
 
       /* .cachorro img {

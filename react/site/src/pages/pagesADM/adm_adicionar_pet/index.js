@@ -20,9 +20,9 @@ const nav = useHistory();
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
-    const [imgPet1, setImgPet1] = useState(null)
+    const [imgPet1, setImgPet1] = useState('')
     const [imgPet2, setImgPet2] = useState('')
-    const [imgPet3, setImgpet3] = useState('')
+    const [imgPet3, setImgPet3] = useState('')
     const [castrado, setCastrado] = useState({ name: "castrado", value: false })
     const [vacinaV10, setVacinaV10] = useState({ name: "vacinaV10", value: false })
     const [vacinaV8, setVacinaV8] = useState({ name: "vacinaV8", value: false })
@@ -83,9 +83,7 @@ const nav = useHistory();
                 setNascimento(dataFormat)
                 setPorte(pet.DS_PORTE)
                 setDescricao(pet.DS_DESC)
-                // setImgPet1(pet.IMG_PET1)
-                // setImgPet1(pet.IMG_PET2)
-                // setImgPet1(pet.IMG_PET3)
+                setImgPet1(pet.IMG_PET1)
                 setCastrado({ name: "Castrado", value: pet.BT_CASTRADO})
                 setVacinaV10({ name: "vacinaV10", value: pet.BT_VACINA_V10})
                 setVacinaV8({ name: "vacinaV8", value: pet.BT_VACINA_V8})
@@ -121,19 +119,6 @@ const nav = useHistory();
         IniciarChecked()
 
     }, [alterando] )
-
-// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
-
-    // async function adicionarPets() {
-    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
-    //         if(r.erro !== undefined){
-    //             toast.error(r.erro)
-    //             return
-    //         } else {
-    //             toast('Pet cadastrado')
-    //         }
-    //  } 
 
     async function inserirPet() {
 
@@ -177,65 +162,82 @@ const nav = useHistory();
             //     return toast.error('Preencha os campos vazios')
     
     
-            if (nome === ('')) {
-                return toast.error('Nome inválido');
-            } if (especie === ('')) {
-                return toast.error('Espécie inválida');
-            } if (raca === ('')) {
-                return toast.error('Raça inválida');
-            } if (sexo === ('')) {
-                return toast.error('Sexo inválido');
-            } if (peso === ('')) {
-                return toast.error('Peso inválido');
-            } if (nascimento === ('')) {
-                return toast.error('Data inválida');
-            } if (porte === ('')) {
-                return toast.error('Porte inválido');
-            } if (descricao.length > 250) {
-                return toast.error('Números de caracteres atingido')
-                // } if(imgPet1 === ('')){
-                //     return toast.error('❌ Imagem inválida');
-                // } if(imgPet2 === ('')){
-                //     return toast.error('❌ Imagem inválido');
-                // } if(imgPet3 === ('')){
-                //     return toast.error('❌ Imagem inválido');
-            } else {
-                let r = await api.adicionarPets(formData);
-                // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-                //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
+            // if (nome === ('')) {
+            //     return toast.error('Nome inválido');
+            // } if (especie === ('')) {
+            //     return toast.error('Espécie inválida');
+            // } if (raca === ('')) {
+            //     return toast.error('Raça inválida');
+            // } if (sexo === ('')) {
+            //     return toast.error('Sexo inválido');
+            // } if (peso === ('')) {
+            //     return toast.error('Peso inválido');
+            // } if (nascimento === ('')) {
+            //     return toast.error('Data inválida');
+            // } if (porte === ('')) {
+            //     return toast.error('Porte inválido');
+            // } if (descricao.length > 250) {
+            //     return toast.error('Números de caracteres atingido')
+            //     // } if(imgPet1 === ('')){
+            //     //     return toast.error('❌ Imagem inválida');
+            //     // } if(imgPet2 === ('')){
+            //     //     return toast.error('❌ Imagem inválido');
+            //     // } if(imgPet3 === ('')){
+            //     //     return toast.error('❌ Imagem inválido');
+            // } else {
+            //     let r = await api.adicionarPets(formData);
+            //     // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+            //     //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
     
-                if (r.erro !== undefined) {
-                    return toast.error(r.erro)
-                }
+            //     if (r.erro !== undefined) {
+            //         return toast.error(r.erro)
+            //     }
     
-                toast.dark('Pet cadastrado!')
-                nav.push('/admin/animaiscadastrados')
+            //     toast.dark('Pet cadastrado!')
+            //     nav.push('/admin/animaiscadastrados')
+        if (nome === ('')) {
+            return toast.error('Nome inválido');
+        } if (especie === ('')) {
+            return toast.error('Espécie inválida');
+        } if (raca === ('')) {
+            return toast.error('Raça inválida');
+        } if (sexo === ('')) {
+            return toast.error('Sexo inválido');
+        } if (peso === ('')) {
+            return toast.error('Peso inválido');
+        } if (nascimento === ('')) {
+            return toast.error('Data inválida');
+        } if (porte === ('')) {
+            return toast.error('Porte inválido');
+        } if (descricao.length > 250) {
+            return toast.error('Números de caracteres atingido')
+        }if (imgPet1 === ('')){
+            return toast.error('Imagem inválida');
+        } else {
+            let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3);
+            if (r.erro !== undefined) {
+                return toast.error(r.erro)
+            }if( alterarPet !== undefined ){
+                let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                    castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
+                    if( alterar.erro !== undefined ){
+                        toast.dark(alterar.erro)
+                    } else {
+                        toast.dark('Pet Alterado com Sucesso!')
+                    }
+            }
+                toast('Pet cadastrado')
     
             }
     
     
         }
+    }
 
         
-    }
-
-    function previewImage() {
-        if (imgPet1) {
-            return URL.createObjectURL(imgPet1[0]);
-        } else {
-            return "/assets/images/pet1.svg"
-        }
-    }
-
-    function selectFile() {
-        let input = document.getElementById("Imgs");
-        input.click()
-    }
-
-
+    
 
     const alterarvacinas = (setVacina, vacina) => {
-
         if (vacina.value === true) {
             setVacina({ name: vacina.name, value: false })
         } else {
@@ -263,12 +265,16 @@ const nav = useHistory();
                 <div className="box">
                     <div className="box-esq">
                         <div className="imgs">
-                            <img className="addimg" onClick={selectFile} src={previewImage()} alt="" />
-                            <div className="input-file">
-                                <input className="bdimg" id="Imgs" type="file" multiple={true} onChange={e => setImgPet1(e.target.files)} />
+                            <div className="inputs">
+                                <input className="input1" type="text" value={imgPet1} onChange={e => setImgPet1(e.target.value)} />
+                            </div>
+                            <div className="inputs">
+                                <input className="input1" type="text" value={imgPet2} onChange={e => setImgPet2(e.target.value)} />
+                            </div>
+                            <div className="inputs">
+                                <input className="input1" type="text" value={imgPet3} onChange={e => setImgPet3(e.target.value)} />
                             </div>
                         </div>
-                        <div className="Load-img"> <button className="Loadimg" onClick={selectFile}> Carregar Imagem </button></div>
                         <div className="inputs">
                             <input className="input1" type="text" placeholder="Digite o Nome do Pet" value={nome} onChange={e => setNome(e.target.value)} />
                         </div>
@@ -321,7 +327,6 @@ const nav = useHistory();
                              </div>
                         }
 
-                            
                         </div>
                         <div className="texta"> Descrição do pet <textarea value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> </div>
                     </div>
@@ -330,13 +335,13 @@ const nav = useHistory();
                         <div className="boxvacina">
                             <div className="tipopet"> VACINAS CANINAS</div>
                             <div className="checkvcn">
-                                <label className="label1" /*value={vacinaV8} onChange={e => setVacinaV8(e.target.value)}*/> V8 </label>
+                                <label className="label1"> V8 </label>
                                 <input className="input5" type="checkbox" id={vacinaV8.name}
                                     value={vacinaV8.value} onClick={() => alterarvacinas(setVacinaV8, vacinaV8)}
                                 />
                             </div>
                             <div className="checkvcn">
-                                <label className="label1" /*value={vacinaV10} onChange={e => setVacinaV10(e.target.value)}*/>  V10 </label>
+                                <label className="label1">  V10 </label>
                                 <input className="input5" type="checkbox" id={vacinaV10.name}
                                     value={vacinaV10.value} onClick={() => alterarvacinas(setVacinaV10, vacinaV10)}
                                 />
@@ -366,13 +371,13 @@ const nav = useHistory();
                         </div>
                         <div className="check">
                             <div className="checkvcn2">
-                                <label /*value={castrado} onChange={e => setCastrado(e.target.value)} */> Castrado </label>
+                                <label> Castrado </label>
                                 <input className="input5" type="checkbox" id={castrado.name}
                                     value={castrado.value} onClick={() => alterarvacinas(setCastrado, castrado)}
                                 />
                             </div>
                             <div className="checkvcn2">
-                                <label /*value={vacinaAntirrabica} onChange={e => setVacinaAntirrabica(e.target.value)}*/> Antirrabica </label>
+                                <label> Antirrabica </label>
                                 <input className="input5" type="checkbox" id={vacinaAntirrabica.name}
                                     value={vacinaAntirrabica.value} onClick={() => alterarvacinas(setVacinaAntirrabica, vacinaAntirrabica)}
                                 />
