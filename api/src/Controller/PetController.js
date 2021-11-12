@@ -1,28 +1,11 @@
 import express from 'express'
 import Sequelize from 'sequelize';
 import db from '../db.js'
-import multer from 'multer'
-import path from 'path'
-import fs from 'fs';
+// import multer from 'multer'
+// import path from 'path'
+// import fs from 'fs';
 
 const app = express.Router()
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/')
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname))
-    }
-})
-
-
-
-const upload = multer({ storage: storage })
-
-
-
 
 app.get('/admin/addpet', async (req, resp) => {
     let dirname = path.resolve();
@@ -30,22 +13,10 @@ app.get('/admin/addpet', async (req, resp) => {
 })
 
 
-app.get('/imagem', async (req, resp) => {
-    let dirname = path.resolve();
-    resp.sendFile(req.query.url, { root: path.join(dirname) });
-})
-
-
-app.post('/admin/addpet', upload.array('imgPet1', 3), async (req, resp) => {
+app.post('/admin/addpet', async (req, resp) => {
     try {
-        let { nome, especie, raca, sexo, peso, nascimento, porte, descricao /* castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3 */ } = req.body;
-        let imgPet1 = req.file.path;
-
-        console.log(req.body)
-        console.log(req.files.length);
-
+        let { nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3 } = req.body;
         
-/*
         let r = await db.infob_apn_tb_pet.create({
             NM_PET: nome,
             DS_ESPECIE: especie,
@@ -55,21 +26,21 @@ app.post('/admin/addpet', upload.array('imgPet1', 3), async (req, resp) => {
             DT_NASCIMENTO: nascimento,
             DS_PORTE: porte,
             DS_DESC: descricao,
-            IMG_PET1: imgPet1
-            //IMG_PET2: imgPet2,
-            //IMG_PET3: imgPet3
-            //     BT_CASTRADO: 1,
-            //     BT_VACINA_V10: 1,
-            //     BT_VACINA_V8: 1,
-            //     BT_VACINA_V5: 1,
-            //     BT_VACINA_V4: 1,
-            //     BT_VACINA_V3: 1,
-            //     BT_VACINA_ANTIRRABICA: 1,
-            //     DT_CADASTRO: new Date(),
-            //     BT_DISPONIVEL: 1
+            IMG_PET1: imgPet1,
+            IMG_PET2: imgPet2,
+            IMG_PET3: imgPet3,
+            BT_CASTRADO: castrado,
+            BT_VACINA_V10: vacinaV10,
+            BT_VACINA_V8: vacinaV8,
+            BT_VACINA_V5: vacinaV5,
+            BT_VACINA_V4: vacinaV4,
+            BT_VACINA_V3: vacinaV3,
+            BT_VACINA_ANTIRRABICA: vacinaAntirrabica,
+            DT_CADASTRO: new Date(),
+            BT_DISPONIVEL: 1
         })
         console.log(r);
-        */
+        
         resp.sendStatus(200)
 
     } catch (e) {
