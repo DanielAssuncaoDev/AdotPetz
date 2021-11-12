@@ -114,7 +114,7 @@ export default function AnimaisCadastrados(){
                             { title: '' },
                             { title: '' },
                             { title: '' },
-                            { title: '' }
+                           
                         ]}>
 
                             {animals.map(item => 
@@ -140,10 +140,8 @@ export default function AnimaisCadastrados(){
                                     onClick={() => remover(item.ID_PET)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
                                 </Td>
-                                <Td className="actions" 
-                                    onClick={() => alert(item.initials)}>
-                                    <img src="/assets/images/selo.svg" alt="" />
-                                </Td>
+                               
+                                
                             </Tr>
 
                         )}
