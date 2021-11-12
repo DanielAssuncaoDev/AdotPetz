@@ -32,21 +32,55 @@ const nav = useHistory();
     const [vacinaAntirrabica, setVacinaAntirrabica] = useState({ name: "vacinaAntirrabica", value: false })
 
     const [alterarPet, setAlterarPet] = useState(props.location.state)
+    const [ alterando, setAlterando ] = useState(false)
 
+    const [racasDisponiveis, setRacasDisponiveis] = useState([])
+    const [addRaca, setAddRaca] = useState(false)
+
+    function setInputDate(dataF){
+        let hoy = new Date(dataF)
+        hoy.setHours( hoy.getHours() + 3 )
+        
+        let d = hoy.getDate(),
+            m = hoy.getMonth()+1, 
+            y = hoy.getFullYear(),
+            data;
     
+ 
+        if(d < 10){
+            d = "0"+d;
+        };
+        if(m < 10){
+            m = "0"+m;
+        };
+    
+        data = y+"-"+m+"-"+d;
+        console.log(data);
+        return data;
+    };
+    
+    useEffect( async() => {
+        const ListarRacas = await api.racasDisponiveis()
+        setRacasDisponiveis(ListarRacas)
+    }, [] )
+
+
     useEffect( ()=> {
 
         const PassarValoresAletar = () => {
             if ( props.location.state !== undefined ){
                 let pet =  props.location.state
     
+                let dataFormat = setInputDate(pet.DT_NASCIMENTO)
+                // console.log(pet.DT_NASCIMENTO)
+
                 setIdPet(pet.ID_PET)
                 setNome(pet.NM_PET)
                 setEspecie(pet.DS_ESPECIE)
                 setRaca(pet.NM_RACA)
                 setSexo(pet.DS_SEXO)
                 setPeso(pet.DS_PESO)
-                setNascimento(pet.DT_NASCIMENTO)
+                setNascimento(dataFormat)
                 setPorte(pet.DS_PORTE)
                 setDescricao(pet.DS_DESC)
                 setImgPet1(pet.IMG_PET1)
@@ -57,7 +91,7 @@ const nav = useHistory();
                 setVacinaV4({ name: "vacinaV4", value: pet.BT_VACINA_V4})
                 setVacinaV3({ name: "vacinaV3", value: pet.BT_VACINA_V3})
                 setVacinaAntirrabica({ name: "vacinaAntirrabica", value: pet.BT_VACINA_ANTIRRABICA})
-    
+                setAlterando(true)
             }
         } 
 
@@ -69,6 +103,8 @@ const nav = useHistory();
     useEffect( () => {
         const IniciarChecked = () => {
             let vacinas = [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado]
+
+            console.log(vacinas)
 
             for ( let v of vacinas){ 
 
@@ -82,9 +118,83 @@ const nav = useHistory();
 
         IniciarChecked()
 
-    }, [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado] )
+    }, [alterando] )
 
     async function inserirPet() {
+
+        if( alterarPet !== undefined ){
+            let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
+
+                if( alterar.erro !== undefined ){
+                    toast.dark(alterar.erro)
+                } else {
+                    toast.dark('Pet Alterado com Sucesso!')
+                    nav.push('/admin/animaiscadastrados')
+                }
+
+
+        } else {
+            let formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('especie', especie);
+            formData.append('raca', raca);
+            formData.append('sexo', sexo);
+            formData.append('peso', peso);
+            formData.append('nascimento', nascimento);
+            formData.append('porte', porte);
+            formData.append('descricao', descricao);
+            formData.append('imgPet1', imgPet1);
+            // formData.append('imgPet2', imgPet2);
+            // formData.append('imgPet3', imgPet3);
+            // formData.append('castrado', castrado);
+            // formData.append('vacinaV10', vacinaV10);
+            // formData.append('vacinaV8', vacinaV8);
+            // formData.append('vacinaV5', vacinaV5);
+            // formData.append('vacinaV4', vacinaV4);
+            // formData.append('vacinaV3', vacinaV3);
+            // formData.append('vacinaAntirrabica', vacinaAntirrabica);
+            //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
+            //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
+            // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
+            //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
+            // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
+            //     return toast.error('Preencha os campos vazios')
+    
+    
+            // if (nome === ('')) {
+            //     return toast.error('Nome inválido');
+            // } if (especie === ('')) {
+            //     return toast.error('Espécie inválida');
+            // } if (raca === ('')) {
+            //     return toast.error('Raça inválida');
+            // } if (sexo === ('')) {
+            //     return toast.error('Sexo inválido');
+            // } if (peso === ('')) {
+            //     return toast.error('Peso inválido');
+            // } if (nascimento === ('')) {
+            //     return toast.error('Data inválida');
+            // } if (porte === ('')) {
+            //     return toast.error('Porte inválido');
+            // } if (descricao.length > 250) {
+            //     return toast.error('Números de caracteres atingido')
+            //     // } if(imgPet1 === ('')){
+            //     //     return toast.error('❌ Imagem inválida');
+            //     // } if(imgPet2 === ('')){
+            //     //     return toast.error('❌ Imagem inválido');
+            //     // } if(imgPet3 === ('')){
+            //     //     return toast.error('❌ Imagem inválido');
+            // } else {
+            //     let r = await api.adicionarPets(formData);
+            //     // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+            //     //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
+    
+            //     if (r.erro !== undefined) {
+            //         return toast.error(r.erro)
+            //     }
+    
+            //     toast.dark('Pet cadastrado!')
+            //     nav.push('/admin/animaiscadastrados')
         if (nome === ('')) {
             return toast.error('Nome inválido');
         } if (especie === ('')) {
@@ -122,6 +232,7 @@ const nav = useHistory();
     
     
         }
+    }
 
         
     
@@ -132,7 +243,17 @@ const nav = useHistory();
         } else {
             setVacina({ name: vacina.name, value: true })
         }
+
+
     }
+
+
+    useEffect( () => {
+        if( raca === 'addRaca' ){
+            setRaca('')
+            setAddRaca(true)
+        }
+    },[raca] )
 
 
     return (
@@ -172,7 +293,7 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
-                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)} />
+                            <input className="input3" type="date" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)} />
                             <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>
                                 <option value="">Espécie</option>
                                 <option value="Canina">Canina</option>
@@ -180,12 +301,32 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
+
+                        {
+                            addRaca === false
+                            ?   
                             <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
-                                <option value="">Raça</option>
-                                <option value="Vira-Lata">Vira-Lata</option>
-                                <option value="Labrador">Labrador</option>
-                                <option value="Golden">Golden</option>
-                            </select>
+                                <option value="Raça">Raça</option>
+                                <option value="addRaca" > Adicionar Raça </option>
+                                {
+                                    racasDisponiveis.map( (r) => 
+                                        <option value={r}> {r}</option>
+                                    )
+                                }
+                             </select>
+
+                             : 
+                             <div className="input-addRaca">
+                                <input className="input1" placeholder="Adicionar Raça"
+                                value={raca} onChange={e => setRaca(e.target.value)}
+                                />
+                                <label onClick={ () => {
+                                    setAddRaca(false)
+                                    setRaca('')
+                                    } } > Escolher raça </label>
+                             </div>
+                        }
+
                         </div>
                         <div className="texta"> Descrição do pet <textarea value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> </div>
                     </div>

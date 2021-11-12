@@ -105,7 +105,8 @@ export default function SolicitacaoAdocao(prosp) {
 
      useEffect(() =>{
          listar();
-     }, [ordenacao])
+         console.log(solicitacoes)
+     }, [solicitacoes])
     return(
         <Container>
             <ToastContainer/>
