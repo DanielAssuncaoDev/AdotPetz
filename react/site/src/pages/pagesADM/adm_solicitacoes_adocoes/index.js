@@ -28,7 +28,7 @@ export default function SolicitacaoAdocao(prosp) {
 
      async function listar () {
         const resp = await axios.get('http://localhost:3030/adocoes/admin/solicitacoes?ordenacao=' + ordenacao)
-        setSolicitacoes([...resp.data])
+        setSolicitacoes(resp.data)
      }
 
      async function alterarSituacao (solicitacaoAceita, IdAdocao) {
