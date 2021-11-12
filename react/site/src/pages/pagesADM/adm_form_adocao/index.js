@@ -5,12 +5,28 @@ import {Container,
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
+import { useState } from 'react';
 
 
 
 
-export default function FormAdocaoADM(){
-
+export default function FormAdocaoADM(props){
+    const [Formadocao, setFormadocao] = useState(props.location.state);
+    const [Nomeuser, setNomeuser] = useState(Formadocao.NM_NOME_COMPLETO);
+    const [Nascimento, setNascimento] = useState(Formadocao.DT_NASCIMENTO);
+    const [Rg, setRg] = useState(Formadocao.DS_RG);
+    const [Telefone, setTelefone] = useState(Formadocao.DS_TELEFONE);
+    const [Cep, setCep] = useState(Formadocao.DS_CEP);
+    const [Endereco, setEndereco] = useState(Formadocao.DS_ENDERECO);
+    const [NumeroEN, setNumeroEN] = useState(Formadocao.DS_NUMERO);
+    const [Complemento, setComplemento] = useState(Formadocao.DS_COMPLEMENTO);
+    const [Cidade, setCidade] = useState(Formadocao.DS_CIDADE);
+    const [Bairro, setBairro] = useState(Formadocao.DS_BAIRRO);
+    const [DataSoli, setDataSoli] = useState(Formadocao.DT_SOLICITACAO);
+    const [Status, setStatus] = useState(Formadocao.BT_ADOCAO_CONCLUIDA);
+    const [NomePET, setNomePET] = useState(Formadocao.infob_apn_tb_pet.NM_PET);
+    const [Especie, setEspecie] = useState(Formadocao.infob_apn_tb_pet.DS_ESPECIE);
+    const [Imagem, setImagem] = useState(Formadocao.infob_apn_tb_pet.IMG_PET1);
 
     return(
         <Container>
@@ -35,56 +51,56 @@ export default function FormAdocaoADM(){
                                 <div className="Row1">
                                     <div className="NomeUse">
                                         <label>Nome Usuário:</label>
-                                         <input />
+                                         <input value={Nomeuser} />
                                     </div>
 
                                     <div className="dtNascimento">
                                         <label>Nascimento:</label>
-                                        <input />
+                                        <input valeu={Nascimento} />
                                     </div>
 
                                     <div className="RgUser">
                                         <label> RG: </label>
-                                        <input />
+                                        <input value={Rg}/>
                                     </div>
                                 </div>
 
                                 <div className="Row2">
                                     <div className="TelUser">
                                         <label> Telefone: </label>
-                                        <input />
+                                        <input value={Telefone}/>
                                     </div>
 
                                     <div className="CEPUser">
                                         <label>CEP:</label>
-                                        <input />
+                                        <input value={Cep}/>
                                     </div>
 
                                     <div className="EnderecoUser">
                                         <label> Endereço: </label>
-                                        <input />
+                                        <input value={Endereco}/>
                                     </div>
 
                                     <div className="NumeroUser">
                                         <label> N&deg; : </label>
-                                        <input />
+                                        <input value={NumeroEN} />
                                     </div>
                                 </div>
 
                                 <div className="Row3">
                                     <div className="ComplementoUser">
                                         <label> Complemento: </label>
-                                        <input />
+                                        <input value={Complemento} />
                                     </div>
 
                                     <div className="CidadeUser">
                                         <label> Cidade: </label>
-                                        <input />
+                                        <input value={Cidade}/>
                                     </div>
 
                                     <div className="BairroUser">
                                         <label> Bairro: </label>
-                                        <input />
+                                        <input value={Bairro}/>
                                     </div>
                                 </div>
 
@@ -102,18 +118,18 @@ export default function FormAdocaoADM(){
 
                                 <div className="ContPet">
                                     <div className="ImgPet">
-                                        <img src="/assets/images/imgPet-FormADM.svg" alt="" />
+                                        <img src={Imagem} alt=""  />
                                     </div>
 
                                     <div className="FormPet" >
                                         <div className="NomePet">
                                             <label> Nome: </label>
-                                            <input />
+                                            <input value={NomePET}/>
                                         </div>
 
                                         <div className="Especie">
                                             <label> Espécie: </label>
-                                            <input />
+                                            <input value={Especie}/>
                                         </div>
 
                                         <div className="ButtonPet">
@@ -134,12 +150,12 @@ export default function FormAdocaoADM(){
                                 <div className="FormSolicitacao">
                                     <div className="DataSolicitacao">
                                         <label>Data da Solicitação</label>
-                                        <input />
+                                        <input valeu={DataSoli} />
                                     </div>
 
                                     <div className="DataSolicitacao">
                                         <label>Status da Solicitação</label>
-                                        <input />
+                                        <input value={Status} />
                                     </div>
                                 </div>
 

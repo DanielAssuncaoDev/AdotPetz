@@ -24,8 +24,7 @@ export default function SolicitacaoAdocao(prosp) {
     const [solicitacoes, setSolicitacoes] = useState([]);
     // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
-
-    const nav = useHistory;
+    const nav = useHistory();
 
      async function listar () {
         const resp = await axios.get('http://localhost:3030/adocoes/admin/solicitacoes?ordenacao=' + ordenacao)
@@ -145,11 +144,11 @@ export default function SolicitacaoAdocao(prosp) {
                    
                         {solicitacoes.map(item => 
                             <Tr>
-                                <Td className="ra"> {item.IdAdocao} </Td>
-                                <Td> {item.NomeUsu}  </Td>
-                                <Td> {item.NomePet} </Td>
-                                <Td> {item.Telefone}  </Td>
-                                <Td> {item.DataSolicitacao} </Td>
+                                <Td className="ra"> {item.ID_ADOCAO} </Td>
+                                <Td> {item.NM_NOME_COMPLETO}  </Td>
+                                <Td> {item.infob_apn_tb_pet.NM_PET} </Td>
+                                <Td> {item.DS_TELEFONE}  </Td>
+                                <Td> {item.DT_SOLICITACAO} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => alterarSituacao( true, item.IdAdocao  )}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
@@ -160,7 +159,7 @@ export default function SolicitacaoAdocao(prosp) {
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => toast(item.initials)}>
-                                        <button className="actions" onClick={() => nav.push('/admin/formadocao')} > Verificar Formulário </button>
+                                        <button className="actions" onClick={() => nav.push({pathname: '/admin/formadocao', state: item })} > Verificar Formulário </button>
                                 </Td>
                             </Tr>    
                         )}
