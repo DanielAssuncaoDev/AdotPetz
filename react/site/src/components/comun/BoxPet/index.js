@@ -3,8 +3,6 @@ import { BoxPet } from "../BoxPet/styled"
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import {api} from '../../../service/api'
-
 export default function BoxPETZ(props) {
 
   const [colorPorte, setColorPorte] = useState('')

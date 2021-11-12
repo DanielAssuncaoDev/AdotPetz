@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import { useState, useEffect } from 'react'
@@ -31,8 +30,7 @@ const nav = useHistory();
     const [vacinaV3, setVacinaV3] = useState({ name: "vacinaV3", value: false })
     const [vacinaAntirrabica, setVacinaAntirrabica] = useState({ name: "vacinaAntirrabica", value: false })
 
-    const [alterarPet, setAlterarPet] = useState(props.location.state)
-    const [ alterando, setAlterando ] = useState(false)
+    const [alterarPet] = useState(props.location.state)
 
     const [racasDisponiveis, setRacasDisponiveis] = useState([])
     const [addRaca, setAddRaca] = useState(false)
@@ -59,9 +57,13 @@ const nav = useHistory();
         return data;
     };
     
-    useEffect( async() => {
-        const ListarRacas = await api.racasDisponiveis()
-        setRacasDisponiveis(ListarRacas)
+    useEffect( () => {
+        const ListarRacas = async() => { 
+            let r = await api.racasDisponiveis()
+            setRacasDisponiveis(r)
+        }
+
+        ListarRacas()
     }, [] )
 
 
@@ -91,20 +93,17 @@ const nav = useHistory();
                 setVacinaV4({ name: "vacinaV4", value: pet.BT_VACINA_V4})
                 setVacinaV3({ name: "vacinaV3", value: pet.BT_VACINA_V3})
                 setVacinaAntirrabica({ name: "vacinaAntirrabica", value: pet.BT_VACINA_ANTIRRABICA})
-                setAlterando(true)
             }
         } 
 
         PassarValoresAletar()
         
-    }, [] )
+    }, [props] )
 
 
     useEffect( () => {
         const IniciarChecked = () => {
             let vacinas = [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado]
-
-            console.log(vacinas)
 
             for ( let v of vacinas){ 
 
@@ -118,7 +117,7 @@ const nav = useHistory();
 
         IniciarChecked()
 
-    }, [alterando] )
+    }, [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado])
 
     async function inserirPet() {
 

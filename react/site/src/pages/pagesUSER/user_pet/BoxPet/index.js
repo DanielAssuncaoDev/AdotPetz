@@ -18,6 +18,8 @@ const [vacinas, setVacinas] = useState([])
 
     const nav = useHistory();
 
+console.log(props)
+
     const Imgs = [
         {
             img: props.pet.IMG_PET1
@@ -26,7 +28,7 @@ const [vacinas, setVacinas] = useState([])
             img: props.pet.IMG_PET2
         },
         {
-            img: props.pet.IMG_PET1
+            img: props.pet.IMG_PET3
         }
     ]
     

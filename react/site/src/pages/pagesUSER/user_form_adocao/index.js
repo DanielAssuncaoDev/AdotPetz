@@ -10,9 +10,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import Cookie from 'js-cookie'
 
-import Api from '../../../service/api.js'
-const api = new Api()
-
 export default function Sujestoes(props ){
     const [popUp, setPopUp] = useState(false)
 

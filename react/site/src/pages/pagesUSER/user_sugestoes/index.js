@@ -19,21 +19,24 @@ const [filtroPets, setFiltroPets] = useState(props.location.state)
 
 const [pagList, setPagList] = useState([])
 const [pagsOffSet, setPagsOffSet] = useState(0)
-const [pagsLimit, setPagsLimit] = useState(18) 
-    function Paginacao(qtd){
-        let listPags = []
-        let qtdPags = Math.ceil(qtd/pagsLimit)
-        console.log(qtdPags)
-        
-            for( let i = 1; i <= qtdPags; i++ ){
-                listPags.push(i)
-            }
+const [pagsLimit] = useState(18) 
 
-        setPagList(listPags)
-    }
+    
 
 
         useEffect( () => {
+            function Paginacao(qtd){
+                let listPags = []
+                let qtdPags = Math.ceil(qtd/pagsLimit)
+                console.log(qtdPags)
+                
+                    for( let i = 1; i <= qtdPags; i++ ){
+                        listPags.push(i)
+                    }
+        
+                setPagList(listPags)
+            }
+
                 const listarPets = async() => {
                     let pets = null
                 
@@ -52,13 +55,13 @@ const [pagsLimit, setPagsLimit] = useState(18)
                                 "raca": ""
                             }, pagsLimit, pagsOffSet)
                         }
+
                     Paginacao(pets.totalPets)
                     setPets(pets.petsOffSet)
-                    console.log(pets)
                 }
 
             listarPets()
-        }, [filtroPets, pagsOffSet])
+        }, [filtroPets, pagsOffSet, pagsLimit])
 
 
 

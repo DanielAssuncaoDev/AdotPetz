@@ -8,8 +8,6 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Cookie from 'js-cookie'
 
-import {Link} from 'react-router-dom' 
-
 import Api from '../../../service/api'
 const api = new Api()
 
@@ -30,7 +28,7 @@ const nav = useHistory()
                 toast.error(user.erro)
             } else {
                 Cookie.set('User', JSON.stringify(user))
-                nav.push('/home')
+                nav.push('/')
             }
     }
 
@@ -67,7 +65,7 @@ return (
 
                 {/* <div className="label">   Entrar como administrador  </div> */}
 
-                <Link to="/admin/login"> Entrar como administrador  </Link>
+                <label className="EntrarAdm" onClick={() => nav.push('/admin/login')}> Entrar como administrador  </label>
                 
 
                 <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 

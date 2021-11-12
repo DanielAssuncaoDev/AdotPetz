@@ -1,15 +1,24 @@
 import {Container, Conteudo} from './styled'
-
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
+
 import { useState } from 'react';
-import Api from '../../../service/api';
 import { toast, ToastContainer } from 'react-toastify';
+import { useHistory } from 'react-router-dom'
+import Cookie from 'js-cookie'
+
+import Api from '../../../service/api';
 const api = new Api()
 
 
 export default function LoginAdm() {
    const [codigo, setCodigo] = useState('')
    const [senha, setSenha] = useState('')
+
+const nav = useHistory()
+
+if(Cookie.get('Adm') !== undefined){
+  nav.push('/admin/home')
+}
 
   async function Login(){
     let r = await api.loginAdm( codigo, senha )
@@ -19,10 +28,11 @@ export default function LoginAdm() {
       if(r.erro !== undefined){
         toast.error(r.erro)
         return
-    } else {
-      toast('Login feito com sucesso')
+    } else 
+      Cookie.set('Adm', JSON.stringify(r))
+      nav.push('/admin/home')
     }
-  }
+  
 
     return (
 
