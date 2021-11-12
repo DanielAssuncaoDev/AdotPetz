@@ -131,41 +131,8 @@ const nav = useHistory();
                     toast.dark('Pet Alterado com Sucesso!')
                     nav.push('/admin/animaiscadastrados')
                 }
+    } else{
     
-    
-            // if (nome === ('')) {
-            //     return toast.error('Nome inválido');
-            // } if (especie === ('')) {
-            //     return toast.error('Espécie inválida');
-            // } if (raca === ('')) {
-            //     return toast.error('Raça inválida');
-            // } if (sexo === ('')) {
-            //     return toast.error('Sexo inválido');
-            // } if (peso === ('')) {
-            //     return toast.error('Peso inválido');
-            // } if (nascimento === ('')) {
-            //     return toast.error('Data inválida');
-            // } if (porte === ('')) {
-            //     return toast.error('Porte inválido');
-            // } if (descricao.length > 250) {
-            //     return toast.error('Números de caracteres atingido')
-            //     // } if(imgPet1 === ('')){
-            //     //     return toast.error('❌ Imagem inválida');
-            //     // } if(imgPet2 === ('')){
-            //     //     return toast.error('❌ Imagem inválido');
-            //     // } if(imgPet3 === ('')){
-            //     //     return toast.error('❌ Imagem inválido');
-            // } else {
-            //     let r = await api.adicionarPets(formData);
-            //     // let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-            //     //     castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica);
-    
-            //     if (r.erro !== undefined) {
-            //         return toast.error(r.erro)
-            //     }
-    
-            //     toast.dark('Pet cadastrado!')
-            //     nav.push('/admin/animaiscadastrados')
         if (nome === ('')) {
             return toast.error('Nome inválido');
         } if (especie === ('')) {
@@ -203,6 +170,7 @@ const nav = useHistory();
                     }
             }
                 toast('Pet cadastrado')
+                nav.push('/admin/petscadastrados')
     
             }
     
@@ -237,7 +205,7 @@ const nav = useHistory();
             <ToastContainer />
             <Cabecalho />
             <div className="container">
-                <div> <button className="vltr"> <img onClick={() => nav.push('/admin/home')} className="vlt" src="/assets/images/icon_voltar.svg" alt="" /> </button> </div>
+                <div className="Bt-Voltar"> <button className="vltr"> <img onClick={() => nav.push('/admin/home')} className="vlt" src="/assets/images/icon_voltar.svg" alt="" /> </button> </div>
                 <div className="box">
                     <div className="box-esq">
                         <div className="inputs">
@@ -271,17 +239,11 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
-                            <select className="select3" id="" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
-                                <option value="">Raça</option>
-                                <option value="">Vira-Lata</option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-
+                           
                         {
                             addRaca === false
                             ?   
-                            <select className="select3" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
+                            <select className="select-raca" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
                                 <option value="Raça">Raça</option>
                                 <option value="addRaca" > Adicionar Raça </option>
                                 {

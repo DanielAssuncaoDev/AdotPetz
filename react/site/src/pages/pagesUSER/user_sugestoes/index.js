@@ -19,7 +19,7 @@ const [filtroPets, setFiltroPets] = useState(props.location.state)
 
 const [pagList, setPagList] = useState([])
 const [pagsOffSet, setPagsOffSet] = useState(0)
-const [pagsLimit] = useState(18) 
+const [pagsLimit] = useState(12) 
 
     
 

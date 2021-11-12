@@ -5,11 +5,17 @@ export const Container = styled.div`
 .container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #8E8E8E;
-    height: 90vh;
-    padding: 6em 4em 0em 8em;
+    height: auto;
+    min-height: 100vh;
+    padding: 4em;
 }
 
+.Bt-Voltar{
+    align-self: self-start;
+
+}
 .box{
     display: flex;
     flex-direction: row;
@@ -64,9 +70,15 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 5px;
+    width: 100%;
+    margin-right: 10px;
 }
 
-.input-addRaca{
+.select3 select{
+    width: 98.6%;
+}
+
+.input-addRaca, .select-raca{
     width: 100%;
 
         input {
