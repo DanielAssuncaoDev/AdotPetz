@@ -61,6 +61,18 @@ export const Container = styled.div`
     margin-bottom: 5px;
 }
 
+.input-addRaca{
+    width: 100%;
+
+        input {
+            width: 100%
+        }
+
+        label {
+            background: none;
+        }
+}
+
 .texta{
     font-weight: 700;
 }

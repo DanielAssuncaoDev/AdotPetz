@@ -32,34 +32,68 @@ const nav = useHistory();
     const [vacinaAntirrabica, setVacinaAntirrabica] = useState({ name: "vacinaAntirrabica", value: false })
 
     const [alterarPet, setAlterarPet] = useState(props.location.state)
+    const [ alterando, setAlterando ] = useState(false)
 
+    const [racasDisponiveis, setRacasDisponiveis] = useState([])
+    const [addRaca, setAddRaca] = useState(false)
+
+    function setInputDate(dataF){
+        let hoy = new Date(dataF)
+        hoy.setHours( hoy.getHours() + 3 )
+        
+        let d = hoy.getDate(),
+            m = hoy.getMonth()+1, 
+            y = hoy.getFullYear(),
+            data;
     
+ 
+        if(d < 10){
+            d = "0"+d;
+        };
+        if(m < 10){
+            m = "0"+m;
+        };
+    
+        data = y+"-"+m+"-"+d;
+        console.log(data);
+        return data;
+    };
+    
+    useEffect( async() => {
+        const ListarRacas = await api.racasDisponiveis()
+        setRacasDisponiveis(ListarRacas)
+    }, [] )
+
+
     useEffect( ()=> {
 
         const PassarValoresAletar = () => {
             if ( props.location.state !== undefined ){
                 let pet =  props.location.state
     
+                let dataFormat = setInputDate(pet.DT_NASCIMENTO)
+                // console.log(pet.DT_NASCIMENTO)
+
                 setIdPet(pet.ID_PET)
                 setNome(pet.NM_PET)
                 setEspecie(pet.DS_ESPECIE)
                 setRaca(pet.NM_RACA)
                 setSexo(pet.DS_SEXO)
                 setPeso(pet.DS_PESO)
-                setNascimento(pet.DT_NASCIMENTO)
+                setNascimento(dataFormat)
                 setPorte(pet.DS_PORTE)
                 setDescricao(pet.DS_DESC)
                 // setImgPet1(pet.IMG_PET1)
                 // setImgPet1(pet.IMG_PET2)
                 // setImgPet1(pet.IMG_PET3)
                 setCastrado({ name: "Castrado", value: pet.BT_CASTRADO})
-                setVacinaV10({ name: "vacinaV19", value: pet.BT_VACINA_V10})
+                setVacinaV10({ name: "vacinaV10", value: pet.BT_VACINA_V10})
                 setVacinaV8({ name: "vacinaV8", value: pet.BT_VACINA_V8})
                 setVacinaV5({ name: "vacinaV5", value: pet.BT_VACINA_V5})
                 setVacinaV4({ name: "vacinaV4", value: pet.BT_VACINA_V4})
                 setVacinaV3({ name: "vacinaV3", value: pet.BT_VACINA_V3})
                 setVacinaAntirrabica({ name: "vacinaAntirrabica", value: pet.BT_VACINA_ANTIRRABICA})
-    
+                setAlterando(true)
             }
         } 
 
@@ -71,6 +105,8 @@ const nav = useHistory();
     useEffect( () => {
         const IniciarChecked = () => {
             let vacinas = [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado]
+
+            console.log(vacinas)
 
             for ( let v of vacinas){ 
 
@@ -84,7 +120,7 @@ const nav = useHistory();
 
         IniciarChecked()
 
-    }, [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado] )
+    }, [alterando] )
 
 // Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
@@ -109,7 +145,9 @@ const nav = useHistory();
                     toast.dark(alterar.erro)
                 } else {
                     toast.dark('Pet Alterado com Sucesso!')
+                    nav.push('/admin/animaiscadastrados')
                 }
+
 
         } else {
             let formData = new FormData();
@@ -170,7 +208,8 @@ const nav = useHistory();
                     return toast.error(r.erro)
                 }
     
-                toast('Pet cadastrado')
+                toast.dark('Pet cadastrado!')
+                nav.push('/admin/animaiscadastrados')
     
             }
     
@@ -202,7 +241,17 @@ const nav = useHistory();
         } else {
             setVacina({ name: vacina.name, value: true })
         }
+
+
     }
+
+
+    useEffect( () => {
+        if( raca === 'addRaca' ){
+            setRaca('')
+            setAddRaca(true)
+        }
+    },[raca] )
 
 
     return (
@@ -238,7 +287,7 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
-                            <input className="input3" type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)} />
+                            <input className="input3" type="date" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)} />
                             <select className="select3" name="select" value={especie} onChange={e => setEspecie(e.target.value)}>
                                 <option value="">Espécie</option>
                                 <option value="Canina">Canina</option>
@@ -246,12 +295,33 @@ const nav = useHistory();
                             </select>
                         </div>
                         <div className="inputs">
+
+                        {
+                            addRaca === false
+                            ?   
                             <select className="select4" name="select" value={raca} onChange={e => setRaca(e.target.value)}>
                                 <option value="Raça">Raça</option>
-                                <option value="Vira-Lata">Vira-Lata</option>
-                                <option value="Labrador">Labrador</option>
-                                <option value="Golden">Golden</option>
-                            </select>
+                                <option value="addRaca" > Adicionar Raça </option>
+                                {
+                                    racasDisponiveis.map( (r) => 
+                                        <option value={r}> {r}</option>
+                                    )
+                                }
+                             </select>
+
+                             : 
+                             <div className="input-addRaca">
+                                <input className="input1" placeholder="Adicionar Raça"
+                                value={raca} onChange={e => setRaca(e.target.value)}
+                                />
+                                <label onClick={ () => {
+                                    setAddRaca(false)
+                                    setRaca('')
+                                    } } > Escolher raça </label>
+                             </div>
+                        }
+
+                            
                         </div>
                         <div className="texta"> Descrição do pet <textarea value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> </div>
                     </div>
