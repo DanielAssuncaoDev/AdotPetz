@@ -22,43 +22,69 @@ const nav = useHistory();
     const [imgPet1, setImgPet1] = useState(null)
     const [imgPet2, setImgPet2] = useState('')
     const [imgPet3, setImgpet3] = useState('')
-    const [castrado, setCastrado] = useState(false)
-    const [vacinaV10, setVacinaV10] = useState(false)
+    const [castrado, setCastrado] = useState({ name: "castrado", value: false })
+    const [vacinaV10, setVacinaV10] = useState({ name: "vacinaV10", value: false })
     const [vacinaV8, setVacinaV8] = useState({ name: "vacinaV8", value: false })
-    const [vacinaV5, setVacinaV5] = useState(false)
-    const [vacinaV4, setVacinaV4] = useState(false)
-    const [vacinaV3, setVacinaV3] = useState(false)
-    const [vacinaAntirrabica, setVacinaAntirrabica] = useState(false)
+    const [vacinaV5, setVacinaV5] = useState({ name: "vacinaV5", value: false })
+    const [vacinaV4, setVacinaV4] = useState({ name: "vacinaV4", value: false })
+    const [vacinaV3, setVacinaV3] = useState({ name: "vacinaV3", value: false })
+    const [vacinaAntirrabica, setVacinaAntirrabica] = useState({ name: "vacinaAntirrabica", value: false })
 
     const [alterarPet, setAlterarPet] = useState(props.location.state)
 
     
     useEffect( ()=> {
-        if ( props.location.state !== undefined ){
-            let pet =  props.location.state
 
-            setNome(pet.NM_PET)
-            setEspecie(pet.DS_ESPECIE)
-            setRaca(pet.NM_RACA)
-            setSexo(pet.DS_SEXO)
-            setPeso(pet.DS_PESO)
-            setNascimento(pet.DT_NASCIMENTO)
-            setPorte(pet.DS_PORTE)
-            setDescricao(pet.DS_DESC)
-            // setImgPet1(pet.IMG_PET1)
-            // setImgPet1(pet.IMG_PET2)
-            // setImgPet1(pet.IMG_PET3)
-            setCastrado(pet.BT_CASTRADO)
-            setVacinaV10(pet.BT_VACINA_V10)
-            setVacinaV10(pet.BT_VACINA_V8)
-            setVacinaV10(pet.BT_VACINA_V5)
-            setVacinaV10(pet.BT_VACINA_V4)
-            setVacinaV10(pet.BT_VACINA_V3)
-            setVacinaAntirrabica(pet.BT_VACINA_ANTIRRABICA)
+        const PassarValoresAletar = () => {
+            if ( props.location.state !== undefined ){
+                let pet =  props.location.state
+    
+                setNome(pet.NM_PET)
+                setEspecie(pet.DS_ESPECIE)
+                setRaca(pet.NM_RACA)
+                setSexo(pet.DS_SEXO)
+                setPeso(pet.DS_PESO)
+                setNascimento(pet.DT_NASCIMENTO)
+                setPorte(pet.DS_PORTE)
+                setDescricao(pet.DS_DESC)
+                // setImgPet1(pet.IMG_PET1)
+                // setImgPet1(pet.IMG_PET2)
+                // setImgPet1(pet.IMG_PET3)
+                setCastrado({ name: "Castrado", value: pet.BT_CASTRADO})
+                setVacinaV10({ name: "vacinaV19", value: pet.BT_VACINA_V10})
+                setVacinaV8({ name: "vacinaV8", value: pet.BT_VACINA_V8})
+                setVacinaV5({ name: "vacinaV5", value: pet.BT_VACINA_V5})
+                setVacinaV4({ name: "vacinaV4", value: pet.BT_VACINA_V4})
+                setVacinaV3({ name: "vacinaV3", value: pet.BT_VACINA_V3})
+                setVacinaAntirrabica({ name: "vacinaAntirrabica", value: pet.BT_VACINA_ANTIRRABICA})
+    
+            }
+        } 
 
-   
-        }
+        PassarValoresAletar()
+        
     }, [] )
+
+
+    useEffect( () => {
+        const IniciarChecked = () => {
+            let vacinas = [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado]
+
+            console.log(vacinas)
+
+            for ( let v of vacinas){ 
+
+                if (v.value === true) {
+                    let checkbox = document.getElementById(v.name)
+                    checkbox.setAttribute('checked', 'checked')
+                }
+
+            }
+        } 
+
+        IniciarChecked()
+
+    }, [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado] )
 
 // Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
 
@@ -152,27 +178,7 @@ const nav = useHistory();
         input.click()
     }
 
-    useEffect(() => {
-        console.log(vacinaV8)
-    }, [vacinaV8])
 
-    useEffect(() => {
-
-        const IniciarChecked = () => {
-            let vacinas = [vacinaV8]
-
-            for ( let v of vacinas){ 
-
-                if (v.value === true) {
-                    let checkbox = document.getElementById(v.name)
-                    checkbox.setAttribute('checked', 'checked')
-                }
-
-            }
-        }
-
-        IniciarChecked()
-    }, [])
 
     const alterarvacinas = (setVacina, vacina) => {
 
@@ -245,8 +251,8 @@ const nav = useHistory();
                             </div>
                             <div className="checkvcn">
                                 <label className="label1" /*value={vacinaV10} onChange={e => setVacinaV10(e.target.value)}*/>  V10 </label>
-                                <input className="input5" type="checkbox"
-
+                                <input className="input5" type="checkbox" id={vacinaV10.name}
+                                    value={vacinaV10.value} onChange={() => alterarvacinas(setVacinaV10, vacinaV10)}
                                 />
                             </div>
                         </div>
@@ -254,25 +260,36 @@ const nav = useHistory();
                             <div className="tipopet"> VACINAS FELINAS </div>
                             <div className="checkvcn">
                                 <label className="label1"> V3 </label>
-                                <input className="input5" type="checkbox" /*value={vacinaV3} onChange={e => setVacinaV3(e.target.value)}*/ />
+                                <input className="input5" type="checkbox" id={vacinaV3.name}
+                                    value={vacinaV3.value} onChange={() => alterarvacinas(setVacinaV3, vacinaV3)}
+                                
+                                />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1"> V4 </label>
-                                <input className="input5" type="checkbox" /*value={vacinaV4} onChange={e => setVacinaV4(e.target.value)}*/ />
+                                <input className="input5" type="checkbox" id={vacinaV4.name}
+                                    value={vacinaV4.value} onChange={() => alterarvacinas(setVacinaV4, vacinaV4)}
+                                />
                             </div>
                             <div className="checkvcn">
                                 <label className="label1"> V5 </label>
-                                <input className="input5" type="checkbox" /*value={vacinaV5} onChange={e => setVacinaV5(e.target.value)} */ />
+                                <input className="input5" type="checkbox" id={vacinaV5.name}
+                                    value={vacinaV5.value} onChange={() => alterarvacinas(setVacinaV5, vacinaV5)}
+                                />
                             </div>
                         </div>
                         <div className="check">
                             <div className="checkvcn2">
                                 <label /*value={castrado} onChange={e => setCastrado(e.target.value)} */> Castrado </label>
-                                <input className="input5" type="checkbox" />
+                                <input className="input5" type="checkbox" id={castrado.name}
+                                    value={castrado.value} onChange={() => alterarvacinas(setCastrado, castrado)}
+                                />
                             </div>
                             <div className="checkvcn2">
                                 <label /*value={vacinaAntirrabica} onChange={e => setVacinaAntirrabica(e.target.value)}*/> Antirrabica </label>
-                                <input className="input5" type="checkbox" />
+                                <input className="input5" type="checkbox" id={vacinaAntirrabica.name}
+                                    value={vacinaAntirrabica.value} onChange={() => alterarvacinas(setVacinaAntirrabica, vacinaAntirrabica)}
+                                />
                             </div>
                         </div>
                     </div>
