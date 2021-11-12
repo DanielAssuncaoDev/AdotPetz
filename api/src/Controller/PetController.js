@@ -144,9 +144,7 @@ app.put('/alterar/:idpet', async (req, resp) => {
             BT_VACINA_V5: vacinaV5,
             BT_VACINA_V4: vacinaV4,
             BT_VACINA_V3: vacinaV3,
-            BT_VACINA_ANTIRRABICA: vacinaAntirrabica,
-            DT_CADASTRO: cadastro,
-            BT_DISPONIVEL: disponivel
+            BT_VACINA_ANTIRRABICA: vacinaAntirrabica
         }, {
             where: {
                 ID_PET: req.params.idpet
