@@ -191,8 +191,7 @@ const nav = useHistory()
             numero, 
             complemento, 
             bairro,
-            cidade,
-            endereco
+            cidade
         }
         setFormUser(FormUser)
         setPopUp(true)
