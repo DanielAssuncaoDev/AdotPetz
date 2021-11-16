@@ -5,11 +5,17 @@ export const Container = styled.div`
 .container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #8E8E8E;
-    height: 90vh;
-    padding: 6em 4em 0em 8em;
+    height: auto;
+    min-height: 100vh;
+    padding: 4em;
 }
 
+.Bt-Voltar{
+    align-self: self-start;
+
+}
 .box{
     display: flex;
     flex-direction: row;
@@ -38,14 +44,19 @@ export const Container = styled.div`
 
 .imgs{
     display: flex;
+    flex-direction: row;
     width: 8em;
     height: 8em;
     overflow: hidden;
     margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .input-file{
-    background-color: #FAD41B;
+    font-size: 18px;
+        color: #615858;
+        margin-right: 1em;
+        font-weight: 800;
 }
 
 .Load-img{
@@ -59,6 +70,24 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 5px;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.select3 select{
+    width: 98.6%;
+}
+
+.input-addRaca, .select-raca{
+    width: 100%;
+
+        input {
+            width: 100%
+        }
+
+        label {
+            background: none;
+        }
 }
 
 .texta{
@@ -186,7 +215,7 @@ textarea{
     background: #0000002B;
     border: none;
     resize: none;
-    height: 9em;
+    height: 11em;
     width: 97%;
     margin-top: 5px;
 }
@@ -215,14 +244,7 @@ button.vltr{
     margin-bottom: 1em;
 }
 
-button.Loadimg{
-    border: none;
-    border-radius: 10px;
-    background-color: #FAD41B;
-    /* box-shadow: 5px 5px 10px black; */
-    height: 20px;
-    width: 12em;
-}
+
 
 label{
     background: #C4C4C4;
@@ -242,6 +264,44 @@ img.vlt{
 }
 
 @media (max-width: 600px){
+    .container{
+        height: 100vh;
+        width: 100vw;
+        padding-left: 1em;
+    }
+
+    .box{
+        height: 100vh;
+        width: 90vw;
+        padding-top: 1em;
+    }
+    .box-esq{
+        width: 40vw;
+        padding: 0em;
+    }
+    .box-dir{
+        height: 40vh;
+        width: 40vw;
+        padding: 0em;
+        margin-left: 5px;
+    }
+
+    .saudepet{
+        padding: 0cm;
+    }
+    .boxvacina{
+        padding: 1em;
+        margin: 5px;
+    }
+    input{
+        width: 0;
+    }
+    select{
+        width: 0;
+    }
+    button{
+
+    }
     
 }
 

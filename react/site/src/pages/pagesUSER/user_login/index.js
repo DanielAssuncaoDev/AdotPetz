@@ -11,6 +11,8 @@ import Cookie from 'js-cookie'
 import Api from '../../../service/api'
 const api = new Api()
 
+
+
 export default function LoginUsu() {
 
 const [ email, setEmail ] = useState('')
@@ -28,7 +30,7 @@ const nav = useHistory()
                 toast.error(user.erro)
             } else {
                 Cookie.set('User', JSON.stringify(user))
-                nav.push('/home')
+                nav.push('/')
             }
     }
 
@@ -62,6 +64,11 @@ return (
                 </div>
 
                 <div className="buton"><button onClick={ () => FazerLogin() } > ENTRAR </button> </div>
+
+         
+
+                <label className="EntrarAdm" onClick={() => nav.push('/admin/login')}> Entrar como administrador  </label>
+                
 
                 <div className="cachorro"> <img src="/assets/images/image 1 (1).svg" alt=""/> </div> 
             </div>

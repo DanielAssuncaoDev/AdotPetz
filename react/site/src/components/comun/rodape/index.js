@@ -60,7 +60,7 @@ const nav = useHistory()
         </div>
         <div className="conteudoB">
              <div className="voltar">
-                 <div className="info"> Voltar ao topo </div>
+                 
                  <img src="/assets/images/seta.png" alt="" />
                  </div>
 

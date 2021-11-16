@@ -4,9 +4,14 @@ import CabecalhoADM from '../../../components/comun/cabecalhoADM/index.js'
 
 import { useHistory } from 'react-router-dom'
 
+import Cookie from 'js-cookie';
+
     export default function HomeADM(){
 
         const nav = useHistory();
+
+        const CookieAdm = JSON.parse(Cookie.get('Adm'))
+        console.log(CookieAdm)
 
         return(
             <Container>
@@ -15,10 +20,15 @@ import { useHistory } from 'react-router-dom'
                     <div className="box1">
                             <div className="imgadm"> <img src='/assets/images/image50.svg' alt=''/> </div>
                         <div className="box1-pt2">
-                            <div className="itens"> Nome do ADM: </div>
-                            <div className="itens"> E-mail: </div>
-                            <div className="itens"> Telefone (celular): </div>
-                            <div className="botao"> <button> <img src='/assets/images/image51.svg' alt=''/> Sair </button></div>
+                            <div className="itens"> Nome do ADM: <label> {CookieAdm.NM_ADM} </label> </div>
+                            <div className="itens"> E-mail: <label> {CookieAdm.DS_EMAIL} </label></div>
+                            {/* <div className="itens"> Telefone (celular): </div> */}
+                            <div className="botao"> <button onClick={ () => {
+                                Cookie.remove('Adm') 
+                                nav.push('/admin/login')
+                                }
+                            }> 
+                                <img src='/assets/images/image51.svg' alt=''/> Sair </button></div>
                         </div>
                     </div>
                     <div className="box2">

@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 
 
 
@@ -31,11 +31,6 @@ export default function AnimaisCadastrados(){
             
     //     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     // })
-
-    async function editarPet (idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3) {
-        let r = api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3);
-
-    }
 
     async function listarAnimaisCadastrados() {
         let r = await api.listarAnimaisCadastrados();
@@ -114,7 +109,7 @@ export default function AnimaisCadastrados(){
                             { title: '' },
                             { title: '' },
                             { title: '' },
-                            { title: '' }
+                           
                         ]}>
 
                             {animals.map(item => 
@@ -127,7 +122,7 @@ export default function AnimaisCadastrados(){
                                 <Td> {item.DS_PORTE}  </Td>
                                 <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alert(item.initials)}> 
+                                    onClick={() => nav.push({pathname: '/pet', state: item})}> 
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}>
@@ -140,10 +135,8 @@ export default function AnimaisCadastrados(){
                                     onClick={() => remover(item.ID_PET)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
                                 </Td>
-                                <Td className="actions" 
-                                    onClick={() => alert(item.initials)}>
-                                    <img src="/assets/images/selo.svg" alt="" />
-                                </Td>
+                               
+                                
                             </Tr>
 
                         )}

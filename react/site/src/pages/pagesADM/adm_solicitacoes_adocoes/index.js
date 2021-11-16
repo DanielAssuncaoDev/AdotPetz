@@ -20,16 +20,16 @@ const api = new Api();
 
 
 export default function SolicitacaoAdocao(prosp) {
-    const [ordenacao, setOrdenacao] = useState('Cód');
+    const [ordenacao] = useState('Cód');
     const [solicitacoes, setSolicitacoes] = useState([]);
     // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
     const nav = useHistory();
 
      async function listar () {
-        const resp = await axios.get('http://localhost:3030/adocoes/admin/solicitacoes?ordenacao=' + ordenacao)
-        setSolicitacoes(resp.data)
-     }
+        const resp = await api.SolicitacoesAdocao()
+        setSolicitacoes(resp)
+    }
 
      async function alterarSituacao (solicitacaoAceita, IdAdocao) {
         //  let r = await api.alterarSituacao(idAdocao, solicitacaoAceita);
@@ -105,7 +105,7 @@ export default function SolicitacaoAdocao(prosp) {
 
      useEffect(() =>{
          listar();
-     }, [ordenacao])
+     })
     return(
         <Container>
             <ToastContainer/>
@@ -113,16 +113,7 @@ export default function SolicitacaoAdocao(prosp) {
            
             <FaixaCRUD>    
                 <Options />
-                <div className="ordenacao">
-                    <label> Filtrar Solicitações Por:</label> 
-                    <select value={ordenacao} onChange={e => setOrdenacao(e.target.value)}> 
-                        <option value="Cód"> Cód </option>
-                        <option value="Mais Recentes"> Mais Recentes </option>
-                        <option value="Mais Antigas"> Mais Antigas </option>
-                        <option value="De A a Z"> De A a Z </option>
-                        <option value="De Z a A"> De Z a A </option>
-                    </select>
-                </div>             
+                
 
                 <div className="conteudo">
                     <div className="TituloConteudo">
@@ -148,7 +139,7 @@ export default function SolicitacaoAdocao(prosp) {
                                 <Td> {item.NM_NOME_COMPLETO}  </Td>
                                 <Td> {item.infob_apn_tb_pet.NM_PET} </Td>
                                 <Td> {item.DS_TELEFONE}  </Td>
-                                <Td> {item.DT_SOLICITACAO} </Td>
+                                <Td>{new Date(item.DT_SOLICITACAO).toLocaleDateString('pt-BR')} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => alterarSituacao( true, item.IdAdocao  )}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />

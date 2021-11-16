@@ -1,7 +1,6 @@
 import {ContainerPopUpMenu} from './styled'
 import BoxMenu from './BoxMenu';
 
-import Cookie from 'js-cookie'
 
 export default function PopUpMenu(props){
 

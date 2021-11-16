@@ -21,13 +21,13 @@ export default function CabecalhoUSU(){
                 <div className="line-left">
 
                     <div className="box-logo">
-                        <img onClick={ () => nav.push('/home') }  src="/assets/images/logo.svg" alt="" />
+                        <img onClick={ () => nav.push('/') }  src="/assets/images/logo.svg" alt="" />
                     </div>
 
                     <div className="informacoes"> 
                         <span className="Cont-inf" onClick={ () => nav.push('/quemsomosnos') } > Sobre </span>
                         <span className="Cont-inf"  onClick={ () => nav.push('/sugestoesadocao') }> Adotar </span>
-                        <span className="Cont-inf"  onClick={ () => nav.push('/home') }> Doar </span>
+                        <span className="Cont-inf"  onClick={ () => nav.push('/') }> Doar </span>
                         <span className="Cont-inf"  onClick={ () => nav.push('/FAQ') }> FAQ </span>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ export default function CabecalhoUSU(){
                                             },
                                             {
                                                 NomeSub: "Doar",
-                                                pathname: 'home' 
+                                                pathname: '' 
                                             },
                                             {
                                                 NomeSub: "FAQ",
@@ -120,7 +120,7 @@ export default function CabecalhoUSU(){
                                 },
                                 {
                                     NomeSub: "Doar",
-                                    pathname: 'home' 
+                                    pathname: '' 
                                 },
                                 {
                                     NomeSub: "FAQ",

@@ -22,6 +22,10 @@ height: auto;
 min-height: 100vh;
 padding: 1em;
 
+.EntrarAdm:hover{
+  text-decoration: underline;
+  /* color: #FAF8EB; */
+}
 
 
 .title {
@@ -121,8 +125,12 @@ padding: 1em;
     left: -0.5%;
     bottom: -4px;
     width: 100.9%;
-    
   }
+  .adm:hover {
+  cursor: pointer;
+
+  }
+ 
       @media(max-width: 600px){
 
       /* .cachorro img {

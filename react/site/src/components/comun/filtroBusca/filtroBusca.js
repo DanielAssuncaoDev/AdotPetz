@@ -194,7 +194,7 @@ const nav = useHistory()
                 <div className="ButtonForm">
                     <Button onClick={ () => {
 
-                        if( location.pathname === "/home" ){
+                        if( location.pathname === "/" ){
                             nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }); 
 
                         } else if ( location.pathname === "/sugestoesadocao" ){

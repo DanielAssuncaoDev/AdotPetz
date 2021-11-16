@@ -3,8 +3,6 @@ import { BoxPet } from "../BoxPet/styled"
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import {api} from '../../../service/api'
-
 export default function BoxPETZ(props) {
 
   const [colorPorte, setColorPorte] = useState('')
@@ -21,14 +19,8 @@ export default function BoxPETZ(props) {
   }, [props])
 
   function getImage() {
-    //return props.Animal.IMG_PET1;
-  
-    if (!props.Animal.IMG_PET1)
-      return '/assets/images/imagemPET.jpg';
-    else if (props.Animal.IMG_PET1.includes('http'))
-      return props.Animal.IMG_PET1;
-    else 
-      return api.defaults.baseURL + '/pets/imagem?url=' + props.Animal.IMG_PET1;
+    return props.Animal.IMG_PET1;
+ 
   }
 
 
