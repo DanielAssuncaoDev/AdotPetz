@@ -28,6 +28,17 @@ import EnviarEmail from '../email.js'
         try {
             let {idUser, nomeCompleto, nascimento, rg, telefone, cep, endereco, cidade, numero, complemento, bairro} = req.body
 
+            let adocaoRepetida = await db.infob_apn_tb_adocao.findOne({
+                where: {
+                    ID_USER: idUser,
+                    ID_PET: req.params.idPet
+                }
+            })
+
+            if( !adocaoRepetida )
+                resp.send({erro: 'Animal já foi solicitado'})
+
+
             let r = await db.infob_apn_tb_adocao.create({
                 ID_PET:req.params.idPet,
                 ID_USER: idUser,
