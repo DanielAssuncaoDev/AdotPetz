@@ -1,10 +1,9 @@
-// import { confirmAlert } from 'react-confirm-alert'; // Import
-// import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 import Cabecalho from '../../../components/comun/cabecalhoUSU'
 import Rodape from '../../../components/comun/rodape'
 import { Container } from './styled';
 
+import { toast, ToastContainer } from 'react-toastify'
 import Mensagem from '../../../components/popups/MensagemForm/index'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
@@ -38,9 +37,148 @@ const nav = useHistory()
         nav.push('/login')
     }
 
+
+
+    // Validações Formulário
+
+        function CamposCompletos(){
+            let completos = true
+
+            if( 
+                nomeCompleto === '' || 
+                nascimento === '' || 
+                rg === '' ||
+                telefone === '' ||
+                cep === '' ||
+                numero === '' ||
+                cidade === '' ||
+                endereco === '' ||
+                bairro === '' ){
+                    toast.error('Todos os campos devem ser preenchidos')
+                    completos = false
+                }
+
+            return completos
+        }
+
+        function Maior18(){
+
+            let maior = true
+
+            let idade18 = new Date().setFullYear(
+                            new Date().getFullYear() - 18 
+                        )
+
+            idade18 = new Date( idade18 )
+            let idadeUser = new Date( nascimento )
+
+                if (idade18 < idadeUser ){
+                    maior = false
+                    toast.error('O candidato à adoção deve ser maior que 18 anos')
+                }  
+
+            return maior
+        }
+
+        function MascaraRG( e ){
+
+            let tamanho = rg.length
+            
+            let ultimaLetra = e[e.length - 1]
+            
+
+            if( isNaN(ultimaLetra) && tamanho < e.length)
+                return toast.error('Insira apenas números')
+
+            if( ( tamanho === 1 || tamanho === 5 ) && tamanho < e.length )
+                e = e + '.' 
+            
+            if (tamanho === 9 && tamanho < e.length )
+                e = e + '-'
+
+            if ( e.length > 12 )
+                return
+
+            setRg(e)
+        }
+
+        function MascaraTelefone( e ){
+
+            let tamanho = telefone.length
+
+            let ultimaLetra = e[e.length - 1]
+            
+
+            if( isNaN(ultimaLetra) && tamanho < e.length)
+                return toast.error('Insira apenas números')
+
+            if( tamanho === 0 && tamanho < e.length )
+                e = '(' + e 
+
+            if( tamanho === 2 && tamanho < e.length )
+                e = e + ') '
+
+            if ( tamanho === 8  && tamanho < e.length )
+                e = e + ' - '
+
+            if (  tamanho === 16 && tamanho < e.length ){
+                e = e.replace( ' - ', '' )
+                e = e.substring(0, 10) + ' - ' + e.substring( 10, e.length)
+
+            }
+
+            if (  tamanho === 17 && tamanho > e.length ){
+                e = e.replace( ' - ', '' )
+                e = e.substring(0, 9) + ' - ' + e.substring( 9, e.length)
+ 
+            }
+                
+            if ( e.length > 17 )
+                return
+
+            setTelefone(e)
+        }
+
+        function MascaraCEP( e ){
+
+            let tamanho = cep.length
+            
+            let ultimaLetra = e[e.length - 1]
+            
+
+            if( isNaN(ultimaLetra) && tamanho < e.length)
+                return toast.error('Insira apenas números')
+
+            if( tamanho === 4 && tamanho < e.length )
+                e = e + ' - '
+
+            if ( e.length > 11 )
+                return
+
+            setCep(e)
+
+        }
+
+
+//  Chama PopUp passando as informações da adoção
+
     function ChamarPopUp(){
+
+            if( CamposCompletos() === false )
+                return
+            
+            if( Maior18() === false )
+                return
+
+            if( rg.length < 12 )
+                return toast.error('RG inválido')
+
+            if( telefone.length < 16 )
+                return toast.error('Telefone inválido')
+
+
+
         let idUser = JSON.parse(Cookie.get('User')).ID_USER
-        console.log(idUser)
 
         let FormUser= {
             idUser,
@@ -51,7 +189,9 @@ const nav = useHistory()
             cep,
             numero, 
             complemento, 
-            bairro
+            bairro,
+            cidade,
+            endereco
         }
         setFormUser(FormUser)
         setPopUp(true)
@@ -62,6 +202,7 @@ const nav = useHistory()
     return( 
         <Container>
             <Cabecalho/>
+            <ToastContainer />
 
             {
                 popUp === true
@@ -94,25 +235,25 @@ const nav = useHistory()
                         </div>
                         <div className="InputsGroup"> 
                             <div className="Nascimento"> 
-                                <input type="text" placeholder="Nascimento"
+                                <input type="date" placeholder="Nascimento"
                                     value={nascimento} onChange={(e) => setNascimento(e.target.value)}
                                 /> 
                             </div>
                             <div className="rg">
                                 <input type="text" placeholder="RG"
-                                    value={rg} onChange={(e) => setRg(e.target.value)}
+                                    value={rg} onChange={(e) => MascaraRG(e.target.value)}
                                 />
                             </div>
                             <div className="telefone"> 
                                 <input type="text" placeholder="Telefone"
-                                    value={telefone} onChange={(e) => setTelefone(e.target.value)}  
+                                    value={telefone} onChange={(e) => MascaraTelefone(e.target.value)}  
                                 />
                             </div>
                         </div>
                         <div className="InputsGroup"> 
                             <div className="cep"> 
                                 <input type="text" placeholder="CEP"
-                                    value={cep} onChange={(e) => setCep(e.target.value)}
+                                    value={cep} onChange={(e) => MascaraCEP(e.target.value)}
                                 />
                             </div>
                             <div className="endereco">

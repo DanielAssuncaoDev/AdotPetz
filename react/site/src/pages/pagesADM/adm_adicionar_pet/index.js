@@ -133,6 +133,15 @@ const nav = useHistory();
 
     async function inserirPet() {
 
+        if( ( vacinaV10.value === true || vacinaV8.value === true ) && especie === 'Felina' ){
+            toast.error('As Vacinas não correspondem com a espécie do Animal')
+
+        } else if ( ( vacinaV5.value === true || vacinaV4.value === true || vacinaV3.value === true ) && especie === 'Canina'  ){
+            toast.error('As Vacinas não correspondem com a espécie do Animal')
+
+        }
+
+
         if( alterarPet !== undefined ){
             let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
                 castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
@@ -221,9 +230,19 @@ const nav = useHistory();
                 <div className="box">
                     <div className="box-esq">
                         <div className="inputs">
-                            <input className="input2" type="text" placeholder="Insira o Link da 1° Imagem" value={imgPet1} onChange={e => setImgPet1(e.target.value)} />
-                            <input className="input2" type="text" placeholder="Insira o Link da 2° Imagem" value={imgPet2} onChange={e => setImgPet2(e.target.value)} />
-                            <input className="input2" type="text" placeholder="Insira o Link da 3° Imagem" value={imgPet3} onChange={e => setImgPet3(e.target.value)} />
+                            <div>
+                                <img src={imgPet1} alt="" />
+                                <input className="input2" type="text" placeholder="Insira o Link da 1° Imagem" value={imgPet1} onChange={e => setImgPet1(e.target.value)} />
+                            </div>
+                            <div>
+                                <img src={imgPet2} alt="" />
+                                <input className="input2" type="text" placeholder="Insira o Link da 2° Imagem" value={imgPet2} onChange={e => setImgPet2(e.target.value)} />
+                            </div>
+                            <div>
+                                <img src={imgPet3} alt="" />
+                                <input className="input2" type="text" placeholder="Insira o Link da 3° Imagem" value={imgPet3} onChange={e => setImgPet3(e.target.value)} />
+                            </div>
+                            
                         </div>
                         <div className="inputs">
                             <input className="input1" type="text" placeholder="Digite o Nome do Pet" value={nome} onChange={e => setNome(e.target.value)} />

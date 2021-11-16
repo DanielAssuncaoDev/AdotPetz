@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const api = axios.create({
     baseURL: 'https://tcc-adotpetz.herokuapp.com'
+    // baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -66,18 +67,18 @@ export default class Api {
         return r.data;
         // {nomeCompleto, nascimento, rg, telefone, cep, endereco, numero, complemento, bairro}
     }
-    async ordenarSolicitacoes() {
-        let r = await api.get('/admin/solicitacoes/');
-        return r.data;
-    }
+    // async ordenarSolicitacoes() {
+    //     let r = await api.get('/admin/solicitacoes/');
+    //     return r.data;
+    // }
     
     async alterarSituacao (idAdocao, solicitacaoAceita) {
         let r = await api.put(`/adocoes/admin/solicitacoes/${idAdocao}`, { solicitacaoAceita });
         return r.data;
     }
 
-    async SolicitacoesAdocao(  ){
-        let r = await api.get('/adocoes/admin/solicitacoes')
+    async SolicitacoesAdocao( organizacao ){
+        let r = await api.post('/adocoes/admin/solicitacoes', organizacao  )
         return r.data
     }
     

@@ -10,13 +10,69 @@ export default function Filtros(props){
 
 
 
-    const AlterarOption = () => {
-    
-        let Select = document.getElementById("selectFiltro");
-        let OptionSelect = Select.options[Select.selectedIndex].outerText;
-        setNomeFiltro(OptionSelect.toString())
+    const AlterarOption = ( valor ) => {
+
+        if(valor === ''){
+            let filtro = {campo: '' , valor: ''}
+            props.filtro.setFiltro(filtro)
+        }
+
+        setNomeFiltro( valor )
         setFiltroSelecionado(true);    
 
+    }
+
+    function MascaraTelefone( e ){
+
+        let tamanho = props.filtro.filtro.valor.length
+
+        // let ultimaLetra = e[e.length - 1]
+        
+
+        // if( isNaN(ultimaLetra) && tamanho < e.length)
+        //     return toast.error('Insira apenas números')
+
+        if( tamanho === 0 && tamanho < e.length )
+            e = '(' + e 
+
+        if( tamanho === 2 && tamanho < e.length )
+            e = e + ') '
+
+        if ( tamanho === 8  && tamanho < e.length )
+            e = e + ' - '
+
+        if (  tamanho === 16 && tamanho < e.length ){
+            e = e.replace( ' - ', '' )
+            e = e.substring(0, 10) + ' - ' + e.substring( 10, e.length)
+
+        }
+
+        if (  tamanho === 17 && tamanho > e.length ){
+            e = e.replace( ' - ', '' )
+            e = e.substring(0, 9) + ' - ' + e.substring( 9, e.length)
+
+        }
+            
+        if ( e.length > 17 )
+            return
+
+        return(e)
+    }
+
+    function alterarValorFiltro(valor){
+
+        if( nomeFiltro === 'Telefone' )
+            valor = MascaraTelefone(valor)
+
+        let filtro =  null
+
+        if( valor === '' ){
+            filtro = {campo: '' , valor: ''}
+        } else {
+            filtro = {campo: nomeFiltro ,valor}
+        }
+        
+        props.filtro.setFiltro(filtro)
     }
 
 
@@ -25,22 +81,26 @@ export default function Filtros(props){
 
                         <div className="FiltrarPor">
                             <label> Filtrar Solicitações Por:</label>
-                            <select id="selectFiltro" onChange={AlterarOption}>
-                                <option> Selecione </option>        
+                            <select id="selectFiltro" onChange={(e) => {
+                                        AlterarOption(e.target.value)}
+                                    }>
+                                <option value="" > Selecione </option>        
                                 {props.listaOption.map(item =>   
-                                    <option> {item} </option>
+                                    <option value={item} > {item} </option>
                                 )}
                             </select>
                         </div>
                         {
                             filtroSelecionado === true    
                             ?  
-                              document.getElementById("selectFiltro").selectedIndex === 0
+                              nomeFiltro === ''
                                     ?
                                         ''
                                     :
                                         <div className="RegistroPFiltrar">
-                                            <input type="text" placeholder={`Onde${nomeFiltro}for:`} />                                
+                                            <input type="text" placeholder={`Onde ${nomeFiltro} for:`} 
+                                                value={props.filtro.filtro.valor} onChange={ (e) => alterarValorFiltro(e.target.value) }
+                                            />                                
                                         </div>
                             :
 

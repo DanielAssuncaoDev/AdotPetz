@@ -3,6 +3,7 @@ import express from 'express';
 import Crypto from 'crypto-js'
 import db from '../db.js'
 
+
     const app = express.Router()
 
 
@@ -23,11 +24,14 @@ import db from '../db.js'
                         return
                     }
 
+            console.log(senha)
+            let senhaCrypto = Crypto.SHA256(senha).toString(Crypto.enc.Base64)
+
             let r = await db.infob_apn_tb_user.create({
                     NM_USER: nome,
                     NM_SOBRENOME: sobrenome,
                     DS_EMAIL: email,
-                    DS_SENHA: Crypto.SHA256(senha).toString(Crypto.enc.Base64)
+                    DS_SENHA: senhaCrypto
             })
 
             resp.send(r)
@@ -65,6 +69,7 @@ import db from '../db.js'
             resp.send({erro: e.toString()})
         }
     })
+
 
 
 export default app

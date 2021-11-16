@@ -159,7 +159,7 @@ const nav = useHistory()
 
                                     <div className="DataSolicitacao">
                                         <label>Status da Solicitação</label>
-                                        <input value={Status} />
+                                        <input value={Status === false ? 'Em Análise' : 'Adoção Finalizada' } />
                                     </div>
                                 </div>
 

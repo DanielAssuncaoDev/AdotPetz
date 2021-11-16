@@ -21,7 +21,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     background-color: #DDDDDD;
-    height: 30em;
+    min-height: 30em;
     width: 80vw;
     padding: 2em;
     border-radius: 8px;
@@ -38,7 +38,7 @@ export const Container = styled.div`
     flex-direction: column;
     background: #FAD41BE5;
     width: 40vw;
-    height: 26.24em;
+    min-height: 26.24em;
     padding: 2em 2em 1.5em 2em;
 }
 
@@ -72,6 +72,20 @@ export const Container = styled.div`
     margin-bottom: 5px;
     width: 100%;
     margin-right: 10px;
+
+        div{
+            width: 32%;
+
+                img{
+                    height: 150px;
+                    width: 100%;
+                }
+
+                input{
+                    width: 100%;
+                }
+
+        }
 }
 
 .select3 select{

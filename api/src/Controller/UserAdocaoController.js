@@ -1,5 +1,6 @@
 import express from 'express'
 import db from '../db.js'
+import EnviarEmail from '../email.js'
 
     const app = express.Router()
 
@@ -70,52 +71,75 @@ import db from '../db.js'
     // Listar Solicitações de Adoção 
 
 
-    function getOrderCriterio(criterio) {
+    // function getOrderCriterio(criterio) {
 
-        switch (criterio) {
-            case 'Cód': return ['ID_ADOCAO', 'asc'];
-            case 'Mais Recentes': return ['DT_SOLICITACAO', 'desc'];
-            case 'Mais Antigas': return ['DT_SOLICITACAO', 'asc'];
-            case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
-            case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
+    //     switch (criterio) {
+    //         case 'Cód': return ['ID_ADOCAO', 'asc'];
+    //         case 'Mais Recentes': return ['DT_SOLICITACAO', 'desc'];
+    //         case 'Mais Antigas': return ['DT_SOLICITACAO', 'asc'];
+    //         case 'A a Z': return ['NM_NOME_COMPLETO', 'asc'];
+    //         case 'Z a A': return ['NM_NOME_COMPLETO', 'desc'];
 
-            default: return  ['ID_ADOCAO', 'asc'];
+    //         default: return  ['ID_ADOCAO', 'asc'];
+    //     }
+    // }
+
+    function filtrarAdocoes( filtro ){
+        switch (filtro.campo) {
+            case 'Nome': return {NM_NOME_COMPLETO: filtro.valor};
+            case 'Pet': return {NM_PET: filtro.valor};
+            case 'Telefone': return {DS_TELEFONE: filtro.valor};
+            case 'Data Solicitação': return {DT_SOLICITACAO: filtro.valor };
+
+            default: return  [];
         }
     }
 
 
-    app.get('/admin/solicitacoes', async(req, resp) => {
+    app.post('/admin/solicitacoes', async(req, resp) => {
         try {
-            let orderCriterio = getOrderCriterio(req.query.ordenacao)
-            let solicitacoes = await db.infob_apn_tb_adocao.findAll({
-                where: {
-                    BT_ADOCAO_CONCLUIDA: 0
-                }, 
-                include: ['infob_apn_tb_pet', 'infob_apn_tb_user'],
-                order: [
-                    [orderCriterio]
-                ]
 
-            })       
-            // solicitacoes = solicitacoes.map(item => {
-            //     return {
-            //         IdAdocao: item.ID_ADOCAO,
-            //         IdUser: item.ID_USER,
-            //         IdPet: item.ID_PET,
-            //         NomeUsu: item.NM_NOME_COMPLETO,
-            //         Nascimento: item.DT_NASCIMENTO,
-            //         RG: item.DS_RG,
-            //         Telefone: item.DS_TELEFONE,
-            //         CEP: item.DS_CEP,
-            //         Endereco: item.DS_ENDERECO,
-            //         Numero: item.DS_NUMERO,
-            //         complemento: item.DS_COMPLEMENTO,
-            //         Bairro: item.DS_BAIRRO,
-            //         DataSolicitacao: item.DT_SOLICITACAO,
-            //         AdocaoConcluida: item.BT_ADOCAO_CONCLUIDA,
-            //         DataAdocao: item.DT_ADOCAO
-            //     }
-            // })
+            let filtro = filtrarAdocoes(req.body)
+
+            let solicitacoes = null
+
+            console.log(filtro)
+        
+
+            if( req.body.campo === 'Pet' ){  
+                solicitacoes = await db.infob_apn_tb_adocao.findAll({
+                    where: {
+                        BT_ADOCAO_CONCLUIDA: 0
+                    }, 
+                    include: [
+                        {
+                            model: db.infob_apn_tb_pet,
+                            as: 'infob_apn_tb_pet',
+                            where: filtro
+                        }, 
+                        {    
+                            model: db.infob_apn_tb_user,
+                            as: 'infob_apn_tb_user'                        }
+                    ],
+                    order: [
+                        ['ID_ADOCAO', 'desc']
+                    ]
+
+                }) 
+            } else {
+
+                filtro['BT_ADOCAO_CONCLUIDA'] = false
+
+
+                solicitacoes = await db.infob_apn_tb_adocao.findAll({
+                    where: filtro, 
+                    include: ['infob_apn_tb_pet', 'infob_apn_tb_user'],
+                    order: [
+                        ['ID_ADOCAO', 'desc']
+                    ]
+
+                }) 
+            }
 
              resp.send(solicitacoes)
             
@@ -143,7 +167,7 @@ import db from '../db.js'
 
 
 
-    // Deletar solicitação de Adoção
+    // Confirmar ou Rejeitar Solicitação de Adoção
 
     app.put('/admin/solicitacoes/:idAdocao', async (req,resp) => {
         try {
@@ -152,9 +176,17 @@ import db from '../db.js'
             let adocao = await db.infob_apn_tb_adocao.findOne({
                 where: {
                     ID_ADOCAO: idAdocao
-                }
+                },
+                include: ['infob_apn_tb_pet', 'infob_apn_tb_user'],
             })
 
+
+            let Pet = adocao.infob_apn_tb_pet.dataValues
+
+            let User = adocao.infob_apn_tb_user.dataValues
+            let email = User.DS_EMAIL
+
+            // resp.send(adocao)
                 if(req.body.solicitacaoAceita == false){
 
                     let r = await db.infob_apn_tb_adocao.destroy({
@@ -162,6 +194,12 @@ import db from '../db.js'
                             ID_ADOCAO: idAdocao
                         }
                     })
+
+                    
+                    let assunto = `Solicitação de Adoção do(a) ${Pet.NM_PET}`
+                    let texto = 'Infelizmente sua solicitação de adoção foi recusada'
+
+                    EnviarEmail(email, assunto, texto, '')
 
                     return resp.sendStatus(200)
 
@@ -184,6 +222,13 @@ import db from '../db.js'
                             ID_PET: adocao.ID_PET
                         }
                     })
+
+
+                    let assunto = `Solicitação de Adoção do(a) ${Pet.NM_PET}`
+                    let texto = 'Solicitação de adoção foi Aceita, nossa equipe entrara em contato em breve.'
+
+                    EnviarEmail(email, assunto, texto, '')
+
 
                     return resp.sendStatus(200)
                 }

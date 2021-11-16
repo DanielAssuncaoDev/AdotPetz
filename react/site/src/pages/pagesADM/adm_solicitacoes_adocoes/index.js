@@ -2,8 +2,8 @@ import {Container, FaixaCRUD} from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
-import axios from 'axios'
 import { useEffect, useState } from 'react';
+import Filtro from '../../../components/comun/Filtro/index.js'
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
@@ -20,26 +20,31 @@ const api = new Api();
 
 
 export default function SolicitacaoAdocao(prosp) {
-    const [ordenacao] = useState('Cód');
+    // const [ordenacao] = useState('Cód');
+    const [filtro, setFiltro] = useState({campo: '', valor: ''})
     const [solicitacoes, setSolicitacoes] = useState([]);
     // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
     const nav = useHistory();
 
-     async function listar () {
-        const resp = await api.SolicitacoesAdocao()
+    async function listar() {
+        const resp = await api.SolicitacoesAdocao(filtro)
         setSolicitacoes(resp)
     }
 
+    useEffect( () => {
+
+        async function listar() {
+            const resp = await api.SolicitacoesAdocao(filtro)
+            setSolicitacoes(resp)
+        }
+     
+        listar()
+
+    }, [filtro] )
+
      async function alterarSituacao (solicitacaoAceita, IdAdocao) {
-        //  let r = await api.alterarSituacao(idAdocao, solicitacaoAceita);
-        //  setSolicitacoes(r)
-
-        //  if (solicitacaoAceita == true){
-        //     return toast.dark('Solicitação Aceita')
-        //  }
-        console.log(IdAdocao)
-
+        
         if (solicitacaoAceita === false)
         {
             confirmAlert ({
@@ -48,10 +53,11 @@ export default function SolicitacaoAdocao(prosp) {
                 buttons: [
                      {
                          label: 'Sim',
-                         onClick: async() => {
+                         onClick: async( ) => {
                              let r = await api.alterarSituacao( IdAdocao , false)
                              if(r.erro !== undefined){
-                                 toast.dark(r.erro)
+                                toast.dark(r.erro)
+                                console.log(IdAdocao)
                              }
                              else{
                                  toast.dark('Solicitação Excluída') 
@@ -103,9 +109,6 @@ export default function SolicitacaoAdocao(prosp) {
          
      }
 
-     useEffect(() =>{
-         listar();
-     })
     return(
         <Container>
             <ToastContainer/>
@@ -113,7 +116,9 @@ export default function SolicitacaoAdocao(prosp) {
            
             <FaixaCRUD>    
                 <Options />
-                
+                <Filtro listaOption={['Nome', 'Pet', 'Telefone', 'Data Solicitação']}
+                         filtro={{setFiltro, filtro}}
+                />
 
                 <div className="conteudo">
                     <div className="TituloConteudo">
@@ -141,11 +146,11 @@ export default function SolicitacaoAdocao(prosp) {
                                 <Td> {item.DS_TELEFONE}  </Td>
                                 <Td>{new Date(item.DT_SOLICITACAO).toLocaleDateString('pt-BR')} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alterarSituacao( true, item.IdAdocao  )}> 
+                                    onClick={() => alterarSituacao( true, item.ID_ADOCAO  )}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alterarSituacao( false, item.IdAdocao  )}>
+                                    onClick={() => alterarSituacao( false, item.ID_ADOCAO  )}>
                                     <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
