@@ -23,7 +23,7 @@ export default class infob_apn_tb_user extends Model {
       allowNull: true
     },
     DS_SENHA: {
-      type: DataTypes.STRING(32),
+      type: DataTypes.STRING(100),
       allowNull: true
     }
   }, {

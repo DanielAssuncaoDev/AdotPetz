@@ -147,7 +147,7 @@ height: 4.5em;
 }
 
  .meio-di{
-    padding-top: 4em;
+    /* padding-top: 4em; */
 
     text-align: center;
 } 
@@ -166,6 +166,10 @@ height: 4.5em;
     font-weight: 350;
 
     min-width: 5px;
+}
+
+.nenhuma-solici{
+    padding-top: 4em;
 }
 
 @media (max-width: 600px){
@@ -187,7 +191,7 @@ height: 4.5em;
          }
 
          .meio-di{
-            padding: 1em;
+            /* padding: 1em; */
 
          }
 }
@@ -200,37 +204,39 @@ height: 4.5em;
                 justify-content: center;
                 align-items: center;
 
-                margin-top: 1.5em;
 
                 text-align: center;
                 border-collapse: collapse;
 
             
                     thead{
-                        height: 3.2em;
                         color: white;
 
                             tr{
                                 background-color: #000;
+                                height: 2em;
 
-                                    /* th:nth-child(6){
-                                        background-color: #FAD41B;
-                                        width: 20%;
-                                    } */
+                                     th:nth-child(6){
+                                        background-color: #FAD41B;                                    } 
                             }
                     }
 
                      tbody{
                         height: 4em;
 
-                            tr{
+                            td{
                                 background-color: #f9f9f9;
+                              width: 9em;
+                              margin-top: -5;
                             }
-                    } 
+                    
+                        } 
+
 
                     th{
                         width: 9em;
                     }
+
 
                     td > button {
                     display: flex;

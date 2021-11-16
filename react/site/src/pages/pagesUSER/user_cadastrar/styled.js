@@ -50,7 +50,7 @@ height: auto;
   background-color: #8e8e8e33;
 
   width: 49%;
-  height: 4.8vh;
+  height: 3.1em;
   margin-bottom: 2vh;
   justify-content: space-between;
   padding-left: 10px;
@@ -71,7 +71,7 @@ height: auto;
 }
 
 .box-input{
-  height: 4.8vh;
+  height: 2.5em;
   margin-bottom: 2vh;
   width: 100%;
 }
@@ -84,7 +84,7 @@ height: auto;
 
   color: #ffffff;
   width: 100%;
-  height: 4.5vh;
+  height: 3em;
 }
 .buton {
   width: 84%;
@@ -138,5 +138,10 @@ height: auto;
 
     }
 }
+
+.login:hover {
+  cursor: pointer;
+
+  }
 
 `

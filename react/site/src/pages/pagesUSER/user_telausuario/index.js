@@ -50,7 +50,7 @@ if( Cookie.get('User') === undefined )
         },
         {
             label: 'Não',
-            onClick: () => toast.dark('Caonfgod')
+            onClick: () => toast.dark('Seu processo de adoção, continua em andamento!!')
         }
     ]
 });
@@ -83,7 +83,7 @@ const cookieUser = JSON.parse(Cookie.get('User'))
               <div className='imagemBA'> 
                 <img onClick={ () => {
                           Cookie.remove('User') 
-                          nav.push('/home')
+                          nav.push('/')
                         }
                       }
                         src='/assets/images/image 80.svg' alt='' 
@@ -99,7 +99,7 @@ const cookieUser = JSON.parse(Cookie.get('User'))
             <div className='inforoda'> Quero fazer uma adoção </div>
             <div className='voltaroda'>
                 <img src='/assets/images/image 83.svg' alt='' />
-                <div onClick={() => nav.push('/home')}  
+                <div onClick={() => nav.push('/')}  
                       className='voltar'> 
                     Voltar para a página inicial
                 </div>

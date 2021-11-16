@@ -3,6 +3,7 @@ import Imgfundo from "../../../assets/images/imagem-faq.svg"
 
 export const Container = styled.div`
 .titulo {
+  
     text-align: center;
     padding: 10px;
     

@@ -54,11 +54,11 @@ const nav = useHistory()
 
 
             if( senha.length < 6 ){
-                toast.error('A senha deve ter mais que seis carecteres')
+                toast.error('A senha deve ter mais que cinco carecteres')
                 return
             }
             if( !numbers ){
-                toast.error('a senha deve ser no mínimo 2 números')
+                toast.error('A senha deve ser no mínimo 2 números')
                 return
             }
 
@@ -68,7 +68,7 @@ const nav = useHistory()
             toast.error(usu.erro)
         } else {
             Cookie.set('User', JSON.stringify(usu) )
-            nav.push('/home')
+            nav.push('/')
         }
 
     }
@@ -121,7 +121,8 @@ const nav = useHistory()
 
                     <div className="box">
                         <div className="conta"> Já tem uma conta?  </div>
-                        <div className="login"> Login </div>
+                            <div onClick={ () => nav.push('/login') } className="login">Login </div>
+
                     </div>
 
                 <div className="cachorro"> <img src="../assets/images/image 1 (2).svg" alt=""/> </div> 

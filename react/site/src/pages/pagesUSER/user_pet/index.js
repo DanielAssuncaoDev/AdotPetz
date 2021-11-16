@@ -14,11 +14,11 @@ const api = new Api()
 
 export default function InfoPetz(props) {
   const [pets, setPets] = useState([])
-  const [filtroPets, setFiltroPets] = useState(props.location.state)
+  const [filtroPets] = useState(props.location.state)
 
 
-  const [pagsOffSet, setPagsOffSet] = useState(0)
-  const [pagsLimit, setPagsLimit] = useState(3)
+  const [pagsOffSet] = useState(0)
+  const [pagsLimit] = useState(3)
 
   useEffect( () => {
     console.log("Caiu Effect")
@@ -40,7 +40,7 @@ export default function InfoPetz(props) {
       }
 
   listarPets()
-  }, [filtroPets])
+  }, [filtroPets, pagsLimit, pagsOffSet])
 
     return (
         <Container>
@@ -54,7 +54,6 @@ export default function InfoPetz(props) {
                     )} 
                    
                 </div>
-                <div class="refresh"> <button> Carregar mais </button> </div>
             </div>      
             <PorqueAdotar/>
             <Rodape/>

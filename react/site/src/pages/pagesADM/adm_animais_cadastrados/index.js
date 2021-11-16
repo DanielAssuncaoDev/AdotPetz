@@ -4,22 +4,33 @@ import { Container } from './styled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { useEffect, useState } from 'react';
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
-import { useHistory } from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
+
+
 
 import Api from '../../../service/api';
-import { set } from 'js-cookie';
+// import { set } from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
 
+
+
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
+
+    // /useEffect(()=> {
+    //     if ( props.local.state !== undefined){
+    //         let pet = props.location.state
+
+            
+    //     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    // })
 
     async function listarAnimaisCadastrados() {
         let r = await api.listarAnimaisCadastrados();
@@ -65,52 +76,9 @@ export default function AnimaisCadastrados(){
     }, [])
 
 
-    const nav = useHistory ();
+    const nav = useHistory();
 
-    // useEffect(() => {
-    //     // setAnimals([
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' },
-    //     //     { ra: 1, petName: 'Panda', specie: 'Cachorro', sexo: 'Macho', porte: "M", registrationDate: '2021-05-05' }
-    //     // ])
-
-
-    // }, [])
-
-
-    // comentei e sai correndo, pal no cu de qm ta lendo /////////////////// eu sou doido
-
-    // function toRow() {
-    //     return animals.map(item => {
-    //         return [
-    //             { value: item.ra },
-    //             { value: item.petName },
-    //             { value: item.specie },
-    //             { value: item.sexo }, 
-    //             { value: item.porte },
-    //             { value: item.registrationDate },    
-    //             { value: "/assets/images/visu.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value)  },
-    //             { value: "/assets/images/editt.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
-    //             { value: "/assets/images/deletee.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) },
-    //             { value: "/assets/images/selo.svg", visibility: 'hidden', width: '1em', onClick: (x) => alert(x[0].value) }
-    //         ]
-    //     })
-    // }
-   
-    return(
+   return(
         <Container>
             <ToastContainer/>
             <Cabecalho />
@@ -141,7 +109,7 @@ export default function AnimaisCadastrados(){
                             { title: '' },
                             { title: '' },
                             { title: '' },
-                            { title: '' }
+                           
                         ]}>
 
                             {animals.map(item => 
@@ -154,21 +122,21 @@ export default function AnimaisCadastrados(){
                                 <Td> {item.DS_PORTE}  </Td>
                                 <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alert(item.initials)}> 
+                                    onClick={() => nav.push({pathname: '/pet', state: item})}> 
                                     <img src="/assets/images/visu.svg" alt="" width="20" />
                                 </Td> 
-                                <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alert(item.initials)}>
-                                    <img src="/assets/images/editt.svg" alt="" width="25" />
+                                <Td className="actions" config={{ visibility: 'hidden'}}>
+                                    <img src="/assets/images/editt.svg" alt="" width="25" 
+                                     onClick={ () => nav.push({pathname: '/admin/addpet', state: item}) }
+                                    />
+
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => remover(item.ID_PET)}>
                                 <img src="/assets/images/deletee.svg" alt="" width="20"/> 
                                 </Td>
-                                <Td className="actions" 
-                                    onClick={() => alert(item.initials)}>
-                                    <img src="/assets/images/selo.svg" alt="" />
-                                </Td>
+                               
+                                
                             </Tr>
 
                         )}

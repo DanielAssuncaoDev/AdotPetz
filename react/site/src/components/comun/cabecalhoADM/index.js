@@ -5,12 +5,19 @@ import {Container,
 
 import Menu from '../Menu/index'
 
-
-import { useHistory } from 'react-router-dom'
+import Cookie from 'js-cookie'
+import { useHistory, useLocation } from 'react-router-dom'
 
 export default function CabecalhoADM(){
 
 const nav = useHistory()
+const loc = useLocation()
+
+console.log(loc.pathname)
+
+if(Cookie.get('Adm') === undefined && loc.pathname !== '/admin/login' ){
+    nav.push('/admin/login')
+}
 
     return(
         <Container>            

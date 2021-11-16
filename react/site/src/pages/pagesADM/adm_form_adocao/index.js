@@ -5,8 +5,30 @@ import {Container,
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
+import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
-export default function FormAdocaoADM(){
+
+
+export default function FormAdocaoADM(props){
+    const [Formadocao] = useState(props.location.state);
+    const [Nomeuser] = useState(Formadocao.NM_NOME_COMPLETO);
+    const [Nascimento] = useState(Formadocao.DT_NASCIMENTO);
+    const [Rg] = useState(Formadocao.DS_RG);
+    const [Telefone] = useState(Formadocao.DS_TELEFONE);
+    const [Cep] = useState(Formadocao.DS_CEP);
+    const [Endereco] = useState(Formadocao.DS_ENDERECO);
+    const [NumeroEN] = useState(Formadocao.DS_NUMERO);
+    const [Complemento] = useState(Formadocao.DS_COMPLEMENTO);
+    const [Cidade] = useState(Formadocao.DS_CIDADE);
+    const [Bairro] = useState(Formadocao.DS_BAIRRO);
+    const [DataSoli] = useState(Formadocao.DT_SOLICITACAO);
+    const [Status] = useState(Formadocao.BT_ADOCAO_CONCLUIDA);
+    const [NomePET] = useState(Formadocao.infob_apn_tb_pet.NM_PET);
+    const [Especie] = useState(Formadocao.infob_apn_tb_pet.DS_ESPECIE);
+    const [Imagem] = useState(Formadocao.infob_apn_tb_pet.IMG_PET1);
+
+const nav = useHistory()
 
     return(
         <Container>
@@ -31,56 +53,56 @@ export default function FormAdocaoADM(){
                                 <div className="Row1">
                                     <div className="NomeUse">
                                         <label>Nome Usuário:</label>
-                                        <input />
+                                         <input readonly value={Nomeuser} />
                                     </div>
 
                                     <div className="dtNascimento">
                                         <label>Nascimento:</label>
-                                        <input />
+                                        <input readonly value={Nascimento} />
                                     </div>
 
                                     <div className="RgUser">
                                         <label> RG: </label>
-                                        <input />
+                                        <input readonly value={Rg}/>
                                     </div>
                                 </div>
 
                                 <div className="Row2">
                                     <div className="TelUser">
                                         <label> Telefone: </label>
-                                        <input />
+                                        <input readonly  value={Telefone}/>
                                     </div>
 
                                     <div className="CEPUser">
                                         <label>CEP:</label>
-                                        <input />
+                                        <input readonly value={Cep}/>
                                     </div>
 
                                     <div className="EnderecoUser">
                                         <label> Endereço: </label>
-                                        <input />
+                                        <input readonly value={Endereco}/>
                                     </div>
 
                                     <div className="NumeroUser">
                                         <label> N&deg; : </label>
-                                        <input />
+                                        <input readonly value={NumeroEN} />
                                     </div>
                                 </div>
 
                                 <div className="Row3">
                                     <div className="ComplementoUser">
                                         <label> Complemento: </label>
-                                        <input />
+                                        <input readonly value={Complemento} />
                                     </div>
 
                                     <div className="CidadeUser">
                                         <label> Cidade: </label>
-                                        <input />
+                                        <input readonly value={Cidade}/>
                                     </div>
 
                                     <div className="BairroUser">
                                         <label> Bairro: </label>
-                                        <input />
+                                        <input readonly value={Bairro}/>
                                     </div>
                                 </div>
 
@@ -98,22 +120,25 @@ export default function FormAdocaoADM(){
 
                                 <div className="ContPet">
                                     <div className="ImgPet">
-                                        <img src="/assets/images/imgPet-FormADM.svg" alt="" />
+                                        <img src={Imagem} alt="" style={{width: '10em', height: '10em'}}  />
+
                                     </div>
 
                                     <div className="FormPet" >
                                         <div className="NomePet">
                                             <label> Nome: </label>
-                                            <input />
+                                            <input readonly value={NomePET}/>
                                         </div>
 
                                         <div className="Especie">
                                             <label> Espécie: </label>
-                                            <input />
+                                            <input readonly value={Especie}/>
                                         </div>
 
                                         <div className="ButtonPet">
-                                            <button> Ver mais Informações do pet </button>
+                                            <button
+                                                onClick={() => nav.push({pathname: '/pet', state: Formadocao.infob_apn_tb_pet })}
+                                            > Ver mais Informações do pet </button>
                                         </div>
                                     </div>
                                 </div>
@@ -130,12 +155,12 @@ export default function FormAdocaoADM(){
                                 <div className="FormSolicitacao">
                                     <div className="DataSolicitacao">
                                         <label>Data da Solicitação</label>
-                                        <input />
+                                        <input value={DataSoli} />
                                     </div>
 
                                     <div className="DataSolicitacao">
                                         <label>Status da Solicitação</label>
-                                        <input />
+                                        <input value={Status === false ? 'Em Análise' : 'Adoção Finalizada' } />
                                     </div>
                                 </div>
 

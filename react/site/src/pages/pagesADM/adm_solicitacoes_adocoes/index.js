@@ -2,52 +2,123 @@ import {Container, FaixaCRUD} from './styled'
 
 import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
-import Filtros from '../../../components/comun/Filtro/index'
-
 import { useEffect, useState } from 'react';
+import Filtro from '../../../components/comun/Filtro/index.js'
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+
+import { confirmAlert } from 'react-confirm-alert';
+
+import { useHistory } from 'react-router';
+
+import Api from '../../../service/api';
+const api = new Api();
 
 // import { useHistory } from 'react-router-dom'
 
 
-export default function SolicitacaoAdocao() {
-
+export default function SolicitacaoAdocao(prosp) {
+    // const [ordenacao] = useState('Cód');
+    const [filtro, setFiltro] = useState({campo: '', valor: ''})
     const [solicitacoes, setSolicitacoes] = useState([]);
+    // const [solicitacaoAceita, setSolicitacaoAceita] = useState('');
 
-    // const nav = useHistory ();
+    const nav = useHistory();
 
-     useEffect(() => {
-          setSolicitacoes([
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },{ cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-            { cod: 1, usuName:'Letícia Queiroz Moreira', petName: 'Panda', telefone: '(11) 95474-5064', dtSolicitacao: '2021-05-05' },
-         ])
-     }, [])
+    async function listar() {
+        const resp = await api.SolicitacoesAdocao(filtro)
+        setSolicitacoes(resp)
+    }
+
+    useEffect( () => {
+
+        async function listar() {
+            const resp = await api.SolicitacoesAdocao(filtro)
+            setSolicitacoes(resp)
+        }
+     
+        listar()
+
+    }, [filtro] )
+
+     async function alterarSituacao (solicitacaoAceita, IdAdocao) {
+        
+        if (solicitacaoAceita === false)
+        {
+            confirmAlert ({
+                title: 'Excluir Solicitação',
+                message: 'Tem certeza que deseja excluir a solicitação?',
+                buttons: [
+                     {
+                         label: 'Sim',
+                         onClick: async( ) => {
+                             let r = await api.alterarSituacao( IdAdocao , false)
+                             if(r.erro !== undefined){
+                                toast.dark(r.erro)
+                                console.log(IdAdocao)
+                             }
+                             else{
+                                 toast.dark('Solicitação Excluída') 
+                                 listar();    
+                             }
+             
+                         }
+                     },
+                     {
+                         label: 'Não'
+                     }
+     
+                ]
+            })
+
+            
+
+        } else if ( solicitacaoAceita === true ){
+            confirmAlert ({
+                title: 'Aceitar Solicitação',
+                message: 'Tem certeza que deseja Aceitar a solicitação?',
+                buttons: [
+                     {
+                         label: 'Sim',
+                         onClick: async() => {
+                             let r = await api.alterarSituacao( IdAdocao , true)
+                             console.log(r)
+                             if(r.erro !== undefined){
+                                 toast.dark(r.erro)
+                             }
+                             else{
+                                 toast.dark('Solicitação Aceita') 
+                                 listar();
+                             }
+             
+                            
+                         }
+                     },
+                     {
+                         label: 'Não'
+                     }
+     
+                ]
+            })
+
+            
+
+        }
+         
+     }
 
     return(
         <Container>
+            <ToastContainer/>
             <CabecalhoADM />
            
             <FaixaCRUD>    
                 <Options />
-
-                <Filtros listaOption={["Cód", "Nome Usuário", "Nome Pet", "Telefone", "Data Solicitação" ]} />                
+                <Filtro listaOption={['Nome', 'Pet', 'Telefone', 'Data Solicitação']}
+                         filtro={{setFiltro, filtro}}
+                />
 
                 <div className="conteudo">
                     <div className="TituloConteudo">
@@ -69,22 +140,22 @@ export default function SolicitacaoAdocao() {
                    
                         {solicitacoes.map(item => 
                             <Tr>
-                                <Td className="ra"> {item.cod} </Td>
-                                <Td> {item.usuName}  </Td>
-                                <Td> {item.petName} </Td>
-                                <Td> {item.telefone}  </Td>
-                                <Td> {item.dtSolicitacao} </Td>
+                                <Td className="ra"> {item.ID_ADOCAO} </Td>
+                                <Td> {item.NM_NOME_COMPLETO}  </Td>
+                                <Td> {item.infob_apn_tb_pet.NM_PET} </Td>
+                                <Td> {item.DS_TELEFONE}  </Td>
+                                <Td>{new Date(item.DT_SOLICITACAO).toLocaleDateString('pt-BR')} </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => toast(item.initials)}> 
+                                    onClick={() => alterarSituacao( true, item.ID_ADOCAO  )}> 
                                     <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
                                 </Td> 
                                 <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => toast(item.initials)}>
+                                    onClick={() => alterarSituacao( false, item.ID_ADOCAO  )}>
                                     <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
                                 </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
                                     onClick={() => toast(item.initials)}>
-                                        <button className="actions"> Verificar Formulário </button>
+                                        <button className="actions" onClick={() => nav.push({pathname: '/admin/formadocao', state: item })} > Verificar Formulário </button>
                                 </Td>
                             </Tr>    
                         )}

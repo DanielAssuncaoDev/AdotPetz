@@ -14,11 +14,13 @@ export default function initModels(sequelize) {
   infob_apn_tb_pet.hasMany(infob_apn_tb_adocao, { as: "infob_apn_tb_adocao", foreignKey: "id_pet"});
   infob_apn_tb_adocao.belongsTo(infob_apn_tb_pet, { as: "infob_apn_tb_pet", foreignKey: "id_pet"});
 
+  infob_apn_tb_user.hasMany(infob_apn_tb_adocao, { as: "infob_apn_tb_adocao", foreignKey: "id_user"});
+  infob_apn_tb_adocao.belongsTo(infob_apn_tb_user, { as: "infob_apn_tb_user", foreignKey: "id_user"});
+
   return {
-    
     infob_apn_tb_adm,
     infob_apn_tb_adocao,
     infob_apn_tb_pet,
-    infob_apn_tb_user,
+    infob_apn_tb_user
   };
 }

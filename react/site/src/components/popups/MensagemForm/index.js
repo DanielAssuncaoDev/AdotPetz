@@ -1,8 +1,30 @@
 import {ContainerPopUp} from './styled'
-import {Link} from 'react-router-dom' 
+import { useHistory } from 'react-router-dom' 
+
+import { useState } from 'react'
+
+import Api from '../../../service/api.js'
+const api = new Api()
 
 export default function PopUpMensagemForm(props){
 
+const [formUser] = useState(props.Form)
+const [Pet] = useState(props.Pet)
+
+const nav = useHistory()
+
+    const SolicitarAdocao = async () => {
+        let idPet = Pet.ID_PET
+
+        let adocao = await api.adotarPet(idPet, formUser )
+
+            if(adocao.erro !== undefined){
+                alert(adocao.erro)
+            } else {
+                nav.push('/minhaconta')
+            }
+
+    }
 
     return(
         <ContainerPopUp>
@@ -18,9 +40,7 @@ export default function PopUpMensagemForm(props){
 
                 <div className="ContainerButtons">
                     <button onClick={() => props.setPopUp(false) } > Cancelar </button>
-                    <Link to="/minhaconta">
-                        <button onClick={() => props.setPopUp(false) } > Ok </button>
-                    </Link>
+                    <button onClick={() => SolicitarAdocao() } > Ok </button>
                 </div>
 
             </div>

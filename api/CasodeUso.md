@@ -71,7 +71,7 @@ Caso de uso ADM
  **DESCRIÇÃO:** Essa funcionalide permite que o ADM altere as informações de cadastro do animal.
 
  **REGRAS:** 
- * O ADM deve ser encaminhado para a página de **Cadastro do Animal**, porém com as respectivas infomações do animal. 
+ * O ADM deve ser encaminhado para a página de **Cadastrar Animal**, porém com as respectivas infomações do animal. 
 * O cadastro do animal deverá ter no máximo três fotos do mesmo.
 *  Nenhum campo pode deixar de ser preenchido.
 * As vacinas devem estar de acordo com a espécie. 
