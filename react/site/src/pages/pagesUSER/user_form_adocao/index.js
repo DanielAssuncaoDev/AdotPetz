@@ -187,6 +187,7 @@ const nav = useHistory()
             rg,
             telefone,
             cep,
+            endereco,
             numero, 
             complemento, 
             bairro,

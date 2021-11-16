@@ -121,6 +121,7 @@ const nav = useHistory()
                                 <div className="ContPet">
                                     <div className="ImgPet">
                                         <img src={Imagem} alt="" style={{width: '10em', height: '10em'}}  />
+
                                     </div>
 
                                     <div className="FormPet" >
