@@ -91,7 +91,7 @@ import EnviarEmail from '../email.js'
             case 'Telefone': return {DS_TELEFONE: filtro.valor};
             case 'Data Solicitação': return {DT_SOLICITACAO: filtro.valor };
 
-            default: return  [];
+            default: return  {};
         }
     }
 
@@ -109,7 +109,7 @@ import EnviarEmail from '../email.js'
             if( req.body.campo === 'Pet' ){  
                 solicitacoes = await db.infob_apn_tb_adocao.findAll({
                     where: {
-                        BT_ADOCAO_CONCLUIDA: 0
+                        BT_ADOCAO_CONCLUIDA: false
                     }, 
                     include: [
                         {
@@ -130,6 +130,7 @@ import EnviarEmail from '../email.js'
 
                 filtro['BT_ADOCAO_CONCLUIDA'] = false
 
+                console.log(filtro)
 
                 solicitacoes = await db.infob_apn_tb_adocao.findAll({
                     where: filtro, 
