@@ -83,7 +83,7 @@ export default function Addpet(){
             return toast.error('❌ Data inválida');
         } if(porte === ('')){
             return toast.error('❌ Porte inválido');
-        } if(descricao > 250 === false){
+        } if(descricao > 250){
             return toast.error('❌ Números de caracteres atingido')
         // } if(imgPet1 === ('')){
         //     return toast.error('❌ Imagem inválida');
