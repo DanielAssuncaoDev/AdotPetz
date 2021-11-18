@@ -144,4 +144,28 @@ height: auto;
 
   }
 
+  @media(max-width: 600px){
+    padding:2em;
+    width: 100%;
+    .title, .inpe input, .Form { 
+      width: 100%;
+    }
+
+    .inpe{
+      flex-direction: column;
+    }
+  
+    .box{
+      text-align: center;
+    }
+    .conta{
+      padding: 1em 0em .5em;
+    }
+    .login{
+      padding: 0em;
+    }
+  }
 `
+
+
+
