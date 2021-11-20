@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: 'https://tcc-adotpetz.herokuapp.com'
-    // baseURL: 'http://localhost:3030'
+    // baseURL: 'https://tcc-adotpetz.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -42,8 +42,8 @@ export default class Api {
         return r.data;
     }
 
-    async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3){
-        let r = await api.post('pets/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8, vacinaAntirrabica, vacinaV5, vacinaV4, vacinaV3})
+    async adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8,  vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica){
+        let r = await api.post('pets/admin/addpet', {nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, castrado, vacinaV10, vacinaV8,  vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica})
         return r.data;
     }
 

@@ -19,6 +19,83 @@ const nav = useHistory();
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
+
+    // const [imgPet1, setImgPet1] = useState(null)
+    // const [imgPet2, setImgPet2] = useState('')
+    // const [imgPet3, setImgpet3] = useState('')
+    // const [castrado, setCastrado] = useState('')
+    // const [vacinaV10, setVacinaV10] = useState('')
+    // const [vacinaV8, setVacinaV8] = useState('')
+    // const [vacinaV5, setVacinaV5] = useState('')
+    // const [vacinaV4, setVacinaV4] = useState('')
+    // const [vacinaV3, setVacinaV3] = useState('')
+    // const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
+
+// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
+
+    // async function adicionarPets() {
+    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
+    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
+    //         if(r.erro !== undefined){
+    //             alert(r.erro)
+    //             return
+    //         } else {
+    //             alert('Pet cadastrado')
+    //         }
+    //  } 
+
+    //  async function inserirPet() {
+    //     let formData = new FormData();
+    //         formData.append('nome', nome);
+    //         formData.append('especie', especie);
+    //         formData.append('raca', raca);
+    //         formData.append('sexo', sexo);
+    //         formData.append('peso', peso);
+    //         formData.append('nascimento', nascimento);
+    //         formData.append('porte', porte);
+    //         formData.append('descricao', descricao);
+    //         formData.append('imgPet1', imgPet1);
+    //         // formData.append('imgPet2', imgPet2);
+    //         // formData.append('imgPet3', imgPet3);
+    //         // formData.append('castrado', castrado);
+    //         // formData.append('vacinaV10', vacinaV10);
+    //         // formData.append('vacinaV8', vacinaV8);
+    //         // formData.append('vacinaV5', vacinaV5);
+    //         // formData.append('vacinaV4', vacinaV4);
+    //         // formData.append('vacinaV3', vacinaV3);
+    //         // formData.append('vacinaAntirrabica', vacinaAntirrabica);
+    //     //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
+    //     //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
+    //     // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
+    //     //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
+    //     // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
+    //     //     return toast.error('Preencha os campos vazios')
+    //     if(nome === ('')){
+    //         return toast.error('❌ Nome inválido');
+    //     } if(especie === ('')){
+    //         return toast.error('❌ Espécie inválida');
+    //     } if(raca === ('')){
+    //         return toast.error('❌ Raça inválida');
+    //     } if(sexo === ('')){
+    //         return toast.error('❌ Sexo inválido');
+    //     } if(peso === ('')){
+    //         return toast.error('❌ Peso inválido');
+    //     } if(nascimento === ('')){
+    //         return toast.error('❌ Data inválida');
+    //     } if(porte === ('')){
+    //         return toast.error('❌ Porte inválido');
+    //     } if(descricao > 250){
+    //         return toast.error('❌ Números de caracteres atingido')
+    //     // } if(imgPet1 === ('')){
+    //     //     return toast.error('❌ Imagem inválida');
+    //     // } if(imgPet2 === ('')){
+    //     //     return toast.error('❌ Imagem inválido');
+    //     // } if(imgPet3 === ('')){
+    //     //     return toast.error('❌ Imagem inválido');
+    //     } else {
+    //         return toast.dark('Pet cadastrado')
+    //     }
+
     const [imgPet1, setImgPet1] = useState('')
     const [imgPet2, setImgPet2] = useState('')
     const [imgPet3, setImgPet3] = useState('')
@@ -57,12 +134,14 @@ const nav = useHistory();
         return data;
     };
 
+
     useEffect(( ) => {
 
         const alterarpoint = () => {
             let r = peso.replace(",", ".");
             console.log(r)
             setPeso(r);
+
         }
 
         alterarpoint()
@@ -79,11 +158,13 @@ const nav = useHistory();
     }, [] )
 
 
+
+
     useEffect( ()=> {
 
-        const PassarValoresAletar = () => {
+        const PassarValoresAlterar = () => {
             if ( props.location.state !== undefined ){
-                let pet =  props.location.state
+                let pet = props.location.state
     
                 let dataFormat = setInputDate(pet.DT_NASCIMENTO)
                 // console.log(pet.DT_NASCIMENTO)
@@ -98,6 +179,8 @@ const nav = useHistory();
                 setPorte(pet.DS_PORTE)
                 setDescricao(pet.DS_DESC)
                 setImgPet1(pet.IMG_PET1)
+                setImgPet2(pet.IMG_PET2)
+                setImgPet3(pet.IMG_PET3)
                 setCastrado({ name: "Castrado", value: pet.BT_CASTRADO})
                 setVacinaV10({ name: "vacinaV10", value: pet.BT_VACINA_V10})
                 setVacinaV8({ name: "vacinaV8", value: pet.BT_VACINA_V8})
@@ -108,10 +191,13 @@ const nav = useHistory();
             }
         } 
 
-        PassarValoresAletar()
+        PassarValoresAlterar()
         
-    }, [props] )
+    }, [alterarPet] )
 
+
+
+    // Verifica quais vacinas são verdadeiras e inicia os respectivos checkbox como checked 
 
     useEffect( () => {
         const IniciarChecked = () => {
@@ -131,28 +217,19 @@ const nav = useHistory();
 
     }, [vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica, castrado])
 
+
+
+    // Faz um insert ou um update na tabela PET com as informações passadas pelo usuário
+
     async function inserirPet() {
 
         if( ( vacinaV10.value === true || vacinaV8.value === true ) && especie === 'Felina' ){
             toast.error('As Vacinas não correspondem com a espécie do Animal')
-
+            return
         } else if ( ( vacinaV5.value === true || vacinaV4.value === true || vacinaV3.value === true ) && especie === 'Canina'  ){
             toast.error('As Vacinas não correspondem com a espécie do Animal')
-
+            return
         }
-
-
-        if( alterarPet !== undefined ){
-            let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-                castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
-
-                if( alterar.erro !== undefined ){
-                    toast.dark(alterar.erro)
-                } else {
-                    toast.dark('Pet Alterado com Sucesso!')
-                    nav.push('/admin/animaiscadastrados')
-                }
-    } else{
     
         if (nome === ('')) {
             return toast.error('Nome inválido');
@@ -170,32 +247,47 @@ const nav = useHistory();
             return toast.error('Porte inválido');
         } if (descricao.length > 250) {
             return toast.error('Números de caracteres atingido')
-        }if (imgPet1 === ('')){
-            return toast.error('Imagem inválida'); 
-        }if (imgPet2 === ('')){
-            return toast.error('Imagem inválida');
-        }if (imgPet3 === ('')){
-            return toast.error('Imagem inválida');
-       }else {
-            let r = await api.adicionarPets(nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-                castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value);
-            if (r.erro !== undefined) {
-                return toast.error(r.erro)
-            }if( alterarPet !== undefined ){
-                let alterar = await api.editarPet(idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
-                    castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value)
+        }if (imgPet1 === ('') || imgPet2 === ('') || imgPet3 === ('')){
+            return toast.error('Insira no mínimo uma imagem'); 
+        }
+    //     if (imgPet2 === ('')){
+    //         return toast.error('Imagem inválida');
+    //     }if (imgPet3 === ('')){
+    //         return toast.error('Imagem inválida');
+    //    }
+       else {
+                       
+            if( alterarPet !== undefined ){
+
+                let alterar = await api.editarPet(
+                        idPet, nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                        castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value
+                )
                     if( alterar.erro !== undefined ){
                         toast.dark(alterar.erro)
+
                     } else {
                         toast.dark('Pet Alterado com Sucesso!')
+                        nav.push('/admin/animaiscadastrados')
                     }
+
+            } else {
+
+                let r = await api.adicionarPets(
+                        nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3,
+                        castrado.value, vacinaV10.value, vacinaV8.value, vacinaV5.value, vacinaV4.value, vacinaV3.value, vacinaAntirrabica.value
+                )
+
+                if (r.erro !== undefined) {
+                    toast.error(r.erro)
+
+                } else {
+                    toast('Pet cadastrado')
+                    nav.push('/admin/animaiscadastrados')
+                }
+
             }
-                toast('Pet cadastrado')
-                nav.push('/admin/animaiscadastrados')
-    
-            }
-    
-    
+        
         }
     }   
 
@@ -226,7 +318,7 @@ const nav = useHistory();
             <ToastContainer />
             <Cabecalho />
             <div className="container">
-                <div className="Bt-Voltar"> <button className="vltr"> <img onClick={() => nav.push('/admin/home')} className="vlt" src="/assets/images/icon_voltar.svg" alt="" /> </button> </div>
+                <div className="Bt-Voltar"> <button className="vltr"> <img onClick={() => nav.goBack()} className="vlt" src="/assets/images/icon_voltar.svg" alt="" /> </button> </div>
                 <div className="box">
                     <div className="box-esq">
                         <div className="inputs">
