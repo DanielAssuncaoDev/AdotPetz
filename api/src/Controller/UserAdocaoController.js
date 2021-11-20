@@ -36,7 +36,7 @@ import EnviarEmail from '../email.js'
             })
 
             if( !adocaoRepetida )
-                resp.send({erro: 'Animal já foi solicitado'})
+                return resp.send({erro: 'Animal já foi solicitado'})
 
 
             let r = await db.infob_apn_tb_adocao.create({
