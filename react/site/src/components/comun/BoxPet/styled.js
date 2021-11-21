@@ -17,10 +17,15 @@ margin: 0em 4em 2.5em;
 
 background-color: #e0e0e0;
 border-radius: 8px;
+box-shadow: 0px 0px 12px 1px #888888;
 
-box-shadow: 0px 0px 15px 4px #888888;
+transition-property: all;
+transition-duration: .2s;
 
-:hover{ box-shadow: 0px 0px 25px 6px #888888; transition: .4s; cursor: pointer; }
+ &:hover{
+    box-shadow: 0px 0px 14px 3.5px #888888;
+    cursor: pointer; 
+}
 
 //.conteudo-pet:hover{
    // display: flex;
@@ -33,12 +38,16 @@ box-shadow: 0px 0px 15px 4px #888888;
 //}
 
 .imagemPET{
-    //height: auto;
+    /* height: auto; */
     width: 100%;
+    height: 15em;
+
+    margin-bottom: 1em;
 
 }  
  .imagemPET img {
     width: 100%;
+    height: 100%;
     /* height: 15em; */
     border-radius: 8px;
 
@@ -116,13 +125,16 @@ box-shadow: 0px 0px 15px 4px #888888;
         background-color: #FAD41B;
 
         cursor: pointer;
+        transition-property: all;
+        transition-duration: .5s;
     }
 
     button:hover{
-        //background-color: #ffe152;
-        transition: .8s;
-        box-shadow: 8px 8px 10px 0px #888888;
+        background-color: #ffe152;
+        /* transition: .8s; */
+        box-shadow: 4px 4px 10px 0px #888888;
     }
+
 
     @media (max-width: 800px){
        width: 40%;

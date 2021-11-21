@@ -35,6 +35,7 @@ export default function SolicitacaoAdocao(prosp) {
     useEffect( () => {
 
         async function listar() {
+            console.log(filtro)
             const resp = await api.SolicitacoesAdocao(filtro)
             setSolicitacoes(resp)
         }

@@ -10,7 +10,8 @@ import EnviarEmail from '../email.js'
         try{
             let r = await db.infob_apn_tb_adocao.findAll({
                 where: {
-                    ID_USER: req.params.idUsuario
+                    ID_USER: req.params.idUsuario,
+                    BT_ADOCAO_CONCLUIDA: false
                 },
                 include: ['infob_apn_tb_pet']
             }); 
@@ -35,7 +36,7 @@ import EnviarEmail from '../email.js'
                 }
             })
 
-            if( !adocaoRepetida )
+            if( adocaoRepetida !== null)
                 return resp.send({erro: 'Animal já foi solicitado'})
 
 

@@ -5,9 +5,11 @@ import { Container } from './styled';
 
 import { toast, ToastContainer } from 'react-toastify'
 import Mensagem from '../../../components/popups/MensagemForm/index'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 import Cookie from 'js-cookie'
+
+import { ProcurarCEP } from '../../../service/cep.js'
 
 export default function Sujestoes(props ){
     const [popUp, setPopUp] = useState(false)
@@ -25,6 +27,9 @@ export default function Sujestoes(props ){
     const [endereco, setEndereco] = useState('')
     const [complemento, setComplemento] = useState('')
     const [bairro, setBairro] = useState('')
+
+
+    const [cepValido, setCepValido] = useState(false)
 
     
 const nav = useHistory()
@@ -160,6 +165,44 @@ const nav = useHistory()
         }
 
 
+        function LimparCEP( cep ){
+            return cep.replace( ' - ', '' )
+        }
+
+
+        useEffect( async () => {
+
+            const ChamarCEP = async() => {
+                let CEPLimpo = LimparCEP(cep)
+                let r = await ProcurarCEP(CEPLimpo)
+                return r
+
+            }
+
+            if( cep.length === 11 ){
+                let enderecoUser = await ChamarCEP()
+
+                    if( enderecoUser.erro === true ){
+                        toast.error('CEP inválido')
+                        setCepValido(false)
+            
+                    } else {
+                        setCepValido(true)
+
+                        const {bairro, complemento, localidade, logradouro } = enderecoUser
+                    
+                        setBairro(bairro)
+                        setCidade(localidade)
+                        setEndereco(logradouro)
+                        setComplemento(complemento)
+
+                    }
+            }
+
+        }, [cep] )
+
+
+
 //  Chama PopUp passando as informações da adoção
 
     function ChamarPopUp(){
@@ -175,6 +218,12 @@ const nav = useHistory()
 
             if( telefone.length < 16 )
                 return toast.error('Telefone inválido')
+
+            if( cep.length < 11 )
+                return toast.error('CEP inválido')
+
+            if( cepValido === false )
+                return toast.error('CEP inválido')
 
 
 
@@ -223,7 +272,7 @@ const nav = useHistory()
             <div className="ContainerBody">
                 <div className="ContainerForm"> 
                     <div className="text-thanking-user">
-                        <div className="text1"> Obrigada por se interessar em adotar a panda!! Ela adorou a notícia de que tem alguém interessado em adotá-la </div>
+                        <div className="text1"> Obrigada por se interessar em adotar o(a) <span> {pet.NM_PET} </span> ! <br /> Ela adorou a notícia de que tem alguém interessado em adotá-la </div>
                         <div className="obs-for-user"> Para prosseguir com a adoção, é necessário que você preencha todas as lacunas a seguir com suas informações pessoais, certifique se todas informações estão corretas e avance com o processo </div>
                         <div className="img"> <img src="/assets/images/core.png" width="100" alt=""/> </div>
                     </div>

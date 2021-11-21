@@ -76,7 +76,7 @@ export default function BoxPETZ(props) {
 
       }
 
-      <div className='botão'> <button onClick={() => nav.push({ pathname: '/pet', state: props.Animal })} >Conhecer mais o Pet</button></div>
+      <div className='botão'> <button onClick={() => nav.push({ pathname: '/pet', state: props.Animal }) }>Conhecer mais o Pet</button></div>
       {/* </div>  */}
     </BoxPet>
 

@@ -54,7 +54,7 @@ export default function Filtros(props){
         }
             
         if ( e.length > 17 )
-            return
+            return e.substring(0, 17)
 
         return(e)
     }

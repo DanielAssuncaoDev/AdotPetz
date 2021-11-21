@@ -7,18 +7,15 @@ import LineText from '../../../../components/comun/line/index'
 
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import Cookie from 'js-cookie'
+
+import Api from '../../../../service/api'
+const api = new Api()
 
 export default function BoxPet(props) {
 
-// const [pet, setPet] = useState(props.pet)
 const [vacinas, setVacinas] = useState([])
-
-// console.log(props.pet)
-
-
     const nav = useHistory();
-
-console.log(props)
 
     const Imgs = [
         {
@@ -31,7 +28,6 @@ console.log(props)
             img: props.pet.IMG_PET3
         }
     ]
-    
     
         useEffect( () => {
             const FiltroVacinas = () => {
@@ -72,6 +68,32 @@ console.log(props)
 
             FiltroVacinas()
         }, [props] )
+
+
+        const VerificarPet = async() => {
+            if( !Cookie.get('User') ){
+                nav.push('/login')
+
+            } else {
+                const User = JSON.parse(Cookie.get('User'))
+
+                let PetsSolicitados =
+                    await api.listarMinhasAdocoes(User.ID_USER)
+
+
+                PetsSolicitados = PetsSolicitados.filter( p => p.ID_PET === props.pet.ID_PET )
+                // console.log(PetsSolicitados)
+                // console.log(props.pet.ID_PET)
+
+                    if( PetsSolicitados.length === 0 ){
+                        nav.push({pathname: '/formadocao', state: props.pet })
+                    
+                    } else{
+                        nav.push('/minhaconta')
+                    } 
+
+            }
+        } 
 
 
     return (
@@ -124,7 +146,7 @@ console.log(props)
                         <LineText titulo="Descrição"/>
                         <div className="text-description"> {props.pet.DS_DESC} </div>
                     </div>
-                    <div className="Adopt-button"> <button onClick={ () => nav.push({pathname: '/formadocao', state: props.pet }) }> QUERO ADOTAR ESSE PET </button></div>
+                    <div className="Adopt-button"> <button onClick={ () => VerificarPet()  }> QUERO ADOTAR ESSE PET </button></div>
                 </div>
             </Container>
     )
