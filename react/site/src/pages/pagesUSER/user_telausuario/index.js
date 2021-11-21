@@ -136,14 +136,19 @@ const cookieUser = JSON.parse(Cookie.get('User'))
                  <tbody>
 
                   {animais.map ((item) =>
-                        <tr>
+                      <tr className="Line" onClick={ () => nav.push({
+                                                pathname: '/pet',
+                                                state: item.infob_apn_tb_pet
+                                          }) 
+                                      } 
+                      >
                           <td> <img src={item.infob_apn_tb_pet.IMG_PET1} alt='' style={{width: '90px', height: '70px'}} /> </td> 
                           <td> {item.infob_apn_tb_pet.NM_PET} </td>
                           <td> {item.infob_apn_tb_pet.DS_ESPECIE} </td>
                           <td> {item.infob_apn_tb_pet.DS_SEXO} </td>
                           <td> {item.infob_apn_tb_pet.ID_PET} </td> 
                           <td className='coluna-acao'> <button onClick={() => remover(item.ID_ADOCAO )}> <img src='/assets/images/removerTbUSU.svg' alt='' style={{width: '30px', height: '20px'}} /> Remover</button> </td>
-                        </tr>
+                      </tr>
                   )}
                  </tbody>
              

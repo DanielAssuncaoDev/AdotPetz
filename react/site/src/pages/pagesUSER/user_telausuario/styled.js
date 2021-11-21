@@ -249,19 +249,22 @@ height: 4.5em;
                     border-radius: 4px;
                     cursor: pointer;
                     }
-
+/* 
                 .coluna-acao button{
                     visibility: hidden;
-                }
+                } */
                 .coluna-acao:hover button{
                     background-color: #ed5a5a;
                     transition: 0.2s;
                 }
-                tr:hover{
-                    .coluna-acao > button{
-                        visibility: visible;
-                    }
-                }
+                
+                    .Line:hover{
+                        background-color: #000;
+                        transition: 0.2s;
 
+                    }
+                    
+                
+              
 
   `

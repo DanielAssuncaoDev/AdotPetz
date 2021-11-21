@@ -65,25 +65,38 @@ app.delete('/admin/:idPet/', async (req, resp) => {
 
 })
 
+
+
+function FiltrarPets( filtro ){
+
+    const { Op } = Sequelize
+
+    switch (filtro.campo) {
+        case 'Nome': return {NM_PET: { [Op.substring]: filtro.valor}};
+        case 'Sexo': return {DS_SEXO: filtro.valor};
+        case 'RA': return {ID_PET: { [Op.substring]: filtro.valor}};
+        case 'Espécie': return {DS_ESPECIE: filtro.valor};
+
+        default: return  {};
+    }
+}
+
 // Listar Animais Cadastrados
 
-app.get('/admin/animaisCadastrados', async (req, resp) => {
+app.post('/admin/animaisCadastrados', async (req, resp) => {
 
     try {
-        let r = await db.infob_apn_tb_pet.findAll({
-            where: {
-                BT_DISPONIVEL: true
-            },
-            order: [['ID_PET', 'desc']]
-        })
 
-        // for( let data of r ){
-        //     data.DT_CADASTRO = new Date(data.DT_CADASTRO.toLocaleDateString('pt-BR'))
-        //     // console.log(data.DT_CADASTRO)
-        // }
+        let filtro = FiltrarPets(req.body)
+
+        filtro['BT_DISPONIVEL'] = true
+
+            let r = await db.infob_apn_tb_pet.findAll({
+                where: filtro,
+                order: [['ID_PET', 'desc']]
+            })
 
         resp.send(r)
-
 
     } catch (error) {
         resp.send({ erro: e.toString() })

@@ -16,6 +16,7 @@ export default function CabecalhoUSU(){
     )
     const nav = useHistory()
 
+
     return(
              <Container>
                 <div className="line-left">
@@ -27,7 +28,11 @@ export default function CabecalhoUSU(){
                     <div className="informacoes"> 
                         <span className="Cont-inf" onClick={ () => nav.push('/quemsomosnos') } > Sobre </span>
                         <span className="Cont-inf"  onClick={ () => nav.push('/sugestoesadocao') }> Adotar </span>
-                        <span className="Cont-inf"  onClick={ () => nav.push('/') }> Doar </span>
+                        <span className="Cont-inf"  onClick={ () => nav.push({
+                            pathname: '/',
+                            state: 'ScrollComponentFazerDoação'
+                        
+                        }) }> Doar </span>
                         <span className="Cont-inf"  onClick={ () => nav.push('/FAQ') }> FAQ </span>
                     </div>
                 </div>

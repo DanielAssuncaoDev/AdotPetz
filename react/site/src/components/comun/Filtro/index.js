@@ -97,14 +97,39 @@ export default function Filtros(props){
                                     ?
                                         ''
                                     :
-                                        <div className="RegistroPFiltrar">
-                                            <input type="text" placeholder={`Onde ${nomeFiltro} for:`} 
-                                                value={props.filtro.filtro.valor} onChange={ (e) => alterarValorFiltro(e.target.value) }
-                                            />                                
-                                        </div>
-                            :
+                                        nomeFiltro === 'Espécie' || nomeFiltro === 'Sexo'
 
-                                ''                                 
+                                        ?  nomeFiltro === 'Sexo'
+
+                                            ?
+                                                <div className="RegistroPFiltrar">
+                                                    <select value={props.filtro.filtro.valor}  onChange={ (e) => alterarValorFiltro(e.target.value) }>
+                                                        <option value="" > Selecione </option>        
+                                                        <option value="Fêmea" > Fêmea </option>
+                                                        <option value="Macho"> Macho </option>    
+                                                    </select>                               
+                                                </div>
+
+                                            :
+                                            
+                                                <div className="RegistroPFiltrar">
+                                                    <select value={props.filtro.filtro.valor}  onChange={ (e) => alterarValorFiltro(e.target.value) }>
+                                                        <option value="" > Selecione </option>        
+                                                        <option value="Canina" > Canina </option>
+                                                        <option value="Felina"> Felina </option>    
+                                                    </select>                               
+                                                </div>
+
+
+                                        :
+                                            <div className="RegistroPFiltrar">
+                                                <input type="text" placeholder={`Onde ${nomeFiltro} for:`} 
+                                                    value={props.filtro.filtro.valor} onChange={ (e) => alterarValorFiltro(e.target.value) }
+                                                />                                
+                                            </div>
+                                    :
+
+                                        ''                                 
                         }
 
             </ContainerFiltros>

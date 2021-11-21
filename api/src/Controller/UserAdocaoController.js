@@ -2,6 +2,8 @@ import express from 'express'
 import db from '../db.js'
 import EnviarEmail from '../email.js'
 
+import Sequelize from 'sequelize'
+
     const app = express.Router()
 
     // Listar Adoções do Usuario
@@ -97,11 +99,14 @@ import EnviarEmail from '../email.js'
     // }
 
     function filtrarAdocoes( filtro ){
+
+        const { Op } = Sequelize
+
         switch (filtro.campo) {
-            case 'Nome': return {NM_NOME_COMPLETO: filtro.valor};
-            case 'Pet': return {NM_PET: filtro.valor};
-            case 'Telefone': return {DS_TELEFONE: filtro.valor};
-            case 'Data Solicitação': return {DT_SOLICITACAO: filtro.valor };
+            case 'Nome': return {NM_NOME_COMPLETO: { [Op.substring]: filtro.valor}};
+            case 'Pet': return {NM_PET:{ [Op.substring]: filtro.valor}};
+            case 'Telefone': return {DS_TELEFONE: { [Op.substring]: filtro.valor}};
+            case 'Data Solicitação': return {DT_SOLICITACAO: { [Op.substring]: filtro.valor}};
 
             default: return  {};
         }
@@ -131,7 +136,8 @@ import EnviarEmail from '../email.js'
                         }, 
                         {    
                             model: db.infob_apn_tb_user,
-                            as: 'infob_apn_tb_user'                        }
+                            as: 'infob_apn_tb_user'                        
+                        }
                     ],
                     order: [
                         ['ID_ADOCAO', 'desc']
@@ -229,7 +235,7 @@ import EnviarEmail from '../email.js'
                     })
 
                     let pet = await db.infob_apn_tb_pet.update({
-                        BT_ADOCAO_CONCLUIDA: true
+                        BT_DISPONIVEL: false
                     }, {
                         where: {
                             ID_PET: adocao.ID_PET

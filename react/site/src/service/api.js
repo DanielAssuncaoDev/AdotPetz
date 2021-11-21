@@ -27,8 +27,8 @@ export default class Api {
         return r.data
     }
 
-    async listarAnimaisCadastrados() {
-        let r = await api.get('pets/admin/animaisCadastrados')
+    async listarAnimaisCadastrados( filtro ) {
+        let r = await api.post('pets/admin/animaisCadastrados', filtro)
         return r.data;
     }
 

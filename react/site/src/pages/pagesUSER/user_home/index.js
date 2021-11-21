@@ -6,7 +6,18 @@ import PorqueAdotar from '../../../components/comun/PorqueAdotar/index'
 import FacaDoacoes from './facadoacoes'
 import Rodape from '../../../components/comun/rodape/index'
 
-export default function Home() {
+import { useEffect } from 'react'
+
+export default function Home(props) {
+
+  useEffect( () => {
+    if( props.location.state === 'ScrollComponentFazerDoação'){
+      let ElementoDoar = document.getElementById("facaDoacoes")
+      ElementoDoar.scrollIntoView({behavior: 'smooth'})
+    }
+
+  }, [props] )
+
 
     return(
       <Container>
@@ -14,7 +25,9 @@ export default function Home() {
 
             <FaixaPesquisa />
             <PorqueAdotar />
-            <FacaDoacoes />
+            <div id="facaDoacoes">
+              <FacaDoacoes />
+            </div>
 
         <Rodape />          
 

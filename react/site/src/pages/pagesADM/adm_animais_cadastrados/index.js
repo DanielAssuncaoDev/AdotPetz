@@ -1,5 +1,6 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
+import Filtro from '../../../components/comun/Filtro/index'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +24,7 @@ const api = new Api();
 
 export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
+    const [filtro, setFiltro] = useState({campo: '', valor: ''})
 
     // /useEffect(()=> {
     //     if ( props.local.state !== undefined){
@@ -33,11 +35,10 @@ export default function AnimaisCadastrados(){
     // })
 
     async function listarAnimaisCadastrados() {
-        let r = await api.listarAnimaisCadastrados();
+        console.log(filtro)
+        let r = await api.listarAnimaisCadastrados(filtro);
         setAnimals(r);
-        // console.log("Data - " + typeof(new Date(r[0].DT_CADASTRO))
 
-        console.log(new Date(r[0].DT_CADASTRO).toLocaleDateString('pt-BR'))
     }
                                 
     async function remover(id) {
@@ -73,7 +74,7 @@ export default function AnimaisCadastrados(){
 
     useEffect (() => {
         listarAnimaisCadastrados();
-    }, [])
+    }, [filtro])
 
 
     const nav = useHistory();
@@ -88,10 +89,15 @@ export default function AnimaisCadastrados(){
                     <div class="BackButton">  <button>  <img onClick={ () => nav.push('/admin/home') } src="/assets/images/setaAdotPetz.svg" width="25" alt=""/>  </button> </div> 
                 
                     <div class="right-buttons">
-                        <div class="RefreshButton"> <button> <img src="/assets/images/refresh2 2.svg" width="17" alt=""/> </button> </div>
+                        <div class="RefreshButton"> <button onCLick={ () => listarAnimaisCadastrados() } > <img src="/assets/images/refresh2 2.svg" width="17" alt=""/> </button> </div>
                         <div class="PlusButton"> <button> <img onClick={ () => nav.push('/admin/addpet') } src="/assets/images/plusAdotPetz.svg" alt="" width="23.5"/> </button> </div>
                     </div>
                 </div>
+
+                <Filtro listaOption={['RA', 'Nome', 'Sexo', 'Espécie']}
+                        filtro={{setFiltro, filtro}}
+                />
+
                 <div class="tableAnimals"> 
                     <div class="row-bar"> 
                         <div class= "bar-new-animal"> </div>
@@ -117,8 +123,8 @@ export default function AnimaisCadastrados(){
                             <Tr key={item.ID_PET}>
                                 <Td className="ra"> {item.ID_PET} </Td>
                                 <Td> {item.NM_PET}  </Td>
-                                <Td> {item.DS_SEXO} </Td>
-                                <Td> {item.DS_ESPECIE}  </Td>
+                                <Td> {item.DS_ESPECIE} </Td>
+                                <Td> {item.DS_SEXO}  </Td>
                                 <Td> {item.DS_PORTE}  </Td>
                                 <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
                                 <Td className="actions" config={{ visibility: 'hidden' }}
