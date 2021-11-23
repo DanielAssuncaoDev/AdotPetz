@@ -157,9 +157,9 @@ transition-duration: .2s;
             height: 10em;
         }
     }
-    @media (max-width: 1133px){
+    /* @media (max-width: 1133px){
         width: 22%;
-    }
+    } */
     @media (min-width: 1151px){
         width: 22%;
     }
