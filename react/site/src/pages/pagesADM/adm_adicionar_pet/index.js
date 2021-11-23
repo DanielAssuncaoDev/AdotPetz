@@ -193,7 +193,7 @@ const nav = useHistory();
 
         PassarValoresAlterar()
         
-    }, [alterarPet] )
+    }, [alterarPet, props] )
 
 
 

@@ -170,7 +170,7 @@ const nav = useHistory()
         }
 
 
-        useEffect( async () => {
+        useEffect(  () => {
 
             const ChamarCEP = async() => {
                 let CEPLimpo = LimparCEP(cep)
@@ -179,25 +179,30 @@ const nav = useHistory()
 
             }
 
-            if( cep.length === 11 ){
-                let enderecoUser = await ChamarCEP()
-
-                    if( enderecoUser.erro === true ){
-                        toast.error('CEP inválido')
-                        setCepValido(false)
-            
-                    } else {
-                        setCepValido(true)
-
-                        const {bairro, complemento, localidade, logradouro } = enderecoUser
-                    
-                        setBairro(bairro)
-                        setCidade(localidade)
-                        setEndereco(logradouro)
-                        setComplemento(complemento)
-
+            const PassarEndereco = async() => {
+                if( cep.length === 11 ){
+                    let enderecoUser = await ChamarCEP()
+    
+                        if( enderecoUser.erro === true ){
+                            toast.error('CEP inválido')
+                            setCepValido(false)
+                
+                        } else {
+                            setCepValido(true)
+    
+                            const {bairro, complemento, localidade, logradouro } = enderecoUser
+                        
+                            setBairro(bairro)
+                            setCidade(localidade)
+                            setEndereco(logradouro)
+                            setComplemento(complemento)
+    
+                        }
                     }
+
             }
+
+            PassarEndereco()
 
         }, [cep] )
 

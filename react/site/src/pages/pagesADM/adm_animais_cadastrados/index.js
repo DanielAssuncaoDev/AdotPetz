@@ -12,11 +12,11 @@ import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
 
 import { useHistory} from 'react-router-dom'
 
+import { confirmAlert } from 'react-confirm-alert';
 
 
 import Api from '../../../service/api';
 // import { set } from 'js-cookie';
-import { confirmAlert } from 'react-confirm-alert';
 const api = new Api();
 
 
@@ -73,6 +73,13 @@ export default function AnimaisCadastrados(){
 
 
     useEffect (() => {
+        async function listarAnimaisCadastrados() {
+            console.log(filtro)
+            let r = await api.listarAnimaisCadastrados(filtro);
+            setAnimals(r);
+    
+        }
+
         listarAnimaisCadastrados();
     }, [filtro])
 
