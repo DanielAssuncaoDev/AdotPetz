@@ -101,7 +101,7 @@ const [vacinas, setVacinas] = useState([])
                 <div>
                     <Carousel width="400px" infiniteLoop="true" className="carrosel">
                         {Imgs.map((box)=>
-                                <div> <img src={box.img} alt="" width="400"/> </div>
+                                <div> <img src={box.img} alt="" width="400" height="350"/> </div>
                             )
                         }
                     </Carousel>

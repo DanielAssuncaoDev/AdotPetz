@@ -24,7 +24,7 @@ transition-duration: .2s;
 
  &:hover{
     box-shadow: 0px 0px 14px 3.5px #888888;
-    cursor: pointer; 
+    //cursor: pointer; 
 }
 
 //.conteudo-pet:hover{
@@ -144,11 +144,23 @@ transition-duration: .2s;
        box-shadow: none;
     }
     @media (max-width: 375px){
-     width: 47%;
+     width: 80%;
 
         button{
         padding: .6em .6em;
         margin: 1em 0em;
         }
+  
+    }
+    @media (max-width: 450px){
+        .imagemPET{
+            height: 10em;
+        }
+    }
+    @media (max-width: 1133px){
+        width: 22%;
+    }
+    @media (min-width: 1151px){
+        width: 22%;
     }
 `;
