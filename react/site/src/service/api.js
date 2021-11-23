@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    // baseURL: 'https://tcc-adotpetz.herokuapp.com'
-    baseURL: 'http://127.0.0.1:3030'
+    baseURL: 'https://tcc-adotpetz.herokuapp.com'
+    // baseURL: 'http://127.0.0.1:3030'
 })
 
 export default class Api {
