@@ -22,14 +22,28 @@ const [pagList, setPagList] = useState([])
 const [pagsOffSet, setPagsOffSet] = useState(0)
 const [pagsLimit] = useState(12) 
 
+    useEffect( () => {
+        setPagsOffSet(0)
+    }, [filtroPets] )
+
     
+  useEffect( () => {
+    const Scroll = () => {
+        let ElementoDoar = document.getElementById("ConteudoPets")
+        console.log(ElementoDoar)
+        ElementoDoar.scrollIntoView({behavior: 'smooth'})
+
+    }
+    
+    Scroll()
+    
+  }, [filtroPets] )
 
 
         useEffect( () => {
             function Paginacao(qtd){
                 let listPags = []
                 let qtdPags = Math.ceil(qtd/pagsLimit)
-                console.log(qtdPags)
                 
                     for( let i = 1; i <= qtdPags; i++ ){
                         listPags.push(i)
@@ -72,7 +86,7 @@ const [pagsLimit] = useState(12)
 
              <Fx1  setFiltroPets={setFiltroPets}/>
 
-             <div className="conteudopag">
+             <div id="ConteudoPets" className="conteudopag">
                 <div className="animais">
                      <div className= "animais-sugeridos">
                          <div className="animaisSU"> Animais sugeridos</div>
@@ -98,29 +112,29 @@ const [pagsLimit] = useState(12)
                     </div>
 
                     {
-                        pets.length !== 0 
+                        pagList.length !== 0 
 
                         ?
-                        <div className='nupags'> 
-                            {
-                                pagList.map((i) =>
-                                    <div className='nu'
-                                        onClick={ () => setPagsOffSet( pagsLimit * (i - 1) ) }
-                                    >
-                                        {i} 
-                                    </div>
-                                )
-                            }
-                            
-    
-                            <button onClick={ () => {
-                                        setPagsOffSet( pagsOffSet + pagsLimit )
-                                    } 
-                                }  
-                            >   
-                             Próximo 
-                            </button>
-                        </div>
+                            <div className='nupags'> 
+                                {
+                                    pagList.map((i) =>
+                                        <div className='nu'
+                                            onClick={ () => setPagsOffSet( pagsLimit * (i - 1) ) }
+                                        >
+                                            {i} 
+                                        </div>
+                                    )
+                                }
+                                
+        
+                                <button onClick={ () => {
+                                            setPagsOffSet( pagsOffSet + pagsLimit )
+                                        } 
+                                    }  
+                                >   
+                                Próximo 
+                                </button>
+                            </div>
 
                         :
                             ''

@@ -143,18 +143,18 @@ height: 4.5em;
 
 .top{
     display: flex;
-    padding: 3em 2em 2em 2.5em;
+    padding: 3em 2em 3em 2.5em;
+    box-sizing: border-box;
+    height: 20%;
 }
+
 
  .meio-di{
     /* padding-top: 4em; */
-
+    height: 80%;
     text-align: center;
 } 
 
- .meio-di img{
-  height: 10em;
-} 
 /* 
 .tex-nenhuma{ 
     font-size: 16px;

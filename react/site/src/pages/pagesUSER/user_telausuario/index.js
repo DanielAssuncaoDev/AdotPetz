@@ -117,7 +117,7 @@ const cookieUser = JSON.parse(Cookie.get('User'))
             <div className='meio-di'> 
             {
               animais.length === 0 
-              ? <RegistroNaoEncontrado mensagem="OPS!! Nenhuma solicitação foi localizada" />
+              ? <RegistroNaoEncontrado mensagem={["OPS!! Nenhuma solicitação foi localizada" ]}/>
 
               : <TabelaUsu>
               
@@ -135,11 +135,12 @@ const cookieUser = JSON.parse(Cookie.get('User'))
                  <tbody>
 
                   {animais.map ((item) =>
-                      <tr className="Line" onClick={ () => nav.push({
-                                                pathname: '/pet',
-                                                state: item.infob_apn_tb_pet
-                                          }) 
-                                      } 
+                      <tr className="Line" 
+                      // onClick={ () => nav.push({
+                      //                           pathname: '/pet',
+                      //                           state: item.infob_apn_tb_pet
+                      //                     }) 
+                      //                 } 
                       >
                           <td> <img src={item.infob_apn_tb_pet.IMG_PET1} alt='' style={{width: '90px', height: '70px'}} /> </td> 
                           <td> {item.infob_apn_tb_pet.NM_PET} </td>

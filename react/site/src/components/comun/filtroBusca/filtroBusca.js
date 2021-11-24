@@ -82,6 +82,14 @@ const nav = useHistory()
                 ConverterDatas() 
             }, [idadeTexto] )
 
+        function ZerarFiltros(){
+            setSexo('')
+            setEspecie('')
+            setRaca('')
+            setIdade({dataStart: '', dataFinish: '' })
+            setPorte('')
+        }
+
 
     return(
         <BoxFiltro>
@@ -93,6 +101,7 @@ const nav = useHistory()
             <div className="FiltroBusca">
                 <div className="Row1Form">
                     <SelectRow 
+                        value={porte}
                         onChange={ (e) => setPorte(e.target.value) } 
                     >
                         <option value="">
@@ -113,6 +122,7 @@ const nav = useHistory()
                     </SelectRow>
             
                     <SelectRow
+                            value={idade}
                             onChange={ (e) => setIdadeTexto(e.target.value) } 
                     >
                         <option value="">
@@ -140,6 +150,7 @@ const nav = useHistory()
 
                 <div className="Row2Form">
                     <SelectRow
+                            value={especie}
                             onChange={ (e) => setEspecie(e.target.value) } 
                     >
                         <option value="">
@@ -156,6 +167,7 @@ const nav = useHistory()
                     </SelectRow>
             
                     <SelectRow
+                            value={sexo}
                             onChange={ (e) => setSexo(e.target.value) } 
                     >
                         <option value="">
@@ -174,6 +186,7 @@ const nav = useHistory()
 
                 <div className="Row3Form">
                     <Select  
+                        value={raca}
                         onChange={ (e) => setRaca(e.target.value) } 
                     >
                         <option value=""> 
@@ -194,15 +207,19 @@ const nav = useHistory()
                 <div className="ButtonForm">
                     <Button onClick={ () => {
 
-                        if( location.pathname === "/" ){
-                            nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }); 
+                                if( location.pathname === "/" ){
+                                    nav.push({ pathname: '/sugestoesadocao', state: {sexo, porte, idade, especie, raca} }); 
 
-                        } else if ( location.pathname === "/sugestoesadocao" ){
-                            props.setFiltroPets({sexo, porte, idade, especie, raca})
+                                } else if ( location.pathname === "/sugestoesadocao" ){
+                                    props.setFiltroPets({sexo, porte, idade, especie, raca})
 
-                        }
-            
-                    } } >
+                                }
+
+                                ZerarFiltros()
+                
+                            } 
+                        } 
+                    >
                         Procurar
                     </Button>
                 </div>
