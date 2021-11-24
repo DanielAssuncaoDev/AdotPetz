@@ -9,10 +9,12 @@ export const Container = styled.div`
 
 .conteudopag{
     background-color: #FAF8EB;
+    
 }
 .animais-sugeridos{
   padding: 1em 0em 2em 4em;
   display: flex ;
+  height: 20vh;
 }
 
 .animaisSU{
@@ -31,6 +33,9 @@ export const Container = styled.div`
     justify-content: space-evenly;
     flex-wrap: wrap;
     
+    align-items: center;
+    min-height: 80vh;
+    height: auto;
     //  width: 10em;
 }
 

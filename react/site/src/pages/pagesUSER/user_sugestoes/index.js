@@ -5,6 +5,7 @@ import CabecalhoUSU from '../../../components/comun/cabecalhoUSU';
 import Box from '../../../components/comun/BoxPet'
 import Fx1 from './buscar.js'
 import Roda from '../../../components/comun/rodape'
+import RegistroNaoEncontrado from '../../../components/comun/RegistroNaoEncontrado/index'
 
 import { useState, useEffect } from 'react'
 
@@ -72,36 +73,60 @@ const [pagsLimit] = useState(12)
              <Fx1  setFiltroPets={setFiltroPets}/>
 
              <div className="conteudopag">
-                 <div className="animais">
+                <div className="animais">
                      <div className= "animais-sugeridos">
                          <div className="animaisSU"> Animais sugeridos</div>
                          <img src="/assets/images/coracaopata.svg" alt="" />
-                          </div>
-                      </div>
+                    </div>
+                </div>
                     <div className='box-petz'> 
+
                         {
-                            pets.map( (pet) => 
-                                <Box Animal={pet} />
-                            )
+                            pets.length !== 0 
+
+                            ?
+                                pets.map( (pet) => 
+                                    <Box Animal={pet} />
+                                )
+                            
+                            :
+                                <RegistroNaoEncontrado mensagem={["OPS!! Nenhum Pet Foi Encontrado", "Tente Buscar Por Outros Filtros" ]}/>
+
                         }
+
+                        
                     </div>
-                    <div className='nupags'> 
+
                     {
-                        pagList.map((i) =>
-                            <div className='nu'
-                                onClick={ () => setPagsOffSet( pagsLimit * (i - 1) ) }
-                            >
-                                {i} 
-                            </div>
-                        )
+                        pets.length !== 0 
+
+                        ?
+                        <div className='nupags'> 
+                            {
+                                pagList.map((i) =>
+                                    <div className='nu'
+                                        onClick={ () => setPagsOffSet( pagsLimit * (i - 1) ) }
+                                    >
+                                        {i} 
+                                    </div>
+                                )
+                            }
+                            
+    
+                            <button onClick={ () => {
+                                        setPagsOffSet( pagsOffSet + pagsLimit )
+                                    } 
+                                }  
+                            >   
+                             Próximo 
+                            </button>
+                        </div>
+
+                        :
+                            ''
+
                     }
-                      
- 
-                      <button onClick={ () => {
-                          setPagsOffSet( pagsOffSet + pagsLimit )
-                      } }  
-                      > Próximo </button>
-                    </div>
+                    
                  </div> 
             <Roda />
          </Container>

@@ -155,11 +155,11 @@ height: 4.5em;
  .meio-di img{
   height: 10em;
 } 
-
+/* 
 .tex-nenhuma{ 
     font-size: 16px;
     font-weight: 300;
-}
+} */
 
 .obs{
     font-size: 12px;
@@ -167,10 +167,10 @@ height: 4.5em;
 
     min-width: 5px;
 }
-
+/* 
 .nenhuma-solici{
     padding-top: 4em;
-}
+} */
 
 @media (max-width: 600px){
         .conteudo{

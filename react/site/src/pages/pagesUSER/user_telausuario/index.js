@@ -1,4 +1,5 @@
 import {Container, TabelaUsu} from './styled'
+import RegistroNaoEncontrado from '../../../components/comun/RegistroNaoEncontrado/index'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -116,9 +117,7 @@ const cookieUser = JSON.parse(Cookie.get('User'))
             <div className='meio-di'> 
             {
               animais.length === 0 
-              ? <div className='nenhuma-solici'> <img className='kaka' src='/assets/images/image 82.svg' alt="" />
-                                                 <div className='tex-nenhuma'> OPS!! Nenhuma solicitação foi localizada </div>
-                                      </div>
+              ? <RegistroNaoEncontrado mensagem="OPS!! Nenhuma solicitação foi localizada" />
 
               : <TabelaUsu>
               
