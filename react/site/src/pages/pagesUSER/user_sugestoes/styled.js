@@ -78,7 +78,7 @@ export const Container = styled.div`
      .animaisSU{
          text-align:center; 
       }
-      }
+      }    
 `;
 
     export const ContainerBusca = styled.div`
@@ -99,5 +99,9 @@ export const Container = styled.div`
 
         .space{
             width: 15%;
+        }
+
+        @media (min-width: 1533px){
+            background-size:100%;
         }
     `;
