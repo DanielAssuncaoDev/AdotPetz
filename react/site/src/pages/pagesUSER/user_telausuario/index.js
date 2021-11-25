@@ -32,9 +32,11 @@ if( Cookie.get('User') === undefined )
    console.log(r);
  }
 
+
+
  async function remover(id){
   confirmAlert({
-    title: 'Cancela Adoção',
+    title: 'Cancelar Adoção?',
     message: `Tem certeza que deseja cancela o processo de adoção ${id} ?`,
     buttons: [
         {

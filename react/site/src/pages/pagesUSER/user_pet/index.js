@@ -20,6 +20,19 @@ export default function InfoPetz(props) {
   const [pagsOffSet] = useState(0)
   const [pagsLimit] = useState(3)
 
+  
+ useEffect( () => {
+    const Scroll = () => {
+        let ElementoDoar = document.getElementById("InfoPet")
+        let x = ElementoDoar.scrollTop
+        console.log(x)
+        console.log(window.innerHeight)
+    }
+    
+    Scroll()
+    
+  }, [] )
+
   useEffect( () => {
     console.log("Caiu Effect")
 
@@ -43,7 +56,7 @@ export default function InfoPetz(props) {
   }, [filtroPets, pagsLimit, pagsOffSet])
 
     return (
-        <Container>
+        <Container id="InfoPet">
             <Cabecalho/>
             <InfoPet pet={props.location.state} />
             <div className="others-pets">

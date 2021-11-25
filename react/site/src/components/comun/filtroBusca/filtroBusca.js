@@ -87,6 +87,7 @@ const nav = useHistory()
             setEspecie('')
             setRaca('')
             setIdade({dataStart: '', dataFinish: '' })
+            setIdadeTexto('')
             setPorte('')
         }
 
@@ -122,7 +123,7 @@ const nav = useHistory()
                     </SelectRow>
             
                     <SelectRow
-                            value={idade}
+                            value={idadeTexto}
                             onChange={ (e) => setIdadeTexto(e.target.value) } 
                     >
                         <option value="">

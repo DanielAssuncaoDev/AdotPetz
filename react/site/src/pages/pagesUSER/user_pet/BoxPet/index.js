@@ -97,7 +97,7 @@ const [vacinas, setVacinas] = useState([])
 
 
     return (
-        <Container> 
+        <Container id="InfoPet" > 
                 <div>
                     <Carousel width="400px" infiniteLoop="true" className="carrosel">
                         {Imgs.map((box)=>
