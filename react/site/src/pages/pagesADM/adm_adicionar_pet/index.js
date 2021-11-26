@@ -19,83 +19,6 @@ const nav = useHistory();
     const [nascimento, setNascimento] = useState('')
     const [porte, setPorte] = useState('')
     const [descricao, setDescricao] = useState('')
-
-    // const [imgPet1, setImgPet1] = useState(null)
-    // const [imgPet2, setImgPet2] = useState('')
-    // const [imgPet3, setImgpet3] = useState('')
-    // const [castrado, setCastrado] = useState('')
-    // const [vacinaV10, setVacinaV10] = useState('')
-    // const [vacinaV8, setVacinaV8] = useState('')
-    // const [vacinaV5, setVacinaV5] = useState('')
-    // const [vacinaV4, setVacinaV4] = useState('')
-    // const [vacinaV3, setVacinaV3] = useState('')
-    // const [vacinaAntirrabica, setVacinaAntirrabica] = useState('')
-
-// Oi lindo, comentei só pra fazer deploy rsrsrsrs. quando for mecher, pode descomentar rsrsrsrs "mecher" tá Serto
-
-    // async function adicionarPets() {
-    //     let r = await Api.adicionarPets({ nome, especie, raca, sexo, peso, nascimento, porte, descricao, imgPet1, imgPet2, imgPet3, 
-    //         castrado, vacinaV10, vacinaV8, vacinaV5, vacinaV4, vacinaV3, vacinaAntirrabica});
-    //         if(r.erro !== undefined){
-    //             alert(r.erro)
-    //             return
-    //         } else {
-    //             alert('Pet cadastrado')
-    //         }
-    //  } 
-
-    //  async function inserirPet() {
-    //     let formData = new FormData();
-    //         formData.append('nome', nome);
-    //         formData.append('especie', especie);
-    //         formData.append('raca', raca);
-    //         formData.append('sexo', sexo);
-    //         formData.append('peso', peso);
-    //         formData.append('nascimento', nascimento);
-    //         formData.append('porte', porte);
-    //         formData.append('descricao', descricao);
-    //         formData.append('imgPet1', imgPet1);
-    //         // formData.append('imgPet2', imgPet2);
-    //         // formData.append('imgPet3', imgPet3);
-    //         // formData.append('castrado', castrado);
-    //         // formData.append('vacinaV10', vacinaV10);
-    //         // formData.append('vacinaV8', vacinaV8);
-    //         // formData.append('vacinaV5', vacinaV5);
-    //         // formData.append('vacinaV4', vacinaV4);
-    //         // formData.append('vacinaV3', vacinaV3);
-    //         // formData.append('vacinaAntirrabica', vacinaAntirrabica);
-    //     //  if(especie === 'Canina' && vacinaV5 === true || vacinaV4 === true || vacinaV3 === true){
-    //     //     return(toast.error("Você não pode inserir Vacinas de Gatos para Cães"))
-    //     // } if(especie === 'Felina' && vacinaV8 === true || vacinaV10 === true) {
-    //     //     return (toast.error("Você não pode inserir Vacinas de Cães para Gatos"))
-    //     // if(nome && especie && raca && sexo && peso && nascimento && porte && descricao === ('')){
-    //     //     return toast.error('Preencha os campos vazios')
-    //     if(nome === ('')){
-    //         return toast.error('❌ Nome inválido');
-    //     } if(especie === ('')){
-    //         return toast.error('❌ Espécie inválida');
-    //     } if(raca === ('')){
-    //         return toast.error('❌ Raça inválida');
-    //     } if(sexo === ('')){
-    //         return toast.error('❌ Sexo inválido');
-    //     } if(peso === ('')){
-    //         return toast.error('❌ Peso inválido');
-    //     } if(nascimento === ('')){
-    //         return toast.error('❌ Data inválida');
-    //     } if(porte === ('')){
-    //         return toast.error('❌ Porte inválido');
-    //     } if(descricao > 250){
-    //         return toast.error('❌ Números de caracteres atingido')
-    //     // } if(imgPet1 === ('')){
-    //     //     return toast.error('❌ Imagem inválida');
-    //     // } if(imgPet2 === ('')){
-    //     //     return toast.error('❌ Imagem inválido');
-    //     // } if(imgPet3 === ('')){
-    //     //     return toast.error('❌ Imagem inválido');
-    //     } else {
-    //         return toast.dark('Pet cadastrado')
-    //     }
-
     const [imgPet1, setImgPet1] = useState('')
     const [imgPet2, setImgPet2] = useState('')
     const [imgPet3, setImgPet3] = useState('')
@@ -247,7 +170,7 @@ const nav = useHistory();
             return toast.error('Porte inválido');
         } if (descricao.length > 250) {
             return toast.error('Números de caracteres atingido')
-        }if (imgPet1 === ('') || imgPet2 === ('') || imgPet3 === ('')){
+        }if (imgPet1 === ('') && imgPet2 === ('') && imgPet3 === ('')){
             return toast.error('Insira no mínimo uma imagem'); 
         }
     //     if (imgPet2 === ('')){

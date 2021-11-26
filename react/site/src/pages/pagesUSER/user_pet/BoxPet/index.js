@@ -113,7 +113,7 @@ const [vacinas, setVacinas] = useState([])
                             <div className="info"> {props.pet.DS_ESPECIE + ' | '} </div>
                             <div className="info"> {props.pet.DS_SEXO + ' | '} </div>
                             <div className="info"> {props.pet.DS_PORTE + ' | '} </div>
-                            <div className="info"> {new Date(props.pet.DT_NASCIMENTO).toDateString("Pt-BR") + ' | '} </div>
+                            <div className="info"> {new Date(props.pet.DT_NASCIMENTO).toLocaleDateString("pt-BR") + ' | '} </div>
                             <div className="info"> {props.pet.DS_PESO  + ' | '} </div>
                             <div className="info"> {props.pet.NM_RACA} </div>
                         </div>

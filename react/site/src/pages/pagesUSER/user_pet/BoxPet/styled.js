@@ -8,6 +8,10 @@ export const Container = styled.div`
 
         padding: 2em;
         
+        .carrosel .control-arrow {
+            visibility: visible;
+        }
+
     .more-images, .vaccines, .informations-pet{
         display: flex;
         flex-direction: row;
