@@ -21,12 +21,12 @@ export default function InfoPetz(props) {
   const [pagsLimit] = useState(3)
 
   
- useEffect( () => {
+  useEffect( () => {
     const Scroll = () => {
         let ElementoDoar = document.getElementById("InfoPet")
-        let x = ElementoDoar.scrollTop
-        console.log(x)
-        console.log(window.innerHeight)
+        console.log(ElementoDoar)
+        ElementoDoar.scrollIntoView({behavior: 'smooth'})
+
     }
     
     Scroll()
