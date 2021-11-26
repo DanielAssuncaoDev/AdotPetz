@@ -1,6 +1,7 @@
 import Cabecalho from '../../../components/comun/cabecalhoADM'
 import { Container } from './styled';
 import Filtro from '../../../components/comun/Filtro/index'
+import RegistroNaoEncontrado from '../../../components/comun/RegistroNaoEncontrado/index'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +17,6 @@ import { confirmAlert } from 'react-confirm-alert';
 
 
 import Api from '../../../service/api';
-// import { set } from 'js-cookie';
 const api = new Api();
 
 
@@ -26,13 +26,6 @@ export default function AnimaisCadastrados(){
     const [animals, setAnimals] = useState([]);
     const [filtro, setFiltro] = useState({campo: '', valor: ''})
 
-    // /useEffect(()=> {
-    //     if ( props.local.state !== undefined){
-    //         let pet = props.location.state
-
-            
-    //     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    // })
 
     async function listarAnimaisCadastrados() {
         console.log(filtro)
@@ -42,7 +35,6 @@ export default function AnimaisCadastrados(){
     }
                                 
     async function remover(id) {
-    //     let r = await api.remover(id)
        confirmAlert ({
            title: 'Excluir animal',
            message: 'Tem certeza que deseja excluir o animal ?',
@@ -110,50 +102,62 @@ export default function AnimaisCadastrados(){
                         <div class= "bar-new-animal"> </div>
                         <div class="text-registered-animal"> Animais cadastrados </div>
                     </div>
-                
-                    <TableAdmin
-                        columns={[
-                            { title: 'RA' },
-                            { title: 'Nome' },
-                            { title: 'Espécie' },
-                            { title: 'Sexo' },
-                            { title: 'Porte' },
-                            { title: 'Data de cadastro' },
-                            { title: '' },
-                            { title: '' },
-                            { title: '' },
-                           
-                        ]}>
 
-                            {animals.map(item => 
+                    {
+                        animals.length === 0
+
+                        ? 
+                            <RegistroNaoEncontrado mensagem={['OPS!! Nenhum Registro Encontrado']} />
+
+                        :
+                            <TableAdmin
+                            columns={[
+                                { title: 'RA' },
+                                { title: 'Nome' },
+                                { title: 'Espécie' },
+                                { title: 'Sexo' },
+                                { title: 'Porte' },
+                                { title: 'Data de cadastro' },
+                                { title: '' },
+                                { title: '' },
+                                { title: '' },
                             
-                            <Tr key={item.ID_PET}>
-                                <Td className="ra"> {item.ID_PET} </Td>
-                                <Td> {item.NM_PET}  </Td>
-                                <Td> {item.DS_ESPECIE} </Td>
-                                <Td> {item.DS_SEXO}  </Td>
-                                <Td> {item.DS_PORTE}  </Td>
-                                <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
-                                <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => nav.push({pathname: '/pet', state: item})}> 
-                                    <img src="/assets/images/visu.svg" alt="" width="20" />
-                                </Td> 
-                                <Td className="actions" config={{ visibility: 'hidden'}}>
-                                    <img src="/assets/images/editt.svg" alt="" width="25" 
-                                     onClick={ () => nav.push({pathname: '/admin/addpet', state: item}) }
-                                    />
+                            ]}>
 
-                                </Td>
-                                <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => remover(item.ID_PET)}>
-                                <img src="/assets/images/deletee.svg" alt="" width="20"/> 
-                                </Td>
-                               
+                                {animals.map(item => 
                                 
-                            </Tr>
+                                <Tr key={item.ID_PET}>
+                                    <Td className="ra"> {item.ID_PET} </Td>
+                                    <Td> {item.NM_PET}  </Td>
+                                    <Td> {item.DS_ESPECIE} </Td>
+                                    <Td> {item.DS_SEXO}  </Td>
+                                    <Td> {item.DS_PORTE}  </Td>
+                                    <Td> {new Date(item.DT_CADASTRO).toLocaleDateString('pt-BR') }  </Td>
+                                    <Td className="actions" config={{ visibility: 'hidden' }}
+                                        onClick={() => nav.push({pathname: '/pet', state: item})}> 
+                                        <img src="/assets/images/visu.svg" alt="" width="20" />
+                                    </Td> 
+                                    <Td className="actions" config={{ visibility: 'hidden'}}>
+                                        <img src="/assets/images/editt.svg" alt="" width="25" 
+                                        onClick={ () => nav.push({pathname: '/admin/addpet', state: item}) }
+                                        />
 
-                        )}
-                    </TableAdmin>
+                                    </Td>
+                                    <Td className="actions" config={{ visibility: 'hidden' }}
+                                        onClick={() => remover(item.ID_PET)}>
+                                    <img src="/assets/images/deletee.svg" alt="" width="20"/> 
+                                    </Td>
+                                
+                                    
+                                </Tr>
+
+                            )}
+                        </TableAdmin>
+
+
+                    }
+                
+                    
                 </div>
             </div>
         </Container>

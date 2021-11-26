@@ -155,7 +155,7 @@ const nav = useHistory()
                                 <div className="FormSolicitacao">
                                     <div className="DataSolicitacao">
                                         <label>Data da Solicitação</label>
-                                        <input value={DataSoli} />
+                                        <input value={new Date(DataSoli).toLocaleDateString('pt-BR')} />
                                     </div>
 
                                     <div className="DataSolicitacao">

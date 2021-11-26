@@ -4,6 +4,7 @@ import CabecalhoADM from '../../../components/comun/cabecalhoADM/index'
 import Options from '../../../components/comun/OptionsADM/index'
 import { useEffect, useState } from 'react';
 import Filtro from '../../../components/comun/Filtro/index.js'
+import RegistroNaoEncontrado from '../../../components/comun/RegistroNaoEncontrado/index'
 
 import TableAdmin from '../../../components/comun/tableAdmin'
 import { Td, Tr } from '../../../components/comun/tableAdmin/styled';
@@ -127,40 +128,51 @@ export default function SolicitacaoAdocao(prosp) {
                         <span> Solicitações de Adoção </span>
                     </div>
 
-                    <TableAdmin
-                        columns={[
-                            { title: 'CÓD' },
-                            { title: 'Nome Completo' },
-                            { title: 'Nome do pet' },
-                            { title: 'Telefone' },
-                            { title: 'Data da solicitação' },
-                            { title: '' },
-                            { title: '' },
-                            { title: '' }
-                        ]}>
-                   
-                        {solicitacoes.map(item => 
-                            <Tr>
-                                <Td className="ra"> {item.ID_ADOCAO} </Td>
-                                <Td> {item.NM_NOME_COMPLETO}  </Td>
-                                <Td> {item.infob_apn_tb_pet.NM_PET} </Td>
-                                <Td> {item.DS_TELEFONE}  </Td>
-                                <Td>{new Date(item.DT_SOLICITACAO).toLocaleDateString('pt-BR')} </Td>
-                                <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => alterarSituacao( true, item.ID_ADOCAO  )}> 
-                                    <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
-                                </Td> 
-                                <Td className="actions" config={{ visibility: 'hidden'}}
-                                    onClick={() => alterarSituacao( false, item.ID_ADOCAO  )}>
-                                    <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
-                                </Td>
-                                <Td className="actions" config={{ visibility: 'hidden' }}
-                                    onClick={() => toast(item.initials)}>
-                                        <button className="actions" onClick={() => nav.push({pathname: '/admin/formadocao', state: item })} > Verificar Formulário </button>
-                                </Td>
-                            </Tr>    
-                        )}
-                    </TableAdmin>
+
+                    {
+                        solicitacoes.length === 0 
+
+                        ?
+                            <RegistroNaoEncontrado mensagem={['OPS!! Nenhum Registro Encontrado']}/>
+
+                        : 
+                            <TableAdmin
+                                columns={[
+                                    { title: 'CÓD' },
+                                    { title: 'Nome Completo' },
+                                    { title: 'Nome do pet' },
+                                    { title: 'Telefone' },
+                                    { title: 'Data da solicitação' },
+                                    { title: '' },
+                                    { title: '' },
+                                    { title: '' }
+                            ]}>
+                        
+                            {solicitacoes.map(item => 
+                                <Tr>
+                                    <Td className="ra"> {item.ID_ADOCAO} </Td>
+                                    <Td> {item.NM_NOME_COMPLETO}  </Td>
+                                    <Td> {item.infob_apn_tb_pet.NM_PET} </Td>
+                                    <Td> {item.DS_TELEFONE}  </Td>
+                                    <Td>{new Date(item.DT_SOLICITACAO).toLocaleDateString('pt-BR')} </Td>
+                                    <Td className="actions" config={{ visibility: 'hidden' }}
+                                        onClick={() => alterarSituacao( true, item.ID_ADOCAO  )}> 
+                                        <img src="/assets/images/icon_aceitar.svg" alt="" width="25" />
+                                    </Td> 
+                                    <Td className="actions" config={{ visibility: 'hidden'}}
+                                        onClick={() => alterarSituacao( false, item.ID_ADOCAO  )}>
+                                        <img src="/assets/images/icon_recusar.svg" alt="" width="25" />
+                                    </Td>
+                                    <Td className="actions" config={{ visibility: 'hidden' }}
+                                        onClick={() => toast(item.initials)}>
+                                            <button className="actions" onClick={() => nav.push({pathname: '/admin/formadocao', state: item })} > Verificar Formulário </button>
+                                    </Td>
+                                </Tr>    
+                            )}
+                        </TableAdmin>
+                    }
+
+                    
                 </div>
 
             </FaixaCRUD>

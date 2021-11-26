@@ -66,7 +66,7 @@ export const Container = styled.div`
         padding: 1.5em;
         margin-top: 2em;
         overflow-y: scroll;
-        height: 90%;
+        height: 80vh;
     }
 
     .align-items, .edit, .delete, .visu, .selo{
